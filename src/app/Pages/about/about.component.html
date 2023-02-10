@@ -1,0 +1,95 @@
+<div class="about">
+  <div class="about__head about-container">
+    <section class="about__top">
+      <div class="about__top-left">
+        <h1> {{header1}}</h1>
+        <p>{{body1}}</p>
+      </div>
+      <div class="about__top-right">
+        <img [src]="mainImage" alt="">
+      </div>
+    </section>
+    <section class="about__bottom ">
+      <div class="about__tags">
+        <div class="about__tag">
+
+          <h5>Trusted by over</h5>
+          <p> 1000+ Businesses</p>
+        </div>
+        <div class="about__tag">
+          <h5>over</h5>
+          <p> 800+ Employees</p>
+        </div>
+        <div class="about__tag">
+          <h5>over</h5>
+          <p> 40,000+ Operatives</p>
+        </div>
+      </div>
+      <div class="about__info">
+        <p>{{body2}}</p>
+        <div class="about_inner-info">
+          <h1>{{header2}}</h1>
+          <p>{{body3}}</p>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="about__mid">
+    <section class="about__middle">
+      <div class="mission">
+        <div class="about__border"></div>
+        <h3>Our Mission</h3>
+        <p>{{ourMission}}</p>
+      </div>
+      <div class="vision">
+        <div class="about__border"></div>
+        <h3>Our Vision</h3>
+        <p>{{ourVision}}</p>
+      </div>
+      <div class="values">
+        <div class="about__border"></div>
+        <h3>Our Core Values
+        </h3>
+        <p>{{ourValues}}</p>
+      </div>
+    </section>
+    <div class="about__middle-icons">
+      <div class="about__middle-icon">
+        <div class="middle-icon icon-primary">
+          <mat-icon>workspace_premium</mat-icon>
+        </div>
+        <p>passion</p>
+      </div>
+      <div class="about__middle-icon">
+        <div class="middle-icon icon-secondary">
+          <mat-icon>workspace_premium</mat-icon>
+        </div>
+        <p>Integrity</p>
+      </div>
+      <div class="about__middle-icon">
+        <div class="middle-icon icon-primary">
+          <mat-icon>workspace_premium</mat-icon>
+        </div>
+        <p>Excellence</p>
+      </div>
+      <div class="about__middle-icon">
+        <div class="middle-icon icon-secondary">
+          <mat-icon>workspace_premium</mat-icon>
+        </div>
+        <p>Respect</p>
+      </div>
+    </div>
+  </div>
+  <div class="about__leader">
+    <div class="leader-title">
+      <h2>{{leaderTitle}}</h2>
+      <p>{{leaderBody}}</p>
+    </div>
+    <div class="leadership-team">
+
+      <app-leaders [leader]="leader" *ngFor="let leader of leaders"></app-leaders>
+
+    </div>
+  </div>
+
+</div>

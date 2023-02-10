@@ -1,0 +1,44 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+
+  /* align-items: flex-end; */
+}
+
+.app-nav {
+  position: fixed;
+  width: 100%;
+  z-index: 900;
+}
+
+.myBtn {
+  display: flex;
+  position: fixed;
+  bottom: 45px;
+  height: 50px;
+  width: 50px;
+  right: 40px;
+  z-index: 99;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  background-color: #FCBE00;
+  color: white;
+  cursor: pointer;
+  padding: 15px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all .3s ease;
+}
+
+.myBtn:hover {
+  background-color: rgb(233, 226, 226);
+  color: #FCBE00;
+}
+
+.noBtn {
+  display: none;
+}

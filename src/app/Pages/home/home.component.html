@@ -1,0 +1,159 @@
+<div class="home">
+  <section class="home-carousel">
+    <app-homecarousel [banner]="banner"></app-homecarousel>
+  </section>
+  <section class="home__business">
+    <div class="business">
+      <div class="business__header">
+        <h1>{{businessSectionHeader}}</h1>
+        <p>{{businessSectionSubHeader}}</p>
+      </div>
+      <div class="business__solutions">
+        <div class="business__solutions-left">
+          <div class="solution-cols" *ngFor="let fl of fybLeft">
+            <div (click)="redirect(fl.attributes.url)"
+              [className]="fl.attributes.active ? 'solution-icon icon-secondary' : 'solution-icon icon-primary'">
+              <mat-icon>{{fl.attributes.solutionIcon}}</mat-icon>
+            </div>
+            <div class="solution-text">
+              <h5 (click)="redirect(fl.attributes.url)">{{fl.attributes.solutionName}}</h5>
+              <p>{{fl.attributes.solutionDescription}}</p>
+            </div>
+          </div>
+
+        </div>
+        <div class="business__solutions-right">
+          <div class="solution-cols" *ngFor="let fr of fybRight">
+            <div (click)="redirect(fr.attributes.url)"
+              [className]="fr.attributes.active ? 'solution-icon icon-secondary' : 'solution-icon icon-primary'">
+              <mat-icon>{{fr.attributes.solutionIcon}}</mat-icon>
+            </div>
+            <div class="solution-text">
+              <h5 (click)="redirect(fr.attributes.url)">{{fr.attributes.solutionName}}</h5>
+              <p>{{fr.attributes.solutionDescription}}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="home__halo">
+
+    <div class="home__halosphere">
+      <div class="halosphere_inner">
+        <div class="halosphere_left">
+          <img src="./assets/images/finebabe.png" alt="">
+        </div>
+        <div class="halosphere_right">
+          <div class="halosphere_right-text">
+            <h1>Explore the <span>Halosphere</span>,
+              Our Digital World at your fingertips.
+              <span (click)="halo()"><button class="halo-btn">Enter Halosphere<mat-icon
+                    class="halo-icon">arrow_circle_right</mat-icon></button></span>
+            </h1>
+
+
+          </div>
+          <img src="./assets/images/left.png" alt="" class="bird_a">
+          <img src="./assets/images/left.png" alt="" class="bird_b">
+          <img src="./assets/images/right.png" alt="" class="bird_c">
+          <img src="./assets/images/right.png" alt="" class="bird_d">
+          <img src="./assets/images/right.png" alt="" class="bird_e">
+          <img src="./assets/images/cloud.png" alt="" class="cloud_a">
+          <img src="./assets/images/cloud.png" alt="" class="cloud_b">
+        </div>
+      </div>
+    </div>
+
+  </section>
+  <section class="home__clients">
+    <div class="home__client">
+      <div class="client__images">
+        <div class="home__client-num">
+          <h1>400+</h1>
+          <p>Clients across Africa partner with us</p>
+        </div>
+        <div class="home-client-carousel">
+          <app-clientcarousel></app-clientcarousel>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+  <div class="client__reviews">
+    <div class="client_re">
+      <div class="client__reviews-header">
+        <h1>{{reviewHeader}}</h1>
+
+        <div class="arrows">
+          <mat-icon>arrow_back</mat-icon>
+          <mat-icon>arrow_forward</mat-icon>
+        </div>
+      </div>
+      <div class="client__reviews-content">
+        <div class="reviews-content">
+          <h5>“Solution Driven” </h5>
+          <p class="reviews-content-p">“Collaboration with Halogen has enabled us to unlock tremendous potential in
+            multiple areas of our operations Their insights into complex mobility problems and ability to execute
+            improvements based on these learnings has been impressive and exciting"
+          </p>
+          <div class="review-author">
+            <img src="./assets/images/david.jpg" alt="">
+            <div class="author__">
+              <p class="author-name">Wilson Thai</p>
+              <p class="author-location">Ontario, Canada</p>
+              <p class="author-star">
+                <mat-icon>star</mat-icon><mat-icon>star</mat-icon><mat-icon>star</mat-icon><mat-icon>star</mat-icon><mat-icon>star</mat-icon>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="reviews-content">
+          <h5>“Massively impact business in the positive direction” </h5>
+          <p class="reviews-content-p">““Working with Halogen has enabled us to unlock tremendous potential in
+            multiple areas of our operations Their insights into complex mobility pr
+            impacting our business.””
+          </p>
+          <div class="review-author">
+            <img src="./assets/images/bosun.jpg" alt="">
+            <div class="author__">
+              <p class="author-name">Chukwu Emeka</p>
+              <p class="author-location">Abuja, FCT</p>
+              <p class="author-star">
+                <mat-icon>star</mat-icon><mat-icon>star</mat-icon><mat-icon>star</mat-icon><mat-icon>star</mat-icon><mat-icon>star</mat-icon>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="reviews-content">
+          <h5>“They are the best in what they do!” </h5>
+          <p class="reviews-content-p">“Working with Halogen has enabled us to unlock tremendous potential in
+            multiple areas of our operations Their insights into complex mobility problems and ability to execute
+            improvements based on these learnings has been impressive
+          </p>
+          <div class="review-author">
+            <img src="./assets/images/adebola.jpg" alt="">
+            <div class="author__">
+              <p class="author-name">Jide Adams</p>
+              <p class="author-location">Lagos, Niferia</p>
+              <p class="author-star">
+                <mat-icon>star</mat-icon><mat-icon>star</mat-icon><mat-icon>star</mat-icon><mat-icon>star</mat-icon><mat-icon>star</mat-icon>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="home__divider">
+    <div></div>
+    <div></div>
+  </div>
+  <section class="relatedposts">
+    <div class="related">
+      <app-relatedpost [guide]="guides" [bold]="boldText"></app-relatedpost>
+    </div>
+  </section>
+</div>

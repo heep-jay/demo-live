@@ -1,0 +1,37 @@
+.minipost {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 1rem;
+  transition: all .2s ease-in-out;
+  cursor: pointer;
+}
+
+.minipost:hover {
+  transform: scale(1.05);
+}
+
+.minipost__img {
+  width: 100%;
+}
+
+.minipost__title {
+  font-size: clamp(0.875rem, 0.4063rem + 1.5vw, 1.25rem);
+}
+
+.minipost__text {
+  color: #595959;
+  font-size: clamp(0.75rem, 0.5938rem + 0.5vw, 0.875rem);
+}
+
+.minipost__btn {
+  background: #fff;
+  border: none;
+  outline: none;
+  color: #1C2B66;
+  font-size: clamp(0.875rem, 0.6406rem + 0.75vw, 1.0625rem);
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}

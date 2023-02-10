@@ -1,0 +1,35 @@
+<div class="clients">
+  <!-- Client Title -->
+  <div class="client__title">
+    <h1>{{header}}</h1>
+    <p>{{body}}</p>
+  </div>
+
+  <!-- Client Images -->
+  <div class="client__images">
+
+    <img *ngFor="let it of arr" [src]="it.attributes.clientImage.data.attributes.url" alt="">
+
+  </div>
+
+  <!-- Show More button -->
+  <div class="client__more">
+    <button (click)="toggle()">{{showMore}}</button>
+  </div>
+
+  <!-- Divider -->
+  <div class="client__divider">
+    <div></div>
+    <div></div>
+  </div>
+
+  <!-- Carousel Header -->
+  <div class="client_carousel clients__title">
+    <h2>{{header2}}</h2>
+
+    <div class="client__carosel-body">
+      <app-carousel [img]="images" [sub]="subHeader"></app-carousel>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,85 @@
+<div class="security">
+  <div class="header">
+    <div class="header-text">
+      <h5 class="small-text">{{productName}}</h5>
+      <h2 class="big-text">{{productHeader}}</h2>
+      <!-- <p class="normal-text">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis incidunt
+        alias quia nostrum id.
+      </p> -->
+    </div>
+    <div class="header-btn">
+      <button class="btn-cyber btn-service" (click)="open(risk)">Book Service</button>
+      <!-- <button class="btn btn-diag">
+        Diagonostic Tool
+        <mat-icon>arrow_forward</mat-icon>
+      </button> -->
+
+      <ng-template #risk let-modal class="moddd">
+        <div class="modal-header">
+          <div class="m-title">
+            <h4 class="modal-title" id="modal-basic-title">Book any of our {{productName}}</h4>
+            <h4 class="modal-title"></h4>
+          </div>
+          <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss()"></button>
+        </div>
+        <app-modal-pop [services]="services"></app-modal-pop>
+      </ng-template>
+    </div>
+  </div>
+  <div class="hero-section">
+    <img [src]="mainImage" alt="" />
+  </div>
+  <div class="hero-text">
+    <p>{{productBody1}}</p>
+    <p>{{productBody2}}</p>
+    <p>{{productBody3}}</p>
+    <p>{{productBody4}}</p>
+  </div>
+  <div class="banner-section">
+    <div class="banner" (click)="scrolll(bann.attributes.url)" *ngFor="let bann of banners">
+      <div class="icon">
+        <mat-icon>{{bann.attributes.icon}}</mat-icon>
+      </div>
+      <div class="text">
+        <h3>{{bann.attributes.name}}</h3>
+        <p>
+          {{bann.attributes.description}}
+        </p>
+      </div>
+    </div>
+
+  </div>
+  <div class="more-info">
+    <div [className]="prod.attributes.active ? 'second-section': 'first-section' " id="{{prod.attributes.productId}}"
+      *ngFor="let prod of products">
+      <div class="info-img info-img-line">
+        <img [src]="prod.attributes.productImage.data.attributes.url" alt="" class="info-img" />
+      </div>
+      <div class="info-text">
+        <h5>{{prod.attributes.productName}}</h5>
+        <h2>{{prod.attributes.productHeader}}</h2>
+        <button (click)="open(content)">Book Service</button>
+        <p>
+          {{prod.attributes.productDescription}}
+        </p>
+      </div>
+
+      <ng-template #content let-modal class="moddd">
+        <div class="modal-header">
+          <div class="m-title">
+            <h4 class="modal-title" id="modal-basic-title">{{prod.attributes.productName}}</h4>
+            <h4 class="modal-title">On Trend, On Time, For You and Your Customers</h4>
+          </div>
+          <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss()"></button>
+        </div>
+
+        <app-servicemodal [productName]="prod.attributes.productName"></app-servicemodal>
+        <!-- <div class="modal-footer">
+          <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+        </div> -->
+      </ng-template>
+    </div>
+
+  </div>
+</div>

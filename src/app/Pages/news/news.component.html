@@ -1,0 +1,76 @@
+<div class="news">
+
+  <!-- Main post -->
+
+  <div class="new__mainPost">
+    <!-- <div class="mainpost_left">
+      <div class="mainpost_content">
+        <img src="/assets/images/hero.jpg" alt="">
+        <div class="mainpost_title">
+          <span>By Odam Lafer</span>
+          <h2>Technology- driven business
+            process is the new normal</h2>
+        </div>
+        <p>We lead the West African security solutions market, as we continually focus on delivering valued solutions
+          across the industry’s value chain as the number one integrated.</p>
+
+        <div class="mainpost_content-btn">
+          <button>Read More <mat-icon>chevron_right</mat-icon></button>
+        </div>
+      </div>
+
+    </div> -->
+    <div class="mainpost_left">
+      <app-newscarousel [headlinePost]="headlinesPost"></app-newscarousel>
+    </div>
+
+    <div class="mainPost_related">
+      <h3>Related News</h3>
+      <app-vposts [post]="posts" *ngFor="let posts of normalPosts"></app-vposts>
+    </div>
+  </div>
+
+
+  <!-- Must Read Section -->
+  <div class="news__must-read">
+    <app-mustread></app-mustread>
+  </div>
+  <!-- Posts -->
+  <div class="news__header">
+    <h1 class="news__header-title">New Blog Posts</h1>
+    <!-- <p class="news__header-text">Let’s keep you updated with us!</p>
+    <p> Read the latest news and articles that pertains to Halogen </p> -->
+  </div>
+  <div class="news__posts">
+    <app-minipost [post]="post" *ngFor="let post of blogs" class="news__post">
+    </app-minipost>
+  </div>
+  <!-- Show More Button -->
+  <div class="news__show">
+    <button class="news__posts-btn">Show more</button>
+  </div>
+  <div class="news__divider">
+    <div class="news__div"></div>
+    <div class="news__div"></div>
+  </div>
+
+
+
+  <!-- Featured Post Section -->
+  <div class="news__featured">
+    <h1 class="news__header-title">Featured Posts</h1>
+    <div class="news__featured-posts">
+      <div class="news__featured-post">
+        <app-featured></app-featured>
+      </div>
+      <div class="news__featured-post">
+        <app-featured></app-featured>
+      </div>
+    </div>
+  </div>
+  <!-- Show More Button -->
+  <div class="news__show">
+    <button class="news__posts-btn">Show more</button>
+  </div>
+
+</div>

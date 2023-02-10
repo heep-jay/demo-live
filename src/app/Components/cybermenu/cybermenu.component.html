@@ -1,0 +1,66 @@
+<div class="hover-menu">
+  <div class="hover-left">
+    <h4>Our Intergrated Solutions</h4>
+    <div class="int-menu">
+      <div class="left-menus">
+        <p (click)="redirect(menu.attributes.url)" *ngFor="let menu of cyberL">
+          <span>
+            <mat-icon>{{menu.attributes.icon}}</mat-icon>
+          </span>
+          {{menu.attributes.name}}
+        </p>
+        <p style="margin-top:2rem ;" routerLink="/cyber-security">
+          View All
+        </p>
+      </div>
+      <div class="right-menus">
+        <p (click)="redirect(menu.attributes.url)" *ngFor="let menu of cyberR">
+          <span>
+            <mat-icon>{{menu.attributes.icon}}</mat-icon>
+          </span>
+          {{menu.attributes.name}}
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="hover-right">
+    <h4>Check our best Features</h4>
+    <div class="features" routerLink="/cyber-security">
+      <div class="feature-logo"> <mat-icon>laptop_windows</mat-icon></div>
+      <div class="feature-text">
+        <h4> Cyber Security Solutions
+
+          <span> <mat-icon>arrow_forward</mat-icon></span>
+        </h4>
+        <p>Lorem ipsum dolor sit</p>
+      </div>
+    </div>
+    <div class="features" (click)="toPhy()">
+      <div class="feature-logo"><mat-icon>verified_user</mat-icon></div>
+      <div class="feature-text">
+        <h4> Physical Security & Mobility
+          <span><mat-icon>arrow_forward</mat-icon></span>
+        </h4>
+        <p>Lorem ipsum dolor sit</p>
+      </div>
+    </div>
+    <div class="features" (click)="toElem()">
+      <div class="feature-logo"><mat-icon>settings</mat-icon></div>
+      <div class="feature-text">
+        <h4>Electronics Solutions & Telematics
+          <span><mat-icon>arrow_forward</mat-icon></span>
+        </h4>
+        <p>Lorem ipsum dolor sit</p>
+      </div>
+    </div>
+    <div class="features" (click)="toIdentitys()">
+      <div class="feature-logo"> <mat-icon>fingerprint</mat-icon></div>
+      <div class="feature-text">
+        <h4>Outsourcing & Identity Verifications
+          <span><mat-icon>arrow_forward</mat-icon></span>
+        </h4>
+        <p>Lorem ipsum dolor sit</p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,91 @@
+.clients {
+  width: 90%;
+  max-width: 1900px;
+  margin: 8rem auto 0 auto;
+  text-align: center;
+}
+
+
+
+.client__title h1,
+h2 {
+  text-align: center;
+  font-size: clamp(1.5rem, 0.25rem + 4vw, 2.5rem);
+  font-weight: 600;
+  color: #1C2B66;
+}
+
+.clients__title p {
+  opacity: 0.5;
+  font-size: clamp(0.75rem, 0.4375rem + 1vw, 1rem);
+}
+
+.client__images {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+  justify-content: center;
+  align-items: center;
+  margin-top: 4rem;
+  /* padding: 2rem; */
+}
+
+.client__more {
+  margin-top: 3rem;
+}
+
+.client__more button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: clamp(0.8125rem, 0.5rem + 1vw, 1.0625rem);
+  opacity: 0.5;
+}
+
+.client__images img {
+  height: 80px;
+  object-fit: contain;
+}
+
+.client__divider {
+  width: 100%;
+  display: flex;
+  margin-top: 4rem;
+  justify-content: space-between;
+
+}
+
+.client__divider div {
+  width: 47%;
+  border-top: 0.5px solid #1C2B66;
+}
+
+.client_carousel {
+  margin-top: 4rem;
+}
+
+.client__carosel-body {
+  position: relative;
+
+}
+
+.client__carosel-body::before {
+  content: ' ';
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  margin-top: 4rem;
+  background: linear-gradient(0deg, rgba(242, 242, 242, 0.92),
+      rgb(250, 250, 250, 0.92)),
+    url("./assets/images/icon.png");
+  background-size: contain;
+  height: 400px;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.4;
+  margin: auto 0;
+
+}

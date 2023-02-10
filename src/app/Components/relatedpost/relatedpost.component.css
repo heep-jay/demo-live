@@ -1,0 +1,26 @@
+.relatedpost h1 {
+  text-align: center;
+  font-size: clamp(1.5rem, 0.25rem + 4vw, 2.5rem);
+  font-weight: 600;
+  color: #1c2b66;
+}
+
+.relatedpost h3 {
+  text-align: center;
+  font-size: clamp(0.875rem, 0.4063rem + 1.5vw, 1.25rem);
+  color: #1c2b66;
+  font-weight: 600;
+}
+
+.relatedPosts {
+  width: 100%;
+  /* margin: 0 auto; */
+  justify-content: center;
+  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-gap: 20px;
+  padding: 20px;
+  margin: 0 auto;
+  row-gap: 1rem;
+}

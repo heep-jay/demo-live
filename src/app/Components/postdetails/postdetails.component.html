@@ -1,0 +1,29 @@
+<div class="post">
+  <div class="post__header">
+    <span class="back-button" (click)="back()"><mat-icon>arrow_back</mat-icon> Go Back</span>
+    <span>TECHNOLOGY</span>
+    <h1 class="post__title">
+      {{title}}
+    </h1>
+    <div class="post__author">
+      <img class="author__avatar" src="./assets/images/wale.jpg" alt="">
+      <div class="author__deets">
+        <p class="author__name">{{author}}</p>
+        <p class="author__publish">{{createdAt}}</p>
+      </div>
+    </div>
+  </div>
+  <div class="post__details">
+    <img class="post__mainImage" [src]="mainImage" alt="">
+
+    <div id="mark-content">{{content}}</div>
+
+    <div class="post__divider">
+      <div></div>
+      <div></div>
+    </div>
+
+    <div class="post__related">
+      <app-relatedpost [rel]="related"></app-relatedpost>
+    </div>
+  </div>

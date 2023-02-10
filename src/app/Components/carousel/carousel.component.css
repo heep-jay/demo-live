@@ -1,0 +1,44 @@
+.carousel-cell {
+  position: relative;
+  z-index: 99 !important;
+}
+
+
+.carousel-arrow .carousel-arrow-next::before {
+  color: black !important;
+  background: #000;
+}
+
+.cell-image {
+  position: relative;
+}
+
+.cell-text {
+  color: #000;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  height: 80%;
+  margin: auto auto;
+  width: 50%;
+}
+
+.cell-text h2 {
+  font-size: clamp(1.5rem, 0.25rem + 4vw, 2.5rem);
+  font-weight: 400;
+  color: #1c2b66;
+  margin-top: 2rem;
+}
+
+.cell-text p {
+  font-size: clamp(0.8125rem, 0.5rem + 1vw, 1.0625rem);
+  line-height: 28px;
+
+  color: #2D3748;
+}
+
+.carousel-text img {
+  width: 5%;
+}

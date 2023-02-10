@@ -1,0 +1,16 @@
+<div class="app" id="scroller" (scroll)="showScrollBtn()">
+  <div class="app-nav">
+    <app-navbar></app-navbar>
+  </div>
+  <!-- <app-megamenu></app-megamenu> -->
+
+  <div class="app-body">
+
+    <div class="app-scroll">
+      <button (click)="topFunction()"
+        [className]="isShowBtn ? 'myBtn' : 'noBtn' "><mat-icon>expand_less</mat-icon></button>
+    </div>
+    <router-outlet></router-outlet>
+    <app-footer></app-footer>
+  </div>
+</div>

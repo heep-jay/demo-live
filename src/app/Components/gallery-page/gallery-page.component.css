@@ -1,0 +1,36 @@
+:host {
+
+  width: 100vw;
+  height: 100vh;
+}
+
+.gallerypage {
+  margin: 8rem auto;
+  width: 90%;
+  max-width: 1900px;
+}
+
+.gallerypage-header {
+  margin: 2rem auto;
+  width: 90%;
+  max-width: 1900px;
+  text-align: center;
+}
+
+.gallerypage-header h1 {
+  font-weight: 700;
+  font-size: clamp(1.25rem, 0.4911rem + 2.4286vw, 3.375rem);
+  line-height: 140%;
+  /* identical to box height, or 76px */
+  text-align: center;
+  color: #1C2B66;
+
+}
+
+.gallerypage-header p {
+  font-weight: 500;
+  font-size: clamp(0.9375rem, 0.8705rem + 0.2143vw, 1.125rem);
+  line-height: 25px;
+  /* identical to box height */
+  color: rgba(0, 0, 0, 0.5);
+}

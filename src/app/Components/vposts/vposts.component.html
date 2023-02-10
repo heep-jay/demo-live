@@ -1,0 +1,10 @@
+<div class="vpost">
+  <img routerLink="/news-events/news/{{post.id}}" src="{{post.attributes.mainImage.data.attributes.url}}" alt=""
+    routerLink="/post" class="minipost__img">
+  <div class="vpost_content">
+    <h4 class="vpost__title">{{post.attributes.title}}</h4>
+
+    <button class="vpost_btn" routerLink="/news-events/news/{{post.id}}">Read
+      News<mat-icon>chevron_right</mat-icon></button>
+  </div>
+</div>

@@ -1,0 +1,38 @@
+<carousel arrowsTheme="dark" [arrowsOutside]="false" [arrows]="true" [dots]="true" [counter]="true" loop="true">
+  <div class="carousel-cell" *ngFor="let item of img">
+    <div class="cell-text">
+      <h2>{{sub}}</h2>
+      <p>{{item.attributes.clientReview}}</p>
+
+      <div class="cell-img">
+        <img [src]="item.attributes.clientImage.data.attributes.url" style="height: 50px;" alt="">
+      </div>
+    </div>
+
+  </div>
+
+
+
+  <!-- <div class="carousel-cell">
+
+    <div class="cell-text">
+      <h2>Our Client Says</h2>
+      <p>“Lörem ipsum egogåde gyssa. Fare egoligen. Lakask velädera tuktiga, monoseras. Lörem ipsum egogåde gyssa. Fare
+        egoligen. Lakask velädera tuktiga, monoseras”.</p>
+      <div class="cell-img">
+        <img src="/assets/images/kuda.png" style="height: 50px;" alt="">
+      </div>
+    </div>
+  </div>
+  <div class="carousel-cell">
+    <div class="cell-text">
+      <h2>Our Client Says</h2>
+      <p>“Lörem ipsum egogåde gyssa. Fare egoligen. Lakask velädera tuktiga, monoseras. Lörem ipsum egogåde gyssa. Fare
+        egoligen. Lakask velädera tuktiga, monoseras”.</p>
+      <div class="cell-img">
+        <img src="/assets/images/firstbank.png" style="height: 50px;" alt="">
+      </div>
+    </div>
+  </div> -->
+
+</carousel>

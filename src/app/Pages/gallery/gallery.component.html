@@ -1,0 +1,51 @@
+<div class="gallery">
+  <div class="gallery-header">
+    <h1>Our Media Center</h1>
+    <p>Trusted by over 1000+ businesses, our clientelle is quite diverse.</p>
+  </div>
+  <div class="gallery-tab">
+    <div class="gallery-photos">
+      <div>""</div>
+      <div class="g-photos" (click)="showGallery()">
+        <h4>Gallery</h4>
+        <div class="marker" *ngIf="isGallery"></div>
+      </div>
+    </div>
+    <div class="gallery-videos">
+      <div class="g-videos" (click)=" showVideos(year.value)">
+        <h4>Videos</h4>
+        <div class="marker" *ngIf="isVideos"></div>
+      </div>
+      <div class="gallery-select">
+        <mat-icon>tune</mat-icon>
+        <select #year (change)="onSelected(year.value)" name="" id="">
+          <option default value="all">All</option>
+          <option value="2023">2023</option>
+          <option value="2022">2022</option>
+          <option value="2021">2021</option>
+          <option value="2020">2020</option>
+          <option value="2019">2019</option>
+          <option value="2019">2018</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="gallery-divider">
+    <div></div>
+    <div></div>
+  </div>
+  <div class="gallery-grid">
+    <div class="grid-item" routerLink="/gallery/{{link}}/{{images.id}}" *ngFor="let images of galleryImages">
+      <img [src]="images.attributes.mainImage.data.attributes.url" alt="" class="grid-image">
+      <div class="grid-caption">
+        <p>Nigeria needs a national emergency response policy.</p>
+        <button>View More <mat-icon>arrow_right_alt</mat-icon></button>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="grid-showmore-btn">
+    <button>Show More</button>
+  </div>
+</div>

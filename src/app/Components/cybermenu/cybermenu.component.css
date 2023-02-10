@@ -1,0 +1,97 @@
+.hover-menu {
+  /* height: 40vh; */
+  /* width: 55vw; */
+  min-width: 1000px;
+  display: flex;
+  background: #FFFFFF;
+
+  /* Neutral/300 */
+
+  border: 1px solid #EFF0F7;
+  box-shadow: 0px 10px 14px rgba(74, 58, 255, 0.01), 0px 8px 16px rgba(23, 15, 73, 0.03);
+  border-radius: 22px;
+}
+
+.hover-left {
+  width: 60%;
+  padding: 2rem;
+}
+
+.hover-left h4,
+.hover-right h4 {
+  font-size: clamp(0.9375rem, 0.8259rem + 0.3571vw, 1.25rem);
+  font-weight: 600;
+  color: #1c2b66;
+  margin: 0;
+}
+
+.features {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.feature-logo {
+  height: 100%;
+  width: 20%;
+  min-width: 60px;
+  min-height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #FFFFFF;
+  /* Icons/White shadow */
+  color: #6F6C90;
+  ;
+  box-shadow: 0px 4px 20px rgba(23, 15, 73, 0.08);
+  border-radius: 15px;
+}
+
+.feature-text h4 {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: clamp(1rem, 0.9554rem + 0.1429vw, 1.125rem);
+}
+
+.feature-text h4:hover {
+  gap: 0.5rem
+}
+
+.hover-right {
+  width: 40%;
+  background: rgba(28, 43, 102, 0.05);
+  padding: 2rem;
+
+}
+
+.int-menu {
+  display: flex;
+  align-items: flex-start;
+  gap: 4rem;
+  width: 90%;
+  margin: 2rem auto;
+}
+
+.left-menus,
+.right-menus {
+  flex: 1;
+}
+
+.int-menu p,
+.feature-text p {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: #6F6C90;
+  font-weight: 400;
+  font-size: clamp(0.8125rem, 0.7009rem + 0.3571vw, 1.125rem);
+  cursor: pointer;
+  transition: all 0.2s ease-in;
+}
+
+.int-menu p:hover {
+  color: #1c2b66;
+  font-weight: 600;
+}

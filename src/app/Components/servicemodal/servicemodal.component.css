@@ -1,0 +1,61 @@
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  gap: 2rem;
+}
+
+.modal-names {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  width: 100%;
+}
+
+.modal__input {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  flex: 1;
+}
+
+.nameinput,
+.emailinput,
+.textarea-input {
+  height: 60px;
+  background: #FFFFFF;
+  border: 1px solid rgba(24, 25, 69, 0.1);
+  border-radius: 16px;
+}
+
+.textarea-input {
+  height: 200px;
+}
+
+.dg-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.input {
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 160%;
+  /* or 21px */
+
+  letter-spacing: 0.02em;
+
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.modal__btn-continue {
+  background: #1C2B66;
+  border-radius: 16px;
+  font-size: 16px;
+  color: #FFFFFF;
+  padding: 1rem 3rem;
+  border: none;
+}

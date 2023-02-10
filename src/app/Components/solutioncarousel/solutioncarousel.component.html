@@ -1,0 +1,107 @@
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+      aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+      aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+      aria-label="Slide 3"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3"
+      aria-label="Slide 4"></button>
+  </div>
+  <div class="carousel-inner">
+
+    <div [className]=" sol.attributes.active ? 'carousel-item active' : 'carousel-item'" *ngFor="let sol of solution">
+      <div class="caro">
+        <div class="caro-img">
+          <img [src]="sol.attributes.image.data.attributes.url" class="" alt="...">
+        </div>
+        <div class="caro-text">
+          <h1>{{sol.attributes.header}}</h1>
+          <p>{{sol.attributes.text}}}</p>
+          <button (click)="redirect(sol.attributes.url,sol.attributes.solutionId )" class="caro-link"><mat-icon
+              class="caro-arrow">arrow_right_alt</mat-icon></button>
+          <div class="v-div"></div>
+        </div>
+
+      </div>
+    </div>
+
+
+
+
+    <!-- <div class="carousel-item">
+      <div class="caro">
+        <div class="caro-img">
+          <img src="/assets/images/physical.png" class="" alt="...">
+        </div>
+        <div class="caro-text">
+          <h1>Physical Security & Mobility</h1>
+          <p>Ensure the safety and security of your business&#39;s assets and personnel.
+            Our advanced solutions provide comprehensive protection for your facilities and
+            property, including CCTV cameras, access control systems, intrusion detection, and
+            perimeter security. With real-time monitoring and incident response, you can trust that
+            your business&#39;s physical security is always on point.
+
+          </p>
+          <button (click)="toPhysical()" class="caro-link"><mat-icon
+              class="caro-arrow">arrow_right_alt</mat-icon></button>
+          <div class="v-div"></div>
+        </div>
+
+      </div>
+    </div>
+    <div class="carousel-item">
+      <div class="caro">
+        <div class="caro-img">
+          <img src="/assets/images/Electronics-telematics.jpg" class="" alt="...">
+        </div>
+        <div class="caro-text">
+          <h1>Electronics Solutions & Telematics</h1>
+          <p>With real-time monitoring and incident response, you
+            can trust that your business&#39;s electronic systems and telematics data are always
+            protected.
+
+          </p>
+          <button (click)="toElem()" class="caro-link"><mat-icon class="caro-arrow">arrow_right_alt</mat-icon></button>
+          <div class="v-div"></div>
+        </div>
+
+      </div>
+    </div>
+    <div class="carousel-item">
+      <div class="caro">
+        <div class="caro-img">
+          <img src="/assets/images/outsource.png" class="" alt="...">
+        </div>
+        <div class="caro-text">
+          <h1>Outsourcing & Identity Verifications</h1>
+          <p>Our Talent Risk &amp; Outsourcing Solutions are here to help you find the right people for
+            the job, while minimizing any potential risks. Whether you&#39;re looking to fill a critical role or
+            outsource a specific task, our team of experts will work with you to identify the best
+            talent, while taking into account any potential risks. With our solutions, you&#39;ll be able to
+            focus on growing your business, without worrying about the potential risks of hiring or
+            outsourcing.
+
+          </p>
+          <button (click)="toIdentity()" class="caro-link"><mat-icon
+              class="caro-arrow">arrow_right_alt</mat-icon></button>
+          <div class="v-div"></div>
+        </div>
+
+      </div>
+    </div> -->
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true">
+      <mat-icon class="caro-icon">chevron_left</mat-icon>
+    </span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true">
+      <mat-icon class="caro-icon">chevron_right</mat-icon>
+    </span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
