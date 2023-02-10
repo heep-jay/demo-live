@@ -99,6 +99,7 @@
 }
 
 .banner {
+  width: 100%;
   max-width: 30rem;
   margin: 5rem 0;
   display: flex;

@@ -96,8 +96,11 @@ export class SecurityTechnologiesComponent implements OnInit {
     }
   }
   scrolll(data: any) {
-    // console.log(data)
-    // document.getElementById(data)?.scrollIntoView({ behavior: "smooth" });
+    console.log(data)
+    var element = document.getElementById(data)?.getBoundingClientRect().top
+    var headerOffset = 145;
+    var offsetPosition = element! + window.pageYOffset - headerOffset;
+    window.scrollTo({ top: offsetPosition, behavior: "smooth" });
   }
 
 }
