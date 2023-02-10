@@ -74,27 +74,28 @@ export class NavbarComponent implements OnInit {
   }
   getMenuLinks() {
     this.cybermenusL.map((data: any) => {
-      data.attributes.url = `https://halogen-group.com/new-website/cyber-security#${data.attributes.url}`
+      data.attributes.url = `/cyber-security/${data.attributes.url}`
+      // data.attributes.url = `https://halogen-group.com/new-website/cyber-security/${data.attributes.url}`
       return this.cybermenusL;
     })
     this.outMenu.map((data: any) => {
-      data.attributes.url = `https://halogen-group.com/new-website/outsourcing-investigations-identity#${data.attributes.url}`
+      data.attributes.url = `/outsourcing-investigations-identity/${data.attributes.url}`
       return this.outMenu;
     })
     this.phyMenu.map((data: any) => {
-      data.attributes.url = `https://halogen-group.com/new-website/physical-security#${data.attributes.url}`
+      data.attributes.url = `/physical-security/${data.attributes.url}`
       return this.phyMenu;
     })
     this.secTechMenu.map((data: any) => {
-      data.attributes.url = `https://halogen-group.com/new-website/security-technologies#${data.attributes.url}`
+      data.attributes.url = `/security-technologies/${data.attributes.url}`
       return this.secTechMenu;
     })
     this.secEduMenu.map((data: any) => {
-      data.attributes.url = `https://halogen-group.com/new-website/security-seducation#${data.attributes.url}`
+      data.attributes.url = `/security-seducation/${data.attributes.url}`
       return this.secEduMenu;
     })
     this.riskMenu.map((data: any) => {
-      data.attributes.url = `https://halogen-group.com/new-website/risk-advisory-and-consulting#${data.attributes.url}`
+      data.attributes.url = `/risk-advisory-and-consulting/${data.attributes.url}`
       return this.riskMenu;
     })
 

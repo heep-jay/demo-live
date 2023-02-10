@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-
+import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-halogen-nav',
   templateUrl: './halogen-nav.component.html',
@@ -16,7 +16,7 @@ export class HalogenNavComponent implements OnInit {
   hash: any;
   // activeMenu: boolean = true;
   urls: any;
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
 
@@ -37,7 +37,7 @@ export class HalogenNavComponent implements OnInit {
     this.btnClick.emit()
   }
   toElem() {
-    window.location.href = 'https://halogen-group.com/new-website/security-technologies#elem'
+    window.location.href = 'https://halogen-group.com/new-website/security-technologies/elem'
   }
   redirect(url: any) {
     this.btnClick.emit()
@@ -57,15 +57,16 @@ export class HalogenNavComponent implements OnInit {
 
 
   }
+
   scroll() {
-    console.log('abc')
-    if (window.location.hash) {
-      this.hash = window.location.hash;
-      if (this.hash) {
-        console.log(this.hash)
-        document.getElementById(this.hash)?.scrollIntoView({ behavior: "smooth" });
-      }
-    }
+    // console.log('abc')
+    // if (window.location.hash) {
+    //   this.hash = window.location.hash;
+    //   if (this.hash) {
+    //     console.log(this.hash)
+    //     document.getElementById(this.hash)?.scrollIntoView({ behavior: "smooth" });
+    //   }
+    // }
   }
 
 

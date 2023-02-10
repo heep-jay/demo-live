@@ -5,7 +5,7 @@
         <h3>Cyber Security</h3>
       </div>
       <ul>
-        <li (click)="redirect(menu.attributes.url)" *ngFor="let menu of cybermenusL">
+        <li (click)="toggleMenu()" routerLink="{{menu.attributes.url}}" *ngFor="let menu of cybermenusL">
           <mat-icon>{{menu.attributes.icon}}</mat-icon> <a>{{menu.attributes.name}}</a>
         </li>
       </ul>
@@ -15,7 +15,7 @@
         <h3>Security Technologies</h3>
       </div>
       <ul>
-        <li (click)="redirect(menu.attributes.url)" *ngFor="let menu of secTechMenu">
+        <li (click)="toggleMenu()" routerLink="{{menu.attributes.url}}" *ngFor="let menu of secTechMenu">
           <mat-icon>{{menu.attributes.icon}}</mat-icon><a>{{menu.attributes.name}}</a>
         </li>
       </ul>
@@ -25,7 +25,7 @@
         <h3>Physical Security & Mobility</h3>
       </div>
       <ul>
-        <li (click)="redirect(menu.attributes.url)" *ngFor="let menu of phyMenu">
+        <li (click)="toggleMenu()" routerLink="{{menu.attributes.url}}" *ngFor="let menu of phyMenu">
           <mat-icon>{{menu.attributes.icon}}</mat-icon><a>{{menu.attributes.name}}</a>
         </li>
       </ul>
@@ -36,7 +36,7 @@
       </div>
 
       <ul>
-        <li (click)="redirect(menu.attributes.url)" *ngFor="let menu of outMenu">
+        <li (click)="toggleMenu()" routerLink="{{menu.attributes.url}}" *ngFor="let menu of outMenu">
           <mat-icon>{{menu.attributes.icon}}</mat-icon><a>{{menu.attributes.name}}</a>
         </li>
       </ul>
@@ -47,7 +47,7 @@
       </div>
 
       <ul>
-        <li (click)="redirect(menu.attributes.url)" *ngFor="let menu of secEduMenu">
+        <li (click)="toggleMenu()" routerLink="{{menu.attributes.url}}" *ngFor="let menu of secEduMenu">
           <mat-icon>{{menu.attributes.icon}}</mat-icon><a>{{menu.attributes.name}}</a>
         </li>
       </ul>
@@ -57,7 +57,7 @@
         <h3>Security Risk Advisory & Consultancy </h3>
       </div>
       <ul>
-        <li (click)="redirect(menu.attributes.url)" *ngFor="let menu of riskMenu">
+        <li (click)="toggleMenu()" routerLink="{{menu.attributes.url}}" *ngFor="let menu of riskMenu">
           <mat-icon>{{menu.attributes.icon}}</mat-icon><a routerLink="">{{menu.attributes.name}}</a>
         </li>
       </ul>

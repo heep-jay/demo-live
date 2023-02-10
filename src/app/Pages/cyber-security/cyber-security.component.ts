@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ApiService } from 'src/app/Service/api.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-cyber-security',
@@ -24,7 +25,9 @@ export class CyberSecurityComponent implements OnInit {
   services: string[] = [];
   hash: any;
   mm: any;
-  constructor(private modalService: NgbModal, private api: ApiService) { }
+  prodId: string | number | null | any = null;
+
+  constructor(private modalService: NgbModal, private api: ApiService, private route: ActivatedRoute) { }
   open(content: any) {
     this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then(
       (result) => {
@@ -71,15 +74,16 @@ export class CyberSecurityComponent implements OnInit {
 
   }
   ngAfterViewInit() {
-    console.log('abc working')
-    if (window.location.hash) {
+    this.prodId = this.route.snapshot
+      .paramMap.get('id');
+    if (this.prodId) {
       this.api.getProductPage(2).subscribe(async (data) => {
         await data
-        let hash = window.location.hash.slice(1)
-        var element = document.getElementById(hash);
+        // let hash = this.prodId
+        var element = document.getElementById(this.prodId)?.getBoundingClientRect().top
         var headerOffset = 145;
-        var elementPosition = element!.getBoundingClientRect().top;
-        var offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        // var elementPosition = element!.getBoundingClientRect().top;
+        var offsetPosition = element! + window.pageYOffset - headerOffset;
         // document.getElementById(hash)?.
         window.scrollTo({ top: offsetPosition, behavior: "smooth" });
       })

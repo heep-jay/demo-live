@@ -32,9 +32,18 @@ const routes: Routes = [
   {
     component: CyberSecurityComponent,
     path: 'cyber-security'
+  },
+
+  {
+    component: CyberSecurityComponent,
+    path: 'cyber-security/:id'
   }, {
     component: RiskComponent,
     path: 'risk-advisory-and-consulting'
+  },
+  {
+    component: RiskComponent,
+    path: 'risk-advisory-and-consulting/:id'
   },
   {
     component: AboutComponent,
@@ -81,15 +90,31 @@ const routes: Routes = [
     path: 'security-technologies'
   },
   {
+    component: SecurityTechnologiesComponent,
+    path: 'security-technologies/:id'
+  },
+  {
     component: PhysicalSecurityComponent,
     path: 'physical-security'
   },
   {
+    component: PhysicalSecurityComponent,
+    path: 'physical-security/:id'
+  },
+  {
     component: SecurityEducationComponent,
     path: 'security-seducation'
+  },
+  {
+    component: SecurityEducationComponent,
+    path: 'security-seducation/:id'
   }, {
     component: OutsourcingComponent,
     path: 'outsourcing-investigations-identity'
+  },
+  {
+    component: OutsourcingComponent,
+    path: 'outsourcing-investigations-identity/:id'
   },
   {
     component: PostdetailsComponent,

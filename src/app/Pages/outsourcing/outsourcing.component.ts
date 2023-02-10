@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ApiService } from 'src/app/Service/api.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-outsourcing',
@@ -22,8 +23,9 @@ export class OutsourcingComponent implements OnInit {
   products: any;
   pImage: any;
   services: string[] = [];
+  prodId: string | number | null | any = null
 
-  constructor(private modalService: NgbModal, private api: ApiService) { }
+  constructor(private modalService: NgbModal, private api: ApiService, private route: ActivatedRoute) { }
   open(content: any) {
     this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then(
       (result) => {
@@ -59,25 +61,49 @@ export class OutsourcingComponent implements OnInit {
       this.mainImage = data.attributes.productMainImage.data.attributes.url
     })
 
+    this.doSomething()
+
   }
-  ngAfterViewInit() {
-    console.log('abc working')
-    if (window.location.hash) {
+
+  doSomething() {
+    this.prodId = this.route.snapshot
+      .paramMap.get('id');
+    if (this.prodId) {
       this.api.getProductPage(6).subscribe(async (data) => {
         await data
-        let hash = window.location.hash.slice(1)
-        var element = document.getElementById(hash);
+        console.log(this.prodId)
+        // let hash = this.prodId
+        var element = document.getElementById(this.prodId)?.getBoundingClientRect().top
         var headerOffset = 145;
-        var elementPosition = element!.getBoundingClientRect().top;
-        var offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        // var elementPosition = element!.getBoundingClientRect().top;
+        var offsetPosition = element! + window.pageYOffset - headerOffset;
         // document.getElementById(hash)?.
         window.scrollTo({ top: offsetPosition, behavior: "smooth" });
       })
 
     }
   }
+
+  // ngAfterViewInit() {
+  //   this.prodId = this.route.snapshot
+  //     .paramMap.get('id');
+  //   if (this.prodId) {
+  //     this.api.getProductPage(6).subscribe(async (data) => {
+  //       await data
+  //       console.log(this.prodId)
+  //       // let hash = this.prodId
+  //       var element = document.getElementById(this.prodId)?.getBoundingClientRect().top
+  //       var headerOffset = 145;
+  //       // var elementPosition = element!.getBoundingClientRect().top;
+  //       var offsetPosition = element! + window.pageYOffset - headerOffset;
+  //       // document.getElementById(hash)?.
+  //       window.scrollTo({ top: offsetPosition, behavior: "smooth" });
+  //     })
+
+  //   }
+  // }
   scrolll(data: any) {
-    console.log(data)
-    document.getElementById(data)?.scrollIntoView({ behavior: "smooth" });
+    // this.router.navigate(['/outsourcing-investigations-identity/', { id: this.prodId }]);
+    // document.getElementById(data)?.scrollIntoView({ behavior: "smooth" });
   }
 }

@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ApiService } from 'src/app/Service/api.service';
+import { ActivatedRoute } from '@angular/router';
+
+
 @Component({
   selector: 'app-risk',
   templateUrl: './risk.component.html',
@@ -21,9 +24,10 @@ export class RiskComponent implements OnInit {
   products: any;
   pImage: any;
   services: string[] = [];
+  prodId: string | number | null | any = null
 
 
-  constructor(private modalService: NgbModal, private api: ApiService) { }
+  constructor(private modalService: NgbModal, private api: ApiService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     window.scrollTo(0, 0);
@@ -48,19 +52,38 @@ export class RiskComponent implements OnInit {
 
       this.mainImage = data.attributes.productMainImage.data.attributes.url
     })
-
+    this.doSomething()
 
 
   }
-  ngAfterViewInit() {
-    if (window.location.hash) {
+  // ngAfterViewInit() {
+  //   if (window.location.hash) {
+  //     this.api.getProductPage(1).subscribe(async (data) => {
+  //       await data
+  //       let hash = window.location.hash.slice(1)
+  //       var element = document.getElementById(hash);
+  //       var headerOffset = 145;
+  //       var elementPosition = element!.getBoundingClientRect().top;
+  //       var offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+  //       // document.getElementById(hash)?.
+  //       window.scrollTo({ top: offsetPosition, behavior: "smooth" });
+  //     })
+
+  //   }
+  // }
+
+  doSomething() {
+    this.prodId = this.route.snapshot
+      .paramMap.get('id');
+    if (this.prodId) {
       this.api.getProductPage(1).subscribe(async (data) => {
         await data
-        let hash = window.location.hash.slice(1)
-        var element = document.getElementById(hash);
+        console.log(this.prodId)
+        // let hash = this.prodId
+        var element = document.getElementById(this.prodId)?.getBoundingClientRect().top
         var headerOffset = 145;
-        var elementPosition = element!.getBoundingClientRect().top;
-        var offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        // var elementPosition = element!.getBoundingClientRect().top;
+        var offsetPosition = element! + window.pageYOffset - headerOffset;
         // document.getElementById(hash)?.
         window.scrollTo({ top: offsetPosition, behavior: "smooth" });
       })
