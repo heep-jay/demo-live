@@ -49,7 +49,7 @@
 
   <div class="nav-menu-wrapper" *ngIf="isToggle">
     <ul class="menu-items">
-      <li routerLink="/">Home</li>
+      <li (click)="onToggle()" routerLink="/">Home</li>
       <li>
         <div class="" (click)=" aboutToggle()">
           <button class="drop-btn">About Us <mat-icon>chevron_right</mat-icon></button>
