@@ -135,3 +135,13 @@
   width: 47%;
   border-top: 0.5px solid #1C2B66;
 }
+
+@media screen and (max-width:500px) {
+  .post__mainImage {
+    height: 300px;
+  }
+
+  .post__title {
+    line-height: 35px;
+  }
+}

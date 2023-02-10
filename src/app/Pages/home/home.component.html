@@ -11,12 +11,12 @@
       <div class="business__solutions">
         <div class="business__solutions-left">
           <div class="solution-cols" *ngFor="let fl of fybLeft">
-            <div (click)="redirect(fl.attributes.url)"
+            <div routerLink="{{fl.attributes.url}}"
               [className]="fl.attributes.active ? 'solution-icon icon-secondary' : 'solution-icon icon-primary'">
               <mat-icon>{{fl.attributes.solutionIcon}}</mat-icon>
             </div>
             <div class="solution-text">
-              <h5 (click)="redirect(fl.attributes.url)">{{fl.attributes.solutionName}}</h5>
+              <h5 routerLink="{{fl.attributes.url}}">{{fl.attributes.solutionName}}</h5>
               <p>{{fl.attributes.solutionDescription}}</p>
             </div>
           </div>
@@ -24,12 +24,12 @@
         </div>
         <div class="business__solutions-right">
           <div class="solution-cols" *ngFor="let fr of fybRight">
-            <div (click)="redirect(fr.attributes.url)"
+            <div routerLink="{{fr.attributes.url}}"
               [className]="fr.attributes.active ? 'solution-icon icon-secondary' : 'solution-icon icon-primary'">
               <mat-icon>{{fr.attributes.solutionIcon}}</mat-icon>
             </div>
             <div class="solution-text">
-              <h5 (click)="redirect(fr.attributes.url)">{{fr.attributes.solutionName}}</h5>
+              <h5 routerLink="{{fr.attributes.url}}">{{fr.attributes.solutionName}}</h5>
               <p>{{fr.attributes.solutionDescription}}
               </p>
             </div>
