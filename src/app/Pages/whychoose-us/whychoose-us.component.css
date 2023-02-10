@@ -161,7 +161,7 @@ section {
   /* height: 85vh; */
   max-height: fit-content;
   min-height: 700px;
-  background: linear-gradient(rgba(28, 43, 102, 0.9), rgba(28, 43, 102, 0.9)), url("./assets/images/whycontact.png");
+  background: linear-gradient(rgba(28, 43, 102, 0.9), rgba(28, 43, 102, 0.9)), url("/assets/images/whycontact.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: left top;

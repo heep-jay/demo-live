@@ -175,8 +175,8 @@
   height: fit-content;
   max-height: 850px;
   border-radius: 5px;
-  background-image: url("./assets/images/vectorlines.png");
-  background: linear-gradient(89.66deg, #D1E5F9 1.77%, #E6F1FC 24.07%, #D1E5F9 100.74%), url("./assets/images/vectorlines.png"), linear-gradient(89.77deg, #D1E5F9 1.67%, #E6F1FC 32.32%, #D1E5F9 101.4%);
+  background-image: url("/assets/images/vectorlines.png");
+  background: linear-gradient(89.66deg, #D1E5F9 1.77%, #E6F1FC 24.07%, #D1E5F9 100.74%), url("/assets/images/vectorlines.png"), linear-gradient(89.77deg, #D1E5F9 1.67%, #E6F1FC 32.32%, #D1E5F9 101.4%);
 
 
 }
@@ -385,7 +385,7 @@
 
 .client__reviews {
   background-size: cover;
-  background-image: url("./assets/images/top.png"), url("./assets/images/bottom.png");
+  background-image: url("/assets/images/top.png"), url("/assets/images/bottom.png");
   background-position: top left, bottom left;
 }
 
