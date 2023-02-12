@@ -23,6 +23,7 @@ export class PostdetailsComponent implements OnInit {
   related = "Related News";
 
   ngOnInit(): void {
+    window.scrollTo(0, 0);
     this.postId = this.route.snapshot
       .paramMap.get('id');
     console.log(this.postId)

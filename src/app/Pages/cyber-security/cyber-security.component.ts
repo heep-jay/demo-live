@@ -38,7 +38,7 @@ export class CyberSecurityComponent implements OnInit {
   }
 
   async ngOnInit() {
-    // window.scrollTo(0, 0);
+    window.scrollTo(0, 0);
     this.api.getProductPage(2).subscribe(async (data) => {
 
       console.log(data)

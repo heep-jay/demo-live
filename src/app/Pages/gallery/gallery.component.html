@@ -38,7 +38,7 @@
     <div class="grid-item" routerLink="/gallery/{{link}}/{{images.id}}" *ngFor="let images of galleryImages">
       <img [src]="images.attributes.mainImage.data.attributes.url" alt="" class="grid-image">
       <div class="grid-caption">
-        <p>Nigeria needs a national emergency response policy.</p>
+        <p>{{images.attributes.caption}}</p>
         <button>View More <mat-icon>arrow_right_alt</mat-icon></button>
       </div>
     </div>

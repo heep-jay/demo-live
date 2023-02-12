@@ -9,6 +9,7 @@ export class ClientsComponent implements OnInit {
 
 
   images: any;
+  reviews: any;
   header: string = ""
   header2: string = ""
   subHeader: string = ""
@@ -50,6 +51,9 @@ export class ClientsComponent implements OnInit {
       this.body = data.attributes.body
       this.subHeader = data.attributes.subHeader
       this.images = data.attributes.client_images.data
+      this.reviews = data.attributes.client_images.data.slice(0, 3)
+
+      console.log(this.reviews)
 
 
 

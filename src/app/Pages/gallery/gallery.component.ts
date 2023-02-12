@@ -18,17 +18,20 @@ export class GalleryComponent implements OnInit {
   videos: any;
   galleryVideos: any
   link: any;
-
+  caption: string = "";
 
 
   constructor(private api: ApiService) { }
 
   ngOnInit(): void {
-
+    window.scrollTo(0, 0);
     this.api.getGalleryPhotos().subscribe((data: any) => {
+      // this.caption = data.attributes.caption
+      console.log(data.attributes)
       if (this.isGallery) {
         console.log(this.isGallery)
         this.gallery = data
+        this.caption = "hey"
         this.isGallery = true
         this.galleryImages = this.gallery
         console.log(this.galleryImages)
