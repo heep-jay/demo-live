@@ -172,8 +172,8 @@
 
 .home__halosphere {
   width: 100%;
-  height: fit-content;
-  max-height: 850px;
+  min-height: fit-content;
+  /* height: 650px; */
   border-radius: 5px;
   background-image: url("/assets/images/vectorlines.png");
   background: linear-gradient(89.66deg, #D1E5F9 1.77%, #E6F1FC 24.07%, #D1E5F9 100.74%), url("/assets/images/vectorlines.png"), linear-gradient(89.77deg, #D1E5F9 1.67%, #E6F1FC 32.32%, #D1E5F9 101.4%);
@@ -198,6 +198,7 @@
 
 .halosphere_left img {
   width: 100%;
+  padding-top: 2rem;
   min-width: 350px;
 }
 
@@ -307,17 +308,20 @@
   height: 29.48px;
   width: 50.45px;
   border-radius: 0px;
-  top: -10px;
-  right: 40%;
+  top: 3px;
+  right: 43%;
+  z-index: 1;
   position: absolute;
 }
 
 .halosphere_right h1 {
   font-weight: 600;
-  font-size: clamp(1.5625rem, 0.5134rem + 3.3571vw, 3.5rem);
+  font-size: clamp(1.5625rem, 0.5134rem + 3.3571vw, 3.1rem);
   line-height: clamp(2.5rem, 1.5625rem + 3vw, 5.125rem);
   color: #1C2B66;
   margin-bottom: 0;
+  z-index: 5;
+  position: relative;
 }
 
 .halo-icon {
@@ -462,6 +466,8 @@
 
 .review-author img {
   width: 40px;
+  height: 40px;
+  object-fit: cover;
   border-radius: 50%;
 }
 
