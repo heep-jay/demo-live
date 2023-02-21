@@ -136,7 +136,7 @@ export class NavbarComponent implements OnInit {
   }
 
   halo() {
-    window.open('https://dev-halosphere.halobizapps.com/', '_blank');
+    window.open('https://halogen-group.com/halosphere/', '_blank');
   }
 
 

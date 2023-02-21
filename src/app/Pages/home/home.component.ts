@@ -39,7 +39,7 @@ export class HomeComponent implements OnInit {
     })
   }
   halo() {
-    window.open('https://dev-halosphere.halobizapps.com/', '_blank');
+    window.open('https://halogen-group.com/halosphere/', '_blank');
   }
   redirect(url: string) {
     window.location.href = `https://halogen-group.com/new-website/${url}`
