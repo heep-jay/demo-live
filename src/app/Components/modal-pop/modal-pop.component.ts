@@ -33,7 +33,7 @@ export class ModalPopComponent implements OnInit {
         "mobileNumber": "",
         "message": this.formMessage,
         "halogenEmail": [
-          "jubriljammal69@gmail.com"
+          "info@halogen-group.com"
         ]
       }
     }
