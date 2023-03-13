@@ -57,6 +57,8 @@ import { OutsourcingComponent } from './Pages/outsourcing/outsourcing.component'
 import { PostdetailsComponent } from './Components/postdetails/postdetails.component';
 import { VideoboxComponent } from './Components/videobox/videobox.component';
 import { VideopageComponent } from './Pages/videopage/videopage.component';
+import { GdprpopupComponent } from './Components/gdprpopup/gdprpopup.component';
+import { PolicyComponent } from './Pages/policy/policy.component';
 
 @NgModule({
   declarations: [
@@ -101,6 +103,8 @@ import { VideopageComponent } from './Pages/videopage/videopage.component';
     PostdetailsComponent,
     VideoboxComponent,
     VideopageComponent,
+    GdprpopupComponent,
+    PolicyComponent,
 
   ],
   imports: [

@@ -136,6 +136,23 @@
   font-size: clamp(0.75rem, 0.5156rem + 0.75vw, 0.9375rem);
   color: #fff;
   letter-spacing: 2px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex: 1;
+}
+
+.privacy-policy {
+  font-size: 13px;
+  cursor: pointer;
+  letter-spacing: normal;
+  margin-right: 20px;
+}
+
+.privacy-policy:hover {
+  text-decoration: underline;
+  color: #FCBE00;
+  cursor: pointer;
 }
 
 .socials {

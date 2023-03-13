@@ -21,7 +21,8 @@ import { SecurityEducationComponent } from './Pages/security-education/security-
 import { OutsourcingComponent } from './Pages/outsourcing/outsourcing.component';
 import { PostdetailsComponent } from './Components/postdetails/postdetails.component';
 import { VideopageComponent } from './Pages/videopage/videopage.component';
-
+import { GdprpopupComponent } from './Components/gdprpopup/gdprpopup.component';
+import { PolicyComponent } from './Pages/policy/policy.component';
 
 
 const routes: Routes = [
@@ -123,6 +124,10 @@ const routes: Routes = [
   {
     component: VideopageComponent,
     path: 'gallery/videos/:id'
+  },
+  {
+    component: PolicyComponent,
+    path: 'privacy-policy'
   },
 ]
 
