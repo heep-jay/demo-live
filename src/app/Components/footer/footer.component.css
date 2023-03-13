@@ -155,6 +155,11 @@
   cursor: pointer;
 }
 
+.d-links {
+  display: flex;
+  align-items: center;
+}
+
 .socials {
   display: flex;
   gap: 2rem;

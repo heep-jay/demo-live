@@ -64,11 +64,16 @@
   width: 30%;
 }
 
+.contentLeft p::first-letter {
+  text-transform: uppercase;
+}
+
 .contentLeft p {
   font-size: 16px;
   line-height: 1.5625;
   font-weight: 500;
   color: #15a0d4;
+  text-transform: lowercase;
   cursor: pointer;
 }
 
@@ -77,6 +82,10 @@
   flex-direction: column;
   gap: 0.5rem;
   width: 65%;
+}
+
+.policyHeading {
+  text-transform: capitalize;
 }
 
 .policyMainHeader {
