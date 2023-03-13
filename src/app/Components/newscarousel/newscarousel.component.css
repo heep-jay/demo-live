@@ -48,6 +48,7 @@
   width: 90%;
   float: right;
   min-width: 300px;
+  border-radius: 10px;
 }
 
 
@@ -73,6 +74,7 @@
   height: auto;
   max-height: 380px;
   object-fit: cover;
+  border-radius: 12px;
   cursor: pointer;
 }
 

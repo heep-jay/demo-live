@@ -6,6 +6,14 @@
   display: none;
 }
 
+.vr {
+  border-right: 0.5px solid lightslategray;
+  min-height: 330px;
+  position: absolute;
+  right: -8px;
+  top: 60px;
+}
+
 @media screen and (min-width: 1300px) {
   .megas-menu-off {
     display: none;
@@ -54,7 +62,7 @@
   }
 
   .menu__column {
-
+    position: relative;
     width: 100%;
     display: flex;
     flex-direction: column;

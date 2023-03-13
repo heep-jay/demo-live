@@ -55,6 +55,7 @@
   object-fit: cover;
   float: right;
   min-width: 300px;
+  border-radius: 10px;
 }
 
 

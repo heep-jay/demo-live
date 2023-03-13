@@ -10,6 +10,7 @@ export class PolicyComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    window.scrollTo(0, 0);
   }
   scrolll(data: any) {
     console.log(data)

@@ -62,6 +62,10 @@
   flex-direction: column;
   gap: 0.5rem;
   width: 30%;
+  background: #fcfbfb;
+  padding: 1rem;
+  border-radius: 10px;
+  /* height: 60vh; */
 }
 
 .contentLeft p::first-letter {
