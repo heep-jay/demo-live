@@ -59,6 +59,7 @@ import { VideoboxComponent } from './Components/videobox/videobox.component';
 import { VideopageComponent } from './Pages/videopage/videopage.component';
 import { GdprpopupComponent } from './Components/gdprpopup/gdprpopup.component';
 import { PolicyComponent } from './Pages/policy/policy.component';
+import { TofuseComponent } from './Pages/tofuse/tofuse.component';
 
 @NgModule({
   declarations: [
@@ -105,6 +106,7 @@ import { PolicyComponent } from './Pages/policy/policy.component';
     VideopageComponent,
     GdprpopupComponent,
     PolicyComponent,
+    TofuseComponent,
 
   ],
   imports: [

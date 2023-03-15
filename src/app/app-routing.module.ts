@@ -23,6 +23,8 @@ import { PostdetailsComponent } from './Components/postdetails/postdetails.compo
 import { VideopageComponent } from './Pages/videopage/videopage.component';
 import { GdprpopupComponent } from './Components/gdprpopup/gdprpopup.component';
 import { PolicyComponent } from './Pages/policy/policy.component';
+import { TofuseComponent } from './Pages/tofuse/tofuse.component';
+
 
 
 const routes: Routes = [
@@ -128,6 +130,10 @@ const routes: Routes = [
   {
     component: PolicyComponent,
     path: 'privacy-policy'
+  },
+  {
+    component: TofuseComponent,
+    path: 'terms-of-use'
   },
 ]
 
