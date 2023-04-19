@@ -6,7 +6,6 @@ import { MatIconModule } from '@angular/material/icon';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http'
 import { CommonModule } from '@angular/common';
-
 import { AppComponent } from './app.component';
 import { ListComponent } from './Page/list/list.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -15,6 +14,9 @@ import { IvyCarouselModule } from 'carousel-angular';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MarkdownModule } from 'ngx-markdown';
+
+
+
 
 import { HomecarouselComponent } from './Components/homecarousel/homecarousel.component';
 import { FooterComponent } from './Components/footer/footer.component';
@@ -60,6 +62,7 @@ import { VideopageComponent } from './Pages/videopage/videopage.component';
 import { GdprpopupComponent } from './Components/gdprpopup/gdprpopup.component';
 import { PolicyComponent } from './Pages/policy/policy.component';
 import { TofuseComponent } from './Pages/tofuse/tofuse.component';
+import { AnalyticalComponent } from './Pages/analytical/analytical.component';
 
 @NgModule({
   declarations: [
@@ -107,6 +110,7 @@ import { TofuseComponent } from './Pages/tofuse/tofuse.component';
     GdprpopupComponent,
     PolicyComponent,
     TofuseComponent,
+    AnalyticalComponent,
 
   ],
   imports: [

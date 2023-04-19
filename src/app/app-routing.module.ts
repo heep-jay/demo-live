@@ -24,6 +24,7 @@ import { VideopageComponent } from './Pages/videopage/videopage.component';
 import { GdprpopupComponent } from './Components/gdprpopup/gdprpopup.component';
 import { PolicyComponent } from './Pages/policy/policy.component';
 import { TofuseComponent } from './Pages/tofuse/tofuse.component';
+import { AnalyticalComponent } from './Pages/analytical/analytical.component';
 
 
 
@@ -134,6 +135,10 @@ const routes: Routes = [
   {
     component: TofuseComponent,
     path: 'terms-of-use'
+  },
+  {
+    component: AnalyticalComponent,
+    path: 'analytical'
   },
 ]
 

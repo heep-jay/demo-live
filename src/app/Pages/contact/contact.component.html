@@ -1,41 +1,46 @@
 <div class="contact">
   <div class="contact__header">
     <div class="contact__header-text">
-
       <h1>CONTACT US</h1>
     </div>
   </div>
   <div class="contact__body">
     <div class="contact__info">
       <div class="contact__info-items">
-        <h4>{{name}}</h4>
+        <h4>{{ name }}</h4>
         <div class="info-item">
-          <p><mat-icon>location_on</mat-icon>{{add}}</p>
-          <p><mat-icon>mail</mat-icon>{{email}}</p>
-          <p><mat-icon>phone</mat-icon>{{phone}}</p>
+          <p><mat-icon>location_on</mat-icon>{{ add }}</p>
+          <p><mat-icon>mail</mat-icon>{{ email }}</p>
+          <p><mat-icon>phone</mat-icon>{{ phone }}</p>
           <div class="info-icon">
-            <img src="/assets/images/fb.png" alt="">
-            <img src="/assets/images/ig.png" alt="">
-            <img src="/assets/images/ig.png" alt="">
+            <img src="/assets/images/fb.png" alt="" />
+            <img src="/assets/images/ig.png" alt="" />
+            <img src="/assets/images/ig.png" alt="" />
           </div>
         </div>
       </div>
       <div class="contact__info-items">
         <h4>Office locations</h4>
         <div class="info-map">
-          <iframe [src]=" src | safe:'resourceUrl' " class="resp-iframe" loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <iframe
+            [src]="src | safe : 'resourceUrl'"
+            class="resp-iframe"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
 
           <div class="info-select">
             <mat-icon>location_on</mat-icon>
             <select #address (change)="onSelected(address.value)" name="" id="">
-              <option value="{{loc.attributes.locationVal}}" *ngFor="let loc of locations">
-                {{loc.attributes.locationName}}
+              <option
+                value="{{ loc.attributes.locationVal }}"
+                *ngFor="let loc of locations"
+              >
+                {{ loc.attributes.locationName }}
               </option>
             </select>
           </div>
         </div>
-
       </div>
     </div>
     <div class="contact__message">
@@ -43,55 +48,78 @@
       <form class="contact-form" (ngSubmit)="onSubmit()">
         <div class="form_input">
           <label for="name">Name</label>
-          <input name="formName" type="text" [(ngModel)]="formName" id="name">
+          <input name="formName" type="text" [(ngModel)]="formName" id="name" />
         </div>
         <div class="form_input">
           <label for="email">Email</label>
-          <input type="email" [(ngModel)]="formEmail" name="formEmail" id="email">
+          <input
+            type="email"
+            [(ngModel)]="formEmail"
+            name="formEmail"
+            id="email"
+          />
         </div>
-        <!-- <div class="form_select">
-          <label for="service">Service</label>
-          <div class="select-div">
-            <select #service (change)="onSelectService(service.value)" [(ngModel)]="formSubject" name="service">
-              <option>Select Service</option>
-              <option *ngFor="let item of services" value="{{item.attributes.productName}}">
-                {{item.attributes.productName}}</option>
-            </select>
-          </div>
-        </div> -->
+
         <div class="form_select">
           <label for="service">Service</label>
           <mat-form-field appearance="outline">
             <!-- <mat-label>Services</mat-label> -->
-            <mat-select multiple [(ngModel)]="formSubject" name="service" panelClass="my-select-panel-class">
-              <mat-option *ngFor="let t of test" [value]="t">{{t}}</mat-option>
+            <mat-select
+              multiple
+              [(ngModel)]="formSubject"
+              name="service"
+              panelClass="my-select-panel-class"
+            >
+              <mat-option *ngFor="let t of test" [value]="t">{{
+                t
+              }}</mat-option>
             </mat-select>
           </mat-form-field>
         </div>
 
-
-
         <div class="form_input">
           <label for="">Subject</label>
-          <input name="formSubject" value="{{formSubject}}" id="formSubject" type="text">
+          <input
+            name="formSubject"
+            value="{{ formSubject }}"
+            id="formSubject"
+            type="text"
+          />
         </div>
         <div class="form_textarea">
           <label for="">Message</label>
-          <textarea name="formMessage" [(ngModel)]="formMessage" id="formMessage" rows="10" cols="50"></textarea>
+          <textarea
+            name="formMessage"
+            [(ngModel)]="formMessage"
+            id="formMessage"
+            rows="10"
+            cols="50"
+          ></textarea>
         </div>
         <div class="send-btn">
-          <button (click)="openDialog(content)" type="submit">Contact Us</button>
+          <button (click)="openDialog(content)" type="submit">
+            Contact Us
+          </button>
         </div>
 
         <ng-template #content>
           <div class="dg-image">
-            <img src="/assets/images/message.png" alt="">
+            <img src="/assets/images/message.png" alt="" />
           </div>
           <div mat-dialog-content class="dg-content">
             <p>Email Succesfully Sent!!!</p>
           </div>
-          <div style="display: flex; align-items: center; justify-content: center;" mat-dialog-actions>
-            <button style="border: none; padding: 0.5rem 1.2rem;" mat-button mat-dialog-close>Close</button>
+          <div
+            style="display: flex; align-items: center; justify-content: center"
+            mat-dialog-actions
+          >
+            <button
+              style="border: none; padding: 0.5rem 1.2rem"
+              mat-button
+              mat-dialog-close
+            >
+              Close
+            </button>
           </div>
         </ng-template>
       </form>
