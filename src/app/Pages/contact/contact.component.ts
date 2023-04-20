@@ -25,7 +25,8 @@ export class ContactComponent implements OnInit {
   locationSrc: string = "";
   src: string = ""
   formName: string = "";
-  formEmail: any = ""
+  formEmail: any = "";
+  formTel:any = "";
   formSubject: string = "";
   formMessage: string = "";
   formData: any;
@@ -88,7 +89,7 @@ export class ContactComponent implements OnInit {
       },
       "halogenEmailInfo": {
         "name": this.formName,
-        "mobileNumber": "",
+        "mobileNumber": this.formTel,
         "message": this.formMessage,
         "halogenEmail": [
           "info@halogen-group.com"
@@ -101,6 +102,7 @@ export class ContactComponent implements OnInit {
     this.formName = ""
     this.formSubject = ""
     this.formEmail = ""
+    this.formTel = ""
   }
   openDialog(content: any) {
     this.dialog.open(content);

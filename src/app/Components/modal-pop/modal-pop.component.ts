@@ -13,6 +13,7 @@ export class ModalPopComponent implements OnInit {
   formEmail: any = ""
   formSubject: string = "";
   formMessage: string = "";
+  formTel:any = "";
   formData: any;
   selectedService = ""
   constructor(private api: ApiService, public dialog: MatDialog) { }
@@ -30,7 +31,7 @@ export class ModalPopComponent implements OnInit {
       },
       "halogenEmailInfo": {
         "name": this.formName,
-        "mobileNumber": "",
+        "mobileNumber": this.formTel,
         "message": this.formMessage,
         "halogenEmail": [
           "info@halogen-group.com"
@@ -43,6 +44,7 @@ export class ModalPopComponent implements OnInit {
     this.formName = ""
     this.formSubject = ""
     this.formEmail = ""
+    this.formTel = ""
   }
 
   onSelectService(service: any) {

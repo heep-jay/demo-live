@@ -15,6 +15,7 @@ export class ServicemodalComponent implements OnInit {
   formMessage: string = "";
   formData: any;
   formFname: string = ""
+  formTel:any = "";
   formLname: string = ""
 
   constructor(private api: ApiService, public dialog: MatDialog) { }
@@ -34,7 +35,7 @@ export class ServicemodalComponent implements OnInit {
       },
       "halogenEmailInfo": {
         "name": this.formName,
-        "mobileNumber": "",
+        "mobileNumber": this.formTel,
         "message": this.formMessage,
         "halogenEmail": [
           "info@halogen-group.com"
@@ -49,6 +50,7 @@ export class ServicemodalComponent implements OnInit {
     this.formEmail = ""
     this.formFname = ""
     this.formLname = ""
+    this.formTel = ""
   }
   openDialog(content: any) {
     this.dialog.open(content);
