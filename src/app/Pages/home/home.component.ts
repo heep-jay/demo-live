@@ -43,4 +43,5 @@ export class HomeComponent implements OnInit {
   redirect(url: string) {
     window.location.href = `https://halogen-group.com/new-website/${url}`
   }
+
 }
