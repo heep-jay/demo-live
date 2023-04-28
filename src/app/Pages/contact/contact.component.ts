@@ -92,7 +92,7 @@ export class ContactComponent implements OnInit {
         "mobileNumber": this.formTel,
         "message": this.formMessage,
         "halogenEmail": [
-          "info@halogen-group.com"
+          "jubrilmuritala69@gmail.com"
         ]
       }
     }

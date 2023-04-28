@@ -26,12 +26,11 @@ export class HomeComponent implements OnInit {
 
     this.api.getHomePage().subscribe((data: any) => {
       // this.homes = data.attributes
-      // // this.name = data.name
+      // this.name = data.name
       this.businessSectionHeader = data.attributes.businessSectionHeader;
       this.businessSectionSubHeader = data.attributes.businessSectionSubHeader;
       this.reviewHeader = data.attributes.reviewHeader
       this.banner = data?.attributes.banners.data
-
       this.fybLeft = data.attributes.fyblefts.data
       this.fybRight = data.attributes.fybrights.data
       console.log(this.banner)

@@ -5,33 +5,47 @@
   <section class="home__business">
     <div class="business">
       <div class="business__header">
-        <h1>{{businessSectionHeader}}</h1>
-        <p>{{businessSectionSubHeader}}</p>
+        <h1>{{ businessSectionHeader }}</h1>
+        <p>{{ businessSectionSubHeader }}</p>
       </div>
       <div class="business__solutions">
         <div class="business__solutions-left">
           <div class="solution-cols" *ngFor="let fl of fybLeft">
-            <div routerLink="{{fl.attributes.url}}"
-              [className]="fl.attributes.active ? 'solution-icon icon-secondary' : 'solution-icon icon-primary'">
-              <mat-icon>{{fl.attributes.solutionIcon}}</mat-icon>
+            <div
+              routerLink="{{ fl.attributes.url }}"
+              [className]="
+                fl.attributes.active
+                  ? 'solution-icon icon-secondary'
+                  : 'solution-icon icon-primary'
+              "
+            >
+              <mat-icon>{{ fl.attributes.solutionIcon }}</mat-icon>
             </div>
             <div class="solution-text">
-              <h5 routerLink="{{fl.attributes.url}}">{{fl.attributes.solutionName}}</h5>
-              <p>{{fl.attributes.solutionDescription}}</p>
+              <h5 routerLink="{{ fl.attributes.url }}">
+                {{ fl.attributes.solutionName }}
+              </h5>
+              <p>{{ fl.attributes.solutionDescription }}</p>
             </div>
           </div>
-
         </div>
         <div class="business__solutions-right">
           <div class="solution-cols" *ngFor="let fr of fybRight">
-            <div routerLink="{{fr.attributes.url}}"
-              [className]="fr.attributes.active ? 'solution-icon icon-secondary' : 'solution-icon icon-primary'">
-              <mat-icon>{{fr.attributes.solutionIcon}}</mat-icon>
+            <div
+              routerLink="{{ fr.attributes.url }}"
+              [className]="
+                fr.attributes.active
+                  ? 'solution-icon icon-secondary'
+                  : 'solution-icon icon-primary'
+              "
+            >
+              <mat-icon>{{ fr.attributes.solutionIcon }}</mat-icon>
             </div>
             <div class="solution-text">
-              <h5 routerLink="{{fr.attributes.url}}">{{fr.attributes.solutionName}}</h5>
-              <p>{{fr.attributes.solutionDescription}}
-              </p>
+              <h5 routerLink="{{ fr.attributes.url }}">
+                {{ fr.attributes.solutionName }}
+              </h5>
+              <p>{{ fr.attributes.solutionDescription }}</p>
             </div>
           </div>
         </div>
@@ -39,33 +53,34 @@
     </div>
   </section>
   <section class="home__halo">
-
     <div class="home__halosphere">
       <div class="halosphere_inner">
         <div class="halosphere_left">
-          <img src="./assets/images/newfine.png" alt="">
+          <img src="./assets/images/rollsafenew.png" alt="" />
         </div>
         <div class="halosphere_right">
           <div class="halosphere_right-text">
-            <h1>Explore the <span>Halosphere</span>,
-              Our Digital World at your fingertips.
-              <span (click)="halo()"><button class="halo-btn">Enter Halosphere<mat-icon
-                    class="halo-icon">arrow_circle_right</mat-icon></button></span>
-            </h1>
-
-
+            <h3>Explore the</h3>
+            <h1>hal<span style="color: #e0ab10">o</span>sphere</h1>
+            <p>
+              An all new digital ecosystem that houses various platforms, aimed
+              at providing solutions to day-to-day business and personal
+              problems with ease and speed.
+            </p>
+            <div class="sphere-btn">
+              <button>Get Started</button>
+            </div>
           </div>
-          <img src="./assets/images/left.png" alt="" class="bird_a">
+          <!-- <img src="./assets/images/left.png" alt="" class="bird_a">
           <img src="./assets/images/left.png" alt="" class="bird_b">
           <img src="./assets/images/right.png" alt="" class="bird_c">
           <img src="./assets/images/right.png" alt="" class="bird_d">
           <img src="./assets/images/right.png" alt="" class="bird_e">
           <img src="./assets/images/cloud.png" alt="" class="cloud_a">
-          <img src="./assets/images/cloud.png" alt="" class="cloud_b">
+          <img src="./assets/images/cloud.png" alt="" class="cloud_b"> -->
         </div>
       </div>
     </div>
-
   </section>
   <section class="home__clients">
     <div class="home__client">
@@ -78,14 +93,12 @@
           <app-clientcarousel></app-clientcarousel>
         </div>
       </div>
-
     </div>
-
   </section>
   <div class="client__reviews">
     <div class="client_re">
       <div class="client__reviews-header">
-        <h1>{{reviewHeader}}</h1>
+        <h1>{{ reviewHeader }}</h1>
 
         <div class="arrows">
           <mat-icon>arrow_back</mat-icon>
@@ -94,63 +107,79 @@
       </div>
       <div class="client__reviews-content">
         <div class="reviews-content">
-          <h5>“Solution Driven” </h5>
-          <p class="reviews-content-p">"I have been working with Halogen Security for the past five years, and I am
-            continually impressed with their level of service. The staff is friendly and knowledgeable and always
-            willing to help. In addition, the products and services they offer are of the highest quality and have
-            allowed me to expand my business in ways I never imagined. I highly recommend Halogen Security to anyone
-            looking
-            for quality products and services."
+          <h5>“Solution Driven”</h5>
+          <p class="reviews-content-p">
+            "I have been working with Halogen Security for the past five years,
+            and I am continually impressed with their level of service. The
+            staff is friendly and knowledgeable and always willing to help. In
+            addition, the products and services they offer are of the highest
+            quality and have allowed me to expand my business in ways I never
+            imagined. I highly recommend Halogen Security to anyone looking for
+            quality products and services."
           </p>
           <div class="review-author">
             <img
               src="https://www.thefamouspersonalities.com/media/profile_uploads/2022/09/business-men-mike-bloomberg.jpg"
-              alt="">
+              alt=""
+            />
             <div class="author__">
               <p class="author-name">Wilson Thai</p>
               <p class="author-location">Ontario, Canada</p>
               <p class="author-star">
-                <mat-icon>star</mat-icon><mat-icon>star</mat-icon><mat-icon>star</mat-icon><mat-icon>star</mat-icon><mat-icon>star</mat-icon>
+                <mat-icon>star</mat-icon><mat-icon>star</mat-icon
+                ><mat-icon>star</mat-icon><mat-icon>star</mat-icon
+                ><mat-icon>star</mat-icon>
               </p>
             </div>
           </div>
         </div>
         <div class="reviews-content">
-          <h5>“Massively impact business in the positive direction” </h5>
-          <p class="reviews-content-p">"I have been using Halogen Group for the past year and have been delighted with
-            their services. The customer service is outstanding, and they have always gone above and beyond to meet my
-            needs. Their product is top-notch, and I have made my business more efficient because of their software. I
-            highly recommend Halogen!"
+          <h5>“Massively impact business in the positive direction”</h5>
+          <p class="reviews-content-p">
+            "I have been using Halogen Group for the past year and have been
+            delighted with their services. The customer service is outstanding,
+            and they have always gone above and beyond to meet my needs. Their
+            product is top-notch, and I have made my business more efficient
+            because of their software. I highly recommend Halogen!"
           </p>
           <div class="review-author">
             <img
               src="https://media.istockphoto.com/id/1347495868/photo/smiling-african-american-man-wearing-glasses.jpg?b=1&s=170667a&w=0&k=20&c=CVpXibLIGjpa2_sFFgt_ejrz06ULDMZy0ylqK-VnZRU="
-              alt="">
+              alt=""
+            />
             <div class="author__">
               <p class="author-name">Chukwu Emeka</p>
               <p class="author-location">Abuja, FCT</p>
               <p class="author-star">
-                <mat-icon>star</mat-icon><mat-icon>star</mat-icon><mat-icon>star</mat-icon><mat-icon>star</mat-icon><mat-icon>star</mat-icon>
+                <mat-icon>star</mat-icon><mat-icon>star</mat-icon
+                ><mat-icon>star</mat-icon><mat-icon>star</mat-icon
+                ><mat-icon>star</mat-icon>
               </p>
             </div>
           </div>
         </div>
         <div class="reviews-content">
-          <h5>“They are the best in what they do!” </h5>
-          <p class="reviews-content-p">“I recently had the pleasure of working with Halogen Group. I was blown away by
-            the level of service and professionalism that the team provided. They provided me with high-quality products
-            and services and were always available to answer any questions. I highly recommend Halogen Group to anyone
-            looking for exceptional service and products.”
+          <h5>“They are the best in what they do!”</h5>
+          <p class="reviews-content-p">
+            “I recently had the pleasure of working with Halogen Group. I was
+            blown away by the level of service and professionalism that the team
+            provided. They provided me with high-quality products and services
+            and were always available to answer any questions. I highly
+            recommend Halogen Group to anyone looking for exceptional service
+            and products.”
           </p>
           <div class="review-author">
             <img
               src="https://st.focusedcollection.com/18590116/i/650/focused_444507230-stock-photo-portrait-african-american-male-businessman.jpg"
-              alt="">
+              alt=""
+            />
             <div class="author__">
               <p class="author-name">Jide Adams</p>
               <p class="author-location">Lagos, Nigeria</p>
               <p class="author-star">
-                <mat-icon>star</mat-icon><mat-icon>star</mat-icon><mat-icon>star</mat-icon><mat-icon>star</mat-icon><mat-icon>star</mat-icon>
+                <mat-icon>star</mat-icon><mat-icon>star</mat-icon
+                ><mat-icon>star</mat-icon><mat-icon>star</mat-icon
+                ><mat-icon>star</mat-icon>
               </p>
             </div>
           </div>
