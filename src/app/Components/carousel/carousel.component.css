@@ -3,7 +3,6 @@
   z-index: 99 !important;
 }
 
-
 .carousel-arrow .carousel-arrow-next::before {
   color: black !important;
   background: #000;
@@ -11,6 +10,15 @@
 
 .cell-image {
   position: relative;
+}
+.cell-img {
+}
+.cell-img img {
+  width: 100%;
+  max-width: 700px;
+  /* height: 800px; */
+  object-fit: contain;
+  border: 1px solid #000;
 }
 
 .cell-text {
@@ -36,7 +44,7 @@
   font-size: clamp(0.8125rem, 0.5rem + 1vw, 1.0625rem);
   line-height: 28px;
 
-  color: #2D3748;
+  color: #2d3748;
 }
 
 .carousel-text img {

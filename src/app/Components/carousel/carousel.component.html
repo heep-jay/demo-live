@@ -1,17 +1,20 @@
-<carousel arrowsTheme="dark" [arrowsOutside]="false" [arrows]="true" [dots]="true" [counter]="true" loop="true">
-  <div class="carousel-cell" *ngFor="let item of img">
-    <div class="cell-text">
-      <h2>{{sub}}</h2>
-      <p>{{item.attributes.clientReview}}</p>
-
-      <!-- <div class="cell-img">
-        <img [src]="item.attributes.clientImage.data.attributes.url" style="height: 50px;" alt="">
-      </div> -->
+<carousel
+  arrowsTheme="dark"
+  [arrowsOutside]="false"
+  [arrows]="true"
+  [dots]="true"
+  [counter]="true"
+  loop="true"
+>
+  <div class="carousel-cell" *ngFor="let item of clientlogos">
+    <div class="cell-img">
+      <img [src]="item.image" alt="" />
     </div>
-
+    <div class="cell-text">
+      <h2>{{ sub }}</h2>
+      <!-- <p>{{ item.attributes.clientReview }}</p> -->
+    </div>
   </div>
-
-
 
   <!-- <div class="carousel-cell">
 
@@ -34,5 +37,4 @@
       </div>
     </div>
   </div> -->
-
 </carousel>
