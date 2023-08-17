@@ -2,7 +2,7 @@
   <ngu-carousel
     #myCarousel
     [inputs]="carouselConfig"
-    [dataSource]="[first, second, third]"
+    [dataSource]="[first, second, third, fourth, fifth, sixth, seventh, eighth]"
   >
     <div *nguCarouselDef="let item" class="item">
       <div class="tile">
@@ -21,12 +21,37 @@
         <img src="/assets/images/clientlogo1.jpg" alt="" />
       </div>
     </ng-template>
-
     <ng-template #third>
       <div class="caro-body box">
         <img src="/assets/images/clientlogo2.jpg" alt="" />
       </div>
     </ng-template>
+    <ng-template #fourth>
+      <div class="caro-body box">
+        <img src="/assets/images/clientlogo3.jpg" alt="" />
+      </div>
+    </ng-template>
+    <ng-template #fifth>
+      <div class="caro-body box">
+        <img src="/assets/images/clientlogo4.jpg" alt="" />
+      </div>
+    </ng-template>
+    <ng-template #sixth>
+      <div class="caro-body box">
+        <img src="/assets/images/clientlogo5.jpg" alt="" />
+      </div>
+    </ng-template>
+    <ng-template #seventh>
+      <div class="caro-body box">
+        <img src="/assets/images/clientlogo6.jpg" alt="" />
+      </div>
+    </ng-template>
+    <ng-template #eighth>
+      <div class="caro-body box">
+        <img src="/assets/images/clientlogo7.jpg" alt="" />
+      </div>
+    </ng-template>
+
     <button NguCarouselNext class="rightRs showmore">
       <mat-icon>arrow_downward</mat-icon>
     </button>
