@@ -4,7 +4,7 @@ import { LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatIconModule } from '@angular/material/icon';
 import { AppRoutingModule } from './app-routing.module';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { AppComponent } from './app.component';
 import { ListComponent } from './Page/list/list.component';
@@ -14,9 +14,7 @@ import { IvyCarouselModule } from 'carousel-angular';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MarkdownModule } from 'ngx-markdown';
-
-
-
+import { NguCarouselModule } from '@ngu/carousel';
 
 import { HomecarouselComponent } from './Components/homecarousel/homecarousel.component';
 import { FooterComponent } from './Components/footer/footer.component';
@@ -86,8 +84,8 @@ import { AnalyticalComponent } from './Pages/analytical/analytical.component';
     SolutioncarouselComponent,
     OtherSolutionsComponent,
     ClientsComponent,
-    CarouselComponent,
     NewsComponent,
+    CarouselComponent,
     PostComponent,
     RelatedpostComponent,
     MinipostComponent,
@@ -111,7 +109,6 @@ import { AnalyticalComponent } from './Pages/analytical/analytical.component';
     PolicyComponent,
     TofuseComponent,
     AnalyticalComponent,
-
   ],
   imports: [
     BrowserModule,
@@ -126,10 +123,10 @@ import { AnalyticalComponent } from './Pages/analytical/analytical.component';
     NgbModule,
     MatSelectModule,
     MatDialogModule,
+    NguCarouselModule,
     MarkdownModule.forRoot(),
-
   ],
   providers: [{ provide: LocationStrategy, useClass: PathLocationStrategy }],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

@@ -1,4 +1,13 @@
-import { Component, OnInit, Input } from '@angular/core';
+import {
+  Component,
+  ViewChild,
+  ChangeDetectorRef,
+  NgIterable,
+  OnInit,
+  AfterViewInit,
+  Input,
+} from '@angular/core';
+import { NguCarousel, NguCarouselConfig } from '@ngu/carousel';
 
 interface Logos {
   image: string;
@@ -44,12 +53,45 @@ const client_logos: Logos[] = [
   templateUrl: './carousel.component.html',
   styleUrls: ['./carousel.component.css'],
 })
-export class CarouselComponent implements OnInit {
+export class CarouselComponent implements AfterViewInit {
   @Input() img: any;
   @Input() sub!: string;
   images = [944, 1011, 984].map((n) => `https://picsum.photos/id/${n}/900/500`);
-  constructor() {}
+  // constructor() {}
   clientlogos = client_logos;
   active: boolean = false;
-  ngOnInit(): void {}
+  sections: any;
+  navigation: any;
+
+  slideNo = 0;
+  withAnim = true;
+  resetAnim = true;
+  // ngOnInit(): void {}
+
+  @ViewChild('myCarousel') myCarousel!: NguCarousel<any>;
+  carouselConfig: NguCarouselConfig = {
+    grid: { xs: 1, sm: 1, md: 1, lg: 1, all: 0 },
+    load: 3,
+    interval: { timing: 4000, initialDelay: 1000 },
+    loop: true,
+    touch: true,
+    velocity: 0.2,
+    vertical: {
+      enabled: true,
+      height: 850,
+    },
+  };
+  constructor(private cdr: ChangeDetectorRef) {}
+
+  ngAfterViewInit() {
+    this.cdr.detectChanges();
+  }
+
+  reset() {
+    this.myCarousel.reset(!this.resetAnim);
+  }
+
+  moveTo(slide: any) {
+    this.myCarousel.moveTo(slide, !this.withAnim);
+  }
 }

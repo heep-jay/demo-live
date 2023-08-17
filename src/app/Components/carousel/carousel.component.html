@@ -1,40 +1,44 @@
-<carousel
-  arrowsTheme="dark"
-  [arrowsOutside]="false"
-  [arrows]="true"
-  [dots]="true"
-  [counter]="true"
-  loop="true"
->
-  <div class="carousel-cell" *ngFor="let item of clientlogos">
-    <div class="cell-img">
-      <img [src]="item.image" alt="" />
-    </div>
-    <div class="cell-text">
-      <h2>{{ sub }}</h2>
-      <!-- <p>{{ item.attributes.clientReview }}</p> -->
-    </div>
-  </div>
-
-  <!-- <div class="carousel-cell">
-
-    <div class="cell-text">
-      <h2>Our Client Says</h2>
-      <p>“Lörem ipsum egogåde gyssa. Fare egoligen. Lakask velädera tuktiga, monoseras. Lörem ipsum egogåde gyssa. Fare
-        egoligen. Lakask velädera tuktiga, monoseras”.</p>
-      <div class="cell-img">
-        <img src="/assets/images/kuda.png" style="height: 50px;" alt="">
+<div class="caro-container">
+  <ngu-carousel
+    #myCarousel
+    [inputs]="carouselConfig"
+    [dataSource]="[first, second, third]"
+  >
+    <div *nguCarouselDef="let item" class="item">
+      <div class="tile">
+        <ng-container *ngTemplateOutlet="item"></ng-container>
       </div>
     </div>
-  </div>
-  <div class="carousel-cell">
-    <div class="cell-text">
-      <h2>Our Client Says</h2>
-      <p>“Lörem ipsum egogåde gyssa. Fare egoligen. Lakask velädera tuktiga, monoseras. Lörem ipsum egogåde gyssa. Fare
-        egoligen. Lakask velädera tuktiga, monoseras”.</p>
-      <div class="cell-img">
-        <img src="/assets/images/firstbank.png" style="height: 50px;" alt="">
+
+    <ng-template #first>
+      <div class="caro-body box">
+        <img src="/assets/images/clientlogo.jpg" alt="" />
       </div>
-    </div>
-  </div> -->
-</carousel>
+    </ng-template>
+
+    <ng-template #second>
+      <div class="caro-body box">
+        <img src="/assets/images/clientlogo1.jpg" alt="" />
+      </div>
+    </ng-template>
+
+    <ng-template #third>
+      <div class="caro-body box">
+        <img src="/assets/images/clientlogo2.jpg" alt="" />
+      </div>
+    </ng-template>
+    <button NguCarouselNext class="rightRs showmore">
+      <mat-icon>arrow_downward</mat-icon>
+    </button>
+    <!-- <button NguCarouselNext class="rightRs">></button> -->
+    <!-- <button NguCarouselPrev class="leftRs"><</button> -->
+
+    <!-- <ul class="myPoint" NguCarouselPoint>
+    <li
+      *ngFor="let x of myCarousel.pointNumbers; let x = index"
+      [class.active]="x == myCarousel.activePoint"
+      (click)="myCarousel.moveTo(x)"
+    ></li>
+  </ul> -->
+  </ngu-carousel>
+</div>
