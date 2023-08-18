@@ -1,6 +1,13 @@
 <div class="minipost">
-  <img src="{{post.image}}" alt="" routerLink="/news-events/news/2" class="minipost__img">
-  <h4 class="minipost__title">{{post.title}}</h4>
-  <p class="minipost__text">{{post.smallText}}</p>
-  <button class="minipost__btn" routerLink="/news-events/news/2">More <mat-icon>chevron_right</mat-icon></button>
+  <img
+    src="{{ post.attributes.mainImage.data.attributes.url }}"
+    alt=""
+    routerLink="/news-events/blog/{{ post.id }}"
+    class="minipost__img"
+  />
+  <h4 class="minipost__title">{{ post.attributes.title }}</h4>
+  <p class="minipost__text">{{ post.attributes.summary }}</p>
+  <button class="minipost__btn" routerLink="/news-events/blog/{{ post.id }}">
+    More <mat-icon>chevron_right</mat-icon>
+  </button>
 </div>

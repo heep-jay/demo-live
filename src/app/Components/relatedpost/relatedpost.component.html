@@ -1,8 +1,8 @@
 <div class="relatedpost">
-  <h3>{{guide}}</h3>
-  <h3>{{rel}}</h3>
-  <h1>{{bold}}</h1>
+  <h3>{{ guide }}</h3>
+  <h3>{{ rel }}</h3>
+  <h1>{{ bold }}</h1>
   <div class="relatedPosts">
-    <app-minipost [post]="post" *ngFor="let post of posts"></app-minipost>
+    <app-relpost [post]="post" *ngFor="let post of posts"></app-relpost>
   </div>
 </div>

@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-
 import { HomeComponent } from './Pages/home/home.component';
 import { CyberSecurityComponent } from './Pages/cyber-security/cyber-security.component';
 import { RiskComponent } from './Pages/risk/risk.component';
@@ -25,125 +24,130 @@ import { GdprpopupComponent } from './Components/gdprpopup/gdprpopup.component';
 import { PolicyComponent } from './Pages/policy/policy.component';
 import { TofuseComponent } from './Pages/tofuse/tofuse.component';
 import { AnalyticalComponent } from './Pages/analytical/analytical.component';
-
-
+import { BlogdetailsComponent } from './Components/blogdetails/blogdetails.component';
 
 const routes: Routes = [
   {
     component: HomeComponent,
-    path: ''
+    path: '',
   },
   {
     component: CyberSecurityComponent,
-    path: 'cyber-security'
+    path: 'cyber-security',
   },
 
   {
     component: CyberSecurityComponent,
-    path: 'cyber-security/:id'
-  }, {
-    component: RiskComponent,
-    path: 'risk-advisory-and-consulting'
+    path: 'cyber-security/:id',
   },
   {
     component: RiskComponent,
-    path: 'risk-advisory-and-consulting/:id'
+    path: 'risk-advisory-and-consulting',
+  },
+  {
+    component: RiskComponent,
+    path: 'risk-advisory-and-consulting/:id',
   },
   {
     component: AboutComponent,
-    path: 'about-us'
+    path: 'about-us',
   },
   {
     component: ContactComponent,
-    path: 'contact'
+    path: 'contact',
   },
   {
     component: WhychooseUsComponent,
-    path: 'why-choose-us'
+    path: 'why-choose-us',
   },
   {
     component: OtherSolutionsComponent,
-    path: 'other-security-solutions'
+    path: 'other-security-solutions',
   },
   {
     component: ClientsComponent,
-    path: 'our-clients'
+    path: 'our-clients',
   },
   {
     component: PostComponent,
-    path: 'post'
+    path: 'post',
   },
   {
     component: NewsComponent,
-    path: 'news-events'
+    path: 'news-events',
   },
   {
     component: GalleryPageComponent,
-    path: 'gallery/photos/:id'
+    path: 'gallery/photos/:id',
   },
   {
     component: GalleryComponent,
-    path: 'gallery'
+    path: 'gallery',
   },
   {
     component: HalogenNavComponent,
-    path: 'allnav'
+    path: 'allnav',
   },
   {
     component: SecurityTechnologiesComponent,
-    path: 'security-technologies'
+    path: 'security-technologies',
   },
   {
     component: SecurityTechnologiesComponent,
-    path: 'security-technologies/:id'
+    path: 'security-technologies/:id',
   },
   {
     component: PhysicalSecurityComponent,
-    path: 'physical-security'
+    path: 'physical-security',
   },
   {
     component: PhysicalSecurityComponent,
-    path: 'physical-security/:id'
+    path: 'physical-security/:id',
   },
   {
     component: SecurityEducationComponent,
-    path: 'security-seducation'
+    path: 'security-seducation',
   },
   {
     component: SecurityEducationComponent,
-    path: 'security-seducation/:id'
-  }, {
-    component: OutsourcingComponent,
-    path: 'outsourcing-investigations-identity'
+    path: 'security-seducation/:id',
   },
   {
     component: OutsourcingComponent,
-    path: 'outsourcing-investigations-identity/:id'
+    path: 'outsourcing-investigations-identity',
+  },
+  {
+    component: OutsourcingComponent,
+    path: 'outsourcing-investigations-identity/:id',
   },
   {
     component: PostdetailsComponent,
-    path: 'news-events/news/:id'
+    path: 'news-events/news/:id',
+  },
+  {
+    component: BlogdetailsComponent,
+    path: 'news-events/blog/:id',
   },
   {
     component: VideopageComponent,
-    path: 'gallery/videos/:id'
+    path: 'gallery/videos/:id',
   },
   {
     component: PolicyComponent,
-    path: 'privacy-policy'
+    path: 'privacy-policy',
   },
   {
     component: TofuseComponent,
-    path: 'terms-of-use'
+    path: 'terms-of-use',
   },
   {
     component: AnalyticalComponent,
-    path: 'analytical'
+    path: 'analytical',
   },
-]
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

@@ -3,7 +3,7 @@
   flex-direction: column;
 
   margin: 4rem auto 0 auto;
-  gap: 4rem;
+  gap: 3rem;
 }
 
 .new__mainPost {
@@ -33,7 +33,6 @@
 
 .mainpost_content img {
   width: 100%;
-
 }
 
 .mainpost_title h2 {
@@ -41,13 +40,13 @@
   font-weight: 600;
   line-height: 50px;
   margin: 0;
-  color: #1C2B66;
+  color: #1c2b66;
 }
 
 .mainpost_content p {
   font-size: clamp(1rem, 0.8214rem + 0.5714vw, 1.5rem);
   line-height: 30px;
-  color: #0A0A0A;
+  color: #0a0a0a;
 }
 
 .mainpost_content-btn button {
@@ -71,7 +70,7 @@
 .mainPost_related h3 {
   font-size: clamp(0.875rem, 0.7857rem + 0.2857vw, 1.125rem);
   font-weight: 600;
-  color: #1C2B66;
+  color: #1c2b66;
   margin: 0;
 }
 
@@ -86,20 +85,22 @@
 }
 
 .news__header-text {
-  color: #0A0A0A;
+  color: #0a0a0a;
   font-size: clamp(0.75rem, 0.4375rem + 1vw, 1rem);
 }
 
 .news__posts {
   width: 90%;
-  margin: auto;
+  /* margin: auto; */
   max-width: 1300px;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   grid-gap: 30px;
   padding: 20px;
   margin: 0 auto;
   row-gap: 1rem;
+  justify-content: center;
+  align-items: center;
 }
 
 .news__show {
@@ -112,7 +113,7 @@
   background: #fff;
   border: none;
   outline: none;
-  color: #1C2B66;
+  color: #1c2b66;
   font-size: clamp(0.875rem, 0.6406rem + 0.75vw, 1.0625rem);
   align-items: center;
   cursor: pointer;
@@ -134,8 +135,7 @@
 
 .news__div {
   width: 47%;
-  border-top: 0.7px solid #1C2B66;
-
+  border-top: 0.7px solid #1c2b66;
 }
 
 .news__must-read {
@@ -151,7 +151,6 @@
   padding: 1rem;
 }
 
-
 .news__featured-posts {
   display: flex;
   align-items: flex-start;
@@ -166,11 +165,9 @@
   width: 48%;
 }
 
-@media screen and (max-width:950px) {
-
+@media screen and (max-width: 950px) {
   .mainpost_left,
   .mainPost_related {
     width: 100%;
-
   }
 }

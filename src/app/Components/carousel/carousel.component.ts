@@ -4,6 +4,8 @@ import {
   ChangeDetectorRef,
   NgIterable,
   OnInit,
+  ElementRef,
+  HostListener,
   AfterViewInit,
   Input,
 } from '@angular/core';
@@ -16,35 +18,47 @@ interface Logos {
 const client_logos: Logos[] = [
   {
     image: '/assets/images/clientlogo.jpg',
-    caption: '',
+    caption: 'Halogen Regular Clients',
   },
   {
     image: '/assets/images/clientlogo1.jpg',
-    caption: '',
+    caption: 'Halogen Regular Clients',
   },
   {
     image: '/assets/images/clientlogo2.jpg',
-    caption: '',
+    caption: 'Halogen Regular Clients',
   },
   {
     image: '/assets/images/clientlogo3.jpg',
-    caption: '',
+    caption: 'Halogen Regular Clients',
   },
   {
     image: '/assets/images/clientlogo4.jpg',
-    caption: '',
+    caption: 'Halogen Regular Clients',
   },
   {
     image: '/assets/images/clientlogo5.jpg',
-    caption: '',
+    caption: 'Halogen Regular Clients',
   },
   {
     image: '/assets/images/clientlogo6.jpg',
-    caption: '',
+    caption: 'Halogen Regular Clients',
   },
   {
     image: '/assets/images/clientlogo7.jpg',
-    caption: '',
+    caption: 'Halogen Regular Clients',
+  },
+  {
+    image: '/assets/images/cyberpartners.png',
+    caption: 'Halogen Cyber Partners',
+  },
+  {
+    image: '/assets/images/cyberclient.png',
+    caption: 'Halogen Cyber Clients',
+  },
+  {
+    image: '/assets/images/cyberclient1.png',
+    caption: 'Halogen Cyber Clients',
   },
 ];
 
@@ -63,10 +77,11 @@ export class CarouselComponent implements AfterViewInit {
   sections: any;
   navigation: any;
 
+  hmm!: number;
   slideNo = 0;
   withAnim = true;
   resetAnim = true;
-  // ngOnInit(): void {}
+  height!: number;
 
   @ViewChild('myCarousel') myCarousel!: NguCarousel<any>;
   carouselConfig: NguCarouselConfig = {
@@ -78,11 +93,12 @@ export class CarouselComponent implements AfterViewInit {
     velocity: 0.2,
     vertical: {
       enabled: true,
-      height: 850,
+      height: this.checkHeight(),
     },
   };
-  constructor(private cdr: ChangeDetectorRef) {}
 
+  constructor(private cdr: ChangeDetectorRef, private el: ElementRef) {}
+  ngOnInit(): void {}
   ngAfterViewInit() {
     this.cdr.detectChanges();
   }
@@ -93,5 +109,15 @@ export class CarouselComponent implements AfterViewInit {
 
   moveTo(slide: any) {
     this.myCarousel.moveTo(slide, !this.withAnim);
+  }
+  checkHeight() {
+    if (window.matchMedia('(max-width: 500px)').matches) {
+      this.height = 400;
+      console.log(this.height);
+    } else {
+      this.height = 820;
+    }
+    console.log(this.height);
+    return this.height;
   }
 }

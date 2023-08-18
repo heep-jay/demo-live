@@ -61,6 +61,9 @@ import { GdprpopupComponent } from './Components/gdprpopup/gdprpopup.component';
 import { PolicyComponent } from './Pages/policy/policy.component';
 import { TofuseComponent } from './Pages/tofuse/tofuse.component';
 import { AnalyticalComponent } from './Pages/analytical/analytical.component';
+import { CarouselDirective } from './Components/carousel.directive';
+import { BlogdetailsComponent } from './Components/blogdetails/blogdetails.component';
+import { RelpostComponent } from './Components/relpost/relpost.component';
 
 @NgModule({
   declarations: [
@@ -109,6 +112,9 @@ import { AnalyticalComponent } from './Pages/analytical/analytical.component';
     PolicyComponent,
     TofuseComponent,
     AnalyticalComponent,
+    CarouselDirective,
+    BlogdetailsComponent,
+    RelpostComponent,
   ],
   imports: [
     BrowserModule,

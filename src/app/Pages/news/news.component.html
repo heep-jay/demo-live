@@ -1,5 +1,4 @@
 <div class="news">
-
   <!-- Main post -->
 
   <div class="new__mainPost">
@@ -30,30 +29,33 @@
     </div>
   </div>
 
-
   <!-- Must Read Section -->
   <!-- <div class="news__must-read">
     <app-mustread></app-mustread>
   </div> -->
+  <div class="news__divider">
+    <div class="news__div"></div>
+    <div class="news__div"></div>
+  </div>
   <!-- Posts -->
-  <!-- <div class="news__header">
+  <div class="news__header">
     <h1 class="news__header-title">New Blog Posts</h1>
     <p class="news__header-text">Let’s keep you updated with us!</p>
-    <p> Read the latest news and articles that pertains to Halogen </p>
-  </div> -->
-  <!-- <div class="news__posts">
-    <app-minipost [post]="post" *ngFor="let post of blogs" class="news__post">
+    <p>Read the latest news and articles that pertains to Halogen</p>
+  </div>
+
+  <div class="news__posts">
+    <app-minipost
+      [post]="post"
+      *ngFor="let post of blogPosts"
+      class="news__post"
+    >
     </app-minipost>
-  </div> -->
+  </div>
   <!-- Show More Button -->
   <!-- <div class="news__show">
     <button class="news__posts-btn">Show more</button>
   </div>
-  <div class="news__divider">
-    <div class="news__div"></div>
-    <div class="news__div"></div>
-  </div> -->
-
 
 
   <!-- Featured Post Section -->
@@ -72,5 +74,4 @@
   <!-- <div class="news__show">
     <button class="news__posts-btn">Show more</button>
   </div> -->
-
 </div>
