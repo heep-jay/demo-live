@@ -2,10 +2,8 @@ import {
   Component,
   ViewChild,
   ChangeDetectorRef,
-  NgIterable,
   OnInit,
   ElementRef,
-  HostListener,
   AfterViewInit,
   Input,
 } from '@angular/core';
