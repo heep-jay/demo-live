@@ -25,6 +25,8 @@ import { PolicyComponent } from './Pages/policy/policy.component';
 import { TofuseComponent } from './Pages/tofuse/tofuse.component';
 import { AnalyticalComponent } from './Pages/analytical/analytical.component';
 import { BlogdetailsComponent } from './Components/blogdetails/blogdetails.component';
+import { CyberwebcontentComponent } from './Pages/cyberwebcontent/cyberwebcontent.component';
+import { VendoronboardingComponent } from './Pages/vendoronboarding/vendoronboarding.component';
 
 const routes: Routes = [
   {
@@ -143,6 +145,14 @@ const routes: Routes = [
   {
     component: AnalyticalComponent,
     path: 'analytical',
+  },
+  {
+    component: CyberwebcontentComponent,
+    path: 'cyber-web-content',
+  },
+  {
+    component: VendoronboardingComponent,
+    path: 'vendor-onboarding',
   },
 ];
 

@@ -48,18 +48,18 @@ const client_logos: Logos[] = [
     image: '/assets/images/clientlogo7.jpg',
     caption: 'Halogen Regular Clients',
   },
-  {
-    image: '/assets/images/cyberpartners.png',
-    caption: 'Halogen Cyber Partners',
-  },
-  {
-    image: '/assets/images/cyberclient.png',
-    caption: 'Halogen Cyber Clients',
-  },
-  {
-    image: '/assets/images/cyberclient1.png',
-    caption: 'Halogen Cyber Clients',
-  },
+  // {
+  //   image: '/assets/images/cyberpartners.png',
+  //   caption: 'Halogen Cyber Partners',
+  // },
+  // {
+  //   image: '/assets/images/cyberclient.png',
+  //   caption: 'Halogen Cyber Clients',
+  // },
+  // {
+  //   image: '/assets/images/cyberclient1.png',
+  //   caption: 'Halogen Cyber Clients',
+  // },
 ];
 
 @Component({
@@ -70,7 +70,7 @@ const client_logos: Logos[] = [
 export class CarouselComponent implements AfterViewInit {
   @Input() img: any;
   @Input() sub!: string;
-  images = [944, 1011, 984].map((n) => `https://picsum.photos/id/${n}/900/500`);
+  // images = [944, 1011, 984].map((n) => `https://picsum.photos/id/${n}/900/500`);
   // constructor() {}
   clientlogos = client_logos;
   active: boolean = false;
