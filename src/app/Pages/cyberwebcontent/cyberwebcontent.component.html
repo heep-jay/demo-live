@@ -248,6 +248,20 @@
     </ol>
   </div>
 
+  <p class="web-title">
+    Choose us as your cybersecurity partner, and together, let's build an
+    impregnable digital fortress that secures your present and future. Your
+    security is our mission.
+  </p>
+  <p class="web-title">
+    Contact us today to learn more and schedule a consultation.
+  </p>
+
+  <div class="btn-container">
+    <button class="booking-btn" (click)="open(content)">
+      Book your consultation
+    </button>
+  </div>
   <div class="caro-container">
     <ngu-carousel
       #myCarousel
@@ -266,3 +280,19 @@
     </ngu-carousel>
   </div>
 </div>
+
+<ng-template #content let-modal class="moddd">
+  <div class="modal-header">
+    <div class="m-title">
+      <h4 class="modal-title" id="modal-basic-title">Book Your Consultation</h4>
+    </div>
+    <button
+      type="button"
+      class="btn-close"
+      aria-label="Close"
+      (click)="modal.dismiss()"
+    ></button>
+  </div>
+
+  <app-consultationmodal></app-consultationmodal>
+</ng-template>

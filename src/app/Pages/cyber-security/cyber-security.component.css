@@ -145,7 +145,6 @@
 }
 
 .info-img-line {
-
   border-bottom: 0.5px solid rgba(28, 43, 102, 0.21);
 }
 
@@ -173,20 +172,17 @@ h2 {
 }
 
 .info-text button {
-
   padding: 0.75rem 2rem;
   background: #1c2b66;
   color: #fff;
   border: 1px solid #1c2b66;
   border-radius: 10px;
   margin-bottom: 1.5rem;
-
 }
 
 .info-text button:hover {
   background: #fff;
   color: #1c2b66;
-
 }
 
 .info-text h5 {
@@ -199,9 +195,7 @@ h2 {
   line-height: 35px;
   text-align: justify;
 }
-
 @media screen and (max-width: 840px) {
-
   .first-section,
   .second-section {
     flex-direction: column;

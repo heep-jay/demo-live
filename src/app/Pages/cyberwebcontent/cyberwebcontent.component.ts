@@ -8,7 +8,7 @@ import {
   Input,
 } from '@angular/core';
 import { NguCarousel, NguCarouselConfig } from '@ngu/carousel';
-
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 interface Logos {
   image: string;
   caption: string;
@@ -54,7 +54,19 @@ export class CyberwebcontentComponent implements OnInit {
     touch: true,
     velocity: 0.2,
   };
-  constructor(private cdr: ChangeDetectorRef, private el: ElementRef) {}
+  constructor(
+    private modalService: NgbModal,
+    private cdr: ChangeDetectorRef,
+    private el: ElementRef
+  ) {}
+
+  open(content: any) {
+    this.modalService
+      .open(content, { ariaLabelledBy: 'modal-basic-title' })
+      .result.then((result) => {
+        console.log(`${result}`);
+      });
+  }
 
   ngOnInit(): void {}
 

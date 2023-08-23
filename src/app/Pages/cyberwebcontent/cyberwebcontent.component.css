@@ -36,6 +36,20 @@
 .web-sublist ul {
   list-style-type: disc;
 }
+.btn-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.booking-btn {
+  text-align: center;
+  padding: 1.2rem 3rem;
+  border: none;
+  background: #1c2b66;
+  color: #fff;
+  border-radius: 14px;
+  font-size: 17px;
+}
 
 .caro-container {
   width: 100%;
@@ -165,6 +179,10 @@
   inset: 8px;
   /* background: #2d2d39; */
   border-radius: 15px;
+}
+
+.m-title {
+  text-align: center !important;
 }
 
 @property --a {
