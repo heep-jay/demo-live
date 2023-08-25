@@ -6,14 +6,14 @@ import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-cyber-security',
   templateUrl: './cyber-security.component.html',
-  styleUrls: ['./cyber-security.component.css']
+  styleUrls: ['./cyber-security.component.css'],
 })
 export class CyberSecurityComponent implements OnInit {
-  closeResult: string = "";
+  closeResult: string = '';
   risks: any;
   prodP: any;
-  productName: string = "";
-  productHeader: string = "";
+  productName: string = '';
+  productHeader: string = '';
   mainImage: any;
   productBody1: any;
   productBody2: any;
@@ -25,23 +25,26 @@ export class CyberSecurityComponent implements OnInit {
   services: string[] = [];
   hash: any;
   mm: any;
+  yy: boolean = true;
   prodId: string | number | null | any = null;
 
-  constructor(private modalService: NgbModal, private api: ApiService, private route: ActivatedRoute) { }
+  constructor(
+    private modalService: NgbModal,
+    private api: ApiService,
+    private route: ActivatedRoute
+  ) {}
   open(content: any) {
-    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then(
-      (result) => {
+    this.modalService
+      .open(content, { ariaLabelledBy: 'modal-basic-title' })
+      .result.then((result) => {
         this.closeResult = `Closed with: ${result}`;
-      },
-
-    );
+      });
   }
 
   async ngOnInit() {
     window.scrollTo(0, 0);
     this.api.getProductPage(2).subscribe(async (data) => {
-
-      console.log(data)
+      console.log(data);
       this.risks = data;
       this.productName = await data.attributes.productName;
       this.productHeader = data.attributes.productHeader;
@@ -65,39 +68,35 @@ export class CyberSecurityComponent implements OnInit {
       //     document.getElementById(hash)?.scrollIntoView({ behavior: "smooth" });
       //   }
       // }
-
-    })
+    });
 
     this.api.getProductImage(2).subscribe((data) => {
-      this.mainImage = data.attributes.productMainImage.data.attributes.url
-    })
-
+      this.mainImage = data.attributes.productMainImage.data.attributes.url;
+    });
   }
   ngAfterViewInit() {
-    this.prodId = this.route.snapshot
-      .paramMap.get('id');
+    this.prodId = this.route.snapshot.paramMap.get('id');
     if (this.prodId) {
       this.api.getProductPage(2).subscribe(async (data) => {
-        await data
+        await data;
         // let hash = this.prodId
-        var element = document.getElementById(this.prodId)?.getBoundingClientRect().top
+        var element = document
+          .getElementById(this.prodId)
+          ?.getBoundingClientRect().top;
         var headerOffset = 145;
         // var elementPosition = element!.getBoundingClientRect().top;
         var offsetPosition = element! + window.pageYOffset - headerOffset;
         // document.getElementById(hash)?.
-        window.scrollTo({ top: offsetPosition, behavior: "smooth" });
-      })
-
+        window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+      });
     }
   }
 
   scrolll(data: any) {
-    console.log(data)
-    var element = document.getElementById(data)?.getBoundingClientRect().top
+    console.log(data);
+    var element = document.getElementById(data)?.getBoundingClientRect().top;
     var headerOffset = 145;
     var offsetPosition = element! + window.pageYOffset - headerOffset;
-    window.scrollTo({ top: offsetPosition, behavior: "smooth" });
+    window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
   }
-
-
 }

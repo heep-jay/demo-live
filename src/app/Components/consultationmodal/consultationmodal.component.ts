@@ -32,7 +32,7 @@ export class ConsultationmodalComponent implements OnInit {
         name: this.formName,
         mobileNumber: this.formTel,
         message: this.formMessage,
-        halogenEmail: ['jubrilmuritala69@gmail.com'],
+        halogenEmail: ['info@halogen-group.com'],
       },
     };
     console.log(this.formData);
