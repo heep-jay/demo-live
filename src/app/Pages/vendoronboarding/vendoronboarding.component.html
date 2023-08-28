@@ -12,9 +12,10 @@
         <img class="hero-img" src="/assets/images/side.jpg" alt="" />
       </div>
       <div class="hero-signup">
-        <h3>Signup</h3>
+        <!-- <h3>Signup</h3> -->
 
-        <form class="signup-form">
+        <img src="/assets/images/screen.png" alt="" />
+        <!-- <form class="signup-form">
           <div class="input__div">
             <label for="email">Email</label>
             <input type="email" name="email" id="" />
@@ -46,7 +47,7 @@
             <span class="text-links">Terms of Service</span> and
             <span class="text-links">Privacy Policy</span>
           </p>
-        </form>
+        </form> -->
       </div>
     </section>
     <section class="join-us">
@@ -99,7 +100,7 @@
             requests
           </p>
           <div class="text-btn">
-            <button>Get Started</button>
+            <button (click)="rollsafe()">Get Started</button>
           </div>
         </div>
         <div class="image">
@@ -112,7 +113,10 @@
       <p>
         Got questions or concerns? <span class="text-links">Contact us.</span>
       </p>
-      <h3>To Lean about our requirements, <span>Click here</span></h3>
+      <h3>
+        To Lean about our requirements,
+        <span (click)="learnmore()">Click here</span>
+      </h3>
     </section>
   </div>
 </div>

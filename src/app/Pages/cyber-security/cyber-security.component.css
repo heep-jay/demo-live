@@ -217,7 +217,20 @@ h2 {
 .web-sublist ul {
   list-style-type: "-  ";
 }
-
+.web-partners .web-title {
+  font-size: 30px;
+  text-align: center;
+}
+.web-partners li {
+  list-style-type: "- ";
+  line-height: 170%;
+  font-size: 17px;
+  margin-top: 1rem;
+  text-align: justify;
+}
+.web-partners li span {
+  font-weight: 600;
+}
 @media screen and (max-width: 840px) {
   .first-section,
   .second-section {
