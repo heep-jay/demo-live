@@ -8,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 export class VendoronboardingComponent implements OnInit {
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    window.scrollTo(0, 0);
+  }
 
   rollsafe() {
     window.open('https://partner.halobizapps.com/#/', '_blank');

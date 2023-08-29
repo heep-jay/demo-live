@@ -68,6 +68,7 @@ import { CyberwebcontentComponent } from './Pages/cyberwebcontent/cyberwebconten
 import { VendoronboardingComponent } from './Pages/vendoronboarding/vendoronboarding.component';
 import { ConsultationmodalComponent } from './Components/consultationmodal/consultationmodal.component';
 import { SliderComponent } from './Components/slider/slider.component';
+import { SliderTwoComponent } from './Components/slider-two/slider-two.component';
 
 @NgModule({
   declarations: [
@@ -123,6 +124,7 @@ import { SliderComponent } from './Components/slider/slider.component';
     VendoronboardingComponent,
     ConsultationmodalComponent,
     SliderComponent,
+    SliderTwoComponent,
   ],
   imports: [
     BrowserModule,
