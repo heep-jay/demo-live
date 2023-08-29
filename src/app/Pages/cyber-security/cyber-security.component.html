@@ -100,7 +100,7 @@
       </ng-template>
     </div> -->
     <div class="main-section">
-      <div [className]="yy ? 'second-section' : 'first-section'">
+      <div [className]="yy ? 'second-section' : 'first-section'" id="soc">
         <div class="info-img info-img-line">
           <img
             src="https://www.networkcablingservices.com/wp-content/uploads/2022/06/When-Should-You-Consider-a-Security-Operations-Center-SOC.jpeg"
@@ -111,7 +111,7 @@
         <div class="info-text">
           <h5>Security Operations Center (SOC)</h5>
           <h2>Welcome to Halogen Cyber Security Operations Center (SOC)</h2>
-          <button (click)="open(content)">Book Service</button>
+          <button (click)="open(socc)">Book Service</button>
           <p>
             At our cutting-edge Security Operations Center (SOC), we are your
             digital guardians, tirelessly monitoring, detecting, and responding
@@ -122,7 +122,7 @@
           </p>
         </div>
 
-        <ng-template #content let-modal class="moddd">
+        <ng-template #socc let-modal class="moddd">
           <div class="modal-header">
             <div class="m-title">
               <h4 class="modal-title" id="modal-basic-title">
@@ -140,9 +140,7 @@
             ></button>
           </div>
 
-          <!-- <app-servicemodal
-            [productName]="Security Operations Center (SOC)"
-          ></app-servicemodal> -->
+          <app-servicemodal [productName]="soc"></app-servicemodal>
         </ng-template>
       </div>
       <div class="web-sublist">
@@ -156,7 +154,7 @@
       </div>
     </div>
     <div class="main-section">
-      <div [className]="!yy ? 'second-section' : 'first-section'">
+      <div [className]="!yy ? 'second-section' : 'first-section'" id="mssp">
         <div class="info-img info-img-line">
           <img
             src="/assets/images/dataprotection.jpg"
@@ -167,7 +165,7 @@
         <div class="info-text">
           <h5>Managed Security Services Provider (MSSP)</h5>
           <h2>Elevate Your Security with Our Managed Services Expertise</h2>
-          <button (click)="open(content)">Book Service</button>
+          <button (click)="open(msspp)">Book Service</button>
           <p>
             As a leading Managed Security Services Provider (MSSP), we go beyond
             traditional cybersecurity solutions. Our managed services model
@@ -178,11 +176,11 @@
           </p>
         </div>
 
-        <ng-template #content let-modal class="moddd">
+        <ng-template #msspp let-modal class="moddd">
           <div class="modal-header">
             <div class="m-title">
               <h4 class="modal-title" id="modal-basic-title">
-                Security Operations Center (SOC)
+                Managed Security Services Provider (MSSP)
               </h4>
               <h4 class="modal-title">
                 On Trend, On Time, For You and Your Customers
@@ -196,9 +194,7 @@
             ></button>
           </div>
 
-          <!-- <app-servicemodal
-        [productName]="Security Operations Center (SOC)"
-      ></app-servicemodal> -->
+          <app-servicemodal [productName]="mssp"></app-servicemodal>
         </ng-template>
       </div>
       <div class="web-sublist">
@@ -228,7 +224,7 @@
       </div>
     </div>
     <div class="main-section">
-      <div [className]="yy ? 'second-section' : 'first-section'">
+      <div [className]="yy ? 'second-section' : 'first-section'" id="iot">
         <div class="info-img info-img-line">
           <img
             src="https://img.freepik.com/free-photo/athletic-woman-using-her-smartphone_53876-96953.jpg"
@@ -239,7 +235,7 @@
         <div class="info-text">
           <h5>IoT Security</h5>
           <h2>Empower Your IoT Ecosystem with Unbeatable Security</h2>
-          <button (click)="open(content)">Book Service</button>
+          <button (click)="open(iott)">Book Service</button>
           <p>
             Unlock the potential of the Internet of Things (IoT) while ensuring
             uncompromising security. Our IoT security solutions fortify your
@@ -249,12 +245,10 @@
           </p>
         </div>
 
-        <ng-template #content let-modal class="moddd">
+        <ng-template #iott let-modal class="moddd">
           <div class="modal-header">
             <div class="m-title">
-              <h4 class="modal-title" id="modal-basic-title">
-                Security Operations Center (SOC)
-              </h4>
+              <h4 class="modal-title" id="modal-basic-title">IoT Security</h4>
               <h4 class="modal-title">
                 On Trend, On Time, For You and Your Customers
               </h4>
@@ -267,9 +261,7 @@
             ></button>
           </div>
 
-          <!-- <app-servicemodal
-        [productName]="Security Operations Center (SOC)"
-      ></app-servicemodal> -->
+          <app-servicemodal [productName]="iot"></app-servicemodal>
         </ng-template>
       </div>
       <div class="web-sublist">
@@ -283,7 +275,7 @@
       </div>
     </div>
     <div class="main-section">
-      <div [className]="!yy ? 'second-section' : 'first-section'">
+      <div [className]="!yy ? 'second-section' : 'first-section'" id="grc">
         <div class="info-img info-img-line">
           <img
             src="https://www.acquisition-international.com/wp-content/uploads/2022/06/Compliance-1.jpg"
@@ -293,7 +285,7 @@
         <div class="info-text">
           <h5>Governance, Risk, and Compliance (GRC)</h5>
           <h2>Navigate the Digital Landscape with Confidence through GRC</h2>
-          <button (click)="open(content)">Book Service</button>
+          <button (click)="open(grcc)">Book Service</button>
           <p>
             Effortlessly steer through the complex world of governance, risk,
             and compliance with our tailored solutions. We provide you with the
@@ -304,11 +296,11 @@
           </p>
         </div>
 
-        <ng-template #content let-modal class="moddd">
+        <ng-template #grcc let-modal class="moddd">
           <div class="modal-header">
             <div class="m-title">
               <h4 class="modal-title" id="modal-basic-title">
-                Security Operations Center (SOC)
+                Governance, Risk, and Compliance (GRC)
               </h4>
               <h4 class="modal-title">
                 On Trend, On Time, For You and Your Customers
@@ -322,9 +314,7 @@
             ></button>
           </div>
 
-          <!-- <app-servicemodal
-        [productName]="Security Operations Center (SOC)"
-      ></app-servicemodal> -->
+          <app-servicemodal [productName]="grc"></app-servicemodal>
         </ng-template>
       </div>
       <div class="web-sublist">
@@ -338,7 +328,7 @@
       </div>
     </div>
     <div class="main-section">
-      <div [className]="yy ? 'second-section' : 'first-section'">
+      <div [className]="yy ? 'second-section' : 'first-section'" id="cap">
         <div class="info-img info-img-line">
           <img
             src="https://imagevars.gulfnews.com/2023/03/27/Cybersecurity-_18723400af9_medium.jpg"
@@ -346,9 +336,9 @@
           />
         </div>
         <div class="info-text">
-          <h5>Cybersecurity Awareness Program:</h5>
-          <h2>Navigate the Digital Landscape with Confidence through GRC</h2>
-          <button (click)="open(content)">Book Service</button>
+          <h5>Cybersecurity Awareness Program</h5>
+          <h2>Empower Your Team with Cybersecurity Awareness</h2>
+          <button (click)="open(capp)">Book Service</button>
           <p>
             Equip your workforce with the knowledge and skills they need to be
             the first line of defense against cyber threats. Our cybersecurity
@@ -358,11 +348,11 @@
           </p>
         </div>
 
-        <ng-template #content let-modal class="moddd">
+        <ng-template #capp let-modal class="moddd">
           <div class="modal-header">
             <div class="m-title">
               <h4 class="modal-title" id="modal-basic-title">
-                Security Operations Center (SOC)
+                Cybersecurity Awareness Program
               </h4>
               <h4 class="modal-title">
                 On Trend, On Time, For You and Your Customers
@@ -376,9 +366,7 @@
             ></button>
           </div>
 
-          <!-- <app-servicemodal
-        [productName]="Security Operations Center (SOC)"
-      ></app-servicemodal> -->
+          <app-servicemodal [productName]="cap"></app-servicemodal>
         </ng-template>
       </div>
       <div class="web-sublist">
@@ -394,7 +382,7 @@
       </div>
     </div>
     <div class="main-section">
-      <div [className]="!yy ? 'second-section' : 'first-section'">
+      <div [className]="!yy ? 'second-section' : 'first-section'" id="hcip">
         <div class="info-img info-img-line">
           <img
             src="https://nonprofitmegaphone.com/wp-content/uploads/2021/08/ffffffffff.jpg"
@@ -407,7 +395,7 @@
             Shape Your Future with the Halogen Cybersecurity Internship
             Programme
           </h2>
-          <button (click)="open(content)">Book Service</button>
+          <button (click)="open(hcipp)">Book Service</button>
           <p>
             Welcome to the Halogen Cybersecurity Internship Programme, where we
             nurture the next generation of cybersecurity professionals. Gain
@@ -417,11 +405,11 @@
           </p>
         </div>
 
-        <ng-template #content let-modal class="moddd">
+        <ng-template #hcipp let-modal class="moddd">
           <div class="modal-header">
             <div class="m-title">
               <h4 class="modal-title" id="modal-basic-title">
-                Security Operations Center (SOC)
+                Halogen Cybersecurity Internship Programme
               </h4>
               <h4 class="modal-title">
                 On Trend, On Time, For You and Your Customers
@@ -435,9 +423,7 @@
             ></button>
           </div>
 
-          <!-- <app-servicemodal
-        [productName]="Security Operations Center (SOC)"
-      ></app-servicemodal> -->
+          <app-servicemodal [productName]="hcip"></app-servicemodal>
         </ng-template>
       </div>
       <div class="web-sublist">

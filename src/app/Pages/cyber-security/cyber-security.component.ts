@@ -13,6 +13,12 @@ export class CyberSecurityComponent implements OnInit {
   risks: any;
   prodP: any;
   productName: string = '';
+  soc: string = 'Security Operations Center (SOC)';
+  mssp: string = 'Managed Security Services Provider (MSSP)';
+  iot: string = 'IoT Security';
+  grc: string = 'Governance, Risk, and Compliance (GRC)';
+  cap: string = 'Cybersecurity Awareness Program';
+  hcip: string = 'Halogen Cybersecurity Internship Programme';
   productHeader: string = '';
   mainImage: any;
   productBody1: any;
