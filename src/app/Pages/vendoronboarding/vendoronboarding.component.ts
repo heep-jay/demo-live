@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavbarService } from 'src/app/Service/navbar.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-vendoronboarding',
@@ -7,10 +8,18 @@ import { NavbarService } from 'src/app/Service/navbar.service';
   styleUrls: ['./vendoronboarding.component.css'],
 })
 export class VendoronboardingComponent implements OnInit {
-  constructor(public navb: NavbarService) {}
+  constructor(private route: ActivatedRoute, public navb: NavbarService) {}
 
   ngOnInit(): void {
-    this.navb.hide();
+    this.route.url.subscribe((segments) => {
+      // 'segments' is an array of path segments in the current route
+      console.log('Current route segments:', segments[0].path);
+      if (segments[0].path === 'partner-onboarding') {
+        this.navb.hide();
+      } else {
+        this.navb.show();
+      }
+    });
     window.scrollTo(0, 0);
   }
 

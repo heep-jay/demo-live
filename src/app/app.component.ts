@@ -1,19 +1,26 @@
 import { Component } from '@angular/core';
+import { NavbarService } from './Service/navbar.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
   isShowBtn: boolean = false;
   title = 'halogen_website';
   activeMenu: boolean = false;
+
+  constructor(public navb: NavbarService) {}
   ngOnInit(): void {
     window.scrollTo(0, 0);
+    this.navb.show();
     // this.win = this.showScrollBtn()
     window.onscroll = () => {
-      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      if (
+        document.body.scrollTop > 20 ||
+        document.documentElement.scrollTop > 20
+      ) {
         this.isShowBtn = true;
       } else {
         this.isShowBtn = false;
@@ -22,16 +29,14 @@ export class AppComponent {
   }
 
   toggleMenu() {
-    console.log('toggle')
+    console.log('toggle');
   }
   showScrollBtn() {
-
-    console.log("abccc")
+    console.log('abccc');
   }
 
   topFunction() {
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
   }
-
 }
