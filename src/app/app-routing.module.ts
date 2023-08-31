@@ -152,7 +152,7 @@ const routes: Routes = [
   },
   {
     component: VendoronboardingComponent,
-    path: 'vendor-onboarding',
+    path: 'partner-onboarding',
   },
 ];
 

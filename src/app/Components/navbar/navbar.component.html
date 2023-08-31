@@ -1,41 +1,62 @@
-<nav class="navbar">
+<nav class="navbar" *ngIf="navb.visible">
   <div class="nav">
     <div class="nav__logo" routerLink="/">
-      <img src="/assets/images/logooo.png" alt="" class="nav__logo-img">
+      <img src="/assets/images/logooo.png" alt="" class="nav__logo-img" />
       Halogen Group
     </div>
     <div class="nav__menu">
       <div class="empty-nav">
         <!-- <li>{{}}</li> -->
-        <li class="nav__item" (click)="closeNav()" routerLink="/"><span>Home</span>
+        <li class="nav__item" (click)="closeNav()" routerLink="/">
+          <span>Home</span>
           <div></div>
         </li>
-        <li class="nav__item" (click)="closeNav()"><span>{{aboutUs}}</span>
+        <li class="nav__item" (click)="closeNav()">
+          <span>{{ aboutUs }}</span>
           <div></div>
           <ul class="drop-menu">
-            <li routerLink="/{{abtMen.attributes.url}}" (click)="closeNav()" *ngFor="let abtMen of aboutmenus">
-              <a><mat-icon>{{abtMen.attributes.icon}}</mat-icon>{{abtMen.attributes.name}}</a>
+            <li
+              routerLink="/{{ abtMen.attributes.url }}"
+              (click)="closeNav()"
+              *ngFor="let abtMen of aboutmenus"
+            >
+              <a
+                ><mat-icon>{{ abtMen.attributes.icon }}</mat-icon
+                >{{ abtMen.attributes.name }}</a
+              >
             </li>
           </ul>
         </li>
-        <li (click)="openMenu($event)" [className]="activeMenu ? 'nav__item toggleNav' : 'nav__item'"><span
-            style="display: flex; align-items: center;">{{otherSec}}
-            <mat-icon>expand_more</mat-icon></span>
+        <li
+          (click)="openMenu($event)"
+          [className]="activeMenu ? 'nav__item toggleNav' : 'nav__item'"
+        >
+          <span style="display: flex; align-items: center"
+            >{{ otherSec }} <mat-icon>expand_more</mat-icon></span
+          >
           <div></div>
         </li>
-        <li class="nav__item" (click)="closeNav()">{{mediaCentre}}<div></div>
+        <li class="nav__item" (click)="closeNav()">
+          {{ mediaCentre }}
+          <div></div>
           <ul class="drop-menu">
-            <li routerLink="/{{medMen.attributes.url}}" (click)="closeNav()" *ngFor="let medMen of mediamenus">
-              <a><mat-icon>{{medMen.attributes.icon}}</mat-icon>{{medMen.attributes.name}}</a>
+            <li
+              routerLink="/{{ medMen.attributes.url }}"
+              (click)="closeNav()"
+              *ngFor="let medMen of mediamenus"
+            >
+              <a
+                ><mat-icon>{{ medMen.attributes.icon }}</mat-icon
+                >{{ medMen.attributes.name }}</a
+              >
             </li>
           </ul>
         </li>
       </div>
       <ul class="nav__items">
-
         <li class="nav_item">
           <div class="halospher-btn">
-            <button (click)="halo()">{{enterHalo}}</button>
+            <button (click)="halo()">{{ enterHalo }}</button>
           </div>
         </li>
       </ul>
@@ -44,18 +65,24 @@
         <mat-icon>menu</mat-icon>
       </div>
     </div>
-
   </div>
 
   <div class="nav-menu-wrapper" *ngIf="isToggle">
     <ul class="menu-items">
       <li (click)="onToggle()" routerLink="/">Home</li>
       <li>
-        <div class="" (click)=" aboutToggle()">
-          <button class="drop-btn">About Us <mat-icon>chevron_right</mat-icon></button>
+        <div class="" (click)="aboutToggle()">
+          <button class="drop-btn">
+            About Us <mat-icon>chevron_right</mat-icon>
+          </button>
           <ul class="menu-dropdown" *ngIf="isAboutToggle">
-            <li (click)="onToggle()" routerLink="/{{medMen.attributes.url}}" *ngFor="let medMen of aboutmenus">
-              <mat-icon>{{medMen.attributes.icon}}</mat-icon>{{medMen.attributes.name}}
+            <li
+              (click)="onToggle()"
+              routerLink="/{{ medMen.attributes.url }}"
+              *ngFor="let medMen of aboutmenus"
+            >
+              <mat-icon>{{ medMen.attributes.icon }}</mat-icon
+              >{{ medMen.attributes.name }}
             </li>
           </ul>
         </div>
@@ -63,10 +90,16 @@
       <!-- <li routerLink="/risk-advisory-and-consulting" (click)="onToggle()">Risk Advisory & Consulting</li> -->
       <li>
         <div class="" (click)="cyberToggle()">
-          <button class="drop-btn">Cyber Security<mat-icon>chevron_right</mat-icon></button>
+          <button class="drop-btn">
+            Cyber Security<mat-icon>chevron_right</mat-icon>
+          </button>
           <ul class="menu-dropdown" *ngIf="isCyberToggle">
-            <li (click)="redirect(menu.attributes.url)" *ngFor="let menu of cybermenusL">
-              <mat-icon>{{menu.attributes.icon}}</mat-icon>{{menu.attributes.name}}
+            <li
+              (click)="redirect(menu.attributes.url)"
+              *ngFor="let menu of cybermenusL"
+            >
+              <mat-icon>{{ menu.attributes.icon }}</mat-icon
+              >{{ menu.attributes.name }}
             </li>
             <li routerLink="/cyber-security">View All</li>
           </ul>
@@ -74,10 +107,16 @@
       </li>
       <li>
         <div class="" (click)="solutionToggle()">
-          <button class="drop-btn">Security Tecnologies<mat-icon>chevron_right</mat-icon></button>
+          <button class="drop-btn">
+            Security Tecnologies<mat-icon>chevron_right</mat-icon>
+          </button>
           <ul class="menu-dropdown" *ngIf="isSolutionToggle">
-            <li (click)="redirect(menu.attributes.url)" *ngFor="let menu of secTechMenu">
-              <mat-icon>{{menu.attributes.icon}}</mat-icon> {{menu.attributes.name}}
+            <li
+              (click)="redirect(menu.attributes.url)"
+              *ngFor="let menu of secTechMenu"
+            >
+              <mat-icon>{{ menu.attributes.icon }}</mat-icon>
+              {{ menu.attributes.name }}
             </li>
             <li routerLink="/security-technologies">View All</li>
           </ul>
@@ -85,10 +124,16 @@
       </li>
       <li>
         <div class="" (click)="phyToggle()">
-          <button class="drop-btn">Physical Security & Mobility<mat-icon>chevron_right</mat-icon></button>
+          <button class="drop-btn">
+            Physical Security & Mobility<mat-icon>chevron_right</mat-icon>
+          </button>
           <ul class="menu-dropdown" *ngIf="isphyToggle">
-            <li (click)="redirect(menu.attributes.url)" *ngFor="let menu of phyMenu">
-              <mat-icon>{{menu.attributes.icon}}</mat-icon> {{menu.attributes.name}}
+            <li
+              (click)="redirect(menu.attributes.url)"
+              *ngFor="let menu of phyMenu"
+            >
+              <mat-icon>{{ menu.attributes.icon }}</mat-icon>
+              {{ menu.attributes.name }}
             </li>
             <li routerLink="/security-technologies">View All</li>
           </ul>
@@ -96,10 +141,16 @@
       </li>
       <li>
         <div class="" (click)="outMenuToggle()">
-          <button class="drop-btn">Identity Access Management<mat-icon>chevron_right</mat-icon></button>
+          <button class="drop-btn">
+            Identity Access Management<mat-icon>chevron_right</mat-icon>
+          </button>
           <ul class="menu-dropdown" *ngIf="isOutToggle">
-            <li (click)="redirect(menu.attributes.url)" *ngFor="let menu of outMenu">
-              <mat-icon>{{menu.attributes.icon}}</mat-icon> {{menu.attributes.name}}
+            <li
+              (click)="redirect(menu.attributes.url)"
+              *ngFor="let menu of outMenu"
+            >
+              <mat-icon>{{ menu.attributes.icon }}</mat-icon>
+              {{ menu.attributes.name }}
             </li>
             <li routerLink="/security-technologies">View All</li>
           </ul>
@@ -107,10 +158,16 @@
       </li>
       <li>
         <div class="" (click)="eduToggle()">
-          <button class="drop-btn">Security Education<mat-icon>chevron_right</mat-icon></button>
-          <ul class="menu-dropdown" *ngIf="isEduToggle  ">
-            <li (click)="redirect(menu.attributes.url)" *ngFor="let menu of secEduMenu">
-              <mat-icon>{{menu.attributes.icon}}</mat-icon> {{menu.attributes.name}}
+          <button class="drop-btn">
+            Security Education<mat-icon>chevron_right</mat-icon>
+          </button>
+          <ul class="menu-dropdown" *ngIf="isEduToggle">
+            <li
+              (click)="redirect(menu.attributes.url)"
+              *ngFor="let menu of secEduMenu"
+            >
+              <mat-icon>{{ menu.attributes.icon }}</mat-icon>
+              {{ menu.attributes.name }}
             </li>
             <li routerLink="/security-technologies">View All</li>
           </ul>
@@ -118,10 +175,18 @@
       </li>
       <li>
         <div class="" (click)="riskToggle()">
-          <button class="drop-btn">Security Risk Advisory & Consultancy<mat-icon>chevron_right</mat-icon></button>
-          <ul class="menu-dropdown" *ngIf="isRiskToggle  ">
-            <li (click)="redirect(menu.attributes.url)" *ngFor="let menu of riskMenu">
-              <mat-icon>{{menu.attributes.icon}}</mat-icon> {{menu.attributes.name}}
+          <button class="drop-btn">
+            Security Risk Advisory & Consultancy<mat-icon
+              >chevron_right</mat-icon
+            >
+          </button>
+          <ul class="menu-dropdown" *ngIf="isRiskToggle">
+            <li
+              (click)="redirect(menu.attributes.url)"
+              *ngFor="let menu of riskMenu"
+            >
+              <mat-icon>{{ menu.attributes.icon }}</mat-icon>
+              {{ menu.attributes.name }}
             </li>
             <li routerLink="/security-technologies">View All</li>
           </ul>
@@ -129,19 +194,22 @@
       </li>
 
       <li>
-        <div class="" (click)=" mediaToggle()">
-          <button class="drop-btn">Media Centre<mat-icon>chevron_right</mat-icon></button>
+        <div class="" (click)="mediaToggle()">
+          <button class="drop-btn">
+            Media Centre<mat-icon>chevron_right</mat-icon>
+          </button>
           <ul class="menu-dropdown" *ngIf="isMediaToggle">
-            <li routerLink="/news-events" (click)="onToggle()">News and Events</li>
+            <li routerLink="/news-events" (click)="onToggle()">
+              News and Events
+            </li>
             <li routerLink="/gallery" (click)="onToggle()">Gallery</li>
             <li routerLink="/gallery" (click)="onToggle()">ESMR Reports</li>
-
           </ul>
         </div>
       </li>
       <li class="">
         <div class="halospher-btnn">
-          <button (click)="halo()">{{enterHalo}}</button>
+          <button (click)="halo()">{{ enterHalo }}</button>
         </div>
       </li>
     </ul>
@@ -151,8 +219,15 @@
     </div>
   </div>
   <ng-container>
-    <app-halogen-nav [cybermenusL]="cybermenusL" [outMenu]="outMenu" [phyMenu]="phyMenu" [secTechMenu]="secTechMenu"
-      [secEduMenu]="secEduMenu" [riskMenu]="riskMenu" *ngIf="activeMenu" (btnClick)="closeNav()"></app-halogen-nav>
+    <app-halogen-nav
+      [cybermenusL]="cybermenusL"
+      [outMenu]="outMenu"
+      [phyMenu]="phyMenu"
+      [secTechMenu]="secTechMenu"
+      [secEduMenu]="secEduMenu"
+      [riskMenu]="riskMenu"
+      *ngIf="activeMenu"
+      (btnClick)="closeNav()"
+    ></app-halogen-nav>
   </ng-container>
-
 </nav>

@@ -19,7 +19,8 @@
 .big-text {
   font-size: clamp(1.687rem, -1.3125rem + 9vw, 3.75rem);
   font-weight: 900;
-  line-height: min(7vh, 84px);
+  /* line-height: min(7vh, 84px); */
+  line-height: 135%;
 }
 
 .normal-text {
@@ -202,13 +203,16 @@ h2 {
   font-weight: 600;
   font-size: clamp(1.0625rem, 1.0164rem + 0.2105vw, 1.1875rem);
   color: #1c2b66;
+  line-height: 130%;
 }
 
 .web-text,
 .web-sublist li {
-  font-size: clamp(0.9375rem, 0.8914rem + 0.2105vw, 1.0625rem);
-  line-height: 140%;
+  font-size: clamp(0.8125rem, 0.5781rem + 0.75vw, 1rem);
+  line-height: 35px;
   text-align: justify;
+  /* line-height: 140%;
+  text-align: justify; */
 }
 .web-sublist {
   margin-bottom: 5rem;

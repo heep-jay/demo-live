@@ -1,10 +1,12 @@
 .footer {
-  background: linear-gradient(0deg, rgba(28, 43, 102, 0.92),
-      rgba(28, 43, 102, 0.92)),
+  background: linear-gradient(
+      0deg,
+      rgba(28, 43, 102, 0.92),
+      rgba(28, 43, 102, 0.92)
+    ),
     url("/assets/images/footer.jpg");
   background-size: cover;
   padding: 1em 1em;
-
 }
 
 .footer-logo {
@@ -12,13 +14,11 @@
   flex-direction: column;
   align-items: center;
   gap: 2rem;
-
 }
 
 .log {
   width: 180px;
 }
-
 
 .badg {
   width: 90px;
@@ -75,12 +75,11 @@
 
 .footer-solutions ul li a:hover,
 .footer-about ul li a:hover {
-  color: #FCBE00;
+  color: #fcbe00;
 }
 
 .footer-sub {
   width: 100%;
-
 }
 
 .footer-subs {
@@ -95,13 +94,13 @@
 }
 
 .btn-sub {
-  background: #FCBE00;
+  background: #fcbe00;
   color: #fff;
 }
 
 .footer-subs button {
   width: 100%;
-  background: #FCBE00;
+  background: #fcbe00;
   color: #fff;
 }
 
@@ -115,11 +114,10 @@
 }
 
 .footer__info p {
-  font-size: clamp(0.625rem, 0.4688rem + 0.5vw, 0.75rem);
+  font-size: clamp(0.625rem, 0.4688rem + 0.5vw, 0.85rem);
   font-weight: 100;
   line-height: 20px;
   color: #fff;
-
 }
 
 .footer__row.footer-copyright {
@@ -127,7 +125,7 @@
   max-width: 1300px;
   padding: 2rem 0;
   display: flex;
-  border-top: 1px solid #FFFFFF;
+  border-top: 1px solid #ffffff;
   margin: 0 auto;
   justify-content: space-between;
 }
@@ -151,7 +149,7 @@
 
 .privacy-policy:hover {
   text-decoration: underline;
-  color: #FCBE00;
+  color: #fcbe00;
   cursor: pointer;
 }
 
@@ -173,7 +171,7 @@
 .socials div {
   padding: 1rem;
   border-radius: 50%;
-  background: #FCBE00;
+  background: #fcbe00;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -202,5 +200,4 @@
     flex-direction: column;
     align-items: flex-start;
   }
-
 }

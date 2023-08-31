@@ -3,6 +3,7 @@
   font-weight: 600;
   font-size: clamp(1.25rem, 0.0781rem + 3.75vw, 2.1875rem);
   color: #1c2b66;
+  margin-bottom: 2rem;
 }
 .slider {
   /* background: rgb(157, 152, 152); */
