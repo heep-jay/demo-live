@@ -15,6 +15,11 @@ export class HomeComponent implements OnInit {
   banner: any;
   fybLeft: any;
   fybRight: any;
+
+  headlinesPost: any;
+  blognews: any;
+  blogPosts: any = [];
+  jointPosts: any = [];
   constructor(private api: ApiService, public navb: NavbarService) {}
 
   related = 'Related News';
@@ -23,10 +28,9 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     window.scrollTo(0, 0);
+    let bbb: any = [];
     this.navb.show();
     this.api.getHomePage().subscribe((data: any) => {
-      // this.homes = data.attributes
-      // this.name = data.name
       this.businessSectionHeader = data.attributes.businessSectionHeader;
       this.businessSectionSubHeader = data.attributes.businessSectionSubHeader;
       this.reviewHeader = data.attributes.reviewHeader;
@@ -34,7 +38,22 @@ export class HomeComponent implements OnInit {
       this.fybLeft = data.attributes.fyblefts.data;
       this.fybRight = data.attributes.fybrights.data;
       console.log(this.banner);
-      // this.getBanners()
+    });
+
+    this.api.getNewsandEvents().subscribe((data: any) => {
+      this.jointPosts = data.attributes.news_posts.data.filter(
+        (data: any) => data.attributes.headline === true && data.id === 7
+      );
+
+      bbb = this.jointPosts;
+      return this.jointPosts;
+    });
+
+    this.api.getBlogPosts().subscribe((data: any) => {
+      this.blogPosts = data.attributes.blogposts.data;
+      bbb = bbb.concat(this.blogPosts);
+      this.blognews = bbb;
+      return this.blogPosts, this.blognews;
     });
   }
   halo() {

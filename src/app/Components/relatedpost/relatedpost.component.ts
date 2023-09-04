@@ -9,6 +9,7 @@ export class RelatedpostComponent implements OnInit {
   @Input() rel!: string;
   @Input() guide!: string;
   @Input() bold!: string;
+  @Input() combo!: any;
 
   posts = [
     {

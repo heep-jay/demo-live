@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { NavbarService } from './Service/navbar.service';
 
 @Component({
   selector: 'app-root',
@@ -11,10 +10,9 @@ export class AppComponent {
   title = 'halogen_website';
   activeMenu: boolean = false;
 
-  constructor(public navb: NavbarService) {}
   ngOnInit(): void {
     window.scrollTo(0, 0);
-    this.navb.show();
+
     // this.win = this.showScrollBtn()
     window.onscroll = () => {
       if (

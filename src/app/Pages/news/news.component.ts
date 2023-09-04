@@ -84,7 +84,9 @@ export class NewsComponent implements OnInit {
 
   headlinesPost: any;
   normalPosts: any;
-  blogPosts: any;
+  blognews: any;
+  blogPosts: any = [];
+  jointPosts: any = [];
   related = 'Related News';
   guides = 'GUIDES & NEWS';
   boldText = 'Read the latest articles';
@@ -93,6 +95,7 @@ export class NewsComponent implements OnInit {
   ngOnInit(): void {
     window.scrollTo(0, 0);
 
+    let bbb: any = [];
     this.api.getNewsandEvents().subscribe((data: any) => {
       // console.log(data);
       // console.log('abc');
@@ -100,16 +103,24 @@ export class NewsComponent implements OnInit {
         (data: any) => data.attributes.headline === true
       );
 
+      this.jointPosts = data.attributes.news_posts.data.filter(
+        (data: any) => data.attributes.headline === true && data.id === 7
+      );
+
       this.normalPosts = data.attributes.news_posts.data.filter(
         (data: any) => data.attributes.headline === false
       );
-      console.log(this.normalPosts);
-      return this.headlinesPost, this.normalPosts;
+
+      bbb = this.jointPosts;
+      console.log(bbb);
+      return this.headlinesPost, this.normalPosts, this.jointPosts;
     });
+
     this.api.getBlogPosts().subscribe((data: any) => {
       this.blogPosts = data.attributes.blogposts.data;
-      console.log(this.blogPosts);
-      return this.blogPosts;
+      bbb = bbb.concat(this.blogPosts);
+      console.log(bbb);
+      return this.blogPosts, bbb;
     });
   }
 }
