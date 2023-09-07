@@ -1,0 +1,28 @@
+<div class="security-reports">
+  <h1>Security Advisory Reports</h1>
+
+  <div class="reports-container">
+    <!-- <div class="report">
+      <div class="report-file">
+        <img src="/assets/images/pdf.png" alt="pdf-file" />
+      </div>
+      <p>WEEK 35: ENDING SATURDAY, 2ND SEPTEMBER 2023</p>
+      <img class="download" src="/assets/images/download.svg" alt="download" />
+    </div> -->
+
+    <div class="report" *ngFor="let report of newreport">
+      <div class="report-file">
+        <img src="{{ report.image }}" alt="pdf-file" />
+      </div>
+      <p>{{ report.name }}</p>
+      <img
+        class="download"
+        src="/assets/images/download.svg"
+        (click)="download(report.file_url)"
+        alt="download"
+      />
+    </div>
+  </div>
+
+  <!-- <button (click)="next()">Next</button> -->
+</div>

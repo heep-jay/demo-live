@@ -27,6 +27,7 @@ import { AnalyticalComponent } from './Pages/analytical/analytical.component';
 import { BlogdetailsComponent } from './Components/blogdetails/blogdetails.component';
 import { CyberwebcontentComponent } from './Pages/cyberwebcontent/cyberwebcontent.component';
 import { VendoronboardingComponent } from './Pages/vendoronboarding/vendoronboarding.component';
+import { SecurityReportsComponent } from './Pages/security-reports/security-reports.component';
 
 const routes: Routes = [
   {
@@ -153,6 +154,10 @@ const routes: Routes = [
   {
     component: VendoronboardingComponent,
     path: 'partner-onboarding',
+  },
+  {
+    component: SecurityReportsComponent,
+    path: 'security-reports',
   },
 ];
 

@@ -1,0 +1,72 @@
+.security-reports {
+  width: 100%;
+  min-height: 50vh;
+  margin: 5rem auto 0 auto;
+}
+.security-reports h1 {
+  font-size: clamp(1.5rem, 1.1558rem + 1.7208vw, 2.625rem);
+  font-weight: 600;
+  color: #1c2b66;
+  text-align: center;
+  padding-top: 1rem;
+}
+
+.reports-container {
+  width: 100%;
+  max-width: 1366px;
+  margin: 3rem auto;
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+.report {
+  /* background: #000; */
+  height: 300px;
+  width: 100%;
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  position: relative;
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 16px;
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(9.8px);
+  -webkit-backdrop-filter: blur(9.8px);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  padding: 1rem;
+}
+.report p {
+  text-align: center;
+  line-height: 130%;
+  width: 80%;
+  font-size: clamp(0.9375rem, 0.7801rem + 0.2868vw, 1.125rem);
+}
+.download {
+  height: 30px;
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  cursor: pointer;
+}
+
+.report .report-file {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  background: rgb(255, 255, 255);
+
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(9.8px);
+  -webkit-backdrop-filter: blur(9.8px);
+  border: 1px solid rgba(28, 43, 102, 0.01);
+}
+.report-file img {
+  height: 100%;
+  object-fit: contain;
+  cursor: pointer;
+}

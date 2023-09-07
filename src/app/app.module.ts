@@ -69,6 +69,7 @@ import { VendoronboardingComponent } from './Pages/vendoronboarding/vendoronboar
 import { ConsultationmodalComponent } from './Components/consultationmodal/consultationmodal.component';
 import { SliderComponent } from './Components/slider/slider.component';
 import { SliderTwoComponent } from './Components/slider-two/slider-two.component';
+import { SecurityReportsComponent } from './Pages/security-reports/security-reports.component';
 
 @NgModule({
   declarations: [
@@ -125,6 +126,7 @@ import { SliderTwoComponent } from './Components/slider-two/slider-two.component
     ConsultationmodalComponent,
     SliderComponent,
     SliderTwoComponent,
+    SecurityReportsComponent,
   ],
   imports: [
     BrowserModule,
