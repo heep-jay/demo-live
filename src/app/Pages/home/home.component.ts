@@ -20,6 +20,7 @@ export class HomeComponent implements OnInit {
   blognews: any;
   blogPosts: any = [];
   jointPosts: any = [];
+  combination: any;
   constructor(private api: ApiService, public navb: NavbarService) {}
 
   related = 'Related News';
@@ -41,12 +42,17 @@ export class HomeComponent implements OnInit {
     });
 
     this.api.getNewsandEvents().subscribe((data: any) => {
-      this.jointPosts = data.attributes.news_posts.data.filter(
+      console.log(data);
+
+      this.jointPosts = data.filter(
         (data: any) => data.attributes.headline === true && data.id === 7
       );
+      this.blogPosts = data.filter(
+        (data: any) => data.attributes.blog === true
+      );
+      this.combination = this.jointPosts.concat(this.blogPosts);
 
-      bbb = this.jointPosts;
-      return this.jointPosts;
+      return this.jointPosts, this.blogPosts, this.combination;
     });
 
     this.api.getBlogPosts().subscribe((data: any) => {

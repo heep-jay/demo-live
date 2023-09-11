@@ -1,11 +1,25 @@
 <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
   <div class="carousel-indicators">
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
-      aria-current="true" aria-label="Slide 1"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
-      aria-label="Slide 2"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
-      aria-label="Slide 3"></button>
+    <button
+      type="button"
+      data-bs-target="#carouselExampleIndicators"
+      data-bs-slide-to="0"
+      class="active"
+      aria-current="true"
+      aria-label="Slide 1"
+    ></button>
+    <button
+      type="button"
+      data-bs-target="#carouselExampleIndicators"
+      data-bs-slide-to="1"
+      aria-label="Slide 2"
+    ></button>
+    <button
+      type="button"
+      data-bs-target="#carouselExampleIndicators"
+      data-bs-slide-to="2"
+      aria-label="Slide 3"
+    ></button>
   </div>
   <div class="carousel-inner">
     <!-- <div class="caro">
@@ -69,23 +83,32 @@
         </div>
       </div>
     </div> -->
-    <div [className]=" news.id === 1 ? 'carousel-item active' : 'carousel-item'" *ngFor="let news of headlinePost">
+    <div
+      [className]="news.id === 7 ? 'carousel-item active' : 'carousel-item'"
+      *ngFor="let news of headlinePost"
+    >
       <div class="caro">
         <div class="mainpost_left">
           <div class="mainpost_content">
-            <img routerLink="/news-events/news/{{news.id}}" src="{{news.attributes.mainImage.data.attributes.url}}"
-              alt="">
+            <img
+              routerLink="/news-events/news/{{ news.id }}"
+              src="{{ news.attributes.mainImage.data.attributes.url }}"
+              alt=""
+            />
             <div class="mainpost_title">
               <span>By Odam Lafer</span>
-              <h2 routerLink="/news-events/news/{{news.id}}">{{news.attributes.title}}</h2>
+              <h2 routerLink="/news-events/news/{{ news.id }}">
+                {{ news.attributes.title }}
+              </h2>
             </div>
-            <p>{{news.attributes.summary}}</p>
+            <p>{{ news.attributes.summary }}</p>
 
             <div class="mainpost_content-btn">
-              <button routerLink="/news-events/news/{{news.id}}">Read More <mat-icon>chevron_right</mat-icon></button>
+              <button routerLink="/news-events/news/{{ news.id }}">
+                Read More <mat-icon>chevron_right</mat-icon>
+              </button>
             </div>
           </div>
-
         </div>
       </div>
     </div>
@@ -113,15 +136,24 @@
         </div>
       </div>
     </div> -->
-
   </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+  <button
+    class="carousel-control-prev"
+    type="button"
+    data-bs-target="#carouselExampleIndicators"
+    data-bs-slide="prev"
+  >
     <span class="carousel-control-prev-icon" aria-hidden="true">
       <!-- <mat-icon class="caro-icon caro-icon-left">chevron_left</mat-icon> -->
     </span>
     <span class="visually-hidden">Previous</span>
   </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+  <button
+    class="carousel-control-next"
+    type="button"
+    data-bs-target="#carouselExampleIndicators"
+    data-bs-slide="next"
+  >
     <span class="carousel-control-next-icon" aria-hidden="true">
       <!-- <mat-icon class="caro-icon">chevron_right</mat-icon> -->
     </span>

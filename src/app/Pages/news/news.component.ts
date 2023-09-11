@@ -82,11 +82,12 @@ export class NewsComponent implements OnInit {
     // },
   ];
 
-  headlinesPost: any;
-  normalPosts: any;
+  headlinesPost: any = [];
+  normalPosts: any = [];
   blognews: any;
   blogPosts: any = [];
   jointPosts: any = [];
+  combination: any;
   related = 'Related News';
   guides = 'GUIDES & NEWS';
   boldText = 'Read the latest articles';
@@ -97,30 +98,36 @@ export class NewsComponent implements OnInit {
 
     let bbb: any = [];
     this.api.getNewsandEvents().subscribe((data: any) => {
-      // console.log(data);
-      // console.log('abc');
-      this.headlinesPost = data.attributes.news_posts.data.filter(
+      console.log(data);
+      this.headlinesPost = data.filter(
         (data: any) => data.attributes.headline === true
       );
 
-      this.jointPosts = data.attributes.news_posts.data.filter(
+      this.jointPosts = data.filter(
         (data: any) => data.attributes.headline === true && data.id === 7
       );
-
-      this.normalPosts = data.attributes.news_posts.data.filter(
-        (data: any) => data.attributes.headline === false
+      this.blogPosts = data.filter(
+        (data: any) => data.attributes.blog === true
       );
+      this.normalPosts = data.filter(
+        (data: any) =>
+          data.attributes.headline === false && data.attributes.blog === false
+      );
+      this.combination = this.jointPosts.concat(this.blogPosts);
+      // this.join(this.jointPosts, this.blogPosts);
 
-      bbb = this.jointPosts;
-      console.log(bbb);
-      return this.headlinesPost, this.normalPosts, this.jointPosts;
-    });
-
-    this.api.getBlogPosts().subscribe((data: any) => {
-      this.blogPosts = data.attributes.blogposts.data;
-      bbb = bbb.concat(this.blogPosts);
-      console.log(bbb);
-      return this.blogPosts, bbb;
+      return (
+        this.headlinesPost,
+        this.normalPosts,
+        this.jointPosts,
+        this.blogPosts,
+        this.combination
+      );
     });
   }
+
+  // join(a: any, b: any) {
+  //   this.combination = a.concat(b);
+  //   console.log(this.combination);
+  // }
 }
