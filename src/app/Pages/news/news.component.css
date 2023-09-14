@@ -100,7 +100,7 @@
   margin: 0 auto;
   row-gap: 1rem;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .news__show {

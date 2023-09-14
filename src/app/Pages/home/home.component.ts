@@ -50,6 +50,7 @@ export class HomeComponent implements OnInit {
       this.blogPosts = data.filter(
         (data: any) => data.attributes.blog === true
       );
+      this.blogPosts.pop();
       this.combination = this.jointPosts.concat(this.blogPosts);
 
       return this.jointPosts, this.blogPosts, this.combination;
