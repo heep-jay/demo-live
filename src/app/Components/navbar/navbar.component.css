@@ -177,8 +177,8 @@
   visibility: visible;
   opacity: 1;
   /* transition: all 0.2s ease; */
-  animation: growDown 500ms ease-in-out forwards;
-  transform-origin: top center;
+  /* animation: growDown 500ms ease-in-out forwards;
+  transform-origin: top center; */
 }
 /* .nav__item:hover > .dropdown_menu-6 {
   animation: growDown 500ms ease-in-out forwards;
