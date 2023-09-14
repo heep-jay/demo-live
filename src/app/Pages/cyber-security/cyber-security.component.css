@@ -142,7 +142,7 @@
 
 .info-img {
   width: 48%;
-  height: 450px;
+  height: 320px;
 }
 
 .info-img-line {
@@ -151,7 +151,7 @@
 
 .info-img img {
   /* max-height: 350px; */
-  height: 80%;
+  height: 100%;
   min-width: 100%;
   object-fit: cover;
   border-radius: 12px;
@@ -173,7 +173,8 @@ h2 {
   line-height: 47px;
 }
 
-.info-text button {
+.info-text button,
+.web-sublist button {
   padding: 0.75rem 2rem;
   background: #1c2b66;
   color: #fff;
@@ -215,18 +216,18 @@ h2 {
   text-align: justify; */
 }
 .web-sublist {
-  margin-bottom: 5rem;
+  margin: 1rem 0 5rem;
 }
 
 .web-sublist ul {
-  list-style-type: "-  ";
+  list-style-type: none;
 }
 .web-partners .web-title {
   font-size: 30px;
   text-align: center;
 }
 .web-partners li {
-  list-style-type: "- ";
+  list-style-type: none;
   line-height: 170%;
   font-size: 17px;
   margin-top: 1rem;

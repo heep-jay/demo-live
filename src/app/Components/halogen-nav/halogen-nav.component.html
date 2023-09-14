@@ -1,182 +1,185 @@
 <div class="megas-menu" (click)="$event.stopPropagation()">
-  <div class="menu__row">
-    <div class="menu__column">
-      <div
-        (click)="toggleMenu()"
-        routerLink="/cyber-security"
-        class="menu_col_header"
-      >
-        <h3>Cyber Security</h3>
-      </div>
-      <ul>
-        <!-- <li (click)="toggleMenu()" routerLink="{{menu.attributes.url}}" *ngFor="let menu of cybermenusL">
+  <div class="menu-div dropdown_menu-6">
+    <div class="menu__row">
+      <div class="menu__column">
+        <div
+          (click)="toggleMenu()"
+          routerLink="/cyber-security"
+          class="menu_col_header"
+        >
+          <h3>Cyber Security</h3>
+        </div>
+        <ul>
+          <!-- <li (click)="toggleMenu()" routerLink="{{menu.attributes.url}}" *ngFor="let menu of cybermenusL">
           <mat-icon>{{menu.attributes.icon}}</mat-icon> <a>{{menu.attributes.name}}</a>
         </li> -->
-        <li (click)="toggleMenu()" routerLink="/cyber-security/soc">
-          <mat-icon>security</mat-icon> <a>Security Operations Center (SOC)</a>
-        </li>
-        <li (click)="toggleMenu()" routerLink="/cyber-security/mssp">
-          <mat-icon>mail</mat-icon>
-          <a>Managed Security Services Provider (MSSP)</a>
-        </li>
-        <li (click)="toggleMenu()" routerLink="/cyber-security/iot">
-          <mat-icon>phonelink_setup</mat-icon> <a>IoT Security</a>
-        </li>
-        <li (click)="toggleMenu()" routerLink="/cyber-security/grc">
-          <mat-icon>emergency_heat</mat-icon>
-          <a>Governance, Risk, and Compliance (GRC)</a>
-        </li>
-        <li (click)="toggleMenu()" routerLink="/cyber-security/cap">
-          <mat-icon>import_contacts</mat-icon>
-          <a>Cybersecurity Awareness Program</a>
-        </li>
-        <li (click)="toggleMenu()" routerLink="/cyber-security/hcip">
-          <mat-icon>school</mat-icon>
-          <a>Halogen Cybersecurity Internship Programme</a>
-        </li>
-      </ul>
-      <div class="vr"></div>
-    </div>
-
-    <div class="menu__column">
-      <div
-        (click)="toggleMenu()"
-        routerLink="/security-technologies"
-        class="menu_col_header"
-      >
-        <h3>Security Technologies</h3>
-      </div>
-      <ul>
-        <li
-          (click)="toggleMenu()"
-          routerLink="{{ menu.attributes.url }}"
-          *ngFor="let menu of secTechMenu"
-        >
-          <mat-icon>{{ menu.attributes.icon }}</mat-icon
-          ><a>{{ menu.attributes.name }}</a>
-        </li>
-      </ul>
-      <div class="vr"></div>
-    </div>
-
-    <div class="menu__column">
-      <div
-        (click)="toggleMenu()"
-        routerLink="/physical-security"
-        class="menu_col_header"
-      >
-        <h3>Physical Security & Mobility</h3>
-      </div>
-      <ul>
-        <li
-          (click)="toggleMenu()"
-          routerLink="{{ menu.attributes.url }}"
-          *ngFor="let menu of phyMenu"
-        >
-          <mat-icon>{{ menu.attributes.icon }}</mat-icon
-          ><a>{{ menu.attributes.name }}</a>
-        </li>
-      </ul>
-      <div class="vr"></div>
-    </div>
-
-    <div class="menu__column">
-      <div
-        (click)="toggleMenu()"
-        routerLink="/outsourcing-investigations-identity"
-        class="menu_col_header"
-      >
-        <h3>Identity Access Management</h3>
+          <li (click)="toggleMenu()" routerLink="/cyber-security/soc">
+            <mat-icon>security</mat-icon>
+            <a>Security Operations Center (SOC)</a>
+          </li>
+          <li (click)="toggleMenu()" routerLink="/cyber-security/mssp">
+            <mat-icon>mail</mat-icon>
+            <a>Managed Security Services Provider (MSSP)</a>
+          </li>
+          <li (click)="toggleMenu()" routerLink="/cyber-security/iot">
+            <mat-icon>phonelink_setup</mat-icon> <a>IoT Security</a>
+          </li>
+          <li (click)="toggleMenu()" routerLink="/cyber-security/grc">
+            <mat-icon>emergency_heat</mat-icon>
+            <a>Governance, Risk, and Compliance (GRC)</a>
+          </li>
+          <li (click)="toggleMenu()" routerLink="/cyber-security/cap">
+            <mat-icon>import_contacts</mat-icon>
+            <a>Cybersecurity Awareness Program</a>
+          </li>
+          <li (click)="toggleMenu()" routerLink="/cyber-security/hcip">
+            <mat-icon>school</mat-icon>
+            <a>Halogen Cybersecurity Internship Programme</a>
+          </li>
+        </ul>
+        <div class="vr"></div>
       </div>
 
-      <ul>
-        <li
+      <div class="menu__column">
+        <div
           (click)="toggleMenu()"
-          routerLink="{{ menu.attributes.url }}"
-          *ngFor="let menu of outMenu"
+          routerLink="/security-technologies"
+          class="menu_col_header"
         >
-          <mat-icon>{{ menu.attributes.icon }}</mat-icon
-          ><a>{{ menu.attributes.name }}</a>
-        </li>
-      </ul>
-      <div class="vr"></div>
-    </div>
-
-    <div class="menu__column">
-      <div
-        (click)="toggleMenu()"
-        routerLink="/security-seducation"
-        class="menu_col_header"
-      >
-        <h3>Security Education</h3>
-      </div>
-
-      <ul>
-        <li
-          (click)="toggleMenu()"
-          routerLink="{{ menu.attributes.url }}"
-          *ngFor="let menu of secEduMenu"
-        >
-          <mat-icon>{{ menu.attributes.icon }}</mat-icon
-          ><a>{{ menu.attributes.name }}</a>
-        </li>
-      </ul>
-      <div class="vr"></div>
-    </div>
-
-    <div class="menu__column">
-      <div
-        (click)="toggleMenu()"
-        routerLink="/risk-advisory-and-consulting"
-        class="menu_col_header"
-      >
-        <h3>Security Risk Advisory & Consultancy</h3>
-      </div>
-      <ul>
-        <li
-          (click)="toggleMenu()"
-          routerLink="{{ menu.attributes.url }}"
-          *ngFor="let menu of riskMenu"
-        >
-          <mat-icon>{{ menu.attributes.icon }}</mat-icon
-          ><a routerLink="">{{ menu.attributes.name }}</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-  <div class="menu__features">
-    <h3>Check out our best features</h3>
-    <div class="features">
-      <div routerLink="/cyber-security" class="feature">
-        <div class="f_logo">
-          <mat-icon>laptop</mat-icon>
+          <h3>Security Technologies</h3>
         </div>
-        <div class="f_description">
-          <h3>Cyber Security Solutions</h3>
-        </div>
+        <ul>
+          <li
+            (click)="toggleMenu()"
+            routerLink="{{ menu.attributes.url }}"
+            *ngFor="let menu of secTechMenu"
+          >
+            <mat-icon>{{ menu.attributes.icon }}</mat-icon
+            ><a>{{ menu.attributes.name }}</a>
+          </li>
+        </ul>
+        <div class="vr"></div>
       </div>
-      <div routerLink="/physical-security" class="feature">
-        <div class="f_logo">
-          <mat-icon>verified_user</mat-icon>
-        </div>
-        <div class="f_description">
+
+      <div class="menu__column">
+        <div
+          (click)="toggleMenu()"
+          routerLink="/physical-security"
+          class="menu_col_header"
+        >
           <h3>Physical Security & Mobility</h3>
         </div>
+        <ul>
+          <li
+            (click)="toggleMenu()"
+            routerLink="{{ menu.attributes.url }}"
+            *ngFor="let menu of phyMenu"
+          >
+            <mat-icon>{{ menu.attributes.icon }}</mat-icon
+            ><a>{{ menu.attributes.name }}</a>
+          </li>
+        </ul>
+        <div class="vr"></div>
       </div>
-      <div (click)="toElem()" class="feature">
-        <div class="f_logo">
-          <mat-icon>fingerprint</mat-icon>
+
+      <div class="menu__column">
+        <div
+          (click)="toggleMenu()"
+          routerLink="/outsourcing-investigations-identity"
+          class="menu_col_header"
+        >
+          <h3>Identity Access Management</h3>
         </div>
-        <div class="f_description">
-          <h3>Electronics Solution & Telematics</h3>
-        </div>
+
+        <ul>
+          <li
+            (click)="toggleMenu()"
+            routerLink="{{ menu.attributes.url }}"
+            *ngFor="let menu of outMenu"
+          >
+            <mat-icon>{{ menu.attributes.icon }}</mat-icon
+            ><a>{{ menu.attributes.name }}</a>
+          </li>
+        </ul>
+        <div class="vr"></div>
       </div>
-      <div routerLink="/outsourcing-investigations-identity" class="feature">
-        <div class="f_logo">
-          <mat-icon>settings</mat-icon>
+
+      <div class="menu__column">
+        <div
+          (click)="toggleMenu()"
+          routerLink="/security-seducation"
+          class="menu_col_header"
+        >
+          <h3>Security Education</h3>
         </div>
-        <div class="f_description">
-          <h3>Outsourcing, Investigations & Identity</h3>
+
+        <ul>
+          <li
+            (click)="toggleMenu()"
+            routerLink="{{ menu.attributes.url }}"
+            *ngFor="let menu of secEduMenu"
+          >
+            <mat-icon>{{ menu.attributes.icon }}</mat-icon
+            ><a>{{ menu.attributes.name }}</a>
+          </li>
+        </ul>
+        <div class="vr"></div>
+      </div>
+
+      <div class="menu__column">
+        <div
+          (click)="toggleMenu()"
+          routerLink="/risk-advisory-and-consulting"
+          class="menu_col_header"
+        >
+          <h3>Security Risk Advisory & Consultancy</h3>
+        </div>
+        <ul>
+          <li
+            (click)="toggleMenu()"
+            routerLink="{{ menu.attributes.url }}"
+            *ngFor="let menu of riskMenu"
+          >
+            <mat-icon>{{ menu.attributes.icon }}</mat-icon
+            ><a routerLink="">{{ menu.attributes.name }}</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="menu__features">
+      <h3>Check out our best features</h3>
+      <div class="features">
+        <div routerLink="/cyber-security" class="feature">
+          <div class="f_logo">
+            <mat-icon>laptop</mat-icon>
+          </div>
+          <div class="f_description">
+            <h3>Cyber Security Solutions</h3>
+          </div>
+        </div>
+        <div routerLink="/physical-security" class="feature">
+          <div class="f_logo">
+            <mat-icon>verified_user</mat-icon>
+          </div>
+          <div class="f_description">
+            <h3>Physical Security & Mobility</h3>
+          </div>
+        </div>
+        <div (click)="toElem()" class="feature">
+          <div class="f_logo">
+            <mat-icon>fingerprint</mat-icon>
+          </div>
+          <div class="f_description">
+            <h3>Electronics Solution & Telematics</h3>
+          </div>
+        </div>
+        <div routerLink="/outsourcing-investigations-identity" class="feature">
+          <div class="f_logo">
+            <mat-icon>settings</mat-icon>
+          </div>
+          <div class="f_description">
+            <h3>Outsourcing, Investigations & Identity</h3>
+          </div>
         </div>
       </div>
     </div>
