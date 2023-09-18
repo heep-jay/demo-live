@@ -1,0 +1,78 @@
+/* * {
+  padding: 0;
+  margin: 0;
+  outline: 0;
+  color: #444;
+  box-sizing: border-box;
+  font-family: "IBM Plex Sans", sans-serif;
+} */
+.error-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 70vh;
+  overflow: hidden;
+  margin: 4rem 0;
+}
+.error-container h1 {
+  font-size: clamp(1.5625rem, 0.9868rem + 2.6316vw, 3.125rem);
+  line-height: 60px;
+}
+.error-container span {
+  display: block;
+  font-size: 18px;
+  line-height: 30px;
+}
+.container {
+  width: 80%;
+  max-width: 1600px;
+  margin: auto;
+}
+.grid-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* flex-wrap: wrap; */
+  gap: 4rem;
+  flex-direction: row;
+}
+.colmun-left {
+  text-align: left;
+}
+.colmun-right {
+  text-align: right;
+}
+.px-spc-b-20 {
+  padding-bottom: 20px;
+}
+button.go-home {
+  padding: 12px 30px;
+  background: #fcbe00;
+  border: transparent;
+  border-radius: 2px;
+  box-shadow: 0 0 2px rgb(0 0 0 / 30%);
+  cursor: pointer;
+  margin: 20px 0;
+  color: #fff;
+}
+button.go-home i {
+  color: #fff;
+}
+/* img {
+  display: block;
+  width: 100%;
+} */
+.notfound-img {
+  width: 100%;
+  max-width: 800px;
+}
+.sorry-img {
+  width: 100%;
+  max-width: 800px;
+}
+
+@media screen and (max-width: 768px) {
+  .grid-row {
+    flex-direction: column;
+  }
+}

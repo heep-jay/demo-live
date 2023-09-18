@@ -64,12 +64,12 @@ import { AnalyticalComponent } from './Pages/analytical/analytical.component';
 import { CarouselDirective } from './Components/carousel.directive';
 import { BlogdetailsComponent } from './Components/blogdetails/blogdetails.component';
 import { RelpostComponent } from './Components/relpost/relpost.component';
-import { CyberwebcontentComponent } from './Pages/cyberwebcontent/cyberwebcontent.component';
 import { VendoronboardingComponent } from './Pages/vendoronboarding/vendoronboarding.component';
 import { ConsultationmodalComponent } from './Components/consultationmodal/consultationmodal.component';
 import { SliderComponent } from './Components/slider/slider.component';
 import { SliderTwoComponent } from './Components/slider-two/slider-two.component';
 import { SecurityReportsComponent } from './Pages/security-reports/security-reports.component';
+import { PageNotFoundComponent } from './Pages/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -121,12 +121,12 @@ import { SecurityReportsComponent } from './Pages/security-reports/security-repo
     CarouselDirective,
     BlogdetailsComponent,
     RelpostComponent,
-    CyberwebcontentComponent,
     VendoronboardingComponent,
     ConsultationmodalComponent,
     SliderComponent,
     SliderTwoComponent,
     SecurityReportsComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,

@@ -12,7 +12,7 @@
       </div>
     </div>
     <div class="gallery-videos">
-      <div class="g-videos" (click)=" showVideos(year.value)">
+      <div class="g-videos" (click)="showVideos(year.value)">
         <h4>Videos</h4>
         <div class="marker" *ngIf="isVideos"></div>
       </div>
@@ -35,14 +35,21 @@
     <div></div>
   </div>
   <div class="gallery-grid">
-    <div class="grid-item" routerLink="/gallery/{{link}}/{{images.id}}" *ngFor="let images of galleryImages">
-      <img [src]="images.attributes.mainImage.data.attributes.url" alt="" class="grid-image">
+    <div
+      class="grid-item"
+      routerLink="/gallery/{{ link }}/{{ images.id }}"
+      *ngFor="let images of galleryImages"
+    >
+      <img
+        [src]="images.attributes.mainImage.data.attributes.url"
+        alt="gallery-img"
+        class="grid-image"
+      />
       <div class="grid-caption">
-        <p>{{images.attributes.caption}}</p>
+        <p>{{ images.attributes.caption }}</p>
         <button>View More <mat-icon>arrow_right_alt</mat-icon></button>
       </div>
     </div>
-
   </div>
 
   <div class="grid-showmore-btn">
