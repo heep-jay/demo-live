@@ -2,12 +2,8 @@
   <div class="menu-div dropdown_menu-6">
     <div class="menu__row">
       <div class="menu__column">
-        <div
-          (click)="toggleMenu()"
-          routerLink="/cyber-security"
-          class="menu_col_header"
-        >
-          <h3>Cyber Security</h3>
+        <div (click)="toggleMenu()" class="menu_col_header">
+          <a routerLink="/cyber-security">Cyber Security</a>
         </div>
         <ul>
           <!-- <li (click)="toggleMenu()" routerLink="{{menu.attributes.url}}" *ngFor="let menu of cybermenusL">
@@ -41,12 +37,8 @@
       </div>
 
       <div class="menu__column">
-        <div
-          (click)="toggleMenu()"
-          routerLink="/security-technologies"
-          class="menu_col_header"
-        >
-          <h3>Security Technologies</h3>
+        <div (click)="toggleMenu()" class="menu_col_header">
+          <a routerLink="/security-technologies">Security Technologies</a>
         </div>
         <ul>
           <li
@@ -62,12 +54,8 @@
       </div>
 
       <div class="menu__column">
-        <div
-          (click)="toggleMenu()"
-          routerLink="/physical-security"
-          class="menu_col_header"
-        >
-          <h3>Physical Security & Mobility</h3>
+        <div (click)="toggleMenu()" class="menu_col_header">
+          <a routerLink="/physical-security">Physical Security & Mobility</a>
         </div>
         <ul>
           <li
@@ -83,12 +71,10 @@
       </div>
 
       <div class="menu__column">
-        <div
-          (click)="toggleMenu()"
-          routerLink="/outsourcing-investigations-identity"
-          class="menu_col_header"
-        >
-          <h3>Identity Access Management</h3>
+        <div (click)="toggleMenu()" class="menu_col_header">
+          <a routerLink="/outsourcing-investigations-identity"
+            >Identity Access Management</a
+          >
         </div>
 
         <ul>
@@ -105,43 +91,33 @@
       </div>
 
       <div class="menu__column">
-        <div
-          (click)="toggleMenu()"
-          routerLink="/security-seducation"
-          class="menu_col_header"
-        >
-          <h3>Security Education</h3>
+        <div (click)="toggleMenu()" class="menu_col_header">
+          <a routerLink="/security-seducation">Security Education</a>
         </div>
 
         <ul>
-          <li
-            (click)="toggleMenu()"
-            routerLink="{{ menu.attributes.url }}"
-            *ngFor="let menu of secEduMenu"
-          >
+          <li (click)="toggleMenu()" *ngFor="let menu of secEduMenu">
             <mat-icon>{{ menu.attributes.icon }}</mat-icon
-            ><a>{{ menu.attributes.name }}</a>
+            ><a routerLink="{{ menu.attributes.url }}">{{
+              menu.attributes.name
+            }}</a>
           </li>
         </ul>
         <div class="vr"></div>
       </div>
 
       <div class="menu__column">
-        <div
-          (click)="toggleMenu()"
-          routerLink="/risk-advisory-and-consulting"
-          class="menu_col_header"
-        >
-          <h3>Security Risk Advisory & Consultancy</h3>
+        <div (click)="toggleMenu()" class="menu_col_header">
+          <a routerLink="/risk-advisory-and-consulting"
+            >Security Risk Advisory & Consultancy</a
+          >
         </div>
         <ul>
-          <li
-            (click)="toggleMenu()"
-            routerLink="{{ menu.attributes.url }}"
-            *ngFor="let menu of riskMenu"
-          >
+          <li (click)="toggleMenu()" *ngFor="let menu of riskMenu">
             <mat-icon>{{ menu.attributes.icon }}</mat-icon
-            ><a routerLink="">{{ menu.attributes.name }}</a>
+            ><a routerLink="{{ menu.attributes.url }}">{{
+              menu.attributes.name
+            }}</a>
           </li>
         </ul>
       </div>

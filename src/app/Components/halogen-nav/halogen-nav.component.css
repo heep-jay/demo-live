@@ -96,10 +96,11 @@
     cursor: pointer;
   }
 
-  .menu__column h3 {
+  .menu__column a {
     font-size: 13px;
     color: #1c2b66;
     font-weight: 600;
+    text-decoration: none;
   }
 
   .menu__column ul,

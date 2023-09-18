@@ -15,12 +15,8 @@
           <span>{{ aboutUs }}</span>
           <div></div>
           <ul class="drop-menu">
-            <li
-              routerLink="/{{ abtMen.attributes.url }}"
-              (click)="closeNav()"
-              *ngFor="let abtMen of aboutmenus"
-            >
-              <a
+            <li (click)="closeNav()" *ngFor="let abtMen of aboutmenus">
+              <a routerLink="/{{ abtMen.attributes.url }}"
                 ><mat-icon>{{ abtMen.attributes.icon }}</mat-icon
                 >{{ abtMen.attributes.name }}</a
               >
@@ -40,12 +36,8 @@
           {{ mediaCentre }}
           <div></div>
           <ul class="drop-menu dropdown_menu-6">
-            <li
-              routerLink="/{{ medMen.attributes.url }}"
-              (click)="closeNav()"
-              *ngFor="let medMen of mediamenus"
-            >
-              <a
+            <li (click)="closeNav()" *ngFor="let medMen of mediamenus">
+              <a routerLink="/{{ medMen.attributes.url }}" target="_blank"
                 ><mat-icon>{{ medMen.attributes.icon }}</mat-icon
                 >{{ medMen.attributes.name }}</a
               >
