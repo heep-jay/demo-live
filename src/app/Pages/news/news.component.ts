@@ -95,10 +95,8 @@ export class NewsComponent implements OnInit {
 
   ngOnInit(): void {
     window.scrollTo(0, 0);
-
     let bbb: any = [];
     this.api.getNewsandEvents().subscribe((data: any) => {
-      console.log(data);
       this.headlinesPost = data.filter(
         (data: any) => data.attributes.headline === true
       );
@@ -114,8 +112,6 @@ export class NewsComponent implements OnInit {
           data.attributes.headline === false && data.attributes.blog === false
       );
       this.combination = this.jointPosts.concat(this.blogPosts);
-      // this.join(this.jointPosts, this.blogPosts);
-
       return (
         this.headlinesPost,
         this.normalPosts,
@@ -125,9 +121,4 @@ export class NewsComponent implements OnInit {
       );
     });
   }
-
-  // join(a: any, b: any) {
-  //   this.combination = a.concat(b);
-  //   console.log(this.combination);
-  // }
 }

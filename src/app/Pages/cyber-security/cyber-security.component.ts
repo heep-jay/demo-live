@@ -50,7 +50,6 @@ export class CyberSecurityComponent implements OnInit {
   async ngOnInit() {
     window.scrollTo(0, 0);
     this.api.getProductPage(2).subscribe(async (data) => {
-      console.log(data);
       this.risks = data;
       this.productName = await data.attributes.productName;
       this.productHeader = data.attributes.productHeader;
@@ -64,16 +63,6 @@ export class CyberSecurityComponent implements OnInit {
       this.products.map((data: any) => {
         this.services.push(data.attributes.productName);
       });
-
-      // this.getProductImg()
-      // window.onload = function () {
-      //   if (window.location.hash) {
-
-      //     console.log(window.location.hash.slice(1))
-      //     let hash = window.location.hash.slice(1)
-      //     document.getElementById(hash)?.scrollIntoView({ behavior: "smooth" });
-      //   }
-      // }
     });
 
     this.api.getProductImage(2).subscribe((data) => {
@@ -85,21 +74,17 @@ export class CyberSecurityComponent implements OnInit {
     if (this.prodId) {
       this.api.getProductPage(2).subscribe(async (data) => {
         await data;
-        // let hash = this.prodId
         var element = document
           .getElementById(this.prodId)
           ?.getBoundingClientRect().top;
         var headerOffset = 145;
-        // var elementPosition = element!.getBoundingClientRect().top;
         var offsetPosition = element! + window.pageYOffset - headerOffset;
-        // document.getElementById(hash)?.
         window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
       });
     }
   }
 
   scrolll(data: any) {
-    console.log(data);
     var element = document.getElementById(data)?.getBoundingClientRect().top;
     var headerOffset = 145;
     var offsetPosition = element! + window.pageYOffset - headerOffset;

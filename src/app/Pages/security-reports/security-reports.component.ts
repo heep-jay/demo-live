@@ -18,7 +18,6 @@ export class SecurityReportsComponent implements OnInit {
   }
 
   download(url: any) {
-    console.log(url);
     window.open(url, '_blank');
   }
 
@@ -31,11 +30,9 @@ export class SecurityReportsComponent implements OnInit {
   getReports(current_page: number) {
     this.api.getReports(current_page).subscribe((data: any) => {
       this.reports = data;
-      console.log(this.reports);
       this.reports.map((data: any) => {
         this.image = data.attributes.file.data.attributes.url;
         const dotIndex = this.image.lastIndexOf('.');
-        console.log(this.image);
         if (dotIndex === -1) {
           return this.image; // No dot found, return the original string
         }

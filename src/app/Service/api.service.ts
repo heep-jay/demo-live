@@ -13,8 +13,6 @@ const httpOptions = {
 })
 export class ApiService {
   private apiUrl = 'https://halogen-live.onrender.com';
-  // private apiUrl = "https://halogen-app.onrender.com"
-  // private apiUrl = "http://localhost:1337"
   private bookUrl =
     'https://dev-halobiz-identity-dev-halobiz-mail.azurewebsites.net/Mail/WebsiteServiceAutoReply';
   constructor(private http: HttpClient) {}

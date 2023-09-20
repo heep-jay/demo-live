@@ -38,12 +38,9 @@ export class HomeComponent implements OnInit {
       this.banner = data?.attributes.banners.data;
       this.fybLeft = data.attributes.fyblefts.data;
       this.fybRight = data.attributes.fybrights.data;
-      console.log(this.banner);
     });
 
     this.api.getNewsandEvents().subscribe((data: any) => {
-      console.log(data);
-
       this.jointPosts = data.filter(
         (data: any) => data.attributes.headline === true && data.id === 7
       );

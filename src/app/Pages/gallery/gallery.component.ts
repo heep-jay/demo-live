@@ -4,11 +4,8 @@ import { ApiService } from 'src/app/Service/api.service';
 @Component({
   selector: 'app-gallery',
   templateUrl: './gallery.component.html',
-  styleUrls: ['./gallery.component.css']
+  styleUrls: ['./gallery.component.css'],
 })
-
-
-
 export class GalleryComponent implements OnInit {
   galleryImages: any;
   selectedTeam = '';
@@ -16,107 +13,104 @@ export class GalleryComponent implements OnInit {
   isVideos: boolean = false;
   gallery: any;
   videos: any;
-  galleryVideos: any
+  galleryVideos: any;
   link: any;
-  caption: string = "";
+  caption: string = '';
 
-
-  constructor(private api: ApiService) { }
+  constructor(private api: ApiService) {}
 
   ngOnInit(): void {
     window.scrollTo(0, 0);
     this.api.getGalleryPhotos().subscribe((data: any) => {
-      // this.caption = data.attributes.caption
-      console.log(data.attributes)
       if (this.isGallery) {
-        console.log(this.isGallery)
-        this.gallery = data
-        this.caption = "hey"
-        this.isGallery = true
-        this.galleryImages = this.gallery
-        console.log(this.galleryImages)
+        this.gallery = data;
+        this.caption = 'hey';
+        this.isGallery = true;
+        this.galleryImages = this.gallery;
       }
-      return this.galleryImages
-    })
+      return this.galleryImages;
+    });
     window.scrollTo(0, 0);
-    this.showGallery()
-
-    // this.isGallery = true;
-    // this.isVideos = false;
+    this.showGallery();
   }
   onSelected(value: string): void {
     this.selectedTeam = value;
 
-    if (this.selectedTeam === "2023") {
+    if (this.selectedTeam === '2023') {
       if (this.isGallery) {
-        this.galleryImages = this.gallery.filter((gal: any) => gal.attributes.year === "2023")
-        console.log(this.galleryImages)
+        this.galleryImages = this.gallery.filter(
+          (gal: any) => gal.attributes.year === '2023'
+        );
       } else {
-        this.galleryImages = this.videos.filter((gal: any) => gal.attributes.year === "2023")
+        this.galleryImages = this.videos.filter(
+          (gal: any) => gal.attributes.year === '2023'
+        );
       }
-
-    }
-    else if (this.selectedTeam === "2022") {
+    } else if (this.selectedTeam === '2022') {
       if (this.isGallery) {
-        this.galleryImages = this.gallery.filter((gal: any) => gal.attributes.year === "2022")
-        console.log(this.galleryImages)
+        this.galleryImages = this.gallery.filter(
+          (gal: any) => gal.attributes.year === '2022'
+        );
       } else {
-        this.galleryImages = this.videos.filter((gal: any) => gal.attributes.year === "2022")
+        this.galleryImages = this.videos.filter(
+          (gal: any) => gal.attributes.year === '2022'
+        );
       }
-    }
-    else if (this.selectedTeam === "2021") {
+    } else if (this.selectedTeam === '2021') {
       if (this.isGallery) {
-        this.galleryImages = this.gallery.filter((gal: any) => gal.attributes.year === "2021")
-        console.log(this.galleryImages)
+        this.galleryImages = this.gallery.filter(
+          (gal: any) => gal.attributes.year === '2021'
+        );
       } else {
-        this.galleryImages = this.videos.filter((gal: any) => gal.attributes.year === "2021")
+        this.galleryImages = this.videos.filter(
+          (gal: any) => gal.attributes.year === '2021'
+        );
       }
-    }
-    else if (this.selectedTeam === "2020") {
+    } else if (this.selectedTeam === '2020') {
       if (this.isGallery) {
-        this.galleryImages = this.gallery.filter((gal: any) => gal.attributes.year === "2020")
-        console.log(this.galleryImages)
+        this.galleryImages = this.gallery.filter(
+          (gal: any) => gal.attributes.year === '2020'
+        );
       } else {
-        this.galleryImages = this.videos.filter((gal: any) => gal.attributes.year === "2020")
+        this.galleryImages = this.videos.filter(
+          (gal: any) => gal.attributes.year === '2020'
+        );
       }
-    }
-    else if (this.selectedTeam === "2019") {
+    } else if (this.selectedTeam === '2019') {
       if (this.isGallery) {
-        this.galleryImages = this.videos.filter((gal: any) => gal.attributes.year === "2019")
-        console.log(this.galleryImages)
+        this.galleryImages = this.videos.filter(
+          (gal: any) => gal.attributes.year === '2019'
+        );
       } else {
-        this.galleryImages = this.videos.filter((gal: any) => gal.attributes.year === "2019")
+        this.galleryImages = this.videos.filter(
+          (gal: any) => gal.attributes.year === '2019'
+        );
       }
-    }
-    else {
+    } else {
       if (this.isGallery) {
-        this.galleryImages = this.gallery
-        console.log(this.galleryImages)
+        this.galleryImages = this.gallery;
       } else {
-        this.galleryImages = this.videos
+        this.galleryImages = this.videos;
       }
     }
-
   }
   showGallery() {
     this.isGallery = true;
-    this.isVideos = false
+    this.isVideos = false;
     this.link = 'photos';
     if (this.isGallery) {
-      this.galleryImages = this.gallery
-    } else null
+      this.galleryImages = this.gallery;
+    } else null;
   }
   showVideos(year: string) {
     this.isGallery = false;
     this.isVideos = true;
     this.link = 'videos';
     if (this.isVideos) {
-      console.log(this.isVideos)
       this.api.getGalleryVideos().subscribe((data: any) => {
-        this.videos = data
-        this.galleryImages = this.videos
-      })
+        this.videos = data;
+        this.galleryImages = this.videos;
+      });
     }
   }
-
 }
