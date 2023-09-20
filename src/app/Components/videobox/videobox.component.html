@@ -1,24 +1,44 @@
 <div class="gallery-lightbox-container">
   <div class="gallery">
-    <div *ngFor="let data of galleryData; let i=index;" class="gallery-img">
-      <video (click)="onPreviewImage(i)" src="{{data.attributes.url}}">
-
-      </video>
+    <div *ngFor="let data of galleryData; let i = index" class="gallery-img">
+      <video
+        (click)="onPreviewImage(i)"
+        src="{{ data.attributes.url }}"
+      ></video>
     </div>
   </div>
   <div *ngIf="showMask" class="lightbox" @animation2>
-    <span *ngIf="showCount" class="count">{{currentIndex + 1}}/{{totalImageCount}}</span>
+    <span *ngIf="showCount" class="count"
+      >{{ currentIndex + 1 }}/{{ totalImageCount }}</span
+    >
     <button *ngIf="previewImage" class="close-btn" (click)="onClosePreview()">
       <mat-icon>cancel</mat-icon>
     </button>
-    <button *ngIf="controls" class="btn-lightbox-carousel btn-prev" (click)="prev()">
-      <mat-icon class="icon-lightbox-carousel icon-prev">arrow_circle_left</mat-icon></button>
-    <button *ngIf="controls" class="btn-lightbox-carousel  btn-next" (click)="next()">
-      <mat-icon class="icon-lightbox-carousel icon-next">arrow_circle_right</mat-icon></button>
-    <div *ngIf="previewImage" class="lightbox-img" [@animation]="{value: 'visible'}"
-      (@animation.done)="onAnimationEnd($event)">
+    <button
+      *ngIf="controls"
+      class="btn-lightbox-carousel btn-prev"
+      (click)="prev()"
+    >
+      <mat-icon class="icon-lightbox-carousel icon-prev"
+        >arrow_circle_left</mat-icon
+      >
+    </button>
+    <button
+      *ngIf="controls"
+      class="btn-lightbox-carousel btn-next"
+      (click)="next()"
+    >
+      <mat-icon class="icon-lightbox-carousel icon-next"
+        >arrow_circle_right</mat-icon
+      >
+    </button>
+    <div
+      *ngIf="previewImage"
+      class="lightbox-img"
+      [@animation]="{ value: 'visible' }"
+      (@animation.done)="onAnimationEnd($event)"
+    >
       <video [src]="currentLightboxImage.attributes.url" controls></video>
     </div>
   </div>
-
 </div>

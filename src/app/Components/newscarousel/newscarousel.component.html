@@ -22,67 +22,6 @@
     ></button>
   </div>
   <div class="carousel-inner">
-    <!-- <div class="caro">
-        <div class="caro-text">
-          <h1>Enjoy anxiety-free travels in Nigeria with Halogen</h1>
-          <p>We lead the West African security solutions market, as we continually focus on delivering valued
-            solutions across the industry’s value chain as the number one integrated safety and security
-            solutions group</p>
-        </div>
-        <div class="caro-img">
-          <img src="/assets/images/2.png" class="" alt="...">
-        </div>
-      </div>
-    </div>
-    <div class="carousel-item">
-      <div class="caro">
-        <div class="caro-text">
-          <h1>Halo Halo!! Halogen!!!</h1>
-          <p>We lead the West African security solutions market, as we continually focus on delivering valued
-            solutions across the industry’s value chain as the number one integrated safety and security
-            solutions group</p>
-        </div>
-        <div class="caro-img">
-          <img src="/assets/images/1.png" class="" alt="...">
-        </div>
-      </div>
-    </div>
-    <div class="carousel-item">
-      <div class="caro">
-        <div class="caro-text">
-          <h1>Enjoy anxiety-free travels in Nigeria with Halogen</h1>
-          <p>We lead the West African security solutions market, as we continually focus on delivering valued
-            solutions across the industry’s value chain as the number one integrated safety and security
-            solutions group</p>
-        </div>
-        <div class="caro-img">
-          <img src="/assets/images/1.png" class="" alt="...">
-        </div>
-      </div>
-    </div> -->
-    <!-- <div class="carousel-item active">
-      <div class="caro">
-        <div class="mainpost_left">
-          <div class="mainpost_content">
-            <img src="/assets/images/hero.jpg" alt="">
-            <div class="mainpost_title">
-              <span>By Odam Lafer</span>
-              <h2>Technology- driven business
-                process is the new normal</h2>
-            </div>
-            <p>We lead the West African security solutions market, as we continually focus on delivering valued
-              solution sacross the industry’s value chain as the number one integrated.
-              across the industry’s value chain as the number one integrated.sacross the industry’s value chain as the
-              number one integrated.
-              across the industry’s value chain as the number one integrated.</p>
-
-            <div class="mainpost_content-btn">
-              <button>Read More <mat-icon>arrow_right_alt</mat-icon></button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div> -->
     <div
       [className]="news.id === 7 ? 'carousel-item active' : 'carousel-item'"
       *ngFor="let news of headlinePost"
@@ -93,7 +32,7 @@
             <img
               routerLink="/news-events/news/{{ news.id }}"
               src="{{ news.attributes.mainImage.data.attributes.url }}"
-              alt=""
+              alt="newsImg"
             />
             <div class="mainpost_title">
               <span>By Odam Lafer</span>
@@ -112,30 +51,6 @@
         </div>
       </div>
     </div>
-
-    <!-- <div class="carousel-item">
-      <div class="caro">
-        <div class="mainpost_left">
-          <div class="mainpost_content">
-            <img src="/assets/images/hero.jpg" alt="">
-            <div class="mainpost_title">
-              <span>By Odam Lafer</span>
-              <h2>Technology- driven business
-                process is the new normal</h2>
-            </div>
-            <p>We lead the West African security solutions market, as we continually focus on delivering valued
-              solution sacross the industry’s value chain as the number one integrated.
-              across the industry’s value chain as the number one integrated.sacross the industry’s value chain as the
-              number one integrated.
-              across the industry’s value chain as the number one integrated.</p>
-
-            <div class="mainpost_content-btn">
-              <button>Read More <mat-icon>chevron_right</mat-icon></button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div> -->
   </div>
   <button
     class="carousel-control-prev"

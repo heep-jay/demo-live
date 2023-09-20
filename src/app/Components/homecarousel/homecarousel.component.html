@@ -1,60 +1,63 @@
 <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
   <div class="carousel-indicators">
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
-      aria-current="true" aria-label="Slide 1"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
-      aria-label="Slide 2"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
-      aria-label="Slide 3"></button>
+    <button
+      type="button"
+      data-bs-target="#carouselExampleIndicators"
+      data-bs-slide-to="0"
+      class="active"
+      aria-current="true"
+      aria-label="Slide 1"
+    ></button>
+    <button
+      type="button"
+      data-bs-target="#carouselExampleIndicators"
+      data-bs-slide-to="1"
+      aria-label="Slide 2"
+    ></button>
+    <button
+      type="button"
+      data-bs-target="#carouselExampleIndicators"
+      data-bs-slide-to="2"
+      aria-label="Slide 3"
+    ></button>
   </div>
   <div class="carousel-inner">
-    <div [className]=" bann.attributes.active ? 'carousel-item active' : 'carousel-item'" *ngFor="let bann of banner">
+    <div
+      [className]="
+        bann.attributes.active ? 'carousel-item active' : 'carousel-item'
+      "
+      *ngFor="let bann of banner"
+    >
       <div class="caro">
         <div class="caro-text">
           <h1>{{ bann.attributes.bannerHeader }}</h1>
           <p>{{ bann.attributes.bannerText }}</p>
         </div>
         <div class="caro-img">
-          <img src="{{bann.attributes.bannerImage.data.attributes.url}}" class="" alt="...">
+          <img
+            src="{{ bann.attributes.bannerImage.data.attributes.url }}"
+            class=""
+            alt="bannerImage"
+          />
         </div>
       </div>
     </div>
-    <!-- <div class="carousel-item">
-      <div class="caro">
-        <div class="caro-text">
-          <h1>A premium, global best practice,</h1>
-          <p>A premium, global best practice, ISO Certified Security Risk Centre of Excellence, we seek to
-            enable achievement for individuals, families, businesses, institutions and governments by
-            eliminating security related anxieties and enabling an environment of sustainable safety through
-            the deployment of people, deep expertise and technology.</p>
-        </div>
-        <div class="caro-img">
-          <img src="/assets/images/land.webp" class="" alt="...">
-        </div>
-      </div>
-    </div>
-    <div class="carousel-item">
-      <div class="caro">
-        <div class="caro-text">
-          <h1>Smart Security Solutions</h1>
-          <p>With our smart security solutions, you can be confident about our ability to help protect you,
-            your family, home, business and other vital assets from every security threat. Our solutions are
-            customized and scalable to fit your specific needs.</p>
-          <p>
-            Learn more about how our smart security solutions can benefit you.
-          </p>
-        </div>
-        <div class="caro-img">
-          <img src="/assets/images/land2.jpg" class="" alt="...">
-        </div>
-      </div>
-    </div> -->
   </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+  <button
+    class="carousel-control-prev"
+    type="button"
+    data-bs-target="#carouselExampleIndicators"
+    data-bs-slide="prev"
+  >
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Previous</span>
   </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+  <button
+    class="carousel-control-next"
+    type="button"
+    data-bs-target="#carouselExampleIndicators"
+    data-bs-slide="next"
+  >
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Next</span>
   </button>

@@ -2,12 +2,12 @@
   <section class="why_business">
     <div class="why__business">
       <div class="business_left">
-        <h1>{{mainHeader}}</h1>
-        <p>{{mainBody1}}</p>
-        <p>{{mainBody2}}</p>
+        <h1>{{ mainHeader }}</h1>
+        <p>{{ mainBody1 }}</p>
+        <p>{{ mainBody2 }}</p>
       </div>
       <div class="business_right">
-        <img src="./assets/images/choose.png" alt="">
+        <img src="./assets/images/choose.png" alt="whychooseus" />
       </div>
     </div>
   </section>
@@ -17,59 +17,18 @@
   </div>
   <section>
     <div class="why-choose-us">
-      <h1>{{whyHeader}}</h1>
+      <h1>{{ whyHeader }}</h1>
       <div class="card-container">
         <div class="card" *ngFor="let reason of reasons">
-          <img class="card-img" [src]="reason.attributes.image.data.attributes.url" alt="">
+          <img
+            class="card-img"
+            [src]="reason.attributes.image.data.attributes.url"
+            alt="reasons"
+          />
           <div class="card-text">
-            <p>{{reason.attributes.text}}</p>
+            <p>{{ reason.attributes.text }}</p>
           </div>
         </div>
-        <!-- <div class="card">
-          <img class="card-img" src="./assets/images/brain.png" alt="">
-          <div class="card-text">
-            <p>QMS-driven business process</p>
-          </div>
-        </div>
-        <div class="card">
-          <img class="card-img" src="./assets/images/ibm.png" alt="">
-          <div class="card-text">
-            <p>Unbroken Chain of Command & Control coordinated by Fusion Centre</p>
-          </div>
-        </div>
-        <div class="card">
-          <img class="card-img" src="./assets/images/friend.png" alt="">
-          <div class="card-text">
-
-            <p>TUnbroken Chain of Command & Control coordinated by Fusion Centre </p>
-          </div>
-        </div>
-        <div class="card">
-          <img class="card-img" src="./assets/images/experience.png" alt="">
-          <div class="card-text">
-            <p>Regulatory Approval & Permit</p>
-          </div>
-        </div>
-        <div class="card">
-          <img class="card-img" src="./assets/images/brain.png" alt="">
-          <div class="card-text">
-
-            <p>Regulatory Approval & Permit</p>
-          </div>
-        </div>
-        <div class="card">
-          <img class="card-img" src="./assets/images/ibm.png" alt="">
-          <div class="card-text">
-            <p>National Security Collaboration</p>
-          </div>
-        </div>
-        <div class="card">
-          <img class="card-img" src="./assets/images/friend.png" alt="">
-          <div class="card-text">
-
-            <p>Integrated Risk Management capabilities and competencies</p>
-          </div>
-        </div> -->
       </div>
     </div>
   </section>
@@ -79,23 +38,18 @@
   </div>
   <section class="why_solutions">
     <div class="why_solutions-header">
-      <h1>{{solutionHeader}}</h1>
-      <div class="header_text">
-        <!-- <p>{{solutionBody}}</p> -->
-
-      </div>
+      <h1>{{ solutionHeader }}</h1>
+      <div class="header_text"></div>
     </div>
     <div class="why_carousel">
       <app-solutioncarousel [solution]="solutions"></app-solutioncarousel>
-
     </div>
   </section>
   <section class="why_contact">
     <div class="why__contact">
-      <h1>{{contactHeader}}</h1>
-      <p>{{contactBody}}</p>
+      <h1>{{ contactHeader }}</h1>
+      <p>{{ contactBody }}</p>
       <div routerLink="/contact" class="why__contact-btn">
-
         <button>Contact us</button>
         <div class="ct-icon">
           <mat-icon>arrow_forward_ios</mat-icon>
@@ -105,81 +59,32 @@
   </section>
   <section class="why_faqs">
     <div class="why__faqs">
-      <h1>{{faqHeader}}</h1>
+      <h1>{{ faqHeader }}</h1>
       <div class="accordion" id="accordionExample">
         <div class="accordion-item" *ngFor="let item of faqs">
           <h2 class="accordion-header" id="headingOne">
-            <button class="accordion-button" type="button" data-bs-toggle="collapse"
-              [attr.data-bs-target]="'#' + item.attributes.faqId" aria-expanded="true" aria-controls="collapseOne">
-              {{item.attributes.header}}
+            <button
+              class="accordion-button"
+              type="button"
+              data-bs-toggle="collapse"
+              [attr.data-bs-target]="'#' + item.attributes.faqId"
+              aria-expanded="true"
+              aria-controls="collapseOne"
+            >
+              {{ item.attributes.header }}
             </button>
           </h2>
-          <div id="{{item.attributes.faqId}}" class="accordion-collapse collapse " aria-labelledby="headingOne"
-            data-bs-parent="#accordionExample">
+          <div
+            id="{{ item.attributes.faqId }}"
+            class="accordion-collapse collapse"
+            aria-labelledby="headingOne"
+            data-bs-parent="#accordionExample"
+          >
             <div class="accordion-body">
-              {{item.attributes.body}}
+              {{ item.attributes.body }}
             </div>
           </div>
         </div>
-
-
-
-
-
-        <!-- <div class="accordion-item">
-          <h2 class="accordion-header" id="headingTwo">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-              data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-              How much does shipping cost?
-            </button>
-          </h2>
-          <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
-            data-bs-parent="#accordionExample">
-            <div class="accordion-body">
-              We offer flat-rate shipping in the United States based on the zip code of your shipping destination.
-
-              You can order as little as 4 pints and as many as you like—and you still pay the same price per delivery.
-
-              We will ship your order as soon as possible and your account will be updated via email with tracking
-              information as soon as the status of your order changes.
-
-              Frozen goods shipped via flat-rate shipping arrive 1 to 2 days after being shipped, depending on the
-              shipping destination. (At checkout, we’ll tell you the week your package will be delivered.)
-            </div>
-          </div>
-        </div>
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="headingThree">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-              data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-              What's your return policy?
-            </button>
-          </h2>
-          <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
-            data-bs-parent="#accordionExample">
-            <div class="accordion-body">
-              All sales are final. If your ice cream doesn’t arrive perfectly frozen, we’ll reship the order at our
-              cost. Need customer service? Contact contact@jenis.com
-            </div>
-          </div>
-        </div>
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="headingFour">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-              data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-              What does it mean to be a Certified B Corporation?
-            </button>
-          </h2>
-          <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingThree"
-            data-bs-parent="#accordionExample">
-            <div class="accordion-body">
-              It means our company has been endorsed by the international nonprofit B Lab to meet rigorous standards of
-              social and environmental performance, accountability, and transparency. We achieved Certified B Corp
-              status in 2014. Jeni’s is among more than 900 Certified B Corp’s worldwide with one unifying goal: to
-              redefine what success in doing business means.
-            </div>
-          </div>
-        </div> -->
       </div>
     </div>
   </section>

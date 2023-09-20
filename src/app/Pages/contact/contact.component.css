@@ -5,7 +5,8 @@
 
 .contact__header {
   height: 500px;
-  background: linear-gradient(rgba(28, 43, 102, 0.7), rgba(28, 43, 102, 0.7)), url("/assets/images/contact2.jpg");
+  background: linear-gradient(rgba(28, 43, 102, 0.7), rgba(28, 43, 102, 0.7)),
+    url("/assets/images/contact2.jpg");
   background-size: cover !important;
   background-repeat: no-repeat !important;
   background-position: top center !important;
@@ -14,12 +15,7 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-
 }
-
-
-
-
 .contact__header-text {
   width: 90%;
   margin: 0 auto;
@@ -41,15 +37,12 @@
   width: 90%;
   margin: 2rem auto;
   row-gap: 2rem;
-
 }
 
 .contact__info,
 .contact__message {
   width: 40%;
   min-width: 300px;
-
-
 }
 
 .contact__info {
@@ -122,7 +115,7 @@
 
 .map-icon {
   padding: 0.5rem;
-  background: #1C2B66;
+  background: #1c2b66;
 }
 
 .map-text {
@@ -138,8 +131,7 @@
   display: flex;
   align-items: center;
   gap: 1rem;
-  color: #4D4D4D;
-
+  color: #4d4d4d;
 }
 
 .contact-form {
@@ -196,7 +188,7 @@
 }
 
 .send-btn button {
-  background: #1C2B66;
+  background: #1c2b66;
   border-radius: 16px;
   padding: 1rem 3rem;
   color: white;
@@ -207,7 +199,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
 }
 
 .dg-content p {
@@ -216,7 +207,7 @@
   font-weight: 600;
 }
 
-@media screen and (max-width:710px) {
+@media screen and (max-width: 710px) {
   .contact__body {
     display: flex;
     flex-wrap: nowrap;
@@ -227,6 +218,5 @@
   .contact__info,
   .contact__message {
     width: 100%;
-
   }
 }

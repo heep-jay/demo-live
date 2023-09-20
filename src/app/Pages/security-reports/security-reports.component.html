@@ -2,14 +2,6 @@
   <h1>Security Advisory Reports</h1>
 
   <div class="reports-container">
-    <!-- <div class="report">
-      <div class="report-file">
-        <img src="/assets/images/pdf.png" alt="pdf-file" />
-      </div>
-      <p>WEEK 35: ENDING SATURDAY, 2ND SEPTEMBER 2023</p>
-      <img class="download" src="/assets/images/download.svg" alt="download" />
-    </div> -->
-
     <div class="report" *ngFor="let report of newreport">
       <div class="report-file">
         <img src="{{ report.image }}" alt="pdf-file" />

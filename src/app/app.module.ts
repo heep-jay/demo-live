@@ -7,7 +7,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { AppComponent } from './app.component';
-import { ListComponent } from './Page/list/list.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material/card';
 import { IvyCarouselModule } from 'carousel-angular';
@@ -74,7 +73,6 @@ import { PageNotFoundComponent } from './Pages/page-not-found/page-not-found.com
 @NgModule({
   declarations: [
     AppComponent,
-    ListComponent,
     HomecarouselComponent,
     FooterComponent,
     NavbarComponent,

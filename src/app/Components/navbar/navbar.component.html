@@ -1,7 +1,7 @@
 <nav class="navbar">
   <div class="nav">
     <div class="nav__logo" routerLink="/">
-      <img src="/assets/images/logooo.png" alt="" class="nav__logo-img" />
+      <img src="/assets/images/logooo.png" alt="logo" class="nav__logo-img" />
       Halogen Group
     </div>
     <div class="nav__menu" *ngIf="navb.visible">
@@ -37,7 +37,7 @@
           <div></div>
           <ul class="drop-menu dropdown_menu-6">
             <li (click)="closeNav()" *ngFor="let medMen of mediamenus">
-              <a routerLink="/{{ medMen.attributes.url }}" target="_blank"
+              <a routerLink="/{{ medMen.attributes.url }}"
                 ><mat-icon>{{ medMen.attributes.icon }}</mat-icon
                 >{{ medMen.attributes.name }}</a
               >

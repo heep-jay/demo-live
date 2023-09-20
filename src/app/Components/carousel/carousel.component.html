@@ -6,77 +6,13 @@
   >
     <div *nguCarouselDef="let item; of" class="item">
       <div class="tile">
-        <!-- <ng-container *ngTemplateOutlet="item"> -->
         <div class="caro-body box">
-          <img src="{{ item.image }}" alt="" />
+          <img src="{{ item.image }}" alt="carouselImg" />
         </div>
-        <!-- <p class="caro-tag">{{ item.caption }}</p> -->
-        <!-- </ng-container> -->
       </div>
     </div>
-    <!-- 
-    <ng-template #first>
-      <div class="caro-body box">
-        <img src="/assets/images/clientlogo.jpg" alt="" />
-      </div>
-      <p class="caro-tag">Halogen Regular Client</p>
-    </ng-template> -->
-    <!-- 
-    <ng-template #second>
-      <div class="caro-body box">
-        <img src="/assets/images/clientlogo1.jpg" alt="" />
-      </div>
-      <p class="caro-tag">Halogen Regular Client</p>
-    </ng-template>
-    <ng-template #third>
-      <div class="caro-body box">
-        <img src="/assets/images/clientlogo2.jpg" alt="" />
-      </div>
-      <p class="caro-tag">Halogen Regular Client</p>
-    </ng-template>
-    <ng-template #fourth>
-      <div class="caro-body box">
-        <img src="/assets/images/clientlogo3.jpg" alt="" />
-      </div>
-      <p class="caro-tag">Halogen Regular Client</p>
-    </ng-template>
-    <ng-template #fifth>
-      <div class="caro-body box">
-        <img src="/assets/images/clientlogo4.jpg" alt="" />
-      </div>
-      <p class="caro-tag">Halogen Regular Client</p>
-    </ng-template>
-    <ng-template #sixth>
-      <div class="caro-body box">
-        <img src="/assets/images/clientlogo5.jpg" alt="" />
-      </div>
-      <p class="caro-tag">Halogen Regular Client</p>
-    </ng-template>
-    <ng-template #seventh>
-      <div class="caro-body box">
-        <img src="/assets/images/clientlogo6.jpg" alt="" />
-      </div>
-      <p class="caro-tag">Halogen Regular Client</p>
-    </ng-template>
-    <ng-template #eighth>
-      <div class="caro-body box">
-        <img src="/assets/images/clientlogo7.jpg" alt="" />
-      </div>
-      <p class="caro-tag">Halogen Regular Client</p>
-    </ng-template> -->
-
     <button NguCarouselNext class="rightRs showmore">
       <mat-icon>arrow_downward</mat-icon>
     </button>
-    <!-- <button NguCarouselNext class="rightRs">></button> -->
-    <!-- <button NguCarouselPrev class="leftRs"><</button> -->
-
-    <!-- <ul class="myPoint" NguCarouselPoint>
-    <li
-      *ngFor="let x of myCarousel.pointNumbers; let x = index"
-      [class.active]="x == myCarousel.activePoint"
-      (click)="myCarousel.moveTo(x)"
-    ></li>
-  </ul> -->
   </ngu-carousel>
 </div>

@@ -1,20 +1,24 @@
 <div class="leaders">
   <div class="leader" (click)="openDialog(content)">
-    <img src="{{leader.attributes.image.data.attributes.url}}" alt="">
-    <p>{{leader.attributes.name}}</p>
-    <span>{{leader.attributes.role}}</span>
+    <img
+      src="{{ leader.attributes.image.data.attributes.url }}"
+      alt="leaderImg"
+    />
+    <p>{{ leader.attributes.name }}</p>
+    <span>{{ leader.attributes.role }}</span>
   </div>
-
 </div>
 <ng-template #content class="dg-container">
-
   <div class="dialog-header">
-    <img src="{{leader.attributes.image.data.attributes.url}}" alt="">
-    <h2>{{leader.attributes.name}}</h2>
-    <p>{{leader.attributes.role}}</p>
+    <img
+      src="{{ leader.attributes.image.data.attributes.url }}"
+      alt="leaderImg"
+    />
+    <h2>{{ leader.attributes.name }}</h2>
+    <p>{{ leader.attributes.role }}</p>
   </div>
 
   <div class="mat-dialog-content dg-content">
-    <p>{{leader.attributes.about}}</p>
+    <p>{{ leader.attributes.about }}</p>
   </div>
 </ng-template>
