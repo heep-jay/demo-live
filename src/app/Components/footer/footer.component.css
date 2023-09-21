@@ -71,6 +71,7 @@
 .footer-about ul li a {
   color: #fff;
   text-decoration: none;
+  cursor: pointer;
 }
 
 .footer-solutions ul li a:hover,
