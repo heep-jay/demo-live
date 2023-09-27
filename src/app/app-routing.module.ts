@@ -28,7 +28,7 @@ import { BlogdetailsComponent } from './Components/blogdetails/blogdetails.compo
 import { VendoronboardingComponent } from './Pages/vendoronboarding/vendoronboarding.component';
 import { SecurityReportsComponent } from './Pages/security-reports/security-reports.component';
 import { PageNotFoundComponent } from './Pages/page-not-found/page-not-found.component';
-
+import { CareerComponent } from './Pages/career/career.component';
 const routes: Routes = [
   {
     component: HomeComponent,
@@ -154,6 +154,10 @@ const routes: Routes = [
   {
     component: SecurityReportsComponent,
     path: 'security-reports',
+  },
+  {
+    component: CareerComponent,
+    path: 'career',
   },
   { path: '**', component: PageNotFoundComponent },
 ];

@@ -75,7 +75,20 @@ export class ApiService {
         })
       );
   }
+  getCareerReports(page: any) {
+    const limit = 10; // Number of items per page
+    const start = (page - 1) * limit; // Calculate the start index
 
+    return this.http
+      .get(
+        `${this.apiUrl}/api/career-reports?pagination[start]=${start}&pagination[limit]=${limit}&sort=createdAt:desc&populate=*`
+      )
+      .pipe(
+        map((res: any) => {
+          return res.data;
+        })
+      );
+  }
   getProductImage(id: any) {
     return this.http
       .get(`${this.apiUrl}/api/product-pages/${id}?populate=*`)

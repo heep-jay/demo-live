@@ -69,6 +69,7 @@ import { SliderComponent } from './Components/slider/slider.component';
 import { SliderTwoComponent } from './Components/slider-two/slider-two.component';
 import { SecurityReportsComponent } from './Pages/security-reports/security-reports.component';
 import { PageNotFoundComponent } from './Pages/page-not-found/page-not-found.component';
+import { CareerComponent } from './Pages/career/career.component';
 
 @NgModule({
   declarations: [
@@ -125,6 +126,7 @@ import { PageNotFoundComponent } from './Pages/page-not-found/page-not-found.com
     SliderTwoComponent,
     SecurityReportsComponent,
     PageNotFoundComponent,
+    CareerComponent,
   ],
   imports: [
     BrowserModule,
