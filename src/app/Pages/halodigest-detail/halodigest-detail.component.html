@@ -3,7 +3,12 @@
     <span class="back-button" (click)="back()"
       ><mat-icon>arrow_back</mat-icon> Go Back</span
     >
-    <span>TECHNOLOGY</span>
+    <img
+      class="post__poster"
+      src="/assets/images/halodigest.jpg"
+      alt="mainImage"
+    />
+
     <h1 class="post__title">
       {{ title }}
     </h1>
@@ -19,7 +24,7 @@
     </div>
 
     <div class="post__related">
-      <app-relatedpost [rel]="related"></app-relatedpost>
+      <app-relatedpost [rel]="related" [combo]="relatedPosts"></app-relatedpost>
     </div>
   </div>
 </div>

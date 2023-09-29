@@ -29,6 +29,9 @@ import { VendoronboardingComponent } from './Pages/vendoronboarding/vendoronboar
 import { SecurityReportsComponent } from './Pages/security-reports/security-reports.component';
 import { PageNotFoundComponent } from './Pages/page-not-found/page-not-found.component';
 import { CareerComponent } from './Pages/career/career.component';
+import { HalodigestComponent } from './Pages/halodigest/halodigest.component';
+import { HalodigestDetailComponent } from './Pages/halodigest-detail/halodigest-detail.component';
+
 const routes: Routes = [
   {
     component: HomeComponent,
@@ -132,6 +135,10 @@ const routes: Routes = [
     path: 'news-events/blog/:id',
   },
   {
+    component: HalodigestDetailComponent,
+    path: 'halodigest/:id',
+  },
+  {
     component: VideopageComponent,
     path: 'gallery/videos/:id',
   },
@@ -158,6 +165,10 @@ const routes: Routes = [
   {
     component: CareerComponent,
     path: 'career',
+  },
+  {
+    component: HalodigestComponent,
+    path: 'halodigest',
   },
   { path: '**', component: PageNotFoundComponent },
 ];

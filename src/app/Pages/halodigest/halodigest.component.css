@@ -1,0 +1,24 @@
+.halodigest {
+  display: flex;
+  flex-direction: column;
+  margin: 7rem auto 0 auto;
+  gap: 3rem;
+}
+.halodigest h1 {
+  text-align: center;
+  font-size: clamp(1.5rem, 0.25rem + 4vw, 2.5rem);
+  font-weight: 600;
+}
+.halo-container {
+  width: 90%;
+  /* margin: auto; */
+  max-width: 1300px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-gap: 30px;
+  padding: 20px;
+  margin: 0 auto;
+  row-gap: 1rem;
+  justify-content: center;
+  align-items: flex-start;
+}

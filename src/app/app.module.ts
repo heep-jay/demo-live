@@ -70,6 +70,8 @@ import { SliderTwoComponent } from './Components/slider-two/slider-two.component
 import { SecurityReportsComponent } from './Pages/security-reports/security-reports.component';
 import { PageNotFoundComponent } from './Pages/page-not-found/page-not-found.component';
 import { CareerComponent } from './Pages/career/career.component';
+import { HalodigestComponent } from './Pages/halodigest/halodigest.component';
+import { HalodigestDetailComponent } from './Pages/halodigest-detail/halodigest-detail.component';
 
 @NgModule({
   declarations: [
@@ -127,6 +129,8 @@ import { CareerComponent } from './Pages/career/career.component';
     SecurityReportsComponent,
     PageNotFoundComponent,
     CareerComponent,
+    HalodigestComponent,
+    HalodigestDetailComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,13 +1,12 @@
-<div class="minipost">
+<div class="minipost" (click)="btnClick(post.id)">
   <img
     src="{{ post.attributes.mainImage.data.attributes.url }}"
     alt="post"
-    routerLink="/news-events/news/{{ post.id }}"
     class="minipost__img"
   />
   <h4 class="minipost__title">{{ post.attributes.title }}</h4>
   <p class="minipost__text">{{ post.attributes.summary }}</p>
-  <button class="minipost__btn" routerLink="/news-events/news/{{ post.id }}">
+  <!-- <a class="minipost__btn" routerLink="/{{ url }}/{{ post.id }}">
     More <mat-icon>chevron_right</mat-icon>
-  </button>
+  </a> -->
 </div>

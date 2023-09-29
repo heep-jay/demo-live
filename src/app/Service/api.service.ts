@@ -175,6 +175,27 @@ export class ApiService {
         })
       );
   }
+  getLeadershipPosts() {
+    return this.http
+      .get(`${this.apiUrl}/api/halogen-thought-leadership-posts?populate=*`)
+      .pipe(
+        map((res: any) => {
+          return res.data;
+        })
+      );
+  }
+  getOneHaloPost(id: any) {
+    return this.http
+      .get(
+        `${this.apiUrl}/api/halogen-thought-leadership-posts/${id}/?populate=*`
+      )
+      .pipe(
+        map((res: any) => {
+          return res.data;
+        })
+      );
+  }
+
   getOneNewsPost(id: any) {
     return this.http
       .get(`${this.apiUrl}/api/news-posts/${id}/?populate=*`)
@@ -184,6 +205,7 @@ export class ApiService {
         })
       );
   }
+
   getOneBlogPost(id: any) {
     return this.http.get(`${this.apiUrl}/api/blogposts/${id}/?populate=*`).pipe(
       map((res: any) => {

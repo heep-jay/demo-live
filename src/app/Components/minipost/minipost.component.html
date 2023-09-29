@@ -2,12 +2,12 @@
   <img
     src="{{ post.attributes.mainImage.data.attributes.url }}"
     alt="postImg"
-    routerLink="/news-events/news/{{ post.id }}"
+    routerLink="{{ url }}/{{ post.id }}"
     class="minipost__img"
   />
   <h4 class="minipost__title">{{ post.attributes.title }}</h4>
   <p class="minipost__text">{{ post.attributes.summary }}</p>
-  <button class="minipost__btn" routerLink="/news-events/news/{{ post.id }}">
+  <button class="minipost__btn" routerLink="{{ url }}/{{ post.id }}">
     More <mat-icon>chevron_right</mat-icon>
   </button>
 </div>
