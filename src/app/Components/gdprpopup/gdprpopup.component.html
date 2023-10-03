@@ -1,4 +1,4 @@
-<div id="cookiePopup" class="hide">
+<div id="cookiePopup" *ngIf="displayPopup">
   <img src="/assets/images/logo.png" alt="logo" />
   <p>
     By proceeding, I agree to the collection, processing, use, and transfer of
@@ -13,5 +13,5 @@
 
     <!-- <a href="#">Cookie Policy & Privacy.</a> -->
   </p>
-  <button id="acceptCookie">Agree</button>
+  <button (click)="closePopup()" id="acceptCookie">Agree</button>
 </div>

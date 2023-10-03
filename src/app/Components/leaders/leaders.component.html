@@ -10,10 +10,12 @@
 </div>
 <ng-template #content class="dg-container">
   <div class="dialog-header">
-    <img
-      src="{{ leader.attributes.image.data.attributes.url }}"
-      alt="leaderImg"
-    />
+    <div class="dialog-image">
+      <img
+        src="{{ leader.attributes.image.data.attributes.url }}"
+        alt="leaderImg"
+      />
+    </div>
     <h2>{{ leader.attributes.name }}</h2>
     <p>{{ leader.attributes.role }}</p>
   </div>

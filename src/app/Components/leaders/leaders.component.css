@@ -2,12 +2,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-
 }
 
 .leader img {
-  width: 200px;
-  height: 200px;
+  width: 210px;
+  height: 210px;
   border-radius: 50%;
   object-fit: cover;
   cursor: pointer;
@@ -27,9 +26,14 @@
 
 .dg-container {
   position: relative;
-
 }
 
+.dialog-image {
+  background: #c1bebe;
+  height: 200px;
+  width: 200px;
+  border-radius: 999px;
+}
 .dg-content {
   position: relative;
   /* height: 600px; */
@@ -62,11 +66,11 @@
   margin: 0;
 }
 
-.dialog-header h2 {}
+.dialog-header h2 {
+}
 
 .dialog-header p {
   color: rgba(0, 0, 0, 0.5);
-
 }
 
 .dg-content p {
@@ -79,7 +83,6 @@
   color: rgba(10, 10, 10, 0.8);
 }
 
-
 .dialog-header img {
   width: 200px;
   height: 200px;
@@ -87,7 +90,7 @@
   object-fit: contain;
 }
 
-@media screen and (max-width:500px) {
+@media screen and (max-width: 500px) {
   .leader img {
     width: 120px;
     height: 120px;
@@ -99,10 +102,7 @@
     width: 90%;
   }
 
-
   .dg-content p {
-
     font-size: 14px;
-
   }
 }
