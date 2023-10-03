@@ -26,6 +26,7 @@ export class RelpostComponent implements OnInit {
   }
 
   btnClick(id: any) {
+    window.scrollTo(0, 0);
     if (this.postId.includes('halodigest')) {
       this.url = 'halodigest';
     } else {

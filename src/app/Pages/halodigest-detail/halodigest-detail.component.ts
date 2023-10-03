@@ -38,24 +38,14 @@ export class HalodigestDetailComponent implements OnInit {
           this.content
         );
       });
-    });
-    // this.api.getOneHaloPost(this.postId).subscribe((data: any) => {
-    //   this.title = data.attributes.title;
-    //   // this.author = data.attributes.author.data.attributes.name;
-    //   this.content = data.attributes.content;
-    //   this.createdAt = data.attributes.createdAt;
-    //   this.mainImage = data.attributes.mainImage.data.attributes.url;
-
-    //   document.getElementById('mark-content')!.innerHTML = marked.parse(
-    //     this.content
-    //   );
-    // });
-
-    this.api.getLeadershipPosts().subscribe((data: any) => {
-      const id = this.route.snapshot.paramMap.get('id');
-      const size = 3;
-      this.relatedPosts = data.filter((data: any) => data.id !== parseInt(id!));
-      return this.relatedPosts;
+      this.api.getLeadershipPosts().subscribe((data: any) => {
+        const id = this.route.snapshot.paramMap.get('id');
+        const size = 3;
+        this.relatedPosts = data.filter(
+          (data: any) => data.id !== parseInt(id!)
+        );
+        return this.relatedPosts;
+      });
     });
   }
 

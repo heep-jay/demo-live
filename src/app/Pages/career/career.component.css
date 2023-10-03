@@ -70,3 +70,9 @@
   object-fit: contain;
   cursor: pointer;
 }
+
+@media screen and (max-width: 500px) {
+  .reports-container {
+    justify-content: center;
+  }
+}

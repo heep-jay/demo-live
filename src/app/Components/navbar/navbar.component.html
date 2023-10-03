@@ -191,11 +191,15 @@
             Media Centre<mat-icon>chevron_right</mat-icon>
           </button>
           <ul class="menu-dropdown" *ngIf="isMediaToggle">
-            <li routerLink="/news-events" (click)="onToggle()">
-              News and Events
+            <li
+              (click)="redirect(medMen.attributes.url)"
+              *ngFor="let medMen of mediamenus"
+            >
+              <mat-icon>{{ medMen.attributes.icon }}</mat-icon
+              >{{ medMen.attributes.name }}
             </li>
-            <li routerLink="/gallery" (click)="onToggle()">Gallery</li>
-            <li routerLink="/gallery" (click)="onToggle()">ESMR Reports</li>
+            <!-- <li routerLink="/gallery" (click)="onToggle()">Gallery</li>
+            <li routerLink="/gallery" (click)="onToggle()">ESMR Reports</li> -->
           </ul>
         </div>
       </li>
