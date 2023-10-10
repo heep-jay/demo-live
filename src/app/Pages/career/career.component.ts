@@ -15,6 +15,7 @@ export class CareerComponent implements OnInit {
   constructor(private api: ApiService, private cdr: ChangeDetectorRef) {}
 
   ngOnInit(): void {
+    window.scrollTo(0, 0);
     this.getCareerReports(this.current_page);
   }
 

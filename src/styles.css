@@ -25,6 +25,9 @@ body {
   margin: 0;
   font-family: "Nunito Sans", sans-serif;
 }
+h2 {
+  font-family: "Poppins", sans-serif;
+}
 
 * {
   font-family: "Nunito Sans", sans-serif;

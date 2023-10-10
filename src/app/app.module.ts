@@ -72,6 +72,7 @@ import { PageNotFoundComponent } from './Pages/page-not-found/page-not-found.com
 import { CareerComponent } from './Pages/career/career.component';
 import { HalodigestComponent } from './Pages/halodigest/halodigest.component';
 import { HalodigestDetailComponent } from './Pages/halodigest-detail/halodigest-detail.component';
+import { JobsComponent } from './Pages/jobs/jobs.component';
 
 @NgModule({
   declarations: [
@@ -131,6 +132,7 @@ import { HalodigestDetailComponent } from './Pages/halodigest-detail/halodigest-
     CareerComponent,
     HalodigestComponent,
     HalodigestDetailComponent,
+    JobsComponent,
   ],
   imports: [
     BrowserModule,

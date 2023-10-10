@@ -14,10 +14,12 @@ export class MinipostComponent implements OnInit {
 
   ngOnInit(): void {
     this.postId = this.router.url;
-    console.log(this.postId);
+    console.log(this.post.attributes.blog);
 
     if (this.postId.includes('halodigest')) {
       this.url = '/halodigest';
+    } else if (this.post.attributes.blog === true) {
+      this.url = '/news-events/blogpost';
     } else {
       this.url = '/news-events/news';
     }

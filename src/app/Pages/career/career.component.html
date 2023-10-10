@@ -1,7 +1,50 @@
 <div class="security-reports">
-  <h1>Career</h1>
+  <div class="career-section">
+    <div class="career-container">
+      <h1>
+        <span class="text-header">JOIN</span>
+        <span class="text-header">OUR TEAM</span>
+      </h1>
+      <img class="career-image" src="/assets/images/gallery7.jpg" alt="" />
 
-  <div class="reports-container">
+      <p class="career-text-p">
+        At Halogen Group, we recognize that our success is built on the strength
+        of our team. We value diversity, foster innovation, and encourage
+        personal and professional growth. When you join our team, you become
+        part of a company that:
+      </p>
+      <ol class="career-list">
+        <li class="career-text-p">
+          Values Integrity and Ethics: We believe that integrity is the
+          foundation of trust, and we maintain the highest ethical standards in
+          all our actions.
+        </li>
+        <li class="career-text-p">
+          Promotes Professional Development: We are committed to helping our
+          employees reach their full potential. We offer training programs,
+          mentorship opportunities, and a supportive environment to nurture your
+          career.
+        </li>
+        <li class="career-text-p">
+          Offers Competitive Compensation: We provide competitive salaries,
+          performance bonuses, and benefits packages to ensure that our
+          employees are well-rewarded for their hard work.
+        </li>
+        <li class="career-text-p">
+          Embraces Innovation: We encourage creativity and innovation in solving
+          security challenges. We invest in cutting-edge technology and
+          solutions to stay ahead in the industry.
+        </li>
+        <li class="career-text-p">
+          Provides a Diverse and Inclusive Work Environment: We believe that
+          diversity enriches our team and fosters creativity. We are an equal
+          opportunity employer, dedicated to creating an inclusive workplace.
+        </li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- <div class="reports-container">
     <div class="report" *ngFor="let report of newreport">
       <div class="report-file">
         <img src="{{ report.image }}" alt="pdf-file" />
@@ -13,6 +56,25 @@
         (click)="download(report.file_url)"
         alt="download"
       />
+    </div>
+  </div> -->
+  <div class="career-positions">
+    <div class="positions-container">
+      <h2 class="positions-header">Open positions</h2>
+      <p class="career-text-p black">
+        We’re looking for people to join the team who are as excited as we are
+        to help build, protect and secure lives and property
+      </p>
+      <div class="opening-container" routerLink="jobs">
+        <div class="openings">
+          <h5 class="opening-name">Physical Security</h5>
+
+          <button class="opening-btn">
+            Learn More <mat-icon>arrow_forward</mat-icon>
+          </button>
+        </div>
+        <hr />
+      </div>
     </div>
   </div>
 

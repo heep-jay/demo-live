@@ -1,15 +1,79 @@
 .security-reports {
   width: 100%;
   min-height: 50vh;
-  margin: 5rem auto 0 auto;
+  /* margin: 5rem auto 0 auto; */
 }
-.security-reports h1 {
+.career-section {
+  padding-top: 7rem;
+  width: 100%;
+  /* background: #a4a0a0; */
+  background: rgb(177, 149, 62);
+  background: linear-gradient(
+    230deg,
+    rgba(177, 149, 62, 1) 0%,
+    rgba(28, 43, 102, 1) 55%
+  );
+  /* background: #161925; */
+  /* height: 700px; */
+  /* padding: 2rem 1rem; */
+}
+.career-container,
+.positions-container {
+  width: 100%;
+  max-width: 1366px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.career-container h1 {
+  display: flex;
+  flex-direction: column;
+  font-family: "Poppins", sans-serif;
+  align-items: flex-start;
+  gap: 5rem;
+}
+
+.positions-header {
+  font-size: clamp(2rem, 0.125rem + 6vw, 3.5rem);
+  font-weight: 500;
+  color: #161925;
+  font-family: "Poppins", sans-serif;
+}
+.text-header {
+  font-size: clamp(2.5rem, -1.875rem + 14vw, 6rem);
+  font-weight: 600;
+  color: #fff;
+}
+
+.career-image {
+  width: 100%;
+  max-width: 900px;
+  /* height: 500px; */
+  object-fit: cover;
+}
+.career-list li {
+  margin-bottom: 1rem;
+}
+.career-text-p {
+  color: #fff;
+  font-weight: 500;
+  line-height: 1.2em;
+  font-size: clamp(1.025rem, 0.8125rem + 1vw, 1.275rem);
+  width: 100%;
+  max-width: 600px;
+}
+.black {
+  color: #161925;
+}
+/* .security-reports h1 {
   font-size: clamp(1.5rem, 1.1558rem + 1.7208vw, 2.625rem);
   font-weight: 600;
   color: #1c2b66;
   text-align: center;
   padding-top: 1rem;
-}
+} */
 
 .reports-container {
   width: 100%;
@@ -70,9 +134,50 @@
   object-fit: contain;
   cursor: pointer;
 }
+.opening-container {
+  padding: 1.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+
+  gap: 1rem;
+}
+.opening-container hr {
+  margin: 0;
+}
+.openings {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.opening-container:hover {
+  background: #f5f5f5;
+  cursor: pointer;
+}
+.opening-name {
+  font-size: clamp(1.125rem, 0.0313rem + 3.5vw, 2rem);
+  font-weight: 500;
+  font-family: "Poppins", sans-serif;
+  color: #161925;
+}
+.opening-btn {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border: none;
+  font-size: 20px;
+  background: none;
+  transition: all ease-in 0.3s;
+}
+.opening-btn:hover {
+  color: #1c2b66;
+  font-weight: 600;
+}
 
 @media screen and (max-width: 500px) {
   .reports-container {
     justify-content: center;
+  }
+  .career-container h1 {
+    gap: 2rem;
   }
 }

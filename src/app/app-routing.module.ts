@@ -31,6 +31,7 @@ import { PageNotFoundComponent } from './Pages/page-not-found/page-not-found.com
 import { CareerComponent } from './Pages/career/career.component';
 import { HalodigestComponent } from './Pages/halodigest/halodigest.component';
 import { HalodigestDetailComponent } from './Pages/halodigest-detail/halodigest-detail.component';
+import { JobsComponent } from './Pages/jobs/jobs.component';
 
 const routes: Routes = [
   {
@@ -131,8 +132,8 @@ const routes: Routes = [
     path: 'news-events/news/:id',
   },
   {
-    component: BlogdetailsComponent,
-    path: 'news-events/blog/:id',
+    component: PostdetailsComponent,
+    path: 'news-events/blogpost/:id',
   },
   {
     component: HalodigestDetailComponent,
@@ -165,6 +166,10 @@ const routes: Routes = [
   {
     component: CareerComponent,
     path: 'career',
+  },
+  {
+    component: JobsComponent,
+    path: 'career/jobs',
   },
   {
     component: HalodigestComponent,
