@@ -24,7 +24,7 @@ export class HomeComponent implements OnInit {
   constructor(private api: ApiService, public navb: NavbarService) {}
 
   related = 'Related News';
-  guides = 'Get the latest news & insights here';
+  guides = 'Articles, News & Events';
   boldText = 'Read the latest articles';
 
   ngOnInit(): void {

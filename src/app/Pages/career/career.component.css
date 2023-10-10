@@ -49,7 +49,7 @@
 
 .career-image {
   width: 100%;
-  max-width: 900px;
+  /* max-width: 900px; */
   /* height: 500px; */
   object-fit: cover;
 }
@@ -62,7 +62,7 @@
   line-height: 1.2em;
   font-size: clamp(1.025rem, 0.8125rem + 1vw, 1.275rem);
   width: 100%;
-  max-width: 600px;
+  /* max-width: 600px; */
 }
 .black {
   color: #161925;
@@ -164,7 +164,7 @@
   align-items: center;
   gap: 1rem;
   border: none;
-  font-size: 20px;
+  font-size: clamp(0.9375rem, 0.5469rem + 1.25vw, 1.25rem);
   background: none;
   transition: all ease-in 0.3s;
 }
