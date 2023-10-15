@@ -196,6 +196,18 @@ export class ApiService {
       );
   }
 
+  getRecentHaloPost() {
+    return this.http
+      .get(
+        `${this.apiUrl}/api/halogen-thought-leadership-posts?sort=createdAt:desc&pagination[start]=0&pagination[limit]=1&populate=*`
+      )
+      .pipe(
+        map((res: any) => {
+          return res.data[0];
+        })
+      );
+  }
+
   getOneNewsPost(id: any) {
     return this.http
       .get(`${this.apiUrl}/api/news-posts/${id}/?populate=*`)

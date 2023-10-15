@@ -27,10 +27,15 @@ export class RelpostComponent implements OnInit {
 
   btnClick(id: any) {
     window.scrollTo(0, 0);
-    if (this.postId.includes('halodigest')) {
-      this.url = 'halodigest';
+    if (
+      this.postId.includes('halodigest') ||
+      !this.post.attributes.post_category
+    ) {
+      this.url = '/halodigest';
+    } else if (this.post.attributes.blog === true) {
+      this.url = '/news-events/blogpost';
     } else {
-      this.url = 'news-events/news';
+      this.url = '/news-events/news';
     }
     this.router.navigateByUrl(`/${this.url}/${id}`);
   }

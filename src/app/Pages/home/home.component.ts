@@ -21,6 +21,7 @@ export class HomeComponent implements OnInit {
   blogPosts: any = [];
   jointPosts: any = [];
   combination: any;
+  newArr: any;
   constructor(private api: ApiService, public navb: NavbarService) {}
 
   related = 'Related News';
@@ -47,8 +48,14 @@ export class HomeComponent implements OnInit {
       this.blogPosts = data.filter(
         (data: any) => data.attributes.blog === true
       );
-      this.blogPosts.pop();
+      this.blogPosts.splice(1);
+      // this.blogPosts.pop();
       this.combination = this.jointPosts.concat(this.blogPosts);
+
+      this.api.getRecentHaloPost().subscribe((data: any) => {
+        this.combination.push(data);
+        console.log('newArr' + this.combination);
+      });
 
       return this.jointPosts, this.blogPosts, this.combination;
     });
