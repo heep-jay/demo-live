@@ -30,9 +30,21 @@
 
 .dialog-image {
   background: #c1bebe;
-  height: 200px;
-  width: 200px;
+  height: 270px;
+  width: 270px;
   border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dialog-image img {
+  width: 270px;
+  height: 270px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: top;
+  cursor: pointer;
 }
 .dg-content {
   position: relative;
@@ -83,12 +95,12 @@
   color: rgba(10, 10, 10, 0.8);
 }
 
-.dialog-header img {
+/* .dialog-header img {
   width: 200px;
   height: 200px;
   border-radius: 50%;
   object-fit: contain;
-}
+} */
 
 @media screen and (max-width: 500px) {
   .leader img {
