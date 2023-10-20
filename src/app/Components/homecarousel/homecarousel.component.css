@@ -33,7 +33,8 @@
 .caro-text h1 {
   font-size: clamp(1.8rem, 0.3438rem + 3.5vw, 4rem);
   line-height: 70px;
-  font-weight: 700;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
 }
 
 .caro-text p {

@@ -14,7 +14,7 @@ export class RelpostComponent implements OnInit {
   constructor(private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit(): void {
-    this.postId = this.route.snapshot.paramMap.get('id');
+    // this.postId = this.route.snapshot.paramMap.get('id');
     this.postId = this.router.url;
     console.log(this.postId);
 

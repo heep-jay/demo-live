@@ -40,7 +40,6 @@ export class HalodigestDetailComponent implements OnInit {
       });
       this.api.getLeadershipPosts().subscribe((data: any) => {
         const id = this.route.snapshot.paramMap.get('id');
-        const size = 3;
         this.relatedPosts = data.filter(
           (data: any) => data.id !== parseInt(id!)
         );

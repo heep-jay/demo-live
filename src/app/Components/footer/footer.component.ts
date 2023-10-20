@@ -16,6 +16,14 @@ export class FooterComponent implements OnInit {
     // window.location.href = "https://www.instagram.com/halogen_group/"
     window.open('https://www.instagram.com/halogen_group', '_blank');
   }
+  twitter() {
+    // window.location.href = "https://www.instagram.com/halogen_group/"
+    window.open('https://twitter.com/halogen_group', '_blank');
+  }
+  linkedin() {
+    // window.location.href = "https://www.instagram.com/halogen_group/"
+    window.open('https://www.linkedin.com/company/halogengroup/', '_blank');
+  }
   toElem() {
     window.location.href = 'https://halogen-group.com/new-website/#elem';
   }

@@ -10,6 +10,7 @@
   font-size: clamp(0.875rem, 0.4063rem + 1.5vw, 1.25rem);
   color: #1c2b66;
   font-weight: 600;
+  font-family: "Poppins", sans-serif;
 }
 
 .relatedPosts {

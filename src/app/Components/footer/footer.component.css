@@ -165,11 +165,11 @@
 
 .socials {
   display: flex;
-  gap: 2rem;
+  gap: 1.3rem;
 }
 
 .socials img {
-  width: 20px;
+  width: 15px;
   filter: invert(1);
 }
 
