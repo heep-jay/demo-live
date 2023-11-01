@@ -1,0 +1,273 @@
+<header class="header">
+  <nav class="nav container">
+    <div class="nav__data">
+      <a href="#" class="nav__logo"> <i class="ri-planet-line"></i> Company </a>
+
+      <div class="nav__toggle" id="nav-toggle">
+        <i class="ri-menu-line nav__burger"></i>
+        <i class="ri-close-line nav__close"></i>
+      </div>
+    </div>
+
+    <!--=============== NAV MENU ===============-->
+    <div class="nav__menu" id="nav-menu">
+      <ul class="nav__list">
+        <li><a href="#" class="nav__link">Home</a></li>
+
+        <!-- <li><a href="#" class="nav__link">Company</a></li> -->
+
+        <!--=============== DROPDOWN 1 ===============-->
+        <li class="dropdown__item">
+          <div class="nav__link">
+            About Us <i class="ri-arrow-down-s-line dropdown__arrow"></i>
+          </div>
+
+          <ul class="dropdown__menu">
+            <li
+              *ngFor="let menu of aboutmenus"
+              (click)="toggleMenu('nav-menu', 'nav-toggle')"
+            >
+              <a routerLink="{{ menu.attributes.url }}" class="dropdown__link">
+                <mat-icon>{{ menu.attributes.icon }}</mat-icon>
+                {{ menu.attributes.name }}
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="halogen-two">
+          <a href="#" class="nav__link">All Halogen</a>
+        </li>
+
+        <li class="dropdown__item halogen">
+          <div class="nav__link">
+            All Halogen 2 <i class="ri-arrow-down-s-line dropdown__arrow"></i>
+          </div>
+
+          <ul class="dropdown__menu">
+            <!--=============== DROPDOWN SUBMENU ===============-->
+
+            <li class="dropdown__subitem">
+              <div class="dropdown__link">
+                <i class="ri-bar-chart-line"></i> Cyber Security
+                <i class="ri-add-line dropdown__add"></i>
+              </div>
+
+              <ul class="dropdown__submenu">
+                <li
+                  routerLink="{{ menu.attributes.url }}"
+                  *ngFor="let menu of cybermenusL"
+                >
+                  <a
+                    routerLink="{{ menu.attributes.url }}"
+                    class="dropdown__sublink"
+                  >
+                    <mat-icon>{{ menu.attributes.icon }}</mat-icon>
+                    {{ menu.attributes.name }}
+                  </a>
+                </li>
+                <li>
+                  <a routerLink="cyber-security" class="dropdown__sublink">
+                    <mat-icon>apps</mat-icon> View All
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="dropdown__subitem">
+              <div class="dropdown__link">
+                <i class="ri-bar-chart-line"></i> Security Technologies
+                <i class="ri-add-line dropdown__add"></i>
+              </div>
+
+              <ul class="dropdown__submenu">
+                <li *ngFor="let menu of secTechMenu">
+                  <a
+                    routerLink="/security-technogies/{{ menu.attributes.url }}"
+                    class="dropdown__sublink"
+                  >
+                    <mat-icon>{{ menu.attributes.icon }}</mat-icon>
+                    {{ menu.attributes.name }}
+                  </a>
+                </li>
+                <li>
+                  <a
+                    routerLink="security-technologies"
+                    class="dropdown__sublink"
+                  >
+                    <mat-icon>apps</mat-icon> View All
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="dropdown__subitem">
+              <div class="dropdown__link">
+                <i class="ri-bar-chart-line"></i> Physical Security & Mobility
+                <i class="ri-add-line dropdown__add"></i>
+              </div>
+
+              <ul class="dropdown__submenu">
+                <li *ngFor="let menu of phyMenu">
+                  <a
+                    routerLink="/physical-security/{{ menu.attributes.url }}"
+                    class="dropdown__sublink"
+                  >
+                    <mat-icon>{{ menu.attributes.icon }}</mat-icon>
+                    {{ menu.attributes.name }}
+                  </a>
+                </li>
+                <li>
+                  <a routerLink="physical-security" class="dropdown__sublink">
+                    <mat-icon>apps</mat-icon> View All
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="dropdown__subitem">
+              <div class="dropdown__link">
+                <i class="ri-bar-chart-line"></i> Identity Access Management
+                <i class="ri-add-line dropdown__add"></i>
+              </div>
+
+              <ul class="dropdown__submenu">
+                <li *ngFor="let menu of outMenu">
+                  <a
+                    routerLink="/outsourcing-investigations-identity/{{
+                      menu.attributes.url
+                    }}"
+                    class="dropdown__sublink"
+                  >
+                    <mat-icon>{{ menu.attributes.icon }}</mat-icon>
+                    {{ menu.attributes.name }}
+                  </a>
+                </li>
+                <li>
+                  <a
+                    routerLink="outsourcing-investigations-identity"
+                    class="dropdown__sublink"
+                  >
+                    <mat-icon>apps</mat-icon> View All
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="dropdown__subitem">
+              <div class="dropdown__link">
+                <i class="ri-bar-chart-line"></i> Security Education
+                <i class="ri-add-line dropdown__add"></i>
+              </div>
+
+              <ul class="dropdown__submenu">
+                <li *ngFor="let menu of secEduMenu">
+                  <a
+                    routerLink="security-seducation/{{ menu.attributes.url }}"
+                    class="dropdown__sublink"
+                  >
+                    <mat-icon>{{ menu.attributes.icon }}</mat-icon>
+                    {{ menu.attributes.name }}
+                  </a>
+                </li>
+                <li>
+                  <a routerLink="security-seducation" class="dropdown__sublink">
+                    <mat-icon>apps</mat-icon> View All
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="dropdown__subitem">
+              <div class="dropdown__link">
+                <i class="ri-bar-chart-line"></i> Security Risk Advisory &
+                Consultancy
+                <i class="ri-add-line dropdown__add"></i>
+              </div>
+
+              <ul class="dropdown__submenu">
+                <li *ngFor="let menu of riskMenu">
+                  <a
+                    routerLink="/risk-advisory-and-consulting/{{
+                      menu.attributes.url
+                    }}"
+                    class="dropdown__sublink"
+                  >
+                    <mat-icon>{{ menu.attributes.icon }}</mat-icon>
+                    {{ menu.attributes.name }}
+                  </a>
+                </li>
+                <li>
+                  <a
+                    routerLink="risk-advisory-and-consulting"
+                    class="dropdown__sublink"
+                  >
+                    <mat-icon>apps</mat-icon> View All
+                  </a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+
+        <!--=============== DROPDOWN 2 ===============-->
+        <!-- <li class="dropdown__item">
+            <div class="nav__link">
+              Users <i class="ri-arrow-down-s-line dropdown__arrow"></i>
+            </div>
+  
+            <ul class="dropdown__menu">
+              <li>
+                <a href="#" class="dropdown__link">
+                  <i class="ri-user-line"></i> Profiles
+                </a>
+              </li>
+  
+              <li>
+                <a href="#" class="dropdown__link">
+                  <i class="ri-lock-line"></i> Accounts
+                </a>
+              </li>
+  
+              <li>
+                <a href="#" class="dropdown__link">
+                  <i class="ri-message-3-line"></i> Messages
+                </a>
+              </li>
+            </ul>
+          </li> -->
+
+        <li class="dropdown__item">
+          <div class="nav__link">
+            Media Centre <i class="ri-arrow-down-s-line dropdown__arrow"></i>
+          </div>
+
+          <ul class="dropdown__menu">
+            <li>
+              <a href="#" class="dropdown__link">
+                <i class="ri-pie-chart-line"></i> News & Events
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="dropdown__link">
+                <i class="ri-arrow-up-down-line"></i> Halodigest
+              </a>
+            </li>
+            <li>
+              <a href="#" class="dropdown__link">
+                <i class="ri-arrow-up-down-line"></i> Security Reports
+              </a>
+            </li>
+            <li>
+              <a href="#" class="dropdown__link">
+                <i class="ri-arrow-up-down-line"></i> Gallery
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="halosphere-list">
+          <button class="halosphere">Enter Halosphere</button>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>

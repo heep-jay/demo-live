@@ -14,6 +14,7 @@ export class AppComponent {
     window.scrollTo(0, 0);
 
     // this.win = this.showScrollBtn()
+
     window.onscroll = () => {
       if (
         document.body.scrollTop > 20 ||

@@ -65,8 +65,8 @@
 }
 
 .solution-icon {
-  width: 70px;
-  height: 70px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
   color: #fff;
   display: flex;
@@ -165,7 +165,7 @@
   height: 65vh;
   min-height: fit-content;
   border-radius: 5px;
-  background-image: url("/assets/images/newhalo.png");
+  background-image: url("/assets/images/newhalo.webp");
   background-size: cover;
   position: relative;
   background-position: center;
@@ -408,71 +408,6 @@
 .related {
   width: 100%;
   margin: 0 auto;
-}
-
-@media screen and (max-width: 1200px) {
-  .bird_a {
-    height: 25px;
-    width: 32px;
-    border-radius: 0px;
-    top: -10px;
-    left: 95px;
-    position: absolute;
-  }
-
-  .bird_b {
-    height: 15px;
-    width: 19px;
-    border-radius: 0px;
-    top: -30px;
-    left: 40px;
-    position: absolute;
-  }
-
-  .bird_c {
-    height: 15px;
-    width: 19px;
-    border-radius: 0px;
-    top: -44px;
-    right: 80px;
-    position: absolute;
-  }
-
-  .bird_d {
-    height: 45px;
-    width: 59px;
-    border-radius: 0px;
-    bottom: -24px;
-    right: 80px;
-    position: absolute;
-  }
-
-  .bird_e {
-    height: 15px;
-    width: 19.39px;
-    border-radius: 0px;
-    bottom: 30px;
-    right: 160px;
-    position: absolute;
-  }
-
-  .cloud_a {
-    height: 15px;
-    width: 25.45px;
-    border-radius: 0px;
-    top: 3px;
-    right: 95px;
-    position: absolute;
-  }
-
-  .cloud_b {
-    height: 29.48px;
-    width: 50.45px;
-    border-radius: 0px;
-    top: 0px;
-    right: 40%;
-    position: absolute;
-  }
 }
 
 @media screen and (max-width: 850px) {

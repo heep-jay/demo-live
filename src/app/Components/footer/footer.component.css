@@ -170,6 +170,7 @@
 
 .socials img {
   width: 15px;
+  height: 15px;
   filter: invert(1);
 }
 
