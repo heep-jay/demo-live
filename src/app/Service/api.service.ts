@@ -1,10 +1,16 @@
 import { Injectable } from '@angular/core';
-import { map } from 'rxjs';
+import { Observable, map } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Home } from './Models/homepage';
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json',
+  }),
+};
+
+const httpOption = {
+  headers: new HttpHeaders({
+    'Cache-Control': 'max-age=7200',
   }),
 };
 
@@ -35,18 +41,30 @@ export class ApiService {
         })
       );
   }
-  getNavBar() {
-    return this.http.get(`${this.apiUrl}/api/navbars?populate=*`).pipe(
-      map((res: any) => {
-        return res.data[0];
-      })
-    );
+  getNavBar(): Observable<any> {
+    const customHeaders = new HttpHeaders().set(
+      'Cache-Control',
+      'max-age=7200'
+    ); // Add Cache-Control header for 2 hours (7200 seconds)
+
+    const requestOptions = {
+      headers: customHeaders,
+    };
+
+    return this.http
+      .get(`${this.apiUrl}/api/navbars?populate=*`, requestOptions)
+      .pipe(
+        map((res: any) => {
+          return res.data[0];
+        })
+      );
   }
 
   getProductPage(id: any) {
     return this.http
       .get(
-        `${this.apiUrl}/api/product-pages/${id}?populate[2]=product-pages&populate[0]=products.productImage&populate[1]=product_banners.name`
+        `${this.apiUrl}/api/product-pages/${id}?populate[2]=product-pages&populate[0]=products.productImage&populate[1]=product_banners.name`,
+        httpOption
       )
       .pipe(
         map((res: any) => {
