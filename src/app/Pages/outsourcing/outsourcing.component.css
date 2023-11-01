@@ -6,25 +6,29 @@
 }
 
 .header {
-  max-width: 800px;
+  max-width: 900px;
   color: #1c2b66;
+
   margin-top: 2rem;
 }
 
 .small-text {
   font-size: clamp(0.85rem, -0.1875rem + 3vw, 1.5rem);
+  font-family: "Poppins", sans-serif !important;
   font-weight: 600;
 }
 
 .big-text {
   font-size: clamp(1.687rem, -1.3125rem + 9vw, 3.75rem);
   font-weight: 900;
+  font-family: "Poppins", sans-serif !important;
   line-height: min(7vh, 84px);
 }
 
 .normal-text {
   font-size: clamp(0.7rem, 0.2813rem + 1.5vw, 1.05rem);
   color: #000;
+  font-family: "Poppins", sans-serif !important;
 }
 
 .header-btn {
@@ -86,8 +90,6 @@
   object-fit: cover;
   object-position: left center;
   border-radius: 18px;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-
 }
 
 .banner-section {
@@ -95,7 +97,7 @@
   border-bottom: 0.5px solid rgba(28, 43, 102, 0.21);
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .banner {
@@ -116,6 +118,7 @@
   font-size: clamp(1.25rem, 0.625rem + 2vw, 1.75rem);
   line-height: 37px;
   color: #1c2b66;
+  font-family: "Poppins", sans-serif;
   font-weight: 700;
 }
 
@@ -132,9 +135,13 @@
   display: flex;
   align-items: flex-start;
   width: 100%;
-  margin-bottom: 5rem;
-  padding: 0 3rem;
+  /* margin-bottom: 5rem; */
+  padding: 0rem 3rem 5rem 3rem;
   justify-content: space-between;
+}
+
+.second-section {
+  flex-flow: row-reverse;
 }
 
 .info-img {
@@ -142,12 +149,7 @@
   height: 450px;
 }
 
-.second-section {
-  flex-flow: row-reverse;
-}
-
 .info-img-line {
-
   border-bottom: 0.5px solid rgba(28, 43, 102, 0.21);
 }
 
@@ -163,37 +165,36 @@
   width: 47%;
 }
 
+.info-text h5 {
+  font-weight: 300;
+  line-height: 30px;
+  font-size: clamp(0.85rem, -0.1875rem + 3vw, 1.35rem);
+}
 .info-text h5,
 h2 {
   color: #1c2b66;
+  font-family: "Poppins", sans-serif !important;
 }
 
 .info-text h2 {
   font-size: clamp(1.5625rem, 0.8929rem + 2.1429vw, 2.5rem);
-  font-weight: 700;
+  font-weight: 600;
   line-height: 47px;
 }
 
 .info-text button {
-
   padding: 0.75rem 2rem;
   background: #1c2b66;
   color: #fff;
   border: 1px solid #1c2b66;
   border-radius: 10px;
   margin-bottom: 1.5rem;
-
+  font-family: "Poppins", sans-serif !important;
 }
 
 .info-text button:hover {
   background: #fff;
   color: #1c2b66;
-
-}
-
-.info-text h5 {
-  font-size: clamp(0.85rem, -0.1875rem + 3vw, 1.35rem);
-  font-weight: 600;
 }
 
 .info-text p {
@@ -203,13 +204,12 @@ h2 {
 }
 
 @media screen and (max-width: 840px) {
-
   .first-section,
   .second-section {
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    padding: 0 2rem;
+    padding: 0rem 2rem;
   }
 
   .banner-section {

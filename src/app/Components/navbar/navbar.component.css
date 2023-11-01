@@ -55,6 +55,7 @@
 
 .nav__logo-img {
   width: 40px;
+  height: 40px;
   cursor: pointer;
 }
 
@@ -286,10 +287,11 @@
   background: #1c2b66 !important;
   color: #fff !important;
   border-radius: 18px !important;
-  font-size: 13px !important;
-  font-weight: 600 !important;
+  font-size: clamp(0.625rem, 0.5559rem + 0.3158vw, 0.8125rem) !important;
+  /* font-weight: 600 !important; */
   /* word-wrap: no-wrap; */
   border: none;
+  white-space: nowrap;
 }
 
 /* .dropdown_menu-6 {
@@ -340,9 +342,13 @@
     background: #fff;
     color: #1c2b66;
     border-radius: 18px;
-    font-size: 13px;
-    font-weight: 600;
+    font-size: clamp(0.625rem, 0.5559rem + 0.3158vw, 0.8125rem) !important;
+    /* font-weight: 600; */
     /* word-wrap: no-wrap; */
     border: none;
+    transition: all 0.4s ease-in;
+  }
+  .halospher-btn button:hover {
+    background: #1c2b66;
   }
 }
