@@ -31,9 +31,18 @@ export class ApiService {
     }
   }
   getHomePage() {
+    const customHeaders = new HttpHeaders().set(
+      'Cache-Control',
+      'max-age=7200'
+    ); // Add Cache-Control header for 2 hours (7200 seconds)
+
+    const requestOptions = {
+      headers: customHeaders,
+    };
     return this.http
       .get<Home[]>(
-        `${this.apiUrl}/api/pages?fields=name,businessSectionHeader,businessSectionSubHeader,reviewHeader&populate[banners][populate][0]=bannerImage,reviewHeader&populate[fybrights][populate][0]=solutionName&populate[fyblefts][populate][0]=solutionName`
+        `${this.apiUrl}/api/pages?fields=name,businessSectionHeader,businessSectionSubHeader,reviewHeader&populate[banners][populate][0]=bannerImage,reviewHeader&populate[fybrights][populate][0]=solutionName&populate[fyblefts][populate][0]=solutionName`,
+        requestOptions
       )
       .pipe(
         map((res: any) => {
@@ -176,8 +185,19 @@ export class ApiService {
       );
   }
   getNewsandEvents() {
+    const customHeaders = new HttpHeaders().set(
+      'Cache-Control',
+      'max-age=7200'
+    ); // Add Cache-Control header for 2 hours (7200 seconds)
+
+    const requestOptions = {
+      headers: customHeaders,
+    };
     return this.http
-      .get(`${this.apiUrl}/api/news-posts?sort[0]=createdAt:desc&populate=*`)
+      .get(
+        `${this.apiUrl}/api/news-posts?sort[0]=createdAt:desc&populate=*`,
+        requestOptions
+      )
       .pipe(
         map((res: any) => {
           return res.data;
@@ -185,8 +205,19 @@ export class ApiService {
       );
   }
   getBlogPosts() {
+    const customHeaders = new HttpHeaders().set(
+      'Cache-Control',
+      'max-age=7200'
+    ); // Add Cache-Control header for 2 hours (7200 seconds)
+
+    const requestOptions = {
+      headers: customHeaders,
+    };
     return this.http
-      .get(`${this.apiUrl}/api/news-and-events?populate[0]=blogposts.mainImage`)
+      .get(
+        `${this.apiUrl}/api/news-and-events?populate[0]=blogposts.mainImage`,
+        requestOptions
+      )
       .pipe(
         map((res: any) => {
           return res.data[0];
@@ -195,7 +226,9 @@ export class ApiService {
   }
   getLeadershipPosts() {
     return this.http
-      .get(`${this.apiUrl}/api/halogen-thought-leadership-posts?populate=*`)
+      .get(
+        `${this.apiUrl}/api/halogen-thought-leadership-posts?sort[0]=createdAt:desc&populate=*`
+      )
       .pipe(
         map((res: any) => {
           return res.data;

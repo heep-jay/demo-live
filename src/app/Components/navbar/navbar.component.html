@@ -12,7 +12,8 @@
           <div></div>
         </li>
         <li class="nav__item" (click)="closeNav()">
-          <span>{{ aboutUs }}</span>
+          <span>{{ aboutUs }} <mat-icon>expand_more</mat-icon></span>
+
           <div></div>
           <ul class="drop-menu">
             <li (click)="closeNav()" *ngFor="let abtMen of aboutmenus">
@@ -30,10 +31,11 @@
           <span style="display: flex; align-items: center"
             >{{ otherSec }} <mat-icon>expand_more</mat-icon></span
           >
+
           <div></div>
         </li>
         <li class="nav__item" (click)="closeNav()">
-          {{ mediaCentre }}
+          <span>{{ mediaCentre }} <mat-icon>expand_more</mat-icon></span>
           <div></div>
           <ul class="drop-menu dropdown_menu-6">
             <li (click)="closeNav()" *ngFor="let medMen of mediamenus">
@@ -215,7 +217,7 @@
     </div>
   </div>
   <ng-container>
-    <app-halogen-nav
+    <!-- <app-halogen-nav
       [cybermenusL]="cybermenusL"
       [outMenu]="outMenu"
       [phyMenu]="phyMenu"
@@ -224,6 +226,17 @@
       [riskMenu]="riskMenu"
       *ngIf="activeMenu"
       (btnClick)="closeNav()"
-    ></app-halogen-nav>
+    ></app-halogen-nav> -->
+    <app-newnav
+      *ngIf="activeMenu"
+      [cybermenusL]="cybermenusL"
+      [outMenu]="outMenu"
+      [phyMenu]="phyMenu"
+      [secTechMenu]="secTechMenu"
+      [secEduMenu]="secEduMenu"
+      [riskMenu]="riskMenu"
+      [defenseMenu]="defenseMenu"
+      (btnClick)="closeNav()"
+    ></app-newnav>
   </ng-container>
 </nav>

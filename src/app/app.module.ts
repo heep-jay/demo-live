@@ -74,6 +74,7 @@ import { HalodigestComponent } from './Pages/halodigest/halodigest.component';
 import { HalodigestDetailComponent } from './Pages/halodigest-detail/halodigest-detail.component';
 import { JobsComponent } from './Pages/jobs/jobs.component';
 import { NavbarNewComponent } from './Components/navbar-new/navbar-new.component';
+import { NewnavComponent } from './Components/newnav/newnav.component';
 
 @NgModule({
   declarations: [
@@ -135,6 +136,7 @@ import { NavbarNewComponent } from './Components/navbar-new/navbar-new.component
     HalodigestDetailComponent,
     JobsComponent,
     NavbarNewComponent,
+    NewnavComponent,
   ],
   imports: [
     BrowserModule,

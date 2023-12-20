@@ -22,6 +22,7 @@
 
 .badg {
   width: 90px;
+  height: 95.39px;
 }
 .spbs {
   width: 150px;
@@ -58,6 +59,8 @@
   color: white;
   font-size: clamp(0.875rem, 0.4063rem + 1.5vw, 1.25rem);
   font-weight: 400;
+  font-family: "Poppins", sans-serif;
+  margin-bottom: 0;
 }
 
 .footer-solutions ul,
@@ -68,7 +71,7 @@
   font-size: clamp(0.75rem, 0.5156rem + 0.75vw, 0.9375rem);
   padding: 0;
   gap: 0.5rem;
-  margin: 2rem 0 0 0;
+  margin: 0.75rem 0 0 0;
 }
 
 .footer-solutions ul li a,

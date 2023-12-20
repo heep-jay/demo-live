@@ -17,11 +17,20 @@
   margin-top: 3rem;
 }
 .about__top h1 {
-  font-size: clamp(1.5rem, -0.9219rem + 7.75vw, 3.4375rem);
+  font-size: clamp(1.5rem, -0.9219rem + 7.75vw, 3rem);
   width: 100%;
   font-weight: 600;
   line-height: 60px;
   color: #1c2b66;
+  font-family: "Poppins", sans-serif;
+}
+.about__top h3 {
+  font-size: clamp(1rem, -0.9219rem + 7.75vw, 2rem);
+  /* width: 100%;
+  font-weight: 600;
+  line-height: 60px; */
+  color: #1c2b66;
+  font-family: "Poppins", sans-serif;
 }
 .about__top p,
 .about__info p,
@@ -34,11 +43,12 @@
   margin: 3rem 0 0 0;
 }
 .about_inner-info h1 {
-  font-size: clamp(1.5rem, -0.9219rem + 7.75vw, 3.4375rem);
+  font-size: clamp(1.5rem, -0.9219rem + 7.75vw, 3rem);
   width: 100%;
   font-weight: 600;
   line-height: 60px;
   color: #1c2b66;
+  font-family: "Poppins", sans-serif;
 }
 .about__top-left,
 .about__top-right {
@@ -174,18 +184,23 @@
   max-width: 1900px;
 }
 .leader-title h2 {
-  font-size: clamp(1.5rem, -0.9219rem + 7.75vw, 3.4375rem);
+  font-size: clamp(1.5rem, -0.9219rem + 7.75vw, 3rem);
   text-align: center;
   width: 100%;
   text-transform: capitalize;
   font-weight: 600;
   color: #1c2b66;
+  font-family: "Poppins", sans-serif;
 }
 .leader-title p {
   text-align: center;
   font-size: clamp(0.875rem, 0.7857rem + 0.2857vw, 1.125rem);
-  opacity: 0.5;
+  opacity: 0.8;
   margin-top: 2rem;
+  margin-bottom: 0;
+}
+.leader-title p:last-child {
+  margin-top: unset;
   margin-bottom: 4rem;
 }
 .leadership-team {

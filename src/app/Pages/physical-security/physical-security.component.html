@@ -1,8 +1,8 @@
 <div class="security">
   <div class="header">
     <div class="header-text">
-      <h5 class="small-text">{{ productName }}</h5>
-      <h2 class="big-text">{{ productHeader }}</h2>
+      <h2 class="small-text">{{ productName }}</h2>
+      <h5 class="big-text">{{ productHeader }}</h5>
       <!-- <p class="normal-text">
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis incidunt
         alias quia nostrum id.
@@ -76,8 +76,8 @@
         />
       </div>
       <div class="info-text">
-        <h5>{{ prod.attributes.productName }}</h5>
-        <h2>{{ prod.attributes.productHeader }}</h2>
+        <h2>{{ prod.attributes.productName }}</h2>
+        <h5>{{ prod.attributes.productHeader }}</h5>
         <button (click)="open(content)">Book Service</button>
         <p>
           {{ prod.attributes.productDescription }}
@@ -88,11 +88,11 @@
         <div class="modal-header">
           <div class="m-title">
             <h4 class="modal-title" id="modal-basic-title">
-              {{ prod.attributes.productName }}
+              Book {{ prod.attributes.productName }}
             </h4>
-            <h4 class="modal-title">
+            <!-- <h4 class="modal-title">
               On Trend, On Time, For You and Your Customers
-            </h4>
+            </h4> -->
           </div>
           <button
             type="button"

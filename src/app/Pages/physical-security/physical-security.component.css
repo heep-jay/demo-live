@@ -6,7 +6,7 @@
 }
 
 .header {
-  max-width: 900px;
+  max-width: 1100px;
   color: #1c2b66;
 
   margin-top: 2rem;
@@ -17,12 +17,16 @@
   font-family: "Poppins", sans-serif !important;
   font-weight: 600;
 }
+.small-text::first-letter,
+.big-text::first-letter {
+  text-transform: uppercase;
+}
 
 .big-text {
-  font-size: clamp(1.687rem, -1.3125rem + 9vw, 3.75rem);
+  font-size: clamp(1.687rem, -1.3125rem + 9vw, 2.6rem);
   font-weight: 900;
   font-family: "Poppins", sans-serif !important;
-  line-height: min(7vh, 84px);
+  line-height: min(4vh, 70px);
 }
 
 .normal-text {
@@ -168,7 +172,8 @@
 .info-text h5 {
   font-weight: 300;
   line-height: 30px;
-  font-size: clamp(0.85rem, -0.1875rem + 3vw, 1.35rem);
+  font-size: clamp(0.85rem, -0.1875rem + 3vw, 1.45rem);
+  margin-top: 1rem;
 }
 .info-text h5,
 h2 {
@@ -177,9 +182,10 @@ h2 {
 }
 
 .info-text h2 {
-  font-size: clamp(1.5625rem, 0.8929rem + 2.1429vw, 2.5rem);
+  font-size: clamp(1.5625rem, 0.8929rem + 2.1429vw, 2rem);
   font-weight: 600;
   line-height: 47px;
+  margin-bottom: 0px;
 }
 
 .info-text button {
@@ -199,7 +205,7 @@ h2 {
 
 .info-text p {
   font-size: clamp(0.8125rem, 0.5781rem + 0.75vw, 1rem);
-  line-height: 35px;
+  line-height: 28px;
   text-align: justify;
 }
 
@@ -230,6 +236,9 @@ h2 {
 }
 
 @media screen and (max-width: 500px) {
+  .security {
+    padding: 0px;
+  }
   .info-img {
     height: 250px;
   }
@@ -241,5 +250,11 @@ h2 {
   .first-section,
   .second-section {
     padding: 0 0.5rem;
+  }
+  .small-text {
+    margin-top: 5.5rem;
+  }
+  .header-text {
+    width: 100%;
   }
 }

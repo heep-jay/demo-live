@@ -4,6 +4,11 @@
       <div class="business_left">
         <h1>{{ mainHeader }}</h1>
         <p>{{ mainBody1 }}</p>
+        <img
+          class="mobile-img"
+          src="./assets/images/choose.png"
+          alt="whychooseus"
+        />
         <p>{{ mainBody2 }}</p>
       </div>
       <div class="business_right">
@@ -17,7 +22,7 @@
   </div>
   <section>
     <div class="why-choose-us">
-      <h1>{{ whyHeader }}</h1>
+      <h2>{{ whyHeader }}</h2>
       <div class="card-container">
         <div class="card" *ngFor="let reason of reasons">
           <img
@@ -38,7 +43,7 @@
   </div>
   <section class="why_solutions">
     <div class="why_solutions-header">
-      <h1>{{ solutionHeader }}</h1>
+      <h2>{{ solutionHeader }}</h2>
       <div class="header_text"></div>
     </div>
     <div class="why_carousel">
@@ -47,7 +52,7 @@
   </section>
   <section class="why_contact">
     <div class="why__contact">
-      <h1>{{ contactHeader }}</h1>
+      <h2>{{ contactHeader }}</h2>
       <p>{{ contactBody }}</p>
       <div routerLink="/contact" class="why__contact-btn">
         <button>Contact us</button>
@@ -59,7 +64,7 @@
   </section>
   <section class="why_faqs">
     <div class="why__faqs">
-      <h1>{{ faqHeader }}</h1>
+      <h2>{{ faqHeader }}</h2>
       <div class="accordion" id="accordionExample">
         <div class="accordion-item" *ngFor="let item of faqs">
           <h2 class="accordion-header" id="headingOne">

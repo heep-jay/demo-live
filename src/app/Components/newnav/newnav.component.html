@@ -1,0 +1,26 @@
+<div class="megas-menu" (click)="$event.stopPropagation()">
+  <div class="menu-div dropdown_menu-6">
+    <div class="menu-left">
+      <ul class="main-menu-list">
+        <li
+          *ngFor="let item of items"
+          [class.main-menu-title]="item === activeItem"
+          (click)="setActiveItem(item)"
+        >
+          {{ item }}
+          <div [class.active-menu-item]="item === activeItem"></div>
+        </li>
+      </ul>
+    </div>
+    <div class="menu-right">
+      <ul class="sub-items-list">
+        <li (click)="toggleMenu()" *ngFor="let menu of menus">
+          <mat-icon>{{ menu.attributes.icon }}</mat-icon>
+          <a routerLink="{{ menu.attributes.url }}">{{
+            menu.attributes.name
+          }}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

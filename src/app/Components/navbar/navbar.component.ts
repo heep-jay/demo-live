@@ -39,6 +39,7 @@ export class NavbarComponent implements OnInit {
   secTechMenu: any;
   secEduMenu: any;
   riskMenu: any;
+  defenseMenu: any;
 
   activeMenu: boolean = false;
   constructor(private api: ApiService, public navb: NavbarService) {}
@@ -59,7 +60,7 @@ export class NavbarComponent implements OnInit {
       this.secTechMenu = data.attributes.security_technologies_menus.data;
       this.secEduMenu = data.attributes.security_education_menus.data;
       this.riskMenu = data.attributes.security_risk_menus.data;
-
+      this.defenseMenu = data.attributes.defense_industries_menus.data;
       this.getMenuLinks();
     });
   }

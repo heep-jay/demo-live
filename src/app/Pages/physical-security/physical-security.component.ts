@@ -41,9 +41,8 @@ export class PhysicalSecurityComponent implements OnInit {
     window.scrollTo(0, 0);
     this.api.getProductPage(4).subscribe((data) => {
       this.risks = data;
-      this.productName = data.attributes.productName;
-      this.productHeader = data.attributes.productHeader;
-      this.productHeader = data.attributes.productHeader;
+      this.productName = data.attributes.productName.toLowerCase();
+      this.productHeader = data.attributes.productHeader.toLowerCase();
       this.productBody1 = data.attributes?.productBody1;
       this.productBody2 = data.attributes?.productBody2;
       this.productBody3 = data.attributes?.productBody3;

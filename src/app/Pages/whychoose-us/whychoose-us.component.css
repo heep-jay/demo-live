@@ -29,10 +29,13 @@
   font-size: clamp(0.875rem, 0.5625rem + 1vw, 1.125rem);
   text-align: justify;
   line-height: 35px;
-  color: #0A0A0A;
+  color: #0a0a0a;
   /* line-height: 28px; */
   text-align: justify;
   margin-bottom: 1rem;
+}
+.business_left img {
+  display: none;
 }
 
 .business_right {
@@ -64,13 +67,13 @@ section {
   /* justify-content: center; */
 }
 
-.why-choose-us h1,
-.why_solutions-header h1 {
-  font-size: clamp(1.5rem, 0.7857rem + 2.2857vw, 3.5rem);
+.why-choose-us h2,
+.why_solutions-header h2 {
+  font-size: clamp(1.5rem, 0.7857rem + 2.2857vw, 3rem);
   text-align: center;
   font-weight: 700;
-  color: #1C2B66;
-
+  color: #1c2b66;
+  font-family: "Poppins", sans-serif;
 }
 
 .card-container {
@@ -110,7 +113,7 @@ section {
 .card-text h5 {
   font-size: clamp(1.125rem, 0.9688rem + 0.5vw, 1.5625rem);
   font-weight: 600;
-  color: #1C2B66;
+  color: #1c2b66;
 }
 
 .card-text p {
@@ -133,8 +136,7 @@ section {
 
 .news__div {
   width: 47%;
-  border-top: 0.7px solid #1C2B66;
-
+  border-top: 0.7px solid #1c2b66;
 }
 
 .why_solutions {
@@ -150,7 +152,7 @@ section {
 
 .why_solutions-header p {
   font-size: clamp(0.875rem, 0.7411rem + 0.4286vw, 1.25rem);
-  color: #0A0A0A;
+  color: #0a0a0a;
 }
 
 .header_text {
@@ -161,7 +163,8 @@ section {
   /* height: 85vh; */
   max-height: fit-content;
   min-height: 700px;
-  background: linear-gradient(rgba(28, 43, 102, 0.9), rgba(28, 43, 102, 0.9)), url("/assets/images/whycontact.png");
+  background: linear-gradient(rgba(28, 43, 102, 0.9), rgba(28, 43, 102, 0.9)),
+    url("/assets/images/whycontact.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: left top;
@@ -170,7 +173,6 @@ section {
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-
 }
 
 .why__contact {
@@ -182,20 +184,20 @@ section {
   align-items: center;
   justify-content: center;
   gap: 2rem;
-
 }
 
-.why__contact h1,
+.why__contact h2,
 .why__contact p {
   width: 40%;
   text-align: center;
   margin: 0 auto;
 }
 
-.why__contact h1 {
-  font-size: clamp(1.75rem, 0.9911rem + 2.4286vw, 3.875rem);
+.why__contact h2 {
+  font-size: clamp(1.75rem, 0.9911rem + 2.4286vw, 3.5rem);
   font-weight: 700;
   line-height: 90px;
+  font-family: "Poppins", sans-serif;
   color: #fff;
 }
 
@@ -210,12 +212,11 @@ section {
   justify-content: center;
   align-items: center;
   gap: 0.5rem;
-  background: #FCBE00;
+  background: #fcbe00;
   padding: 0.5rem 2rem;
   border-radius: 25px;
   cursor: pointer;
   color: black;
-
 }
 
 .why__contact-btn:hover {
@@ -228,12 +229,11 @@ section {
   outline: none;
   border: none;
   font-size: clamp(0.875rem, 0.7857rem + 0.2857vw, 1.125rem);
-
 }
 
 .ct-icon {
-  background: #F9D875;
-  border: 1.5px solid #F9D875;
+  background: #f9d875;
+  border: 1.5px solid #f9d875;
   padding: 0.4rem 0.4rem;
   border-radius: 50%;
   display: flex;
@@ -246,26 +246,28 @@ section {
   margin: 0 auto;
 }
 
-.why__faqs h1 {
+.why__faqs h2 {
   text-align: center;
-  font-size: clamp(1.75rem, 0.9911rem + 2.4286vw, 3.875rem);
+  font-size: clamp(1.75rem, 0.9911rem + 2.4286vw, 3rem);
   font-weight: 700;
   line-height: 90px;
-  color: #1C2B66;
+  color: #1c2b66;
+  font-family: "Poppins", sans-serif;
 }
 
 .accordion-button {
   /* border-bottom: none; */
   outline: none;
-  color: #1C2B66;
+  color: #1c2b66;
   font-weight: 500;
   background-color: #fafafa;
-
-
+  padding: 0 1rem;
+  font-size: 13px;
+  /* white-space: nowrap; */
 }
 
 #accordionExample {
-  background: #FAFAFA;
+  background: #fafafa;
   border-radius: 20px;
   margin-top: 3rem;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
@@ -273,14 +275,14 @@ section {
 
 .accordion-item {
   border-top: none;
-  border-bottom: 0.8px solid #FCBE00;
+  border-bottom: 0.8px solid #fcbe00;
   background-color: #fafafa;
-
 }
 
 .accordion-header {
   border: none;
   background-color: #fafafa;
+  padding: 0;
 }
 
 .accordion-body {
@@ -295,28 +297,35 @@ section {
   max-width: 1300px;
 }
 
-@media screen and (max-width:850px) {
+@media screen and (max-width: 850px) {
   .why__business {
     flex-direction: column;
   }
 
   .business_left h1 {
-
     line-height: 30px;
   }
-
-
 }
 
-@media screen and (max-width:700px) {
-  .why__contact h1 {
+@media screen and (max-width: 700px) {
+  .why__contact h2 {
     width: 90%;
     line-height: 40px;
   }
 
   .why__contact p {
     width: 90%;
-
   }
+}
 
+@media screen and (min-width: 300px) and (max-width: 500px) {
+  .business_right img {
+    display: none;
+  }
+  .business_left img {
+    display: flex;
+    width: 100%;
+    max-width: 400px;
+    object-fit: cover;
+  }
 }

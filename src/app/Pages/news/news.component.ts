@@ -88,8 +88,8 @@ export class NewsComponent implements OnInit {
   blogPosts: any = [];
   jointPosts: any = [];
   combination: any;
-  related = 'Related News';
-  guides = 'GUIDES & NEWS';
+  related = 'Related newws';
+  guides = 'Guides & news';
   boldText = 'Read the latest articles';
   constructor(private api: ApiService) {}
 

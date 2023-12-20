@@ -4,7 +4,7 @@
   align-items: center;
   justify-content: space-between;
   position: relative;
-  background: url("/assets/images/homecar.png");
+  background: url("/assets/images/homecar.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top center;
@@ -28,7 +28,7 @@
 }
 
 .caro-text h1 {
-  font-size: clamp(1.8rem, 0.3438rem + 3.5vw, 4rem);
+  font-size: clamp(1.8rem, 0.3438rem + 3.5vw, 3.5rem);
   line-height: 70px;
   font-weight: 600;
   font-family: "Poppins", sans-serif;

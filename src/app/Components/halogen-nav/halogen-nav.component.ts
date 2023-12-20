@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-halogen-nav',
   templateUrl: './halogen-nav.component.html',
-  styleUrls: ['./halogen-nav.component.css']
+  styleUrls: ['./halogen-nav.component.css'],
 })
 export class HalogenNavComponent implements OnInit {
   @Input() cybermenusL: any;
@@ -12,65 +12,26 @@ export class HalogenNavComponent implements OnInit {
   @Input() secTechMenu: any;
   @Input() secEduMenu: any;
   @Input() riskMenu: any;
-  @Output() btnClick = new EventEmitter
+  @Output() btnClick = new EventEmitter();
   hash: any;
   // activeMenu: boolean = true;
   urls: any;
-  constructor(private router: Router) { }
+  constructor(private router: Router) {}
 
-  ngOnInit(): void {
-
-
-  }
-  ngAfterViewInit() {
-    //   if (window.location.hash) {
-    //     if (window.location.hash) {
-    //       console.log(window.location.hash.slice(1))
-    //       let hash = window.location.hash.slice(1)
-    //       document.getElementById(hash)?.scrollIntoView({ behavior: "smooth" });
-    //     }
-    //   }
-    console.log("i work")
-  }
+  ngOnInit(): void {}
 
   toggleMenu() {
-    this.btnClick.emit()
+    this.btnClick.emit();
   }
   toElem() {
-    window.location.href = 'https://halogen-group.com/new-website/security-technologies/elem'
+    window.location.href =
+      'https://halogen-group.com/new-website/security-technologies/elem';
   }
   redirect(url: any) {
-    this.btnClick.emit()
-    console.log(url)
+    this.btnClick.emit();
+    console.log(url);
 
     // this.activeMenu = false
-    window.location.href = url
-    // if (window.location.hash) {
-    //   this.hash = window.location.hash;
-    //   if (this.hash) {
-
-    //     this.hash = String(this.hash.slice(1))
-    //     console.log(String(this.hash))
-    //     document.getElementById(this.hash)?.scrollIntoView({ behavior: "smooth" });
-    //   }
-    // }
-
-
+    window.location.href = url;
   }
-
-  scroll() {
-    // console.log('abc')
-    // if (window.location.hash) {
-    //   this.hash = window.location.hash;
-    //   if (this.hash) {
-    //     console.log(this.hash)
-    //     document.getElementById(this.hash)?.scrollIntoView({ behavior: "smooth" });
-    //   }
-    // }
-  }
-
-
 }
-
-
-

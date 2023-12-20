@@ -76,8 +76,9 @@
         />
       </div>
       <div class="info-text">
-        <h5>{{ prod.attributes.productName }}</h5>
-        <h2>{{ prod.attributes.productHeader }}</h2>
+        <h2>{{ prod.attributes.productName }}</h2>
+        <h5>{{ prod.attributes.productHeader }}</h5>
+
         <button (click)="open(content)">Book Service</button>
         <p>
           {{ prod.attributes.productDescription }}
@@ -90,9 +91,9 @@
             <h4 class="modal-title" id="modal-basic-title">
               {{ prod.attributes.productName }}
             </h4>
-            <h4 class="modal-title">
+            <!-- <h4 class="modal-title">
               On Trend, On Time, For You and Your Customers
-            </h4>
+            </h4> -->
           </div>
           <button
             type="button"
