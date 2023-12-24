@@ -101,6 +101,10 @@ export class NavbarComponent implements OnInit {
       data.attributes.url = `/risk-advisory-and-consulting/${data.attributes.url}`;
       return this.riskMenu;
     });
+    this.defenseMenu.map((data: any) => {
+      data.attributes.url = `/defense-industries/${data.attributes.url}`;
+      return this.riskMenu;
+    });
   }
 
   redirect(data: any) {
