@@ -264,13 +264,18 @@
   padding: 0.5rem;
   /* padding: 1rem; */
   border-radius: 8px;
+
+  margin-left: -20px;
+}
+
+.menu-dropdown li a {
+  text-decoration: none;
   display: flex;
   align-items: center;
   gap: 1rem;
   text-align: left;
-  margin-left: -20px;
+  color: #6f6c90;
 }
-
 .nav-menu {
   color: #fff;
 }

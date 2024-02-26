@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/Service/api.service';
 import { NavbarService } from 'src/app/Service/navbar.service';
+import { Title } from '@angular/platform-browser';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -22,7 +24,12 @@ export class HomeComponent implements OnInit {
   jointPosts: any = [];
   combination: any;
   newArr: any;
-  constructor(private api: ApiService, public navb: NavbarService) {}
+  pageTitle = 'Halogen | Home';
+  constructor(
+    private api: ApiService,
+    public navb: NavbarService,
+    private titleService: Title
+  ) {}
 
   related = 'Related News';
   guides = 'Articles, News & Events';
@@ -30,6 +37,10 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     window.scrollTo(0, 0);
+
+    const pageTitle = 'Halogen | Home';
+    this.setPageTitle(pageTitle);
+
     let bbb: any = [];
     this.navb.show();
     this.api.getHomePage().subscribe((data: any) => {
@@ -72,5 +83,9 @@ export class HomeComponent implements OnInit {
   }
   redirect(url: string) {
     window.location.href = `https://halogen-group.com/new-website/${url}`;
+  }
+
+  setPageTitle(newTitle: string) {
+    this.titleService.setTitle(newTitle);
   }
 }

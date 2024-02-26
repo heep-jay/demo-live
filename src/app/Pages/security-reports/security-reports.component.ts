@@ -1,4 +1,5 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { ApiService } from 'src/app/Service/api.service';
 @Component({
   selector: 'app-security-reports',
@@ -11,12 +12,21 @@ export class SecurityReportsComponent implements OnInit {
   pdf: any;
   newreport: any = [];
   current_page: number = 1;
-  constructor(private api: ApiService, private cdr: ChangeDetectorRef) {}
+  constructor(
+    private api: ApiService,
+    private cdr: ChangeDetectorRef,
+    private titleService: Title
+  ) {}
 
   ngOnInit(): void {
     this.getReports(this.current_page);
-  }
 
+    const pageTitle = 'Halogen | Security Reports';
+    this.setPageTitle(pageTitle);
+  }
+  setPageTitle(newTitle: string) {
+    this.titleService.setTitle(newTitle);
+  }
   download(url: any) {
     window.open(url, '_blank');
   }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/Service/api.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ActivatedRoute } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-security-education',
@@ -27,7 +28,8 @@ export class SecurityEducationComponent implements OnInit {
   constructor(
     private modalService: NgbModal,
     private api: ApiService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private titleService: Title
   ) {}
   open(content: any) {
     this.modalService
@@ -39,6 +41,10 @@ export class SecurityEducationComponent implements OnInit {
 
   ngOnInit(): void {
     window.scrollTo(0, 0);
+
+    const pageTitle = 'Halogen | Security Education';
+    this.setPageTitle(pageTitle);
+
     this.api.getProductPage(5).subscribe((data) => {
       this.risks = data;
       this.productName = data.attributes.productName.toLowerCase();
@@ -59,7 +65,9 @@ export class SecurityEducationComponent implements OnInit {
     });
     this.doSomething();
   }
-
+  setPageTitle(newTitle: string) {
+    this.titleService.setTitle(newTitle);
+  }
   doSomething() {
     this.prodId = this.route.snapshot.paramMap.get('id');
     if (this.prodId) {

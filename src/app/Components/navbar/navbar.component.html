@@ -70,13 +70,11 @@
             About Us <mat-icon>chevron_right</mat-icon>
           </button>
           <ul class="menu-dropdown" *ngIf="isAboutToggle">
-            <li
-              (click)="onToggle()"
-              routerLink="/{{ medMen.attributes.url }}"
-              *ngFor="let medMen of aboutmenus"
-            >
-              <mat-icon>{{ medMen.attributes.icon }}</mat-icon
-              >{{ medMen.attributes.name }}
+            <li (click)="onToggle()" *ngFor="let medMen of aboutmenus">
+              <a routerLink="/{{ medMen.attributes.url }}">
+                <mat-icon>{{ medMen.attributes.icon }}</mat-icon
+                >{{ medMen.attributes.name }}
+              </a>
             </li>
           </ul>
         </div>
@@ -88,12 +86,11 @@
             Cyber Security<mat-icon>chevron_right</mat-icon>
           </button>
           <ul class="menu-dropdown" *ngIf="isCyberToggle">
-            <li
-              (click)="redirect(menu.attributes.url)"
-              *ngFor="let menu of cybermenusL"
-            >
-              <mat-icon>{{ menu.attributes.icon }}</mat-icon
-              >{{ menu.attributes.name }}
+            <li (click)="onToggle()" *ngFor="let menu of cybermenusL">
+              <a routerLink="/{{ menu.attributes.url }}">
+                <mat-icon>{{ menu.attributes.icon }}</mat-icon
+                >{{ menu.attributes.name }}
+              </a>
             </li>
             <li routerLink="/cyber-security">View All</li>
           </ul>
@@ -105,12 +102,11 @@
             Security Tecnologies<mat-icon>chevron_right</mat-icon>
           </button>
           <ul class="menu-dropdown" *ngIf="isSolutionToggle">
-            <li
-              (click)="redirect(menu.attributes.url)"
-              *ngFor="let menu of secTechMenu"
-            >
-              <mat-icon>{{ menu.attributes.icon }}</mat-icon>
-              {{ menu.attributes.name }}
+            <li (click)="onToggle()" *ngFor="let menu of secTechMenu">
+              <a routerLink="/{{ menu.attributes.url }}">
+                <mat-icon>{{ menu.attributes.icon }}</mat-icon>
+                {{ menu.attributes.name }}
+              </a>
             </li>
             <li routerLink="/security-technologies">View All</li>
           </ul>
@@ -122,14 +118,13 @@
             Physical Security & Mobility<mat-icon>chevron_right</mat-icon>
           </button>
           <ul class="menu-dropdown" *ngIf="isphyToggle">
-            <li
-              (click)="redirect(menu.attributes.url)"
-              *ngFor="let menu of phyMenu"
-            >
-              <mat-icon>{{ menu.attributes.icon }}</mat-icon>
-              {{ menu.attributes.name }}
+            <li (click)="onToggle()" *ngFor="let menu of phyMenu">
+              <a routerLink="/{{ menu.attributes.url }}">
+                <mat-icon>{{ menu.attributes.icon }}</mat-icon>
+                {{ menu.attributes.name }}
+              </a>
             </li>
-            <li routerLink="/security-technologies">View All</li>
+            <li routerLink="/physical-security">View All</li>
           </ul>
         </div>
       </li>
@@ -139,14 +134,13 @@
             Identity Access Management<mat-icon>chevron_right</mat-icon>
           </button>
           <ul class="menu-dropdown" *ngIf="isOutToggle">
-            <li
-              (click)="redirect(menu.attributes.url)"
-              *ngFor="let menu of outMenu"
-            >
-              <mat-icon>{{ menu.attributes.icon }}</mat-icon>
-              {{ menu.attributes.name }}
+            <li (click)="onToggle()" *ngFor="let menu of outMenu">
+              <a routerLink="/{{ menu.attributes.url }}">
+                <mat-icon>{{ menu.attributes.icon }}</mat-icon>
+                {{ menu.attributes.name }}
+              </a>
             </li>
-            <li routerLink="/security-technologies">View All</li>
+            <li routerLink="/outsourcing-investigations-identity">View All</li>
           </ul>
         </div>
       </li>
@@ -156,14 +150,13 @@
             Security Education<mat-icon>chevron_right</mat-icon>
           </button>
           <ul class="menu-dropdown" *ngIf="isEduToggle">
-            <li
-              (click)="redirect(menu.attributes.url)"
-              *ngFor="let menu of secEduMenu"
-            >
-              <mat-icon>{{ menu.attributes.icon }}</mat-icon>
-              {{ menu.attributes.name }}
+            <li (click)="onToggle()" *ngFor="let menu of secEduMenu">
+              <a routerLink="/{{ menu.attributes.url }}">
+                <mat-icon>{{ menu.attributes.icon }}</mat-icon>
+                {{ menu.attributes.name }}
+              </a>
             </li>
-            <li routerLink="/security-technologies">View All</li>
+            <li routerLink="/security-seducation">View All</li>
           </ul>
         </div>
       </li>
@@ -175,14 +168,13 @@
             >
           </button>
           <ul class="menu-dropdown" *ngIf="isRiskToggle">
-            <li
-              (click)="redirect(menu.attributes.url)"
-              *ngFor="let menu of riskMenu"
-            >
-              <mat-icon>{{ menu.attributes.icon }}</mat-icon>
-              {{ menu.attributes.name }}
+            <li (click)="onToggle()" *ngFor="let menu of riskMenu">
+              <a routerLink="/{{ menu.attributes.url }}">
+                <mat-icon>{{ menu.attributes.icon }}</mat-icon>
+                {{ menu.attributes.name }}
+              </a>
             </li>
-            <li routerLink="/security-technologies">View All</li>
+            <li routerLink="/risk-advisory-and-consulting">View All</li>
           </ul>
         </div>
       </li>

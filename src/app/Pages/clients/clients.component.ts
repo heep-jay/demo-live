@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/Service/api.service';
+import { Title } from '@angular/platform-browser';
 
 interface Logos {
   image: string;
@@ -56,7 +57,7 @@ export class ClientsComponent implements OnInit {
   isToggle: boolean = false;
   arr: any;
   showMore: string = 'show more' || 'show less';
-  constructor(private api: ApiService) {}
+  constructor(private api: ApiService, private titleService: Title) {}
 
   clientlogos = client_logos;
 
@@ -73,6 +74,8 @@ export class ClientsComponent implements OnInit {
 
   ngOnInit(): void {
     window.scrollTo(0, 0);
+    const pageTitle = 'Halogen | Our clients';
+    this.setPageTitle(pageTitle);
     this.api.getClientPage().subscribe((data) => {
       this.header = data.attributes.header1;
       this.header2 = data.attributes.header2;
@@ -82,5 +85,8 @@ export class ClientsComponent implements OnInit {
       this.reviews = data.attributes.client_images.data.slice(0, 3);
       this.arr = this.images.slice(0, Math.round(this.images.length / 2));
     });
+  }
+  setPageTitle(newTitle: string) {
+    this.titleService.setTitle(newTitle);
   }
 }

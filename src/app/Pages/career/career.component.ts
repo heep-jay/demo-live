@@ -1,5 +1,6 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/Service/api.service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-career',
@@ -12,15 +13,24 @@ export class CareerComponent implements OnInit {
   pdf: any;
   newreport: any = [];
   current_page: number = 1;
-  constructor(private api: ApiService, private cdr: ChangeDetectorRef) {}
+  constructor(
+    private api: ApiService,
+    private cdr: ChangeDetectorRef,
+    private titleService: Title
+  ) {}
 
   ngOnInit(): void {
     window.scrollTo(0, 0);
+    const pageTitle = 'Halogen | Career';
+    this.setPageTitle(pageTitle);
     this.getCareerReports(this.current_page);
   }
 
   download(url: any) {
     window.open(url, '_blank');
+  }
+  setPageTitle(newTitle: string) {
+    this.titleService.setTitle(newTitle);
   }
   getCareerReports(current_page: number) {
     this.api.getCareerReports(current_page).subscribe((data: any) => {

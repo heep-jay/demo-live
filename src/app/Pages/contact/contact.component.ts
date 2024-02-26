@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/Service/api.service';
 import { MatDialog } from '@angular/material/dialog';
 import { IDropdownSettings } from 'ng-multiselect-dropdown';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-contact',
@@ -30,9 +31,15 @@ export class ContactComponent implements OnInit {
   formData: any;
   test: string[] = [];
 
-  constructor(private api: ApiService, public dialog: MatDialog) {}
+  constructor(
+    private api: ApiService,
+    public dialog: MatDialog,
+    private titleService: Title
+  ) {}
   ngOnInit(): void {
     window.scrollTo(0, 0);
+    const pageTitle = 'Halogen | Contact us';
+    this.setPageTitle(pageTitle);
     this.api.getContact().subscribe((data) => {
       this.name = data.attributes.name;
       this.phone = data.attributes.phone;
@@ -85,5 +92,8 @@ export class ContactComponent implements OnInit {
   }
   openDialog(content: any) {
     this.dialog.open(content);
+  }
+  setPageTitle(newTitle: string) {
+    this.titleService.setTitle(newTitle);
   }
 }

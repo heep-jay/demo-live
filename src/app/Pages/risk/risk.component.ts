@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ApiService } from 'src/app/Service/api.service';
 import { ActivatedRoute } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-risk',
@@ -12,7 +13,7 @@ export class RiskComponent implements OnInit {
   id = '';
   closeResult: string = '';
   risks: any;
-  productName: string = '';
+  productName: any;
   productHeader: string = '';
   mainImage: any;
   productBody1: any;
@@ -28,11 +29,16 @@ export class RiskComponent implements OnInit {
   constructor(
     private modalService: NgbModal,
     private api: ApiService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private titleService: Title
   ) {}
 
   ngOnInit(): void {
     window.scrollTo(0, 0);
+
+    const pageTitle = 'Halogen | Security risk advisory & consultancy';
+    this.setPageTitle(pageTitle);
+
     this.api.getProductPage(1).subscribe((data) => {
       this.risks = data;
       this.productName = data.attributes.productName.toLowerCase();
@@ -67,7 +73,9 @@ export class RiskComponent implements OnInit {
       });
     }
   }
-
+  setPageTitle(newTitle: string) {
+    this.titleService.setTitle(newTitle);
+  }
   open(content: any) {
     this.modalService
       .open(content, { ariaLabelledBy: 'modal-basic-title' })

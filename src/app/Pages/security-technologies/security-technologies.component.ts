@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ApiService } from 'src/app/Service/api.service';
 import { ActivatedRoute } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-security-technologies',
@@ -27,7 +28,8 @@ export class SecurityTechnologiesComponent implements OnInit {
   constructor(
     private modalService: NgbModal,
     private api: ApiService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private titleService: Title
   ) {}
   open(content: any) {
     this.modalService
@@ -39,6 +41,10 @@ export class SecurityTechnologiesComponent implements OnInit {
 
   ngOnInit(): void {
     window.scrollTo(0, 0);
+
+    const pageTitle = 'Halogen | Security Technologies/IOT';
+    this.setPageTitle(pageTitle);
+
     this.api.getProductPage(7).subscribe((data) => {
       this.risks = data;
       this.productName = data.attributes.productName.toLowerCase();
@@ -78,5 +84,8 @@ export class SecurityTechnologiesComponent implements OnInit {
     var headerOffset = 145;
     var offsetPosition = element! + window.pageYOffset - headerOffset;
     window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+  }
+  setPageTitle(newTitle: string) {
+    this.titleService.setTitle(newTitle);
   }
 }

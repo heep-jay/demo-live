@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { ApiService } from 'src/app/Service/api.service';
 
 @Component({
@@ -17,10 +18,14 @@ export class GalleryComponent implements OnInit {
   link: any;
   caption: string = '';
 
-  constructor(private api: ApiService) {}
+  constructor(private api: ApiService, private titleService: Title) {}
 
   ngOnInit(): void {
     window.scrollTo(0, 0);
+
+    const pageTitle = 'Halogen | Gallery';
+    this.setPageTitle(pageTitle);
+
     this.api.getGalleryPhotos().subscribe((data: any) => {
       if (this.isGallery) {
         this.gallery = data;
@@ -101,6 +106,9 @@ export class GalleryComponent implements OnInit {
     if (this.isGallery) {
       this.galleryImages = this.gallery;
     } else null;
+  }
+  setPageTitle(newTitle: string) {
+    this.titleService.setTitle(newTitle);
   }
   showVideos(year: string) {
     this.isGallery = false;

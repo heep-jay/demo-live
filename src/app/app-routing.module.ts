@@ -25,14 +25,14 @@ import { PolicyComponent } from './Pages/policy/policy.component';
 import { TofuseComponent } from './Pages/tofuse/tofuse.component';
 import { AnalyticalComponent } from './Pages/analytical/analytical.component';
 import { BlogdetailsComponent } from './Components/blogdetails/blogdetails.component';
-import { VendoronboardingComponent } from './Pages/vendoronboarding/vendoronboarding.component';
 import { SecurityReportsComponent } from './Pages/security-reports/security-reports.component';
 import { PageNotFoundComponent } from './Pages/page-not-found/page-not-found.component';
 import { CareerComponent } from './Pages/career/career.component';
 import { HalodigestComponent } from './Pages/halodigest/halodigest.component';
 import { HalodigestDetailComponent } from './Pages/halodigest-detail/halodigest-detail.component';
 import { JobsComponent } from './Pages/jobs/jobs.component';
-
+import { QmsComponent } from './Pages/qms/qms.component';
+import { BrochureComponent } from './Pages/brochure/brochure.component';
 const routes: Routes = [
   {
     component: HomeComponent,
@@ -155,10 +155,7 @@ const routes: Routes = [
     component: AnalyticalComponent,
     path: 'analytical',
   },
-  {
-    component: VendoronboardingComponent,
-    path: 'partner-onboarding',
-  },
+
   {
     component: SecurityReportsComponent,
     path: 'security-reports',
@@ -174,6 +171,14 @@ const routes: Routes = [
   {
     component: HalodigestComponent,
     path: 'halodigest',
+  },
+  {
+    component: QmsComponent,
+    path: 'quality-policy-statement',
+  },
+  {
+    component: BrochureComponent,
+    path: 'brochure',
   },
   { path: '**', component: PageNotFoundComponent },
 ];

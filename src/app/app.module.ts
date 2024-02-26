@@ -63,7 +63,6 @@ import { AnalyticalComponent } from './Pages/analytical/analytical.component';
 import { CarouselDirective } from './Components/carousel.directive';
 import { BlogdetailsComponent } from './Components/blogdetails/blogdetails.component';
 import { RelpostComponent } from './Components/relpost/relpost.component';
-import { VendoronboardingComponent } from './Pages/vendoronboarding/vendoronboarding.component';
 import { ConsultationmodalComponent } from './Components/consultationmodal/consultationmodal.component';
 import { SliderComponent } from './Components/slider/slider.component';
 import { SliderTwoComponent } from './Components/slider-two/slider-two.component';
@@ -76,6 +75,8 @@ import { JobsComponent } from './Pages/jobs/jobs.component';
 import { NavbarNewComponent } from './Components/navbar-new/navbar-new.component';
 import { NewnavComponent } from './Components/newnav/newnav.component';
 import { XmasComponent } from './Components/xmas/xmas.component';
+import { QmsComponent } from './Pages/qms/qms.component';
+import { BrochureComponent } from './Pages/brochure/brochure.component';
 
 @NgModule({
   declarations: [
@@ -126,7 +127,6 @@ import { XmasComponent } from './Components/xmas/xmas.component';
     CarouselDirective,
     BlogdetailsComponent,
     RelpostComponent,
-    VendoronboardingComponent,
     ConsultationmodalComponent,
     SliderComponent,
     SliderTwoComponent,
@@ -139,6 +139,8 @@ import { XmasComponent } from './Components/xmas/xmas.component';
     NavbarNewComponent,
     NewnavComponent,
     XmasComponent,
+    QmsComponent,
+    BrochureComponent,
   ],
   imports: [
     BrowserModule,

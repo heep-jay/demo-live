@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { ApiService } from 'src/app/Service/api.service';
 
 @Component({
@@ -91,10 +92,14 @@ export class NewsComponent implements OnInit {
   related = 'Related newws';
   guides = 'Guides & news';
   boldText = 'Read the latest articles';
-  constructor(private api: ApiService) {}
+  constructor(private api: ApiService, private titleService: Title) {}
 
   ngOnInit(): void {
     window.scrollTo(0, 0);
+
+    const pageTitle = 'Halogen | News & Events';
+    this.setPageTitle(pageTitle);
+
     let bbb: any = [];
     this.api.getNewsandEvents().subscribe((data: any) => {
       this.headlinesPost = data.filter(
@@ -120,5 +125,8 @@ export class NewsComponent implements OnInit {
         this.combination
       );
     });
+  }
+  setPageTitle(newTitle: string) {
+    this.titleService.setTitle(newTitle);
   }
 }

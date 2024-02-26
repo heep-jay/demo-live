@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/Service/api.service';
 import { MatDialog } from '@angular/material/dialog';
-
+import { Title } from '@angular/platform-browser';
 @Component({
   selector: 'app-about',
   templateUrl: './about.component.html',
@@ -21,11 +21,17 @@ export class AboutComponent implements OnInit {
   leaderTitle: string = '';
   leaderBody: string = '';
 
-  constructor(private api: ApiService, public dialog: MatDialog) {}
+  constructor(
+    private api: ApiService,
+    public dialog: MatDialog,
+    private titleService: Title
+  ) {}
 
   ngOnInit(): void {
     window.scrollTo(0, 0);
-
+    const pageTitle = 'Halogen | About us';
+    // Generate your dynamic title here
+    this.setPageTitle(pageTitle);
     this.api.getAboutPage().subscribe((data) => {
       this.body1 = data.attributes.aboutBody1;
       this.body2 = data.attributes.aboutBody2;
@@ -44,5 +50,9 @@ export class AboutComponent implements OnInit {
     this.api.getAboutPageImage().subscribe((data) => {
       this.mainImage = data.attributes.aboutImage.data.attributes.url;
     });
+  }
+
+  setPageTitle(newTitle: string) {
+    this.titleService.setTitle(newTitle);
   }
 }
