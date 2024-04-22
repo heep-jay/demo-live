@@ -16,8 +16,6 @@ export class RelpostComponent implements OnInit {
   ngOnInit(): void {
     // this.postId = this.route.snapshot.paramMap.get('id');
     this.postId = this.router.url;
-    console.log(this.postId);
-
     if (this.postId.includes('halodigest')) {
       this.url = 'halodigest';
     } else {

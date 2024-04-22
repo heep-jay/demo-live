@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/Service/api.service';
 import { Title } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-whychoose-us',
@@ -20,11 +21,15 @@ export class WhychooseUsComponent implements OnInit {
   faqs: any;
   solutions: any;
   reasons: any;
-  constructor(private api: ApiService, private titleService: Title) {}
+  constructor(
+    private api: ApiService,
+    private titleService: Title,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     window.scrollTo(0, 0);
-
+    this.canonicalUrl();
     const pageTitle = 'Halogen | Why Halogen';
     this.setPageTitle(pageTitle);
     this.api.getWhyHalogenPage().subscribe((data) => {
@@ -44,5 +49,11 @@ export class WhychooseUsComponent implements OnInit {
   }
   setPageTitle(newTitle: string) {
     this.titleService.setTitle(newTitle);
+  }
+  canonicalUrl(): string {
+    // Get the current route
+    const currentRoute = this.router.url;
+    // Construct the canonical URL based on the current route
+    return `https://halogen-group.com${currentRoute}`;
   }
 }

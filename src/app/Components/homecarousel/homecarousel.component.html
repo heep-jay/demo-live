@@ -30,7 +30,14 @@
     >
       <div class="caro">
         <div class="caro-text">
-          <h1>{{ bann.attributes.bannerHeader }}</h1>
+          <h1 *ngIf="bann.id === 1; else elseBlock">
+            <h1>{{ bann.attributes.bannerHeader }}</h1>
+          </h1>
+          <!-- Define the else block -->
+          <ng-template #elseBlock>
+            <h2 class="else-header">{{ bann.attributes.bannerHeader }}</h2>
+          </ng-template>
+
           <p>{{ bann.attributes.bannerText }}</p>
         </div>
         <div class="caro-img">

@@ -29,7 +29,6 @@ export class HalogenNavComponent implements OnInit {
   }
   redirect(url: any) {
     this.btnClick.emit();
-    console.log(url);
 
     // this.activeMenu = false
     window.location.href = url;

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 import { ApiService } from 'src/app/Service/api.service';
 
 @Component({
@@ -18,11 +19,15 @@ export class GalleryComponent implements OnInit {
   link: any;
   caption: string = '';
 
-  constructor(private api: ApiService, private titleService: Title) {}
+  constructor(
+    private api: ApiService,
+    private titleService: Title,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     window.scrollTo(0, 0);
-
+    this.canonicalUrl();
     const pageTitle = 'Halogen | Gallery';
     this.setPageTitle(pageTitle);
 
@@ -120,5 +125,11 @@ export class GalleryComponent implements OnInit {
         this.galleryImages = this.videos;
       });
     }
+  }
+  canonicalUrl(): string {
+    // Get the current route
+    const currentRoute = this.router.url;
+    // Construct the canonical URL based on the current route
+    return `https://halogen-group.com${currentRoute}`;
   }
 }

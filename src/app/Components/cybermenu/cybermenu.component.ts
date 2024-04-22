@@ -3,30 +3,25 @@ import { Component, OnInit, Input } from '@angular/core';
 @Component({
   selector: 'app-cybermenu',
   templateUrl: './cybermenu.component.html',
-  styleUrls: ['./cybermenu.component.css']
+  styleUrls: ['./cybermenu.component.css'],
 })
 export class CybermenuComponent implements OnInit {
   @Input() cyberR: any;
   @Input() cyberL: any;
-  constructor() { }
+  constructor() {}
 
-
-  ngOnInit(): void {
-    console.log(this.cyberL)
-  }
+  ngOnInit(): void {}
 
   redirect(data: any) {
-    window.location.href = data
-    console.log(data)
+    window.location.href = data;
   }
   toPhy() {
-
-    window.location.href = `https://halogen-group.com/new-website/other-security-solutions#phy`
+    window.location.href = `https://halogen-group.com/new-website/other-security-solutions#phy`;
   }
   toElem() {
-    window.location.href = `https://halogen-group.com/new-website/other-security-solutions#elem`
+    window.location.href = `https://halogen-group.com/new-website/other-security-solutions#elem`;
   }
   toIdentitys() {
-    window.location.href = `https://halogen-group.com/new-website/other-security-solutions#identity`
+    window.location.href = `https://halogen-group.com/new-website/other-security-solutions#identity`;
   }
 }

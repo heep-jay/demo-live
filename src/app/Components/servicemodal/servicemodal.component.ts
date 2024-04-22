@@ -8,7 +8,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./servicemodal.component.css'],
 })
 export class ServicemodalComponent implements OnInit {
-  @Input() productName!: string;
+  @Input() productName!: any;
   formName: string = '';
   formEmail: any = '';
   formSubject: string = '';
@@ -40,7 +40,6 @@ export class ServicemodalComponent implements OnInit {
         halogenEmail: ['info@halogen-group.com'],
       },
     };
-    console.log(this.formData);
     this.api.bookService(this.formData).subscribe();
     this.formMessage = '';
     this.formName = '';

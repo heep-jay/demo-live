@@ -83,6 +83,219 @@
         ></app-servicemodal>
       </ng-template>
     </div> -->
+
+    <div class="main-section">
+      <div [className]="yy ? 'second-section' : 'first-section'" id="vapt">
+        <div class="info-img info-img-line">
+          <img
+            src="https://bleuwire.com/wp-content/uploads/2019/10/VAPT-Vulnerability-Assessment-Penetration-Testing.jpg"
+            alt="vapt"
+            class="info-img"
+          />
+        </div>
+        <div class="info-text">
+          <h2>Vulnerability Assessment & Penetration Testing (VAPT)</h2>
+          <!-- <h5>Halogen Cyber Security Operations Center (SOC)</h5> -->
+
+          <p>
+            Strengthen your digital business with our Vulnerability Assessment &
+            Penetration Testing (VAPT) solution. We uncover weak spots in your
+            systems and fortify them against potential breaches, ensuring your
+            digital assets remain safeguarded against cyber threats.
+          </p>
+        </div>
+
+        <ng-template #vapt let-modal class="moddd">
+          <div class="modal-header">
+            <div class="m-title">
+              <h4 class="modal-title" id="modal-basic-title">
+                Vulnerability Assessment & Penetration Testing (VAPT)
+              </h4>
+              <!-- <h4 class="modal-title">
+                On Trend, On Time, For You and Your Customers
+              </h4> -->
+            </div>
+            <button
+              type="button"
+              class="btn-close"
+              aria-label="Close"
+              (click)="modal.dismiss()"
+            ></button>
+          </div>
+
+          <app-servicemodal [productName]="vapt"></app-servicemodal>
+        </ng-template>
+      </div>
+      <div class="web-sublist">
+        <!-- <p class="web-title">Explore our SOC solutions</p>
+        <ul>
+          <li>Real-time threat monitoring</li>
+          <li>Incident detection and response</li>
+          <li>Proactive vulnerability management</li>
+          <li>24/7 security oversight</li>
+        </ul> -->
+        <button (click)="open(vapt)">Book Service</button>
+      </div>
+    </div>
+    <div class="main-section">
+      <div [className]="!yy ? 'second-section' : 'first-section'" id="ciso">
+        <div class="info-img info-img-line">
+          <img
+            src="https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt567adb3afbc5fc9f/64f153fcac302b946bee888c/CISO_Panther_Media_GmbH_Alamy.jpg"
+            alt="vapt"
+            class="info-img"
+          />
+        </div>
+        <div class="info-text">
+          <h2>CISO as a Service</h2>
+          <!-- <h5>Halogen Cyber Security Operations Center (SOC)</h5> -->
+
+          <p>
+            Elevate your security strategy without the overhead of a full-time
+            executive. With CISO as a Service, our experienced security experts
+            provide tailored guidance, ensuring your organization stays
+            resilient against evolving cyber threats
+          </p>
+        </div>
+
+        <ng-template #ciso let-modal class="moddd">
+          <div class="modal-header">
+            <div class="m-title">
+              <h4 class="modal-title" id="modal-basic-title">
+                CISO as a Service
+              </h4>
+              <!-- <h4 class="modal-title">
+                On Trend, On Time, For You and Your Customers
+              </h4> -->
+            </div>
+            <button
+              type="button"
+              class="btn-close"
+              aria-label="Close"
+              (click)="modal.dismiss()"
+            ></button>
+          </div>
+
+          <app-servicemodal [productName]="ciso"></app-servicemodal>
+        </ng-template>
+      </div>
+      <div class="web-sublist">
+        <!-- <p class="web-title">Explore our SOC solutions</p>
+        <ul>
+          <li>Real-time threat monitoring</li>
+          <li>Incident detection and response</li>
+          <li>Proactive vulnerability management</li>
+          <li>24/7 security oversight</li>
+        </ul> -->
+        <button (click)="open(ciso)">Book Service</button>
+      </div>
+    </div>
+    <div class="main-section">
+      <div [className]="yy ? 'second-section' : 'first-section'" id="md">
+        <div class="info-img info-img-line">
+          <img
+            src="https://www.stealthlabs.com/wp-content/uploads/2021/06/managed-detection-response-mdr.jpg"
+            alt="vapt"
+            class="info-img"
+          />
+        </div>
+        <div class="info-text">
+          <h2>Managed Detection</h2>
+          <!-- <h5>Halogen Cyber Security Operations Center (SOC)</h5> -->
+
+          <p>
+            Rest easy knowing your digital assets are under vigilant watch. Our
+            Managed Detection service provides round-the-clock monitoring, swift
+            threat identification, and proactive response, giving you peace of
+            mind in an ever-changing threat landscape
+          </p>
+        </div>
+
+        <ng-template #md let-modal class="moddd">
+          <div class="modal-header">
+            <div class="m-title">
+              <h4 class="modal-title" id="modal-basic-title">
+                Managed Detection
+              </h4>
+              <!-- <h4 class="modal-title">
+                On Trend, On Time, For You and Your Customers
+              </h4> -->
+            </div>
+            <button
+              type="button"
+              class="btn-close"
+              aria-label="Close"
+              (click)="modal.dismiss()"
+            ></button>
+          </div>
+
+          <app-servicemodal [productName]="md"></app-servicemodal>
+        </ng-template>
+      </div>
+      <div class="web-sublist">
+        <!-- <p class="web-title">Explore our SOC solutions</p>
+        <ul>
+          <li>Real-time threat monitoring</li>
+          <li>Incident detection and response</li>
+          <li>Proactive vulnerability management</li>
+          <li>24/7 security oversight</li>
+        </ul> -->
+        <button (click)="open(md)">Book Service</button>
+      </div>
+    </div>
+    <div class="main-section">
+      <div [className]="!yy ? 'second-section' : 'first-section'" id="ir">
+        <div class="info-img info-img-line">
+          <img
+            src="https://media.licdn.com/dms/image/C4E12AQFMO9iHOew2-Q/article-cover_image-shrink_600_2000/0/1598477441244?e=2147483647&v=beta&t=NKl3LjtHicQWbMephsnsCkv78CjgvRhXt39ARR3vGn0"
+            alt="vapt"
+            class="info-img"
+          />
+        </div>
+        <div class="info-text">
+          <h2>Incident Response</h2>
+          <!-- <h5>Halogen Cyber Security Operations Center (SOC)</h5> -->
+
+          <p>
+            When cyber threats strike, count on us to be your trusted ally. Our
+            Incident Response team is ready to spring into action, containing
+            breaches, minimizing damage, and guiding you through the recovery
+            process with empathy and expertise.
+          </p>
+        </div>
+
+        <ng-template #ir let-modal class="moddd">
+          <div class="modal-header">
+            <div class="m-title">
+              <h4 class="modal-title" id="modal-basic-title">
+                Incident Response
+              </h4>
+              <!-- <h4 class="modal-title">
+                On Trend, On Time, For You and Your Customers
+              </h4> -->
+            </div>
+            <button
+              type="button"
+              class="btn-close"
+              aria-label="Close"
+              (click)="modal.dismiss()"
+            ></button>
+          </div>
+
+          <app-servicemodal [productName]="ir"></app-servicemodal>
+        </ng-template>
+      </div>
+      <div class="web-sublist">
+        <!-- <p class="web-title">Explore our SOC solutions</p>
+        <ul>
+          <li>Real-time threat monitoring</li>
+          <li>Incident detection and response</li>
+          <li>Proactive vulnerability management</li>
+          <li>24/7 security oversight</li>
+        </ul> -->
+        <button (click)="open(vapt)">Book Service</button>
+      </div>
+    </div>
     <div class="main-section">
       <div [className]="yy ? 'second-section' : 'first-section'" id="soc">
         <div class="info-img info-img-line">
@@ -138,7 +351,7 @@
         <button (click)="open(socc)">Book Service</button>
       </div>
     </div>
-    <div class="main-section">
+    <!-- <div class="main-section">
       <div [className]="!yy ? 'second-section' : 'first-section'" id="mssp">
         <div class="info-img info-img-line">
           <img
@@ -167,9 +380,7 @@
               <h4 class="modal-title" id="modal-basic-title">
                 Managed security services provider (MSSP)
               </h4>
-              <!-- <h4 class="modal-title">
-                On Trend, On Time, For You and Your Customers
-              </h4> -->
+             
             </div>
             <button
               type="button"
@@ -208,8 +419,8 @@
         </ul>
         <button (click)="open(msspp)">Book Service</button>
       </div>
-    </div>
-    <div class="main-section">
+    </div> -->
+    <!-- <div class="main-section">
       <div [className]="yy ? 'second-section' : 'first-section'" id="iot">
         <div class="info-img info-img-line">
           <img
@@ -235,9 +446,7 @@
           <div class="modal-header">
             <div class="m-title">
               <h4 class="modal-title" id="modal-basic-title">IoT security</h4>
-              <!-- <h4 class="modal-title">
-                On Trend, On Time, For You and Your Customers
-              </h4> -->
+              
             </div>
             <button
               type="button"
@@ -260,8 +469,8 @@
         </ul>
         <button (click)="open(iott)">Book Service</button>
       </div>
-    </div>
-    <div class="main-section">
+    </div> -->
+    <!-- <div class="main-section">
       <div [className]="!yy ? 'second-section' : 'first-section'" id="grc">
         <div class="info-img info-img-line">
           <img
@@ -290,9 +499,6 @@
               <h4 class="modal-title" id="modal-basic-title">
                 Governance, risk, and compliance (GRC)
               </h4>
-              <!-- <h4 class="modal-title">
-                On Trend, On Time, For You and Your Customers
-              </h4> -->
             </div>
             <button
               type="button"
@@ -315,9 +521,9 @@
         </ul>
         <button (click)="open(grcc)">Book Service</button>
       </div>
-    </div>
+    </div> -->
     <div class="main-section">
-      <div [className]="yy ? 'second-section' : 'first-section'" id="cap">
+      <div [className]="!yy ? 'second-section' : 'first-section'" id="cap">
         <div class="info-img info-img-line">
           <img
             src="https://imagevars.gulfnews.com/2023/03/27/Cybersecurity-_18723400af9_medium.jpg"
@@ -372,7 +578,7 @@
       </div>
     </div>
     <div class="main-section">
-      <div [className]="!yy ? 'second-section' : 'first-section'" id="hcip">
+      <div [className]="yy ? 'second-section' : 'first-section'" id="hcip">
         <div class="info-img info-img-line">
           <img
             src="https://nonprofitmegaphone.com/wp-content/uploads/2021/08/ffffffffff.jpg"

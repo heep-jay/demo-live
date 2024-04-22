@@ -15,7 +15,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 70%;
+  width: 75%;
   position: absolute;
   top: 65%;
   left: 63.6%;
@@ -27,7 +27,8 @@
   width: 45%;
 }
 
-.caro-text h1 {
+.caro-text h1,
+.caro-text h2 {
   font-size: clamp(1.8rem, 0.3438rem + 3.5vw, 3.5rem);
   line-height: 70px;
   font-weight: 600;
@@ -58,11 +59,8 @@
   .caro {
     position: absolute;
     top: 45%;
-    transform: translate(-70%, -70%);
-  }
 
-  .caro-text {
-    width: 100%;
+    transform: translate(-70%, -70%);
   }
 
   .caro-text h1 {
@@ -80,6 +78,22 @@
   }
 
   .caro {
+    position: relative;
     margin: 9rem auto;
+    width: 85%;
+  }
+  .else-header {
+    margin-top: -5rem;
+  }
+  .caro-text {
+    width: 100%;
+  }
+  .caro-text p {
+    font-size: 14px;
+    line-height: 28px;
+  }
+  .caro-text h1,
+  .caro-text h2 {
+    line-height: 40px;
   }
 }

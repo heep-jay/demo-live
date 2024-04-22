@@ -27,10 +27,8 @@ export class BlogdetailsComponent implements OnInit {
   ngOnInit(): void {
     window.scrollTo(0, 0);
     this.postId = this.route.snapshot.paramMap.get('id');
-    console.log(this.postId);
 
     this.api.getOneBlogPost(this.postId).subscribe((data: any) => {
-      console.log(data);
       this.title = data.attributes.title;
       this.author = data.attributes.author.data.attributes.name;
       this.content = data.attributes.content;

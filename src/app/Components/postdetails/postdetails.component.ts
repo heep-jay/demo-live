@@ -29,8 +29,6 @@ export class PostdetailsComponent implements OnInit {
   ngOnInit(): void {
     window.scrollTo(0, 0);
     this.postId = this.route.snapshot.paramMap.get('id');
-
-    console.log(this.postId);
     this.route.params.subscribe((params: any) => {
       this.api.getOneNewsPost(params.id).subscribe((data: any) => {
         this.title = data.attributes.title;
@@ -53,9 +51,7 @@ export class PostdetailsComponent implements OnInit {
             (data: any) =>
               data.id !== parseInt(id!) && data.attributes.blog == true
           );
-          // console.log(this.blogPosts);
-          // this.blogPosts.splice(0, 1);
-          console.log(this.blogPosts);
+
           return this.blogPosts;
         } else return null;
       });

@@ -10,11 +10,17 @@
         "
       >
         <img src="/assets/images/brochure.png" alt="brochure" />
-        <p>
-          Download Brochure
-          <mat-icon>download</mat-icon>
-        </p>
       </a>
+      <button
+        (click)="
+          download(
+            'https://res.cloudinary.com/dnjccz6dn/image/upload/v1708817353/Training_Brochure_2_compressed_eueifw.pdf'
+          )
+        "
+      >
+        Download Brochure
+        <mat-icon>download</mat-icon>
+      </button>
     </div>
   </div>
 </div>

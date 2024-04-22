@@ -111,11 +111,10 @@ export class CarouselComponent implements AfterViewInit {
   checkHeight() {
     if (window.matchMedia('(max-width: 500px)').matches) {
       this.height = 400;
-      console.log(this.height);
     } else {
       this.height = 820;
     }
-    console.log(this.height);
+
     return this.height;
   }
 }

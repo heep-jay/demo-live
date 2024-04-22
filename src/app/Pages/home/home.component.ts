@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/Service/api.service';
 import { NavbarService } from 'src/app/Service/navbar.service';
 import { Title } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -28,7 +29,8 @@ export class HomeComponent implements OnInit {
   constructor(
     private api: ApiService,
     public navb: NavbarService,
-    private titleService: Title
+    private titleService: Title,
+    private router: Router
   ) {}
 
   related = 'Related News';
@@ -37,8 +39,8 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     window.scrollTo(0, 0);
-
-    const pageTitle = 'Halogen | Home';
+    this.canonicalUrl();
+    const pageTitle = 'Halogen | Official Halogen Group Homepage';
     this.setPageTitle(pageTitle);
 
     let bbb: any = [];
@@ -65,7 +67,6 @@ export class HomeComponent implements OnInit {
 
       this.api.getRecentHaloPost().subscribe((data: any) => {
         this.combination.push(data);
-        console.log('newArr' + this.combination);
       });
 
       return this.jointPosts, this.blogPosts, this.combination;
@@ -87,5 +88,11 @@ export class HomeComponent implements OnInit {
 
   setPageTitle(newTitle: string) {
     this.titleService.setTitle(newTitle);
+  }
+  canonicalUrl(): string {
+    // Get the current route
+    const currentRoute = this.router.url;
+    // Construct the canonical URL based on the current route
+    return `https://halogen-group.com${currentRoute}`;
   }
 }

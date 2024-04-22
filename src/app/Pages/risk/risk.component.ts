@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ApiService } from 'src/app/Service/api.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 
 @Component({
@@ -30,12 +30,13 @@ export class RiskComponent implements OnInit {
     private modalService: NgbModal,
     private api: ApiService,
     private route: ActivatedRoute,
-    private titleService: Title
+    private titleService: Title,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
     window.scrollTo(0, 0);
-
+    this.canonicalUrl();
     const pageTitle = 'Halogen | Security risk advisory & consultancy';
     this.setPageTitle(pageTitle);
 
@@ -75,6 +76,12 @@ export class RiskComponent implements OnInit {
   }
   setPageTitle(newTitle: string) {
     this.titleService.setTitle(newTitle);
+  }
+  canonicalUrl(): string {
+    // Get the current route
+    const currentRoute = this.router.url;
+    // Construct the canonical URL based on the current route
+    return `https://halogen-group.com${currentRoute}`;
   }
   open(content: any) {
     this.modalService

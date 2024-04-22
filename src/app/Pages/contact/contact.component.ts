@@ -3,6 +3,7 @@ import { ApiService } from 'src/app/Service/api.service';
 import { MatDialog } from '@angular/material/dialog';
 import { IDropdownSettings } from 'ng-multiselect-dropdown';
 import { Title } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-contact',
@@ -34,10 +35,12 @@ export class ContactComponent implements OnInit {
   constructor(
     private api: ApiService,
     public dialog: MatDialog,
-    private titleService: Title
+    private titleService: Title,
+    private router: Router
   ) {}
   ngOnInit(): void {
     window.scrollTo(0, 0);
+    this.canonicalUrl();
     const pageTitle = 'Halogen | Contact us';
     this.setPageTitle(pageTitle);
     this.api.getContact().subscribe((data) => {
@@ -95,5 +98,11 @@ export class ContactComponent implements OnInit {
   }
   setPageTitle(newTitle: string) {
     this.titleService.setTitle(newTitle);
+  }
+  canonicalUrl(): string {
+    // Get the current route
+    const currentRoute = this.router.url;
+    // Construct the canonical URL based on the current route
+    return `https://halogen-group.com${currentRoute}`;
   }
 }

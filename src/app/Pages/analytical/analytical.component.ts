@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { ApiService } from 'src/app/Service/api.service';
 @Component({
   selector: 'app-analytical',
@@ -13,9 +14,15 @@ export class AnalyticalComponent implements OnInit {
   formMessage: string = '';
   selectedService = '';
   formData: any;
-  constructor(private api: ApiService, public dialog: MatDialog) {}
+  constructor(
+    private api: ApiService,
+    public dialog: MatDialog,
+    private router: Router
+  ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.canonicalUrl();
+  }
   onSelectService(service: any) {
     this.selectedService = service;
     this.formSubject = this.selectedService;
@@ -48,5 +55,11 @@ export class AnalyticalComponent implements OnInit {
     this.formName = '';
     this.formSubject = '';
     this.formEmail = '';
+  }
+  canonicalUrl(): string {
+    // Get the current route
+    const currentRoute = this.router.url;
+    // Construct the canonical URL based on the current route
+    return `https://halogen-group.com${currentRoute}`;
   }
 }

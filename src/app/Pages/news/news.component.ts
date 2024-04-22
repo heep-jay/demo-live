@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 import { ApiService } from 'src/app/Service/api.service';
 
 @Component({
@@ -8,81 +9,6 @@ import { ApiService } from 'src/app/Service/api.service';
   styleUrls: ['./news.component.css'],
 })
 export class NewsComponent implements OnInit {
-  posts = [
-    {
-      id: 1,
-      type: 'Blog Post',
-      title: 'Halogen partners FG on Cyber Security Training.',
-      smallText:
-        'Saviez-vous que 78% des Québécois consultent un site Internet avant de faire un achat ?',
-      image: '/assets/images/1.png',
-    },
-    {
-      id: 2,
-      type: 'Webinar',
-      title: 'Nigeria needs a national emergency response policy.',
-      smallText:
-        'Saviez-vous que 78% des Québécois consultent un site Internet avant de faire un achat ?',
-      image: '/assets/images/2.png',
-    },
-    {
-      id: 3,
-      type: 'Report',
-      title: 'Technology-driven Business Process is the new normal.',
-      smallText:
-        'Saviez-vous que 78% des Québécois consultent un site Internet avant de faire un achat ?',
-      image: '/assets/images/3.png',
-    },
-    {
-      id: 4,
-      type: 'Webinar',
-      title: 'Nigeria needs a national emergency response policy.',
-      smallText:
-        'Saviez-vous que 78% des Québécois consultent un site Internet avant de faire un achat ?',
-      image: '/assets/images/2.png',
-    },
-    {
-      id: 4,
-      type: 'Webinar',
-      title: 'Nigeria needs a national emergency response policy.',
-      smallText:
-        'Saviez-vous que 78% des Québécois consultent un site Internet avant de faire un achat ?',
-      image: '/assets/images/2.png',
-    },
-  ];
-
-  blogs = [
-    {
-      id: 1,
-      type: 'Blog Post',
-      title: 'Halogen partners FG on Cyber Security Training.',
-      smallText:
-        'Saviez-vous que 78% des Québécois consultent un site Internet avant de faire un achat ?',
-      image: '/assets/images/1.png',
-    },
-    {
-      id: 2,
-      type: 'Webinar',
-      title: 'Nigeria needs a national emergency response policy.',
-      smallText:
-        'Saviez-vous que 78% des Québécois consultent un site Internet avant de faire un achat ?',
-      image: '/assets/images/2.png',
-    },
-    // {
-    //   id: 3,
-    //   type: "Report",
-    //   title: "Technology-driven Business Process is the new normal.",
-    //   smallText: "Saviez-vous que 78% des Québécois consultent un site Internet avant de faire un achat ?",
-    //   image: "/assets/images/3.png",
-    // }, {
-    //   id: 4,
-    //   type: "Report",
-    //   title: "Technology-driven Business Process is the new normal.",
-    //   smallText: "Saviez-vous que 78% des Québécois consultent un site Internet avant de faire un achat ?",
-    //   image: "/assets/images/3.png",
-    // },
-  ];
-
   headlinesPost: any = [];
   normalPosts: any = [];
   blognews: any;
@@ -92,11 +18,15 @@ export class NewsComponent implements OnInit {
   related = 'Related newws';
   guides = 'Guides & news';
   boldText = 'Read the latest articles';
-  constructor(private api: ApiService, private titleService: Title) {}
+  constructor(
+    private api: ApiService,
+    private titleService: Title,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     window.scrollTo(0, 0);
-
+    this.canonicalUrl();
     const pageTitle = 'Halogen | News & Events';
     this.setPageTitle(pageTitle);
 
@@ -117,6 +47,7 @@ export class NewsComponent implements OnInit {
           data.attributes.headline === false && data.attributes.blog === false
       );
       this.combination = this.jointPosts.concat(this.blogPosts);
+      console.log(this.blogPosts);
       return (
         this.headlinesPost,
         this.normalPosts,
@@ -128,5 +59,11 @@ export class NewsComponent implements OnInit {
   }
   setPageTitle(newTitle: string) {
     this.titleService.setTitle(newTitle);
+  }
+  canonicalUrl(): string {
+    // Get the current route
+    const currentRoute = this.router.url;
+    // Construct the canonical URL based on the current route
+    return `https://halogen-group.com${currentRoute}`;
   }
 }

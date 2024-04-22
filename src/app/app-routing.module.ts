@@ -33,6 +33,8 @@ import { HalodigestDetailComponent } from './Pages/halodigest-detail/halodigest-
 import { JobsComponent } from './Pages/jobs/jobs.component';
 import { QmsComponent } from './Pages/qms/qms.component';
 import { BrochureComponent } from './Pages/brochure/brochure.component';
+import { NationalSecurityComponent } from './Pages/national-security/national-security.component';
+
 const routes: Routes = [
   {
     component: HomeComponent,
@@ -179,6 +181,11 @@ const routes: Routes = [
   {
     component: BrochureComponent,
     path: 'brochure',
+  },
+
+  {
+    component: NationalSecurityComponent,
+    path: 'nigeria-security-outlook-2024',
   },
   { path: '**', component: PageNotFoundComponent },
 ];

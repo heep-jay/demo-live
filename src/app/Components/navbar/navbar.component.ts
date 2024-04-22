@@ -109,7 +109,7 @@ export class NavbarComponent implements OnInit {
 
   redirect(data: any) {
     this.isToggle = false;
-    console.log(this.isToggle);
+
     window.location.href = data;
   }
   mediaToggle() {

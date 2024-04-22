@@ -14,7 +14,6 @@ export class MinipostComponent implements OnInit {
 
   ngOnInit(): void {
     this.postId = this.router.url;
-    console.log(this.post.attributes.blog);
 
     if (this.postId.includes('halodigest')) {
       this.url = '/halodigest';

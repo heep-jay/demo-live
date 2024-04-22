@@ -9,11 +9,11 @@
       name="description"
       content="We are a premium, innovation led, technology centred security risk solutions group. "
     />
-
+    <link rel="canonical" [href]="canonicalUrl()" />
     <!-- Google fonts imports -->
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
-    <link rel="preload" href="https://fonts.googleapis.com" />
-    <link rel="preload" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" as="font" href="https://fonts.googleapis.com" />
+    <link rel="preload" as="font" href="https://fonts.gstatic.com" />
 
     <link
       rel="preload"
@@ -51,6 +51,54 @@
       gtag("js", new Date());
       gtag("config", "G-NRER2ZVQWF");
     </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "CorporateBusiness",
+        "name": "Halogen-Group",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "19b Mobolaji Bank Anthony way",
+          "addressLocality": "Ikeja",
+          "addressRegion": "Lagos",
+          "postalCode": "12345",
+          "addressCountry": "Nigeria"
+        },
+        "telephone": "123-456-7890",
+        "url": "https://halogen-group.com",
+        "image": "https://res.cloudinary.com/dnjccz6dn/image/upload/v1675093057/logo_13ca434fec.png"
+      }
+    </script>
+
+    <!-- Facebook Meta Tags -->
+    <meta property="og:url" content="https://www.halogen-group.com/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Halogen-Group" />
+    <meta
+      property="og:description"
+      content="We are a premium, innovation led, technology centred security risk solutions group. "
+    />
+    <meta
+      property="og:image"
+      content="https://opengraph.b-cdn.net/production/documents/2dae8769-9cab-41c3-90ec-427f1bf6d708.jpg?token=zg4fa6vLQFcTOxILmcEmzK0iw3imebX8tRAdLJBdZo4&height=668&width=1200&expires=33245508426"
+    />
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="twitter:domain" content="halogen-group.com" />
+    <meta property="twitter:url" content="https://www.halogen-group.com/" />
+    <meta name="twitter:title" content="Halogen-Group" />
+    <meta
+      name="twitter:description"
+      content="We are a premium, innovation led, technology centred security risk solutions group. "
+    />
+    <meta
+      name="twitter:image"
+      content="https://opengraph.b-cdn.net/production/documents/2dae8769-9cab-41c3-90ec-427f1bf6d708.jpg?token=zg4fa6vLQFcTOxILmcEmzK0iw3imebX8tRAdLJBdZo4&height=668&width=1200&expires=33245508426"
+    />
+
+    <!-- Meta Tags Generated via https://www.opengraph.xyz -->
   </head>
   <body class="mat-typography">
     <app-root></app-root>

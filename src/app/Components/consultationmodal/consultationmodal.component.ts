@@ -35,7 +35,7 @@ export class ConsultationmodalComponent implements OnInit {
         halogenEmail: ['info@halogen-group.com'],
       },
     };
-    console.log(this.formData);
+
     this.api.bookService(this.formData).subscribe();
     this.formMessage = '';
     this.formName = '';

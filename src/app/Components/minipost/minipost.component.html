@@ -1,11 +1,11 @@
 <div class="minipost">
   <img
-    src="{{ post.attributes.mainImage.data.attributes.formats.medium.url }}"
+    src="{{ post.attributes.mainImage.data.attributes.formats.small.url }}"
     alt="postImg"
     routerLink="{{ url }}/{{ post.id }}"
     class="minipost__img"
   />
-  <h4 class="minipost__title">{{ post.attributes.title }}</h4>
+  <h6 class="minipost__title">{{ post.attributes.title }}</h6>
   <p class="minipost__text">{{ post.attributes.summary }}</p>
   <button class="minipost__btn" routerLink="{{ url }}/{{ post.id }}">
     More <mat-icon>chevron_right</mat-icon>

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/Service/api.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 
 @Component({
@@ -29,7 +29,8 @@ export class SecurityEducationComponent implements OnInit {
     private modalService: NgbModal,
     private api: ApiService,
     private route: ActivatedRoute,
-    private titleService: Title
+    private titleService: Title,
+    private router: Router
   ) {}
   open(content: any) {
     this.modalService
@@ -41,7 +42,7 @@ export class SecurityEducationComponent implements OnInit {
 
   ngOnInit(): void {
     window.scrollTo(0, 0);
-
+    this.canonicalUrl();
     const pageTitle = 'Halogen | Security Education';
     this.setPageTitle(pageTitle);
 
@@ -82,7 +83,12 @@ export class SecurityEducationComponent implements OnInit {
       });
     }
   }
-
+  canonicalUrl(): string {
+    // Get the current route
+    const currentRoute = this.router.url;
+    // Construct the canonical URL based on the current route
+    return `https://halogen-group.com${currentRoute}`;
+  }
   scrolll(data: any) {
     var element = document.getElementById(data)?.getBoundingClientRect().top;
     var headerOffset = 145;

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { marked } from 'marked';
 import { ApiService } from 'src/app/Service/api.service';
 import { Location } from '@angular/common';
@@ -21,10 +21,12 @@ export class HalodigestDetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private api: ApiService,
-    private _location: Location
+    private _location: Location,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
+    this.canonicalUrl();
     this.postId = this.route.snapshot.paramMap.get('id');
     this.route.params.subscribe((params: any) => {
       this.api.getOneHaloPost(params.id).subscribe((data: any) => {
@@ -47,7 +49,12 @@ export class HalodigestDetailComponent implements OnInit {
       });
     });
   }
-
+  canonicalUrl(): string {
+    // Get the current route
+    const currentRoute = this.router.url;
+    // Construct the canonical URL based on the current route
+    return `https://halogen-group.com${currentRoute}`;
+  }
   back() {
     this._location.back();
   }

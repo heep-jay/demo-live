@@ -5,7 +5,7 @@
   <section class="home__business">
     <div class="business">
       <div class="business__header">
-        <h1>{{ businessSectionHeader }}</h1>
+        <h2>{{ businessSectionHeader }}</h2>
         <!-- <p>{{ businessSectionSubHeader }}</p> -->
         <p>
           A mastery of emerging trends in security risks across physical &
@@ -42,9 +42,9 @@
               <mat-icon>{{ fl.attributes.solutionIcon }}</mat-icon>
             </div>
             <div class="solution-text">
-              <h5 routerLink="{{ fl.attributes.url }}">
+              <h2 routerLink="{{ fl.attributes.url }}">
                 {{ fl.attributes.solutionName }}
-              </h5>
+              </h2>
               <p>{{ fl.attributes.solutionDescription }}</p>
             </div>
           </div>
@@ -62,9 +62,9 @@
               <mat-icon>{{ fr.attributes.solutionIcon }}</mat-icon>
             </div>
             <div class="solution-text">
-              <h5 routerLink="{{ fr.attributes.url }}">
+              <h2 routerLink="{{ fr.attributes.url }}">
                 {{ fr.attributes.solutionName }}
-              </h5>
+              </h2>
               <p>{{ fr.attributes.solutionDescription }}</p>
             </div>
           </div>
@@ -80,14 +80,14 @@
         </div>
         <div class="halosphere_right">
           <div class="halosphere_right-text">
-            <h3>Explore the</h3>
-            <h1>Hal<span style="color: #e0ab10">o</span>sphere</h1>
+            <h4>Explore the</h4>
+            <h5>Hal<span style="color: #e0ab10">o</span>sphere</h5>
             <p>
               Halogen welcomes you to Halosphere – your peace haven where
               technology drives security
             </p>
             <div class="sphere-btn">
-              <button (click)="halo()">Get Started</button>
+              <button (click)="halo()">Get started</button>
             </div>
           </div>
         </div>
@@ -98,7 +98,7 @@
     <div class="home__client">
       <div class="client__images">
         <div class="home__client-num">
-          <h1>400+</h1>
+          <h5>400+</h5>
           <p>Clients across Africa partner with us</p>
         </div>
         <div class="home-client-carousel">
@@ -110,7 +110,7 @@
   <div class="client__reviews">
     <div class="client_re">
       <div class="client__reviews-header">
-        <h1>{{ reviewHeader }}</h1>
+        <h5>{{ reviewHeader }}</h5>
 
         <div class="arrows">
           <mat-icon>arrow_back</mat-icon>

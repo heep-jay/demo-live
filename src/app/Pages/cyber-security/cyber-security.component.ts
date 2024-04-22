@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ApiService } from 'src/app/Service/api.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 
 @Component({
@@ -13,7 +13,7 @@ export class CyberSecurityComponent implements OnInit {
   closeResult: string = '';
   risks: any;
   prodP: any;
-  productName: string = '';
+  productName?: string = '';
   soc: string = 'Security Operations Center (SOC)';
   mssp: string = 'Managed Security Services Provider (MSSP)';
   iot: string = 'IoT Security';
@@ -39,7 +39,8 @@ export class CyberSecurityComponent implements OnInit {
     private modalService: NgbModal,
     private api: ApiService,
     private route: ActivatedRoute,
-    private titleService: Title
+    private titleService: Title,
+    private router: Router
   ) {}
   open(content: any) {
     this.modalService
@@ -51,6 +52,7 @@ export class CyberSecurityComponent implements OnInit {
 
   async ngOnInit() {
     window.scrollTo(0, 0);
+    this.canonicalUrl();
     const pageTitle = 'Halogen | Cyber security';
     this.setPageTitle(pageTitle);
 
@@ -89,6 +91,12 @@ export class CyberSecurityComponent implements OnInit {
     }
   }
 
+  canonicalUrl(): string {
+    // Get the current route
+    const currentRoute = this.router.url;
+    // Construct the canonical URL based on the current route
+    return `https://halogen-group.com${currentRoute}`;
+  }
   scrolll(data: any) {
     var element = document.getElementById(data)?.getBoundingClientRect().top;
     var headerOffset = 145;

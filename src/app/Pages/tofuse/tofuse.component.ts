@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tofuse',
@@ -6,9 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./tofuse.component.css'],
 })
 export class TofuseComponent implements OnInit {
-  constructor() {}
+  constructor(private router: Router) {}
   ngOnInit(): void {
     window.scrollTo(0, 0);
+    this.canonicalUrl();
   }
   scrolll(data: any) {
     var element = document.getElementById(data)?.getBoundingClientRect().top;
@@ -18,5 +20,11 @@ export class TofuseComponent implements OnInit {
   }
   print() {
     window.print();
+  }
+  canonicalUrl(): string {
+    // Get the current route
+    const currentRoute = this.router.url;
+    // Construct the canonical URL based on the current route
+    return `https://halogen-group.com${currentRoute}`;
   }
 }

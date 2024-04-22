@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/Service/api.service';
 import { MatDialog } from '@angular/material/dialog';
 import { Title } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-about',
   templateUrl: './about.component.html',
@@ -24,11 +25,13 @@ export class AboutComponent implements OnInit {
   constructor(
     private api: ApiService,
     public dialog: MatDialog,
-    private titleService: Title
+    private titleService: Title,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
     window.scrollTo(0, 0);
+    this.canonicalUrl();
     const pageTitle = 'Halogen | About us';
     // Generate your dynamic title here
     this.setPageTitle(pageTitle);
@@ -51,7 +54,12 @@ export class AboutComponent implements OnInit {
       this.mainImage = data.attributes.aboutImage.data.attributes.url;
     });
   }
-
+  canonicalUrl(): string {
+    // Get the current route
+    const currentRoute = this.router.url;
+    // Construct the canonical URL based on the current route
+    return `https://halogen-group.com${currentRoute}`;
+  }
   setPageTitle(newTitle: string) {
     this.titleService.setTitle(newTitle);
   }

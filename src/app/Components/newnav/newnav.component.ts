@@ -45,13 +45,7 @@ export class NewnavComponent implements OnInit {
   // Function to set the active item
   setActiveItem(item: string): void {
     this.activeItem = item;
-    // if (item === 'Cyber security service') {
-    //   this.menus = this.cybermenusL;
-    //   console.log(this.menus);
-    // } else {
-    //   this.menus = [];
-    //   console.log('not');
-    // }
+
     switch (item) {
       case 'Security Technologies/ IOT':
         this.menus = this.secTechMenu;

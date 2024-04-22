@@ -67,8 +67,8 @@
 }
 
 .solution-icon {
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   color: #fff;
   display: flex;
@@ -89,18 +89,19 @@
   width: 80%;
 }
 
-.solution-text h5 {
+.solution-text h2 {
   font-size: clamp(1.0625rem, 0.9509rem + 0.3571vw, 1.375rem);
   cursor: pointer;
   color: #1c2b66;
   font-weight: 600;
   font-family: "Poppins", sans-serif;
+  margin: 0;
 }
 
 .solution-text p {
-  font-size: clamp(1.0625rem, 0.9286rem + 0.4286vw, 1.1375rem);
+  font-size: clamp(0.9375rem, 0.8259rem + 0.3571vw, 1.1rem);
   text-align: justify;
-  line-height: 30px;
+  line-height: 25px;
   font-weight: 400;
 }
 
@@ -207,9 +208,10 @@
 .sphere-btn button {
   padding: 1rem 3rem;
   border-radius: 30px;
-  background: #e6b215;
+  background: #fcbe00;
   font-size: clamp(0.90625rem, 0.8257rem + 0.3684vw, 1.125rem);
-  color: #fff;
+  color: #000;
+  /* font-weight: 600; */
   border: none;
 }
 
@@ -234,12 +236,12 @@
   /* position: relative; */
 }
 
-.halosphere_right-text h1 {
+.halosphere_right-text h5 {
   width: 100%;
   font-size: clamp(2.5rem, 1.4638rem + 4.7368vw, 5.3125rem);
   font-weight: 900;
 }
-.halosphere_right-text h3 {
+.halosphere_right-text h4 {
   font-size: clamp(1.25rem, 0.8816rem + 1.6842vw, 2.25rem);
   font-weight: 600;
 }
@@ -268,7 +270,7 @@
   max-width: 1300px;
   margin: 0 auto;
 }
-.home__client-num h1 {
+.home__client-num h5 {
   font-size: clamp(1.875rem, 1.3393rem + 1.7143vw, 3.375rem);
   font-weight: 600;
 }
@@ -321,7 +323,7 @@
   align-items: center;
 }
 
-.client__reviews-header h1 {
+.client__reviews-header h5 {
   width: 50%;
   font-size: clamp(1.875rem, 1.3393rem + 1.7143vw, 3.375rem);
   font-weight: 500;
@@ -470,5 +472,18 @@
     font-size: 12px;
     padding: 1rem;
     height: 45px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .solution-cols {
+    gap: 0.8rem;
+  }
+  .solution-icon {
+    width: 40px;
+    height: 40px;
+  }
+  .solution-icon .mat-icon {
+    transform: scale(0.8);
   }
 }

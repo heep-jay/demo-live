@@ -3,17 +3,17 @@ import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-brochure',
-  templateUrl: './brochure.component.html',
-  styleUrls: ['./brochure.component.css'],
+  selector: 'app-national-security',
+  templateUrl: './national-security.component.html',
+  styleUrls: ['./national-security.component.css'],
 })
-export class BrochureComponent implements OnInit {
+export class NationalSecurityComponent implements OnInit {
   constructor(private titleService: Title, private router: Router) {}
 
   ngOnInit(): void {
     this.canonicalUrl();
     window.scrollTo(0, 0);
-    const pageTitle = 'Halogen | Brochure';
+    const pageTitle = 'Halogen | Nigerias Security Outlook 2024';
     // Generate your dynamic title here
     this.setPageTitle(pageTitle);
   }

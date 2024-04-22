@@ -42,7 +42,6 @@ export class NavbarNewComponent implements OnInit {
     toggle?.addEventListener('click', () => {
       // Add show-menu class to nav menu
       nav?.classList.toggle('show-menu');
-      console.log(nav?.classList);
 
       // Add show-icon to show and hide the menu icon
       toggle.classList.toggle('show-icon');

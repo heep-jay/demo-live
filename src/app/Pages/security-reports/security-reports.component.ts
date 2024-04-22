@@ -1,5 +1,6 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { Title } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 import { ApiService } from 'src/app/Service/api.service';
 @Component({
   selector: 'app-security-reports',
@@ -15,12 +16,13 @@ export class SecurityReportsComponent implements OnInit {
   constructor(
     private api: ApiService,
     private cdr: ChangeDetectorRef,
-    private titleService: Title
+    private titleService: Title,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
     this.getReports(this.current_page);
-
+    this.canonicalUrl();
     const pageTitle = 'Halogen | Security Reports';
     this.setPageTitle(pageTitle);
   }
@@ -30,7 +32,12 @@ export class SecurityReportsComponent implements OnInit {
   download(url: any) {
     window.open(url, '_blank');
   }
-
+  canonicalUrl(): string {
+    // Get the current route
+    const currentRoute = this.router.url;
+    // Construct the canonical URL based on the current route
+    return `https://halogen-group.com${currentRoute}`;
+  }
   next() {
     this.cdr.detectChanges();
     this.current_page++;

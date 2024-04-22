@@ -77,6 +77,7 @@ import { NewnavComponent } from './Components/newnav/newnav.component';
 import { XmasComponent } from './Components/xmas/xmas.component';
 import { QmsComponent } from './Pages/qms/qms.component';
 import { BrochureComponent } from './Pages/brochure/brochure.component';
+import { NationalSecurityComponent } from './Pages/national-security/national-security.component';
 
 @NgModule({
   declarations: [
@@ -141,6 +142,7 @@ import { BrochureComponent } from './Pages/brochure/brochure.component';
     XmasComponent,
     QmsComponent,
     BrochureComponent,
+    NationalSecurityComponent,
   ],
   imports: [
     BrowserModule,
