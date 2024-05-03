@@ -238,6 +238,7 @@ h2 {
 @media screen and (max-width: 500px) {
   .security {
     padding: 0px;
+    /* width: 100%; */
   }
   .info-img {
     height: 250px;

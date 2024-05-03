@@ -274,6 +274,9 @@ h2 {
 }
 
 @media screen and (max-width: 500px) {
+  .security {
+    width: 100%;
+  }
   .info-img {
     height: 250px;
   }
