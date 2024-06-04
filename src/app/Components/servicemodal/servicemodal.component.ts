@@ -37,7 +37,7 @@ export class ServicemodalComponent implements OnInit {
         name: this.formName,
         mobileNumber: this.formTel,
         message: this.formMessage,
-        halogenEmail: ['info@halogen-group.com'],
+        halogenEmail: ['marketing@halogen-group.com'],
       },
     };
     this.api.bookService(this.formData).subscribe();
