@@ -1,0 +1,23 @@
+<div class="submission-container">
+  <h1 class="form-title">{{ formTitle }} Campaign Submissions</h1>
+  <div class="table-container">
+    <button class="btn btn-primary mb-3" (click)="exportTable()">
+      Export to Data
+      <mat-icon>download</mat-icon>
+    </button>
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th *ngFor="let column of displayedColumns">{{ column }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let row of tableData">
+            <td *ngFor="let column of displayedColumns">{{ row[column] }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

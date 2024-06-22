@@ -8,6 +8,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+// import { NgxSpinnerModule } from 'ngx-spinner';
 import { MatCardModule } from '@angular/material/card';
 import { IvyCarouselModule } from 'carousel-angular';
 import { MatSelectModule } from '@angular/material/select';
@@ -43,7 +45,6 @@ import { VpostsComponent } from './Components/vposts/vposts.component';
 import { FeaturedComponent } from './Components/featured/featured.component';
 import { MustreadComponent } from './Components/mustread/mustread.component';
 import { NewscarouselComponent } from './Components/newscarousel/newscarousel.component';
-import { FormsModule } from '@angular/forms';
 import { ClientcarouselComponent } from './Components/clientcarousel/clientcarousel.component';
 import { GalleryPageComponent } from './Components/gallery-page/gallery-page.component';
 import { GalleryBoxComponent } from './Components/gallery-box/gallery-box.component';
@@ -78,6 +79,8 @@ import { XmasComponent } from './Components/xmas/xmas.component';
 import { QmsComponent } from './Pages/qms/qms.component';
 import { BrochureComponent } from './Pages/brochure/brochure.component';
 import { NationalSecurityComponent } from './Pages/national-security/national-security.component';
+import { CampaignFormComponent } from './Pages/campaign-form/campaign-form.component';
+import { CampaignSubmissionsComponent } from './Pages/campaign-submissions/campaign-submissions.component';
 
 @NgModule({
   declarations: [
@@ -143,6 +146,8 @@ import { NationalSecurityComponent } from './Pages/national-security/national-se
     QmsComponent,
     BrochureComponent,
     NationalSecurityComponent,
+    CampaignFormComponent,
+    CampaignSubmissionsComponent,
   ],
   imports: [
     BrowserModule,
@@ -154,10 +159,12 @@ import { NationalSecurityComponent } from './Pages/national-security/national-se
     CommonModule,
     IvyCarouselModule,
     FormsModule,
+    ReactiveFormsModule,
     NgbModule,
     MatSelectModule,
     MatDialogModule,
     NguCarouselModule,
+
     MarkdownModule.forRoot(),
   ],
   providers: [{ provide: LocationStrategy, useClass: PathLocationStrategy }],
