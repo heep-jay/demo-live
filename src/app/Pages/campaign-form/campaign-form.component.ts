@@ -36,7 +36,7 @@ export class CampaignFormComponent implements OnInit {
     this.formService.getForm(this.id).subscribe((data) => {
       console.log(data?.data);
       this.formData = data?.data?.attributes?.formFields.forms[0];
-      this.imageUrl = '';
+      this.imageUrl = data?.data?.attributes?.formImage?.data?.attributes.url;
       this.buildForm();
       this.initialFormValues = this.form.getRawValue();
     });

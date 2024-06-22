@@ -1,6 +1,6 @@
 <div class="form">
   <!-- form.component.html -->
-  <div class="hero">
+  <div class="hero" [ngStyle]="{ 'background-image': 'url(' + imageUrl + ')' }">
     <div class="content">
       <h1>Innovative security solutions for everyone</h1>
       <p>
@@ -183,16 +183,6 @@
           Submit
         </button>
       </form>
-      <!-- <div class="overlay-form" *ngIf="loading">
-          <ngx-spinner
-            bdColor="rgba(51,51,51,0.8)"
-            [fullScreen]="false"
-            type="ball-scale-multiple"
-            size="medium"
-          >
-            <p class="loading">Loading Awesomeness...</p>
-          </ngx-spinner>
-        </div> -->
     </div>
   </div>
 </div>
