@@ -8,6 +8,7 @@ import {
   ValidatorFn,
   AbstractControl,
 } from '@angular/forms';
+import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CampaignServiceService } from 'src/app/Service/campaign-service.service';
 // import { NgxSpinnerService } from 'ngx-spinner';
@@ -24,24 +25,48 @@ export class CampaignFormComponent implements OnInit {
   initialFormValues: any = {};
   loading: boolean = false;
   imageUrl: string = '';
+  headerText: string = '';
+  headerDescription: string = '';
 
   constructor(
     private fb: FormBuilder,
     private formService: CampaignServiceService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private titleService: Title
   ) {}
   ngOnInit(): void {
+    window.scrollTo(0, 0);
+    this.canonicalUrl();
     this.id = this.route.snapshot.params['id'];
+    const pageTitle = `Halogen | Camapaign ${this.id}`;
+    this.setPageTitle(pageTitle);
     this.formService.getForm(this.id).subscribe((data) => {
       console.log(data?.data);
       this.formData = data?.data?.attributes?.formFields.forms[0];
       this.imageUrl = data?.data?.attributes?.formImage?.data?.attributes.url;
+      this.headerText = data?.data?.attributes?.formHeaderText;
+      this.headerDescription = data?.data?.attributes?.formDescriptionText;
       this.buildForm();
       this.initialFormValues = this.form.getRawValue();
     });
   }
+  scrolll(data: any) {
+    var element = document.getElementById(data)?.getBoundingClientRect().top;
+    var headerOffset = 125;
+    var offsetPosition = element! + window.pageYOffset - headerOffset;
+    window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+  }
 
+  setPageTitle(newTitle: string) {
+    this.titleService.setTitle(newTitle);
+  }
+  canonicalUrl(): string {
+    // Get the current route
+    const currentRoute = this.router.url;
+    // Construct the canonical URL based on the current route
+    return `https://halogen-group.com${currentRoute}`;
+  }
   buildForm(): void {
     const group: any = {};
     this.formData.fields.forEach((field: any) => {

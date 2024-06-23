@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Title } from '@angular/platform-browser';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CampaignServiceService } from 'src/app/Service/campaign-service.service';
 export interface TableData {
   [key: string]: any;
@@ -21,10 +22,17 @@ export class CampaignSubmissionsComponent implements OnInit {
 
   constructor(
     private api: CampaignServiceService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private titleService: Title,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
+    this.canonicalUrl();
+    window.scrollTo(0, 0);
+    this.id = this.route.snapshot.params['id'];
+    const pageTitle = `Halogen | Submissions ${this.id}`;
+    this.setPageTitle(pageTitle);
     this.id = this.route.snapshot.params['id'];
     this.api.getSubmissions(this.id).subscribe((data) => {
       console.log(data);
@@ -40,6 +48,15 @@ export class CampaignSubmissionsComponent implements OnInit {
     });
   }
 
+  setPageTitle(newTitle: string) {
+    this.titleService.setTitle(newTitle);
+  }
+  canonicalUrl(): string {
+    // Get the current route
+    const currentRoute = this.router.url;
+    // Construct the canonical URL based on the current route
+    return `https://halogen-group.com${currentRoute}`;
+  }
   preprocessTableData(data: any) {
     return data.map((row: any) => {
       console.log('formData', row);

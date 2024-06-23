@@ -2,14 +2,12 @@
   <!-- form.component.html -->
   <div class="hero" [ngStyle]="{ 'background-image': 'url(' + imageUrl + ')' }">
     <div class="content">
-      <h1>Innovative security solutions for everyone</h1>
+      <h1>{{ headerText }}</h1>
       <p>
-        Learn from industry experts, join us for an in-depth seminar on cutting
-        edge security solutions designed to protect Individuals and
-        Organizations.
+        {{ headerDescription }}
       </p>
       <div class="form-cta">
-        <button>Sign up here</button>
+        <button (click)="scrolll('form')">Sign up here</button>
       </div>
     </div>
     <div class="overlay"></div>
@@ -28,7 +26,12 @@
         <p>Fill the form to sign up for the webinar</p>
       </div>
       <!-- Form -->
-      <form [formGroup]="form" (ngSubmit)="onSubmit()" class="dynamic-form">
+      <form
+        [formGroup]="form"
+        id="form"
+        (ngSubmit)="onSubmit()"
+        class="dynamic-form"
+      >
         <div
           *ngFor="let field of formData?.fields; index as i"
           class="form-group"
