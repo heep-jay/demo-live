@@ -2,7 +2,13 @@
   <h1>Security advisory reports</h1>
 
   <div class="reports-container">
-    <div class="report" *ngFor="let report of newreport">
+    <div
+      class="report"
+      *ngFor="
+        let report of newreport
+          | paginate : { itemsPerPage: 12, currentPage: p }
+      "
+    >
       <div class="report-file">
         <img src="{{ report.image }}" alt="pdf-file" />
       </div>
@@ -15,6 +21,8 @@
       />
     </div>
   </div>
-
+  <div class="paginate">
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </div>
   <!-- <button (click)="next()">Next</button> -->
 </div>

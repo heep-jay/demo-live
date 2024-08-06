@@ -165,6 +165,11 @@
 .news__featured-post {
   width: 48%;
 }
+.paginate {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 @media screen and (max-width: 950px) {
   .mainpost_left,

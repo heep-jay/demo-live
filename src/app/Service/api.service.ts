@@ -94,13 +94,25 @@ export class ApiService {
 
     return this.http
       .get(
-        `${this.apiUrl}/api/security-reports?pagination[start]=${start}&pagination[limit]=${limit}&sort=createdAt:desc&populate=*`
+        `${this.apiUrl}/api/security-reports?pagination[start]=1&pagination[limit]=-1&sort=createdAt:desc&populate=*`
       )
       .pipe(
         map((res: any) => {
           return res.data;
         })
       );
+  }
+
+  getItems(page: number, pageSize: number): Observable<any> {
+    return this.http.get(
+      `${this.apiUrl}/api/security-reports?_start=${
+        (page - 1) * pageSize
+      }&_limit=${pageSize}`
+    );
+  }
+
+  getTotalItems(): Observable<any> {
+    return this.http.get(`${this.apiUrl}/api/security-reports/count`);
   }
   getCareerReports(page: any) {
     const limit = 10; // Number of items per page
@@ -278,11 +290,13 @@ export class ApiService {
   }
 
   getGalleryPhotos() {
-    return this.http.get(`${this.apiUrl}/api/photo-galleries/?populate=*`).pipe(
-      map((res: any) => {
-        return res.data;
-      })
-    );
+    return this.http
+      .get(`${this.apiUrl}/api/photo-galleries/?sort=createdAt:desc&populate=*`)
+      .pipe(
+        map((res: any) => {
+          return res.data;
+        })
+      );
   }
   getOneGalleryPhotos(id: any) {
     return this.http

@@ -46,7 +46,18 @@ export class GalleryComponent implements OnInit {
   onSelected(value: string): void {
     this.selectedTeam = value;
 
-    if (this.selectedTeam === '2023') {
+    if (this.selectedTeam === '2024') {
+      if (this.isGallery) {
+        this.galleryImages = this.gallery.filter(
+          (gal: any) => gal.attributes.year === '2024'
+        );
+        console.log(this.galleryImages);
+      } else {
+        this.galleryImages = this.videos.filter(
+          (gal: any) => gal.attributes.year === '2024'
+        );
+      }
+    } else if (this.selectedTeam === '2023') {
       if (this.isGallery) {
         this.galleryImages = this.gallery.filter(
           (gal: any) => gal.attributes.year === '2023'

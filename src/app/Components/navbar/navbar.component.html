@@ -95,7 +95,10 @@
                 >{{ menu.attributes.name }}
               </a>
             </li>
-            <li routerLink="/cyber-security">View All</li>
+
+            <li (click)="onToggle()">
+              <a routerLink="/cyber-security"> View All </a>
+            </li>
           </ul>
         </div>
       </li>
@@ -111,7 +114,10 @@
                 {{ menu.attributes.name }}
               </a>
             </li>
-            <li routerLink="/security-technologies">View All</li>
+
+            <li (click)="onToggle()">
+              <a routerLink="/security-technologies"> View All </a>
+            </li>
           </ul>
         </div>
       </li>
@@ -127,7 +133,9 @@
                 {{ menu.attributes.name }}
               </a>
             </li>
-            <li routerLink="/physical-security">View All</li>
+            <li (click)="onToggle()">
+              <a routerLink="/physical-security"> View All </a>
+            </li>
           </ul>
         </div>
       </li>
@@ -143,7 +151,11 @@
                 {{ menu.attributes.name }}
               </a>
             </li>
-            <li routerLink="/outsourcing-investigations-identity">View All</li>
+            <li (click)="onToggle()">
+              <a routerLink="/outsourcing-investigations-identity">
+                View All
+              </a>
+            </li>
           </ul>
         </div>
       </li>
@@ -159,7 +171,10 @@
                 {{ menu.attributes.name }}
               </a>
             </li>
-            <li routerLink="/security-seducation">View All</li>
+
+            <li (click)="onToggle()">
+              <a routerLink="/security-seducation"> View All </a>
+            </li>
           </ul>
         </div>
       </li>
@@ -177,7 +192,10 @@
                 {{ menu.attributes.name }}
               </a>
             </li>
-            <li routerLink="/risk-advisory-and-consulting">View All</li>
+
+            <li (click)="onToggle()">
+              <a routerLink="/risk-advisory-and-consulting"> View All </a>
+            </li>
           </ul>
         </div>
       </li>
@@ -188,12 +206,11 @@
             Media Centre<mat-icon>chevron_right</mat-icon>
           </button>
           <ul class="menu-dropdown" *ngIf="isMediaToggle">
-            <li
-              (click)="redirect(medMen.attributes.url)"
-              *ngFor="let medMen of mediamenus"
-            >
-              <mat-icon>{{ medMen.attributes.icon }}</mat-icon
-              >{{ medMen.attributes.name }}
+            <li (click)="onToggle()" *ngFor="let medMen of mediamenus">
+              <a routerLink="/{{ medMen.attributes.url }}">
+                <mat-icon>{{ medMen.attributes.icon }}</mat-icon>
+                {{ medMen.attributes.name }}
+              </a>
             </li>
             <!-- <li routerLink="/gallery" (click)="onToggle()">Gallery</li>
             <li routerLink="/gallery" (click)="onToggle()">ESMR Reports</li> -->

@@ -10,6 +10,7 @@ import { ApiService } from 'src/app/Service/api.service';
 export class SecurityReportsComponent implements OnInit {
   reports: any;
   image: any;
+  p: any;
   pdf: any;
   newreport: any = [];
   current_page: number = 1;

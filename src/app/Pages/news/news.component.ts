@@ -11,6 +11,7 @@ import { ApiService } from 'src/app/Service/api.service';
 export class NewsComponent implements OnInit {
   headlinesPost: any = [];
   normalPosts: any = [];
+  p: any;
   blognews: any;
   blogPosts: any = [];
   jointPosts: any = [];

@@ -16,6 +16,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MarkdownModule } from 'ngx-markdown';
 import { NguCarouselModule } from '@ngu/carousel';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 import { HomecarouselComponent } from './Components/homecarousel/homecarousel.component';
 import { FooterComponent } from './Components/footer/footer.component';
@@ -164,7 +165,7 @@ import { CampaignSubmissionsComponent } from './Pages/campaign-submissions/campa
     MatSelectModule,
     MatDialogModule,
     NguCarouselModule,
-
+    NgxPaginationModule,
     MarkdownModule.forRoot(),
   ],
   providers: [{ provide: LocationStrategy, useClass: PathLocationStrategy }],

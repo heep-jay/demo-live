@@ -21,7 +21,7 @@
   font-size: clamp(1.687rem, -1.3125rem + 9vw, 2.6rem);
   font-weight: 900;
   font-family: "Poppins", sans-serif !important;
-  line-height: min(4vh, 70px);
+  line-height: 70px;
 }
 
 .normal-text {
@@ -274,6 +274,9 @@ h2 {
 }
 
 @media screen and (max-width: 500px) {
+  .big-text {
+    line-height: 40px;
+  }
   .security {
     width: 100%;
   }

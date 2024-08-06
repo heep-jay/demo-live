@@ -28,7 +28,9 @@
   <div class="news__posts">
     <app-minipost
       [post]="post"
-      *ngFor="let post of blogPosts"
+      *ngFor="
+        let post of blogPosts | paginate : { itemsPerPage: 12, currentPage: p }
+      "
       class="news__post"
     >
     </app-minipost>
@@ -41,4 +43,7 @@
     <h1 class="news__header-title">Our Thought Leadership</h1>
     <p class="news__header-text">Some of our thought leadership pieces</p>
   </div> -->
+  <div class="paginate">
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </div>
 </div>

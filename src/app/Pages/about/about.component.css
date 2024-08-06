@@ -38,6 +38,7 @@
   font-size: clamp(0.875rem, 0.5625rem + 1vw, 1.025rem);
   text-align: justify;
   line-height: 35px;
+  margin-top: 1rem;
 }
 .about_inner-info {
   margin: 3rem 0 0 0;

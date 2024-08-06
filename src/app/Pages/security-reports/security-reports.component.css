@@ -70,3 +70,8 @@
   object-fit: contain;
   cursor: pointer;
 }
+.paginate {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

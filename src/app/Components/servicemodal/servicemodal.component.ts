@@ -17,6 +17,7 @@ export class ServicemodalComponent implements OnInit {
   formFname: string = '';
   formTel: any = '';
   formLname: string = '';
+  btnName: string = 'Book Service';
 
   constructor(
     private api: ApiService,
@@ -24,7 +25,14 @@ export class ServicemodalComponent implements OnInit {
     private modalService: NgbModal
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    if (
+      this.productName === 'Halogen scholars' ||
+      this.productName === 'Academy halogen'
+    ) {
+      this.btnName = 'Sign Up';
+    }
+  }
   onSubmit() {
     this.formName = `${this.formFname} ${this.formLname}`;
     this.formData = {

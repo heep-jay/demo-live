@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { marked } from 'marked';
 import { ApiService } from 'src/app/Service/api.service';
 import { Location } from '@angular/common';
-
+import { Title, Meta } from '@angular/platform-browser';
 @Component({
   selector: 'app-postdetails',
   templateUrl: './postdetails.component.html',
@@ -14,7 +14,9 @@ export class PostdetailsComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private api: ApiService,
-    private _location: Location
+    private _location: Location,
+    private titleService: Title,
+    private metaService: Meta
   ) {}
   postId: string | number | null = null;
   mainImage: string = '';
@@ -28,9 +30,32 @@ export class PostdetailsComponent implements OnInit {
 
   ngOnInit(): void {
     window.scrollTo(0, 0);
+
     this.postId = this.route.snapshot.paramMap.get('id');
     this.route.params.subscribe((params: any) => {
       this.api.getOneNewsPost(params.id).subscribe((data: any) => {
+        this.titleService.setTitle(
+          `Halogen | Blogpost - ${data.attributes.title}`
+        );
+
+        this.metaService.updateTag({
+          name: 'description',
+          content: data.attributes.metaDescription,
+        });
+        this.metaService.updateTag({
+          name: 'keywords',
+          content: data.attributes.keywords,
+        });
+
+        this.metaService.addTag({
+          property: 'og:title',
+          content: data.attributes.metaTitle,
+        });
+        this.metaService.addTag({
+          property: 'og:description',
+          content: data.attributes.metaDescription,
+        });
+
         this.title = data.attributes.title;
         this.author = data.attributes.author.data.attributes.name;
         this.content = data.attributes.content;
