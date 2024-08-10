@@ -131,6 +131,10 @@
   width: 47%;
   border-top: 0.5px solid #1c2b66;
 }
+.image {
+  max-height: 600px !important;
+  object-fit: cover;
+}
 
 @media screen and (max-width: 500px) {
   .post__mainImage {

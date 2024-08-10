@@ -11,6 +11,7 @@ import {
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CampaignServiceService } from 'src/app/Service/campaign-service.service';
+import { NavbarService } from 'src/app/Service/navbar.service';
 // import { NgxSpinnerService } from 'ngx-spinner';
 @Component({
   selector: 'app-campaign-form',
@@ -33,10 +34,13 @@ export class CampaignFormComponent implements OnInit {
     private formService: CampaignServiceService,
     private route: ActivatedRoute,
     private router: Router,
-    private titleService: Title
+    private titleService: Title,
+    private navbarService: NavbarService
   ) {}
   ngOnInit(): void {
     window.scrollTo(0, 0);
+    this.getDate();
+    this.navbarService.hide();
     this.canonicalUrl();
     this.id = this.route.snapshot.params['id'];
     const pageTitle = `Halogen | Camapaign ${this.id}`;
@@ -134,5 +138,10 @@ export class CampaignFormComponent implements OnInit {
     } else {
       console.log('Form is invalid');
     }
+  }
+  getDate() {
+    const time = new Date();
+
+    return time;
   }
 }

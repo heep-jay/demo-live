@@ -1,10 +1,10 @@
-<nav class="navbar">
+<nav class="navbar" *ngIf="navb.visible">
   <div class="nav">
     <div class="nav__logo" routerLink="/">
       <img src="/assets/images/logooo.png" alt="logo" class="nav__logo-img" />
       Halogen Group
     </div>
-    <div class="nav__menu" *ngIf="navb.visible">
+    <div class="nav__menu">
       <ul class="empty-nav">
         <!-- <li>{{}}</li> -->
         <li class="nav__item" (click)="closeNav()" routerLink="/">

@@ -94,6 +94,15 @@
               </div>
             </div>
           </div>
+
+          <div *ngIf="field.type === 'date'" class="form-input-group hidden">
+            <input
+              [formControlName]="field.label"
+              type="text"
+              class="form-input"
+              [value]="form.get(field.label)?.setValue(getDate())"
+            />
+          </div>
           <!-- Phone Number Input -->
           <div *ngIf="field.type === 'tel'" class="form-input-group">
             <input

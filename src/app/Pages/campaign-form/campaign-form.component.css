@@ -1,6 +1,6 @@
 /* form.component.css */
 .form {
-  margin: 3.1rem auto;
+  /* margin: 3.1rem auto; */
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -199,6 +199,9 @@
   border-radius: 4px;
   cursor: pointer;
   font-size: 16px;
+}
+.hidden {
+  display: none;
 }
 
 .form-submit:disabled {

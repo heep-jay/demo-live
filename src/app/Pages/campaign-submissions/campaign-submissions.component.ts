@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CampaignServiceService } from 'src/app/Service/campaign-service.service';
+import { NavbarService } from 'src/app/Service/navbar.service';
 export interface TableData {
   [key: string]: any;
 }
@@ -24,10 +25,12 @@ export class CampaignSubmissionsComponent implements OnInit {
     private api: CampaignServiceService,
     private route: ActivatedRoute,
     private titleService: Title,
-    private router: Router
+    private router: Router,
+    private navbarService: NavbarService
   ) {}
 
   ngOnInit(): void {
+    this.navbarService.hide();
     this.canonicalUrl();
     window.scrollTo(0, 0);
     this.id = this.route.snapshot.params['id'];
@@ -35,7 +38,7 @@ export class CampaignSubmissionsComponent implements OnInit {
     this.setPageTitle(pageTitle);
     this.id = this.route.snapshot.params['id'];
     this.api.getSubmissions(this.id).subscribe((data) => {
-      console.log(data);
+      console.log(data?.data);
       this.tableData = this.preprocessTableData(data?.data);
       this.formTitle =
         data?.data[0]?.attributes?.campaign_form?.data?.attributes.title;
