@@ -6,6 +6,7 @@
       <p>
         {{ headerDescription }}
       </p>
+      <p>{{ additionalDescription }}</p>
       <div class="form-cta">
         <button (click)="scrolll('form')">Sign up here</button>
       </div>
@@ -22,8 +23,8 @@
     </div>
     <div class="form-div">
       <div class="form-header">
-        <h3>Join the Webinar</h3>
-        <p>Fill the form to sign up for the webinar</p>
+        <h3>{{ formHeader }}</h3>
+        <p>{{ formDescription }}</p>
       </div>
       <!-- Form -->
       <form
@@ -165,6 +166,11 @@
                 >{{ option }}</span
               >
             </div>
+            <span *ngIf="field.label === 'privacy'">
+              <a class="privacy-policy" routerLink="/privacy-policy"
+                >Click here to read</a
+              ></span
+            >
             <div
               *ngIf="form.invalid && form.get(field.label)?.touched"
               class="form-error"

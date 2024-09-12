@@ -83,15 +83,17 @@ export class ContactComponent implements OnInit {
         name: this.formName,
         mobileNumber: this.formTel,
         message: this.formMessage,
-        halogenEmail: ['marketing@halogen-group.com'],
+        halogenEmail: ['jubrilmuritala69@gmail.com'],
       },
     };
     this.api.bookService(this.formData).subscribe();
+
     this.formMessage = '';
     this.formName = '';
     this.formSubject = '';
     this.formEmail = '';
     this.formTel = '';
+    this.router.navigate(['/thank-you']);
   }
   openDialog(content: any) {
     this.dialog.open(content);

@@ -28,6 +28,9 @@ export class CampaignFormComponent implements OnInit {
   imageUrl: string = '';
   headerText: string = '';
   headerDescription: string = '';
+  additionalDescription: string = '';
+  formHeader: string = '';
+  formDescription: string = '';
 
   constructor(
     private fb: FormBuilder,
@@ -51,6 +54,10 @@ export class CampaignFormComponent implements OnInit {
       this.imageUrl = data?.data?.attributes?.formImage?.data?.attributes.url;
       this.headerText = data?.data?.attributes?.formHeaderText;
       this.headerDescription = data?.data?.attributes?.formDescriptionText;
+      this.additionalDescription =
+        data?.data?.attributes?.additional_description;
+      this.formHeader = data?.data?.attributes?.formHeader;
+      this.formDescription = data?.data?.attributes?.formDescription;
       this.buildForm();
       this.initialFormValues = this.form.getRawValue();
     });
@@ -134,7 +141,7 @@ export class CampaignFormComponent implements OnInit {
           this.form.reset();
           this.resetFormArrays();
         });
-      this.router.navigate(['/']);
+      this.router.navigate(['/thanks']);
     } else {
       console.log('Form is invalid');
     }

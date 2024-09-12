@@ -36,6 +36,8 @@ import { BrochureComponent } from './Pages/brochure/brochure.component';
 import { NationalSecurityComponent } from './Pages/national-security/national-security.component';
 import { CampaignFormComponent } from './Pages/campaign-form/campaign-form.component';
 import { CampaignSubmissionsComponent } from './Pages/campaign-submissions/campaign-submissions.component';
+import { ThankyouComponent } from './Pages/thankyou/thankyou.component';
+import { ThankComponent } from './Pages/thank/thank.component';
 
 const routes: Routes = [
   {
@@ -188,6 +190,14 @@ const routes: Routes = [
   {
     component: NationalSecurityComponent,
     path: 'nigeria-security-outlook-2024',
+  },
+  {
+    component: ThankyouComponent,
+    path: 'thank-you',
+  },
+  {
+    component: ThankComponent,
+    path: 'thanks',
   },
   {
     component: CampaignFormComponent,

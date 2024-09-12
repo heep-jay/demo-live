@@ -1,6 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ApiService } from 'src/app/Service/api.service';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-modal-pop',
@@ -9,6 +10,7 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class ModalPopComponent implements OnInit {
   @Input() services: any;
+  @Output() closeModal = new EventEmitter();
   formName: string = '';
   formEmail: any = '';
   formSubject: string = '';
@@ -16,7 +18,11 @@ export class ModalPopComponent implements OnInit {
   formTel: any = '';
   formData: any;
   selectedService = '';
-  constructor(private api: ApiService, public dialog: MatDialog) {}
+  constructor(
+    private api: ApiService,
+    public dialog: MatDialog,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {}
   onSubmit() {
@@ -35,11 +41,13 @@ export class ModalPopComponent implements OnInit {
     };
 
     this.api.bookService(this.formData).subscribe();
+
     this.formMessage = '';
     this.formName = '';
     this.formSubject = '';
     this.formEmail = '';
     this.formTel = '';
+    this.router.navigate(['/thank-you']);
   }
 
   onSelectService(service: any) {
@@ -48,5 +56,8 @@ export class ModalPopComponent implements OnInit {
   }
   openDialog(content: any) {
     this.dialog.open(content);
+  }
+  closeModall() {
+    this.closeModal.emit();
   }
 }

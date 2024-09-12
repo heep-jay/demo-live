@@ -82,6 +82,8 @@ import { BrochureComponent } from './Pages/brochure/brochure.component';
 import { NationalSecurityComponent } from './Pages/national-security/national-security.component';
 import { CampaignFormComponent } from './Pages/campaign-form/campaign-form.component';
 import { CampaignSubmissionsComponent } from './Pages/campaign-submissions/campaign-submissions.component';
+import { ThankyouComponent } from './Pages/thankyou/thankyou.component';
+import { ThankComponent } from './Pages/thank/thank.component';
 
 @NgModule({
   declarations: [
@@ -149,6 +151,8 @@ import { CampaignSubmissionsComponent } from './Pages/campaign-submissions/campa
     NationalSecurityComponent,
     CampaignFormComponent,
     CampaignSubmissionsComponent,
+    ThankyouComponent,
+    ThankComponent,
   ],
   imports: [
     BrowserModule,

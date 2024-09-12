@@ -24,7 +24,10 @@
             (click)="modal.dismiss()"
           ></button>
         </div>
-        <app-modal-pop [services]="services"></app-modal-pop>
+        <app-modal-pop
+          (closeModal)="modal.dismiss()"
+          [services]="services"
+        ></app-modal-pop>
       </ng-template>
     </div>
   </div>

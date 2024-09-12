@@ -15,7 +15,7 @@ const httpOptions = {
 })
 export class CampaignServiceService {
   private apiUrl1 = 'https://halogen-live.onrender.com';
-  private apiUrl = 'http://localhost:1337'; // Strapi API URL
+  // private apiUrl1 = 'http://localhost:1337'; // Strapi API URL
 
   constructor(private http: HttpClient) {}
 

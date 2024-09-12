@@ -2,6 +2,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ApiService } from 'src/app/Service/api.service';
 import { MatDialog } from '@angular/material/dialog';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-servicemodal',
   templateUrl: './servicemodal.component.html',
@@ -22,7 +24,8 @@ export class ServicemodalComponent implements OnInit {
   constructor(
     private api: ApiService,
     public dialog: MatDialog,
-    private modalService: NgbModal
+    private modalService: NgbModal,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -58,6 +61,7 @@ export class ServicemodalComponent implements OnInit {
     this.formTel = '';
 
     this.modalService.dismissAll();
+    this.router.navigate(['/thank-you']);
   }
 
   openDialog(content: any) {

@@ -26,6 +26,10 @@
   /*========== z index ==========*/
   --z-tooltip: 10;
   --z-fixed: 100;
+  --primary: 228, 57%, 25%;
+  --secondary: 45, 100%, 49%;
+  --muted: 228, 29.4%, 96.7%;
+  --muted-foreground: 247, 8%, 40%;
 }
 
 @font-face {
