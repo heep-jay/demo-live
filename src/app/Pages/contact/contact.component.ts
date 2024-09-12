@@ -83,7 +83,7 @@ export class ContactComponent implements OnInit {
         name: this.formName,
         mobileNumber: this.formTel,
         message: this.formMessage,
-        halogenEmail: ['jubrilmuritala69@gmail.com'],
+        halogenEmail: ['marketing@halogen-group.com'],
       },
     };
     this.api.bookService(this.formData).subscribe();
