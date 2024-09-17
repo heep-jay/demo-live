@@ -52,14 +52,20 @@ export class CampaignFormComponent implements OnInit {
       console.log(data?.data);
       this.formData = data?.data?.attributes?.formFields.forms[0];
       this.imageUrl = data?.data?.attributes?.formImage?.data?.attributes.url;
-      this.headerText = data?.data?.attributes?.formHeaderText;
-      this.headerDescription = data?.data?.attributes?.formDescriptionText;
-      this.additionalDescription =
-        data?.data?.attributes?.additional_description;
-      this.formHeader = data?.data?.attributes?.formHeader;
+      this.formHeader = data?.data?.attributes?.formHeaderText;
       this.formDescription = data?.data?.attributes?.formDescription;
       this.buildForm();
       this.initialFormValues = this.form.getRawValue();
+      if (this.id === '3') {
+        this.headerText = '';
+        this.headerDescription = '';
+        this.additionalDescription = '';
+      } else {
+        this.headerText = data?.data?.attributes?.formHeaderText;
+        this.headerDescription = data?.data?.attributes?.formDescriptionText;
+        this.additionalDescription =
+          data?.data?.attributes?.additional_description;
+      }
     });
   }
   scrolll(data: any) {
@@ -141,7 +147,11 @@ export class CampaignFormComponent implements OnInit {
           this.form.reset();
           this.resetFormArrays();
         });
-      this.router.navigate(['/thanks']);
+      if (this.id === '3') {
+        this.router.navigate(['/payments-info']);
+      } else {
+        this.router.navigate(['/thanks']);
+      }
     } else {
       console.log('Form is invalid');
     }

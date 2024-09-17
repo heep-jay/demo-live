@@ -84,6 +84,7 @@ import { CampaignFormComponent } from './Pages/campaign-form/campaign-form.compo
 import { CampaignSubmissionsComponent } from './Pages/campaign-submissions/campaign-submissions.component';
 import { ThankyouComponent } from './Pages/thankyou/thankyou.component';
 import { ThankComponent } from './Pages/thank/thank.component';
+import { PaymentDetailsComponent } from './Pages/payment-details/payment-details.component';
 
 @NgModule({
   declarations: [
@@ -153,6 +154,7 @@ import { ThankComponent } from './Pages/thank/thank.component';
     CampaignSubmissionsComponent,
     ThankyouComponent,
     ThankComponent,
+    PaymentDetailsComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,122 @@
+main {
+  height: 100%;
+}
+
+.hero {
+  position: relative;
+  height: 80vh;
+  min-height: fit-content;
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+  background: url("https://res.cloudinary.com/dnjccz6dn/image/upload/v1726236891/Academy_Fliers_2_0fa6605a03.png")
+    no-repeat top center/contain;
+  background-color: #000;
+  /* color: rgb(202, 37, 37); */
+  /* text-align: center; */
+}
+.container {
+  max-width: 1280px;
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+}
+
+/* .hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: hsl(var(--muted));
+
+  padding: 63px 63px 100px 63px;
+  border-radius: 10px;
+  color: hsl(var(--muted-foreground));
+} */
+
+.service {
+  background-image: url("/assets/images/rectangle.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #fff;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -70px;
+  outline: #fff solid 15px;
+  border-radius: 10px;
+}
+
+.service .content__wrapper {
+  margin-top: 7rem;
+  background-color: hsla(var(--primary), 0.9);
+  align-items: center;
+  text-align: center;
+  border-radius: 10px;
+  padding: 40px;
+}
+
+.service .content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 600px;
+}
+
+.service .heading {
+  font-size: clamp(1.5rem, 1.0026rem + 2.6531vw, 3.125rem);
+  text-transform: capitalize;
+  line-height: 60px;
+  margin: 0;
+}
+.heading {
+  padding-bottom: 2rem;
+}
+
+.service .cta {
+  text-decoration: none;
+  color: #fff;
+  background-color: hsl(var(--secondary));
+  padding: 10px 30px;
+  border-radius: 999px;
+  box-shadow: 0px 4px 8px 0px hsla(45, 100%, 49%, 0.5);
+}
+.heading-p {
+  line-height: 30px;
+  font-size: large;
+}
+.account-p {
+  font-weight: 600;
+  font-size: clamp(1rem, 0.5313rem + 1.5vw, 1.55rem);
+  line-height: normal;
+}
+
+@media (min-width: 768px) {
+  .service {
+    margin-top: -80px;
+  }
+}
+@media (min-width: 1024px) {
+  .service {
+    margin-top: -100px;
+  }
+}
+
+@media (max-width: 500px) {
+  .hero {
+    height: 35vh;
+    background-color: white;
+  }
+  .heading-p {
+    line-height: 30px;
+    font-size: 15px;
+  }
+  .account-p {
+    font-weight: 600;
+    font-size: clamp(1rem, 0.5313rem + 1.5vw, 1.55rem);
+    line-height: normal;
+  }
+}

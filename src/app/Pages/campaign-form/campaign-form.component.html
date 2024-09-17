@@ -7,7 +7,7 @@
         {{ headerDescription }}
       </p>
       <p>{{ additionalDescription }}</p>
-      <div class="form-cta">
+      <div class="form-cta" *ngIf="id !== '3'">
         <button (click)="scrolll('form')">Sign up here</button>
       </div>
     </div>
@@ -197,8 +197,21 @@
           </select>
         </div>
 
-        <button type="submit" [disabled]="form.invalid" class="form-submit">
-          Submit
+        <button
+          *ngIf="id !== '3'"
+          type="submit"
+          [disabled]="form.invalid"
+          class="form-submit"
+        >
+          Sumbit
+        </button>
+        <button
+          *ngIf="id === '3'"
+          type="submit"
+          [disabled]="form.invalid"
+          class="form-submit"
+        >
+          Sign Up
         </button>
       </form>
     </div>
