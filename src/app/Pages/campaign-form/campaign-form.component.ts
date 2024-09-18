@@ -12,6 +12,7 @@ import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CampaignServiceService } from 'src/app/Service/campaign-service.service';
 import { NavbarService } from 'src/app/Service/navbar.service';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 // import { NgxSpinnerService } from 'ngx-spinner';
 @Component({
   selector: 'app-campaign-form',
@@ -38,7 +39,8 @@ export class CampaignFormComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private titleService: Title,
-    private navbarService: NavbarService
+    private navbarService: NavbarService,
+    private modalService: NgbModal
   ) {}
   ngOnInit(): void {
     window.scrollTo(0, 0);
@@ -160,5 +162,8 @@ export class CampaignFormComponent implements OnInit {
     const time = new Date();
 
     return time;
+  }
+  openScrollableContent(longContent: any) {
+    this.modalService.open(longContent, { scrollable: true, size: 'xl' });
   }
 }

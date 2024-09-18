@@ -13,6 +13,76 @@
     </div>
     <div class="overlay"></div>
   </div>
+  <div class="sub-content" *ngIf="id === '3'">
+    <h3>CYBER SECURITY PROGRAMS - Learning Objectives & Outcome</h3>
+
+    <div class="sub-div">
+      <h4>CLOUD SECURITY</h4>
+      <p>
+        Understand the basics of cloud computing and cloud security, implement
+        identity and access management (IAM) principles, identify and manage
+        cloud threats and vulnerabilities, implement network security in the
+        cloud, and understand compliance requirements and best practices for
+        cloud security.
+      </p>
+      <button class="" (click)="openScrollableContent(cloud)">
+        Read more..
+      </button>
+    </div>
+    <div class="sub-div">
+      <h4>CYBERSECURITY FUNDAMENTALS</h4>
+      <p>
+        Understand the core principles of cybersecurity, identify various types
+        of cyber threats and vulnerabilities, have knowledge of security
+        architecture and computer access controls, develop and implement basic
+        security policies, and understand the legal and ethical considerations
+        in cybersecurity.
+      </p>
+      <button class="" (click)="openScrollableContent(cyber)">
+        Read more..
+      </button>
+    </div>
+    <div class="sub-div">
+      <h4>ETHICAL HACKING</h4>
+      <p>
+        Understand the principles and legal aspects of ethical hacking, conduct
+        network scanning and enumeration to identify potential vulnerabilities,
+        understand penetration-testing methodologies to plan and execute tests,
+        explain how to exploit identified vulnerabilities to gain unauthorized
+        access and understand the implications, understand how post-exploitation
+        techniques is used to assess impact and maintain access and employ a
+        variety of tools for vulnerability identification, exploitation, and
+        mitigation.
+      </p>
+      <button class="" (click)="openScrollableContent(ethical)">
+        Read more..
+      </button>
+    </div>
+
+    <div class="sub-div">
+      <h4>SECURITY OPERATIONS CENTER</h4>
+      <p>
+        Understand the purpose, function, and models of a SOC, identify key
+        roles and responsibilities within a SOC, develop and implement incident
+        response plans, conduct basic threat hunting, and understand daily SOC
+        operations and reporting techniques.
+      </p>
+      <button class="" (click)="openScrollableContent(soc)">Read more..</button>
+    </div>
+    <div class="sub-div">
+      <h4>GOVERNANCE, RISK AND COMPLIANCE</h4>
+      <p>
+        Define and describe the key components and interrelationships of
+        Governance, Risk, and Compliance (GRC), explain the strategic
+        significance and benefits of GRC in modern organizations, including
+        improved decision-making and risk mitigation, identify and understand
+        various GRC job roles, their responsibilities, and the required skills
+        and qualifications and articulate the organizational advantages of
+        implementing a robust GRC framework with practical examples.
+      </p>
+      <button class="" (click)="openScrollableContent(goc)">Read more..</button>
+    </div>
+  </div>
   <div class="form-container">
     <div class="img-div">
       <img
@@ -23,9 +93,10 @@
     </div>
     <div class="form-div">
       <div class="form-header">
-        <h3>{{ formHeader }}</h3>
+        <h3 *ngIf="id !== '3'">{{ formHeader }}</h3>
         <p>{{ formDescription }}</p>
       </div>
+
       <!-- Form -->
       <form
         [formGroup]="form"
@@ -217,3 +288,560 @@
     </div>
   </div>
 </div>
+
+<ng-template #cloud let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">CLOUD SECURITY MODULES</h4>
+    <button
+      type="button"
+      class="btn-close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    ></button>
+  </div>
+  <div class="modal-body">
+    <ol>
+      <li class="header-list">
+        Introduction to Cloud Security
+        <ul>
+          <li>Cloud Computing Basics (Theory)</li>
+          <li>Cloud Computing Basics (Practical)</li>
+        </ul>
+      </li>
+      <li class="header-list">
+        Cloud Security Basics
+        <ul>
+          <li>Cloud Security Basics (Theory)</li>
+          <li>Cloud Security Basics (Practical)</li>
+        </ul>
+      </li>
+      <li class="header-list">
+        Identity and Access Management (IAM)
+        <ul>
+          <li>IAM Principles (Theory)</li>
+          <li>IAM Practices (Practical)</li>
+        </ul>
+      </li>
+      <li class="header-list">
+        Data Security
+        <ul>
+          <li>Data Encryption (Theory)</li>
+          <li>Data Encryption (Practical)</li>
+        </ul>
+      </li>
+      <li class="header-list">
+        Data Security
+        <ul>
+          <li>Key Management (Theory)</li>
+          <li>Key Management (Practical)</li>
+        </ul>
+      </li>
+      <li class="header-list">
+        Cloud Threats and Vulnerabilities
+        <ul>
+          <li>Common Cloud Threats (Theory)</li>
+          <li>Vulnerability Management (Practical)</li>
+        </ul>
+      </li>
+      <li class="header-list">
+        Network Security
+
+        <ul>
+          <li>Cloud Network Architecture (Theory)</li>
+          <li>Securing Network Traffic (Practical)</li>
+        </ul>
+      </li>
+      <li class="header-list">
+        Network Security
+        <ul>
+          <li>Securing Network Traffic (Theory)</li>
+          <li>Securing Network Traffic (Practical)</li>
+        </ul>
+      </li>
+      <li class="header-list">
+        Incident Response
+        <ul>
+          <li>Cloud Incident Response (Theory)</li>
+          <li>Incident Response Execution (Practical)</li>
+        </ul>
+      </li>
+      <li class="header-list">
+        Compliance and Legal Considerations
+        <ul>
+          <li>Cloud Compliance Requirements (Theory)</li>
+          <li>Cloud Compliance Requirements (Practical)</li>
+        </ul>
+      </li>
+      <li class="header-list">
+        DevSecOps and CI/CD Security
+        <ul>
+          <li>Introduction to DevSecOps (Theory)</li>
+          <li>CI/CD Security Practices (Practical)</li>
+        </ul>
+      </li>
+      <li class="header-list">
+        Capstone Project Preparation and Presentation
+        <ul>
+          <li>Capstone Project Introduction (Theory)</li>
+          <li>Capstone Project Presentation (Practical)</li>
+        </ul>
+      </li>
+    </ol>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="btn btn-secondary"
+      (click)="modal.close('Close click')"
+    >
+      Close
+    </button>
+  </div>
+</ng-template>
+
+<ng-template #cyber let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">CYBERSECURITY FUNDAMENTALS MODULES</h4>
+    <button
+      type="button"
+      class="btn-close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    ></button>
+  </div>
+  <div class="modal-body">
+    <ol>
+      <li class="header-list">
+        Introduction to Cybersecurity
+        <ul>
+          <li>An Overview of Cybersecurity</li>
+          <li>
+            Definition of Cybersecurity Key Concepts (Malware, Vulnerabilities,
+            Different types of cyberthreats, Exploits, Phishing, Social
+            Engineering, Personal Identifiable Information)
+          </li>
+          <li>Importance of Cybersecurity</li>
+          <li>Quiz (Q &amp;A)</li>
+        </ul>
+      </li>
+      <li class="header-list">
+        Security Principles
+        <ul>
+          <li>The CIA Triad</li>
+          <li>Authentication Methods &amp; Non-Repudiation</li>
+          <li>Risk Management (Definition of Key Concepts)</li>
+          <li>Security Controls</li>
+          <li>
+            Governance Elements (Regulations, Policies, Standards and
+            Procedures)
+          </li>
+          <li>Quiz (Q &amp;A)</li>
+        </ul>
+      </li>
+      <li class="header-list">
+        Incident Response, Business Continuity &amp; Disaster Recovery
+        <ul>
+          <li>Incident Response</li>
+          <li>Business Continuity</li>
+          <li>Disaster Recovery</li>
+        </ul>
+      </li>
+      <li class="header-list">
+        Access Controls
+        <ul>
+          <li>Security Controls (Definition &amp; Its Importance)</li>
+          <li>Physical Controls</li>
+          <li>Logical Controls</li>
+          <li>Technical Controls</li>
+          <li>Administrative Controls</li>
+          <li>Principle of Least Privilege</li>
+        </ul>
+      </li>
+      <li class="header-list">
+        Network Security
+        <ul>
+          <li>Network Concepts</li>
+          <li>Network Devices</li>
+          <li>OSI Model</li>
+          <li>IP Addressing Scheme</li>
+          <li>Network Security</li>
+          <li>
+            Different types of Cyber-attacks, threats, prevention and
+            mitigation.
+          </li>
+          <li>Intrusion Detection &amp; Protection Systems (IDS/IPS)</li>
+        </ul>
+      </li>
+      <li class="header-list">
+        Security Operations
+        <ul>
+          <li>Data Security (Data Classification, Labelling)</li>
+          <li>Security Events</li>
+          <li>Data Loss Prevention</li>
+          <li>Encryption &amp; Decryption</li>
+        </ul>
+      </li>
+      <li class="header-list">
+        Security Best Practices
+
+        <ul>
+          <li>Cloud Network Architecture (Theory)</li>
+          <li>Securing Network Traffic (Practical)</li>
+          <li>Bring Your Own Device (BYOD)</li>
+          <li>Principles of Zero Trust (ZTNA)</li>
+          <li>Password Policy</li>
+          <li>Segregation Of Duties</li>
+          <li>Remote Work Security &amp; Policies</li>
+          <li>Data Privacy</li>
+        </ul>
+      </li>
+      <li class="header-list">
+        An Overview of Cybersecurity Career Path
+        <ul>
+          <li>Hands on Lab and Simulation</li>
+          <li>
+            Social Engineering Simulation (Identification of Phishing Mails)
+          </li>
+          <li>Hacking the Human</li>
+          <li>Incident Response Simulation</li>
+          <li>Setting Up a Virtual Lab Environment</li>
+        </ul>
+      </li>
+    </ol>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="btn btn-secondary"
+      (click)="modal.close('Close click')"
+    >
+      Close
+    </button>
+  </div>
+</ng-template>
+<ng-template #ethical let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">ETHICAL HACKING</h4>
+    <button
+      type="button"
+      class="btn-close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    ></button>
+  </div>
+  <div class="modal-body">
+    <ol>
+      <li class="header-list">
+        Techniques for Ethical Hacking
+        <ul>
+          <li>Introduction to Ethical Hacking</li>
+          <li>Reconnaissance Techniques</li>
+          <li>Scanning and Enumeration</li>
+          <li>Vulnerability Identification</li>
+          <li>
+            Practical tasks:
+            <ul>
+              <li>Use of Google Dorks, Shodan, Have I Been Pwned for recon</li>
+              <li>Installing Kali Linux</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li class="header-list">
+        Methodologies for Penetration Testing
+        <ul>
+          <li>Penetration Testing Frameworks</li>
+          <li>Planning, Preparation, Information Gathering, and Scanning</li>
+          <li>Break (One Week)</li>
+          <li>Exploitation &amp; Post-Exploitation</li>
+          <li>
+            Practical tasks &amp; labs:
+            <ul>
+              <li>Using Nmap, theHarvester, and OWASP &amp; NIST Frameworks</li>
+              <li>Documenting results</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li class="header-list">
+        Tools Used for Identifying and Mitigating Vulnerabilities
+        <ul>
+          <li>Introduction to Ethical Hacking Tools</li>
+          <li>Vulnerability Scanning Tools</li>
+          <li>Exploitation &amp; Post-Exploitation Tools</li>
+          <li>
+            Practical tasks &amp; labs:
+            <ul>
+              <li>Setting up and using tools in a lab environment</li>
+              <li>Conducting a mini penetration test</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ol>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="btn btn-secondary"
+      (click)="modal.close('Close click')"
+    >
+      Close
+    </button>
+  </div>
+</ng-template>
+<ng-template #soc let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">SECURITY OPERATIONS CENTRE (SOC) MODULES</h4>
+    <button
+      type="button"
+      class="btn-close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    ></button>
+  </div>
+  <div class="modal-body">
+    <ol>
+      <li class="header-list">
+        Introduction to SOC
+        <ul>
+          <li>
+            Overview of SOC, SOC Models, SOC roles and responsibilities (Theory)
+          </li>
+          <li>Overview of SOC Tools: SIEM, EDR, WAF, IDS/IPS, etc. (Theory)</li>
+        </ul>
+      </li>
+      <li class="header-list">
+        Introduction to SIEM
+        <ul>
+          <li>What is a SIEM (Theory)</li>
+          <li>SIEM Systems and Tools (Practical)</li>
+        </ul>
+      </li>
+      <li class="header-list">
+        Log Management and Incident Detection
+
+        <ul>
+          <li>Log Management (Theory)</li>
+          <li>Incident Detection (Practical)</li>
+        </ul>
+      </li>
+      <li class="header-list">
+        Incident Response
+        <ul>
+          <li>Incident Response Lifecycle (Theory)</li>
+          <li>Incident Response Planning (Practical)</li>
+        </ul>
+      </li>
+      <li class="header-list">
+        Threat Hunting
+
+        <ul>
+          <li>Threat Hunting Basics (Theory)</li>
+          <li>Threat Hunting Techniques (Practical)</li>
+        </ul>
+      </li>
+      <li class="header-list">
+        Advanced Threat Detection
+        <ul>
+          <li>Behavioral Analysis (Theory)</li>
+          <li>Network Traffic Analysis (Practical)</li>
+        </ul>
+      </li>
+      <li class="header-list">
+        SOC Operations
+
+        <ul>
+          <li>SOC Daily Operations (Theory)</li>
+          <li>SOC Operations Practical (Practical)</li>
+        </ul>
+      </li>
+      <li class="header-list">
+        SOC Metrics and Reporting
+        <ul>
+          <li>SOC Metrics (Theory)</li>
+          <li>SOC Reporting (Practical)</li>
+        </ul>
+      </li>
+      <li class="header-list">
+        SOAR Introduction
+        <ul>
+          <li>Introduction to SOAR (Theory)</li>
+          <li>SOAR Tools (Practical)</li>
+        </ul>
+      </li>
+      <li class="header-list">
+        SOAR Automation
+        <ul>
+          <li>Automation Concepts (Theory)</li>
+          <li>Creating Automated Playbooks (Practical)</li>
+        </ul>
+      </li>
+      <li class="header-list">
+        Capstone Project Preparation
+        <ul>
+          <li>Capstone Project Introduction (Theory)</li>
+          <li>Capstone Project Development (Practical)</li>
+        </ul>
+      </li>
+      <li class="header-list">
+        Capstone Project Presentation
+        <ul>
+          <li>Capstone Project Finalization (Theory)</li>
+          <li>Capstone Project Presentation (Practical)</li>
+        </ul>
+      </li>
+    </ol>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="btn btn-secondary"
+      (click)="modal.close('Close click')"
+    >
+      Close
+    </button>
+  </div>
+</ng-template>
+
+<ng-template #goc let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">GOVERNANCE RISK AND COMPLAINCE MODULES</h4>
+    <button
+      type="button"
+      class="btn-close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    ></button>
+  </div>
+  <div class="modal-body">
+    <ol>
+      <li class="header-list">
+        Introduction to GRC & Risk Management
+        <ul>
+          <li>
+            Introduction to GRC
+
+            <ol class="sublist" type="a">
+              <li>Use of Google Dorks, Shodan, Have I Been Pwned for recon</li>
+              <li>Importance/Benefits of GRC in Modern Organizations</li>
+              <li>GRC Job Roles</li>
+            </ol>
+          </li>
+          <li>
+            Foundational Concepts of Risk Management
+            <ol class="sublist" type="a">
+              <li>Introduction to Risk Management</li>
+              <li>Understanding Threats, Vulnerabilities, and Risk</li>
+              <li>Types of Risks</li>
+              <li>Risk Mitigation and Control</li>
+              <li>Risk Assessment and Analysis Techniques</li>
+            </ol>
+          </li>
+          <li>
+            Establishing an Information Security Risk Management Program
+            <ol class="sublist" type="a">
+              <li>Risk Management Frameworks (Overview of NIST & ISO 27001)</li>
+              <li>Developing Risk Management Policies and Procedures</li>
+              <li>Types of Risks</li>
+              <li>Roles and Responsibilities in Risk Management</li>
+              <li>Integrating Risk Management into Organizational Processes</li>
+            </ol>
+          </li>
+        </ul>
+      </li>
+      <li class="header-list">
+        Scope of the Information System/Selection and Approval of Security and
+        Privacy Controls
+
+        <ul>
+          <li>
+            Defining the Scope of the Information System
+            <ol class="sublist" type="a">
+              <li>Identifying Information System Components</li>
+              <li>Understanding the System Environment</li>
+              <li>Determining System Boundaries</li>
+              <li>Defining Security Policies, Procedures & Guidelines</li>
+            </ol>
+          </li>
+          <li>
+            Identifying and Documenting Security and Privacy Controls
+            <ol class="sublist" type="a">
+              <li>Security and Privacy Control Catalogs</li>
+              <li>Selecting Appropriate Controls</li>
+              <li>Documenting Control Selection</li>
+            </ol>
+          </li>
+          <li>Project (Assignment)</li>
+        </ul>
+      </li>
+      <li class="header-list">
+        Industry Standards and Frameworks
+        <ul>
+          <li>
+            International Organization for Standardization (ISO 27001)
+            <ol class="sublist" type="a">
+              <li>Key components of an ISMS</li>
+              <li>Defining the scope of the ISMS</li>
+              <li>Understanding the clauses and annexes</li>
+            </ol>
+          </li>
+          <li>
+            International Organization for Standardization (ISO 27017) & (ISO
+            27032)
+            <ol class="sublist" type="a">
+              <li>Key components/terms of PCI DSS</li>
+
+              <li>Defining the scope of ISO 27017 & ISO 27032</li>
+              <li>Understanding the clauses and annexes</li>
+            </ol>
+          </li>
+          <li>
+            PCI DSS 4.0
+
+            <ol class="sublist" type="a">
+              <li>
+                Key components of Cloud Security & Internet Security Guidelines
+              </li>
+              <li>Defining the scope of PCI DSS</li>
+              <li>Understanding the Requirements of PCI DSS</li>
+            </ol>
+          </li>
+          <li>
+            Nigeria Data Protection Regulation (NDPR) & Nigeria Data Protection
+            Act (NDPA)
+            <ol class="sublist" type="a">
+              <li>Key components/terms of Data Protection</li>
+              <li>Understanding the Applicability of NDPR & NDPA</li>
+              <li>Understanding the provisions of NDPR & NDPA</li>
+            </ol>
+          </li>
+          <li>Individual Project (Assignment)</li>
+        </ul>
+      </li>
+      <li class="header-list">
+        Assessment/Audit of Security and Privacy Controls
+
+        <ul>
+          <li>
+            Conducting Assessments and Audits of Security and Privacy Control
+            <ol class="sublist" type="a">
+              <li>Types of Assessments and Audits</li>
+              <li>Assessment and Audit Methodologies</li>
+              <li>Conducting Effective Assessments and Audits</li>
+            </ol>
+          </li>
+        </ul>
+      </li>
+    </ol>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="btn btn-secondary"
+      (click)="modal.close('Close click')"
+    >
+      Close
+    </button>
+  </div>
+</ng-template>
