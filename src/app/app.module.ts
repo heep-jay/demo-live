@@ -85,6 +85,8 @@ import { CampaignSubmissionsComponent } from './Pages/campaign-submissions/campa
 import { ThankyouComponent } from './Pages/thankyou/thankyou.component';
 import { ThankComponent } from './Pages/thank/thank.component';
 import { PaymentDetailsComponent } from './Pages/payment-details/payment-details.component';
+import { MultiSelectComponent } from './Components/form/multi-select/multi-select.component';
+// import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
   declarations: [
@@ -155,6 +157,7 @@ import { PaymentDetailsComponent } from './Pages/payment-details/payment-details
     ThankyouComponent,
     ThankComponent,
     PaymentDetailsComponent,
+    MultiSelectComponent,
   ],
   imports: [
     BrowserModule,
@@ -173,6 +176,7 @@ import { PaymentDetailsComponent } from './Pages/payment-details/payment-details
     NguCarouselModule,
     NgxPaginationModule,
     MarkdownModule.forRoot(),
+    // NgSelectModule,
   ],
   providers: [{ provide: LocationStrategy, useClass: PathLocationStrategy }],
   bootstrap: [AppComponent],

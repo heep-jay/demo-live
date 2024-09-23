@@ -17,7 +17,7 @@ export class CampaignSubmissionsComponent implements OnInit {
   data: any = [];
   tableData: TableData[] = [];
   displayedColumns: string[] = [];
-  excludedColumns: string[] = ['privacy', 'campaign'];
+  excludedColumns: string[] = ['privacy', 'campaign', 'policy'];
   formData: any = [];
   formTitle: string = '';
 
@@ -65,7 +65,9 @@ export class CampaignSubmissionsComponent implements OnInit {
       console.log('formData', row);
       const processedRow: TableData = {};
       Object.keys(row?.attributes?.formData).forEach((key) => {
-        if (
+        if (Array.isArray(row?.attributes?.formData[key])) {
+          processedRow[key] = row?.attributes?.formData[key].join(', ');
+        } else if (
           typeof row?.attributes?.formData[key] === 'object' &&
           row?.attributes?.formData[key] !== null
         ) {

@@ -7,6 +7,7 @@ import {
   FormArray,
   ValidatorFn,
   AbstractControl,
+  ValidationErrors,
 } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -51,7 +52,7 @@ export class CampaignFormComponent implements OnInit {
     const pageTitle = `Halogen | Camapaign ${this.id}`;
     this.setPageTitle(pageTitle);
     this.formService.getForm(this.id).subscribe((data) => {
-      console.log(data?.data);
+      // console.log(data?.data);
       this.formData = data?.data?.attributes?.formFields.forms[0];
       this.imageUrl = data?.data?.attributes?.formImage?.data?.attributes.url;
       this.formHeader = data?.data?.attributes?.formHeaderText;
@@ -100,6 +101,9 @@ export class CampaignFormComponent implements OnInit {
         field.minLength
       ) {
         validators.push(Validators.minLength(field.minLength));
+      }
+      if (field.type === 'tel') {
+        validators.push(Validators.required, this.phoneNumberValidator());
       }
 
       if (field.type === 'checkbox') {
@@ -165,5 +169,25 @@ export class CampaignFormComponent implements OnInit {
   }
   openScrollableContent(longContent: any) {
     this.modalService.open(longContent, { scrollable: true, size: 'xl' });
+  }
+
+  phoneNumberValidator(): ValidatorFn {
+    return (control: AbstractControl): ValidationErrors | null => {
+      const phoneNumber = control.value;
+
+      // Check if phone number exists
+      if (!phoneNumber) {
+        return null; // Return null if empty, as another 'required' validator can handle that
+      }
+
+      // Regular expression for a 10-digit phone number
+      const validPhoneNumber = /^[0-9]{11}$/;
+
+      // Test the phone number against the regex
+      const isValid = validPhoneNumber.test(phoneNumber);
+
+      // If the phone number is invalid, return an error object
+      return isValid ? null : { invalidPhoneNumber: true };
+    };
   }
 }

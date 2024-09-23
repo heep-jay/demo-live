@@ -1,0 +1,26 @@
+<div class="custom-multi-select" (click)="onTouched()">
+  <div class="custom-muti-select-trigger" (click)="toggleShow()">
+    <div class="custom-multi-select-trigger-child">
+      <span *ngIf="value.length"> {{ value.length }} options selected </span>
+      <span *ngIf="!value.length"> select options </span>
+      <mat-icon>arrow_drop_down</mat-icon>
+    </div>
+  </div>
+  <div *ngIf="show" class="custom-multi-select-options" #optionsRef>
+    <div
+      *ngFor="let option of _options"
+      (click)="onSelect(option)"
+      class="custom-multi-select-option"
+    >
+      <span *ngIf="checkIfExist(option)">
+        <mat-icon>check</mat-icon>
+      </span>
+      <span *ngIf="!_labelField">
+        {{ option }}
+      </span>
+      <span *ngIf="_labelField">
+        {{ option[_labelField] }}
+      </span>
+    </div>
+  </div>
+</div>

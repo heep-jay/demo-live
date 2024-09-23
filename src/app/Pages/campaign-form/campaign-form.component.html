@@ -99,6 +99,7 @@
 
       <!-- Form -->
       <form
+        *ngIf="formData"
         [formGroup]="form"
         id="form"
         (ngSubmit)="onSubmit()"
@@ -232,17 +233,37 @@
               />
               <span
                 [ngStyle]="{
-                  'margin-top': field.question === '' ? '-6px' : ''
+                  'margin-top': field.question === '' ? '-4px' : ''
                 }"
-                >{{ option }}</span
-              >
+                >{{ option }}
+                <a routerLink="/privacy-policy">{{ field.hyperLink }}</a>
+                {{ field.remaining }}
+              </span>
             </div>
-            <span *ngIf="field.label === 'privacy'">
+            <!-- <span *ngIf="field.label === 'privacy' || field.label === 'policy'">
               <a class="privacy-policy" routerLink="/privacy-policy"
                 >Click here to read</a
               ></span
-            >
+            > -->
+
             <div
+              *ngIf="
+                form.get(field.label)?.invalid &&
+                (form.get(field.label)?.dirty || form.get(field.label)?.touched)
+              "
+              class="form-error"
+            >
+              <div *ngIf="form.get(field.label)?.errors?.['required']">
+                This field is required
+              </div>
+              <div *ngIf="form.get(field.label)?.errors">
+                <div>Accept Ts & Cs is required</div>
+                <!-- <div *ngIf="field.label.errors.minlength">
+                  Minimum length is 3 characters
+                </div> -->
+              </div>
+            </div>
+            <!-- <div
               *ngIf="form.invalid && form.get(field.label)?.touched"
               class="form-error"
             >
@@ -253,11 +274,11 @@
               >
                 Accept Ts & Cs is required
               </div>
-            </div>
+            </div> -->
           </div>
 
           <!-- Select Input -->
-          <select
+          <!-- <select
             *ngIf="field.type === 'select'"
             [formControlName]="field.label"
             class="form-select"
@@ -265,7 +286,12 @@
             <option *ngFor="let option of field.options" [value]="option">
               {{ option }}
             </option>
-          </select>
+          </select> -->
+          <app-multi-select
+            *ngIf="field.type === 'select'"
+            [formControlName]="field.label"
+            [options]="field.options"
+          ></app-multi-select>
         </div>
 
         <button

@@ -29,7 +29,7 @@ export class CampaignServiceService {
 
   getSubmissions(id: string): Observable<any> {
     return this.http.get(
-      `${this.apiUrl1}/api/campaign-sumissions?filters[campaign_form][id][$eq]=${id}&populate=*`
+      `${this.apiUrl1}/api/campaign-sumissions?filters[campaign_form][id][$eq]=${id}&pagination[limit]=1000&populate=*`
     );
     //http://localhost:1337/api/campaign-sumissions?populate[campaign_form][fields][0]=id
   }
