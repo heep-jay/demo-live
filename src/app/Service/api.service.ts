@@ -95,7 +95,7 @@ export class ApiService {
 
     return this.http
       .get(
-        `${this.apiUrl}/api/security-reports?pagination[start]=1&pagination[limit]=-1&sort=createdAt:desc&populate=*`
+        `${this.apiUrl}/api/security-reports?pagination[start]=0&pagination[limit]=-1&sort=createdAt:desc&populate=*`
       )
       .pipe(
         map((res: any) => {
@@ -228,7 +228,7 @@ export class ApiService {
     };
     return this.http
       .get(
-        `${this.apiUrl}/api/news-and-events?populate[0]=blogposts.mainImage`,
+        `${this.apiUrl}/api/news-and-events?populate[0]=blogposts.mainImage&sort[0]=createdAt:desc`,
         requestOptions
       )
       .pipe(

@@ -184,6 +184,16 @@
   width: 90%;
   max-width: 1900px;
 }
+.about__leader h2 {
+  font-size: clamp(1.5rem, -0.9219rem + 7.75vw, 3rem);
+  text-align: center;
+  width: 100%;
+  text-transform: capitalize;
+  font-weight: 600;
+  color: #1c2b66;
+  font-family: "Poppins", sans-serif;
+  margin-bottom: 3rem;
+}
 .leader-title h2 {
   font-size: clamp(1.5rem, -0.9219rem + 7.75vw, 3rem);
   text-align: center;
@@ -192,13 +202,16 @@
   font-weight: 600;
   color: #1c2b66;
   font-family: "Poppins", sans-serif;
+  margin-top: 2rem;
 }
 .leader-title p {
   text-align: center;
   font-size: clamp(0.875rem, 0.7857rem + 0.2857vw, 1.125rem);
   opacity: 0.8;
-  margin-top: 2rem;
+  margin: 2rem auto;
   margin-bottom: 0;
+  line-height: 28px;
+  max-width: 1000px;
 }
 .leader-title p:last-child {
   margin-top: unset;

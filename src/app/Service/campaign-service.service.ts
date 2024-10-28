@@ -29,7 +29,7 @@ export class CampaignServiceService {
 
   getSubmissions(id: string): Observable<any> {
     return this.http.get(
-      `${this.apiUrl1}/api/campaign-sumissions?filters[campaign_form][id][$eq]=${id}&pagination[limit]=1000&populate=*`
+      `${this.apiUrl1}/api/campaign-sumissions?filters[campaign_form][id][$eq]=${id}&pagination[limit]=1000&sort=createdAt:desc&populate=*`
     );
     //http://localhost:1337/api/campaign-sumissions?populate[campaign_form][fields][0]=id
   }
@@ -59,11 +59,22 @@ export class CampaignServiceService {
       const processedRow: any = {};
       Object.keys(row).forEach((key) => {
         if (!excludedColumns.includes(key)) {
-          if (typeof row[key] === 'object' && row[key] !== null) {
+          if (Array.isArray(row[key])) {
+            processedRow[key] = row[key].join(', ');
+          } else if (typeof row[key] === 'object' && row[key] !== null) {
             processedRow[key] = this.processObjectColumn(row[key]);
           } else {
             processedRow[key] = row[key];
           }
+
+          // if (Array.isArray(row[key])) {
+          //   processedRow[key] = this.processObjectColumn(row[key]);
+          // } else if (typeof [key] === 'object' && row[key] !== null) {
+          //   processedRow[key] = this.processObjectColumn(row[key]);
+          // } else {
+          //   processedRow[key] = row[key];
+          //   // console.log(processedRow[key]);
+          // }
         }
       });
       return processedRow;

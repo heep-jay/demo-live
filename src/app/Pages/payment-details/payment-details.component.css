@@ -90,7 +90,7 @@ main {
 }
 .account-p {
   font-weight: 600;
-  font-size: clamp(1rem, 0.5313rem + 1.5vw, 1.55rem);
+  font-size: clamp(1rem, 0.5313rem + 1.5vw, 1.35rem);
   line-height: normal;
 }
 
