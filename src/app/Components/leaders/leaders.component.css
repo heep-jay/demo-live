@@ -28,6 +28,15 @@
   position: relative;
 }
 
+.modal-header {
+  position: relative !important;
+  margin: 0 !important;
+}
+.btn-close {
+  position: absolute !important;
+  top: 15px !important;
+  right: 15px !important;
+}
 .dialog-image {
   background: #c1bebe;
   height: 270px;
@@ -58,10 +67,12 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  width: 100%;
   justify-content: center;
   align-items: center;
-  margin-bottom: 3rem;
+  /* margin-bottom: 1.8rem; */
   background: #f2f2f2;
+  padding: 1rem;
   /* z-index: 999; */
 }
 
@@ -80,6 +91,15 @@
 }
 
 .dg-content p {
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 160%;
+  /* or 35px */
+  text-align: justify;
+  letter-spacing: 0.02em;
+  color: rgba(10, 10, 10, 0.8);
+}
+.about-p {
   font-weight: 400;
   font-size: 15px;
   line-height: 160%;

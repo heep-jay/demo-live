@@ -1,5 +1,5 @@
 <div class="leaders">
-  <div class="leader" (click)="openDialog(content)">
+  <div class="leader" (click)="openScrollableContent(longContent)">
     <img
       src="{{ leader.attributes.image.data.attributes.url }}"
       alt="leaderImg"
@@ -22,5 +22,30 @@
 
   <div class="dg-content mat-dialog-content">
     <p>{{ leader.attributes.about }}</p>
+  </div>
+</ng-template>
+
+<ng-template #longContent let-modal>
+  <div class="modal-header">
+    <div class="dialog-header">
+      <div class="dialog-image">
+        <img
+          src="{{ leader.attributes.image.data.attributes.url }}"
+          alt="leaderImg"
+        />
+      </div>
+      <h2>{{ leader.attributes.name }}</h2>
+      <p>{{ leader.attributes.role }}</p>
+    </div>
+    <button
+      type="button"
+      class="btn-close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    ></button>
+  </div>
+
+  <div class="modal-body">
+    <p class="about-p">{{ leader.attributes.about }}</p>
   </div>
 </ng-template>

@@ -74,7 +74,7 @@
 
 @media screen and (max-width: 500px) {
   .carousel-item {
-    height: 70vh;
+    height: 75vh;
   }
 
   .caro {
@@ -90,9 +90,10 @@
   }
   .caro-img img {
     width: 100%;
-    height: 250px;
+    height: 200px;
     float: unset;
   }
+
   .else-header {
     margin-top: -5rem;
   }
@@ -106,5 +107,18 @@
   .caro-text h1,
   .caro-text h2 {
     line-height: 40px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .carousel-item {
+    height: 100vh;
+  }
+  .caro-text h1,
+  .caro-text h2 {
+    font-size: clamp(1.35rem, 0.3438rem + 3.5vw, 2.5rem);
+    line-height: normal;
+    font-weight: 600;
+    font-family: "Poppins", sans-serif;
   }
 }
