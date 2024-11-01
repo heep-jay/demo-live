@@ -25,6 +25,10 @@ export class LeadersComponent implements OnInit {
   }
 
   openScrollableContent(longContent: any) {
-    this.modalService.open(longContent, { scrollable: true, size: 'lg' });
+    this.modalService.open(longContent, {
+      scrollable: true,
+      size: 'xl',
+      centered: true,
+    });
   }
 }

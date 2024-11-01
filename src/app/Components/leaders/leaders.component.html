@@ -4,8 +4,10 @@
       src="{{ leader.attributes.image.data.attributes.url }}"
       alt="leaderImg"
     />
-    <p>{{ leader.attributes.name }}</p>
-    <span>{{ leader.attributes.role }}</span>
+    <div class="leader-header">
+      <p>{{ leader.attributes.name }}</p>
+      <span>{{ leader.attributes.role }}</span>
+    </div>
   </div>
 </div>
 <ng-template #content class="dg-container">
@@ -25,27 +27,31 @@
   </div>
 </ng-template>
 
-<ng-template #longContent let-modal>
-  <div class="modal-header">
-    <div class="dialog-header">
-      <div class="dialog-image">
-        <img
-          src="{{ leader.attributes.image.data.attributes.url }}"
-          alt="leaderImg"
-        />
+<ng-template #longContent let-modal class="">
+  <div class="mod-container">
+    <div class="modal-header">
+      <div class="dialog-header">
+        <div class="dialog-image">
+          <img
+            src="{{ leader.attributes.image.data.attributes.url }}"
+            alt="leaderImg"
+          />
+        </div>
       </div>
-      <h2>{{ leader.attributes.name }}</h2>
-      <p>{{ leader.attributes.role }}</p>
+      <button
+        type="button"
+        class="btn-close"
+        aria-label="Close"
+        (click)="modal.dismiss('Cross click')"
+      ></button>
     </div>
-    <button
-      type="button"
-      class="btn-close"
-      aria-label="Close"
-      (click)="modal.dismiss('Cross click')"
-    ></button>
-  </div>
 
-  <div class="modal-body">
-    <p class="about-p">{{ leader.attributes.about }}</p>
+    <div class="modal-body">
+      <div class="modal-bio">
+        <h2>{{ leader.attributes.name }}</h2>
+        <p>{{ leader.attributes.role }}</p>
+      </div>
+      <p class="about-p">{{ leader.attributes.about }}</p>
+    </div>
   </div>
 </ng-template>

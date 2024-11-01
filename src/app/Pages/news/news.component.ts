@@ -36,7 +36,7 @@ export class NewsComponent implements OnInit {
       this.headlinesPost = data.filter(
         (data: any) => data.attributes.headline === true
       );
-
+      console.log(this.headlinesPost);
       this.jointPosts = data.filter(
         (data: any) => data.attributes.headline === true && data.id === 7
       );

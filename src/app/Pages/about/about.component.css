@@ -218,13 +218,23 @@
   margin-bottom: 4rem;
 }
 .leadership-team {
-  width: 90%;
+  width: 100%;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  grid-gap: 30px;
+  grid-gap: 20px;
   padding: 10px;
   margin: 0 auto;
   row-gap: 3rem;
+}
+
+.leadership-team > :first-child {
+  grid-column: 1 / -1;
+}
+
+@media (min-width: 1024px) {
+  .leadership-team {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 @media screen and (max-width: 1024px) {
   .about__top {
