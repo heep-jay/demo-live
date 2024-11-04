@@ -1,0 +1,99 @@
+<p>hero-carousel works!</p>
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+  <div class="carousel-indicators">
+    <button
+      type="button"
+      data-bs-target="#carouselExampleIndicators"
+      data-bs-slide-to="0"
+      class="active"
+      aria-current="true"
+      aria-label="Slide 1"
+    ></button>
+    <button
+      type="button"
+      data-bs-target="#carouselExampleIndicators"
+      data-bs-slide-to="1"
+      aria-label="Slide 2"
+    ></button>
+    <button
+      type="button"
+      data-bs-target="#carouselExampleIndicators"
+      data-bs-slide-to="2"
+      aria-label="Slide 3"
+    ></button>
+  </div>
+  <div class="carousel-inner">
+    <div
+      [className]="
+        bann.attributes.active ? 'carousel-item active' : 'carousel-item'
+      "
+      *ngFor="let bann of banner"
+    >
+      <div class="hero-carousel">
+        <div
+          [ngStyle]="{
+            'background-image':
+              'url(' + bann.attributes.bannerImage.data.attributes.url + ')'
+          }"
+          class="img-bg"
+          alt="..."
+        >
+          <div class="hero-overlay"></div>
+
+          <div class="hero-text">
+            <h1 *ngIf="bann.id === 1; else elseBlock">
+              <h1>{{ bann.attributes.bannerHeader }}</h1>
+            </h1>
+
+            <ng-template #elseBlock>
+              <h2 class="else-header">{{ bann.attributes.bannerHeader }}</h2>
+            </ng-template>
+            <p>{{ bann.attributes.bannerText }}</p>
+            <button class="hero-btn">
+              Learn more <mat-icon>chevron_right</mat-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- <div class="caro">
+        <div class="caro-text">
+          <h1 *ngIf="bann.id === 1; else elseBlock">
+            <h1>{{ bann.attributes.bannerHeader }}</h1>
+          </h1>
+         
+          <ng-template #elseBlock>
+            <h2 class="else-header">{{ bann.attributes.bannerHeader }}</h2>
+          </ng-template>
+
+          <p>{{ bann.attributes.bannerText }}</p>
+        </div>
+        <div class="caro-img">
+          <img
+            src="{{ bann.attributes.bannerImage.data.attributes.url }}"
+            class=""
+            alt="bannerImage"
+          />
+        </div>
+      </div> -->
+    </div>
+  </div>
+  <button
+    class="carousel-control-prev"
+    type="button"
+    data-bs-target="#carouselExampleIndicators"
+    data-bs-slide="prev"
+  >
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button
+    class="carousel-control-next"
+    type="button"
+    data-bs-target="#carouselExampleIndicators"
+    data-bs-slide="next"
+  >
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>

@@ -1,0 +1,82 @@
+.hero-carousel {
+  position: relative;
+  height: 90vh;
+}
+
+.img-bg {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: #000;
+  opacity: 0.6;
+}
+.hero-text {
+  display: flex;
+  gap: 1.5rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  z-index: 99;
+}
+
+.hero-text {
+  width: 45%;
+}
+
+.hero-text h1,
+.hero-text h2,
+.hero-text p {
+  margin: 0;
+}
+.hero-text h1,
+.hero-text h2 {
+  font-size: clamp(1.8rem, 0.3438rem + 3.5vw, 3.5rem);
+  line-height: normal;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+}
+.hero-text p {
+  text-align: center;
+  font-size: clamp(1rem, 0.5714rem + 0.5714vw, 1.25rem);
+  font-weight: 300;
+  line-height: normal;
+  font-family: "Poppins", sans-serif;
+}
+.hero-btn {
+  padding: 0.8rem 2rem;
+  background: #ffbe06;
+  color: white;
+  border-radius: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 0.6rem;
+  border: none;
+  outline: none;
+}
+
+@media screen and (max-width: 500px) {
+  .hero-carousel {
+    position: relative;
+    height: 75vh;
+  }
+  .hero-text {
+    width: 100%;
+  }
+}

@@ -237,8 +237,8 @@ h2 {
 }
 .web-partners li {
   list-style-type: none;
-  line-height: 170%;
-  font-size: 17px;
+  font-size: clamp(0.8125rem, 0.5781rem + 0.75vw, 1rem);
+  line-height: 35px;
   margin-top: 1rem;
   text-align: justify;
 }
@@ -294,6 +294,10 @@ h2 {
   }
   .small-text {
     margin-top: 5.5rem;
+  }
+  .web-partners li,
+  .info-text p {
+    line-height: 25px;
   }
   .header-text {
     width: 100%;

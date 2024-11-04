@@ -3,6 +3,7 @@ import { ApiService } from 'src/app/Service/api.service';
 import { NavbarService } from 'src/app/Service/navbar.service';
 import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
+import { LoadingService } from 'src/app/Service/loading.service';
 
 @Component({
   selector: 'app-home',
@@ -30,7 +31,8 @@ export class HomeComponent implements OnInit {
     private api: ApiService,
     public navb: NavbarService,
     private titleService: Title,
-    private router: Router
+    private router: Router,
+    private loadingService: LoadingService
   ) {}
 
   related = 'Related News';
@@ -38,6 +40,13 @@ export class HomeComponent implements OnInit {
   boldText = 'Read the latest articles';
 
   ngOnInit(): void {
+    this.loadingService.show();
+
+    // Simulate a delay to show the loading animation
+    setTimeout(() => {
+      this.loadingService.hide();
+    }, 3000); // Adjust time as needed
+
     window.scrollTo(0, 0);
     this.canonicalUrl();
     const pageTitle = 'Halogen | Official Halogen Group Homepage';

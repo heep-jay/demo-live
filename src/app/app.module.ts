@@ -86,6 +86,8 @@ import { ThankyouComponent } from './Pages/thankyou/thankyou.component';
 import { ThankComponent } from './Pages/thank/thank.component';
 import { PaymentDetailsComponent } from './Pages/payment-details/payment-details.component';
 import { MultiSelectComponent } from './Components/form/multi-select/multi-select.component';
+import { HeroCarouselComponent } from './Components/hero-carousel/hero-carousel.component';
+import { LoadingComponent } from './Components/loading/loading.component';
 // import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
@@ -158,6 +160,8 @@ import { MultiSelectComponent } from './Components/form/multi-select/multi-selec
     ThankComponent,
     PaymentDetailsComponent,
     MultiSelectComponent,
+    HeroCarouselComponent,
+    LoadingComponent,
   ],
   imports: [
     BrowserModule,
