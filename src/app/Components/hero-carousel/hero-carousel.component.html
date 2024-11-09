@@ -1,5 +1,9 @@
 <p>hero-carousel works!</p>
-<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+<div
+  id="carouselExampleIndicators"
+  class="carousel slide"
+  data-bs-ride="carousel"
+>
   <div class="carousel-indicators">
     <button
       type="button"
@@ -49,7 +53,10 @@
               <h2 class="else-header">{{ bann.attributes.bannerHeader }}</h2>
             </ng-template>
             <p>{{ bann.attributes.bannerText }}</p>
-            <button class="hero-btn">
+            <button
+              class="hero-btn"
+              routerLink="{{ bann.attributes.bannerUrl }}"
+            >
               Learn more <mat-icon>chevron_right</mat-icon>
             </button>
           </div>

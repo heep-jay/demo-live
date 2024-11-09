@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { PrimeNGConfig } from 'primeng/api';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +13,7 @@ export class AppComponent {
   activeMenu: boolean = false;
   isOpen: boolean = true;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private primengConfig: PrimeNGConfig) {}
   ngOnInit(): void {
     window.scrollTo(0, 0);
     this.canonicalUrl();
@@ -28,6 +29,7 @@ export class AppComponent {
         this.isShowBtn = false;
       }
     };
+    this.primengConfig.ripple = true;
   }
 
   toggleMenu() {

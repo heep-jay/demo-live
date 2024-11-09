@@ -1,0 +1,11 @@
+.img-carousel {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img-carousel img {
+  height: 70px !important;
+  object-fit: contain;
+}

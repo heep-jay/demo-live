@@ -36,7 +36,7 @@ export class HomeComponent implements OnInit {
   ) {}
 
   related = 'Related News';
-  guides = 'Articles, News & Events';
+  guides = 'Visit our blog';
   boldText = 'Read the latest articles';
 
   ngOnInit(): void {
@@ -65,12 +65,12 @@ export class HomeComponent implements OnInit {
 
     this.api.getNewsandEvents().subscribe((data: any) => {
       this.jointPosts = data.filter(
-        (data: any) => data.attributes.headline === true && data.id === 7
+        (data: any) => data.attributes.headline === true && data.id === 11
       );
       this.blogPosts = data.filter(
         (data: any) => data.attributes.blog === true
       );
-      this.blogPosts.splice(1);
+      this.blogPosts.splice(2);
       // this.blogPosts.pop();
       this.combination = this.jointPosts.concat(this.blogPosts);
 

@@ -44,7 +44,7 @@
 }
 .hero-text h1,
 .hero-text h2 {
-  font-size: clamp(1.8rem, 0.3438rem + 3.5vw, 3.5rem);
+  font-size: clamp(1.5rem, 0.3438rem + 3.5vw, 3.5rem);
   line-height: normal;
   font-weight: 600;
   font-family: "Poppins", sans-serif;
@@ -52,7 +52,7 @@
 }
 .hero-text p {
   text-align: center;
-  font-size: clamp(1rem, 0.5714rem + 0.5714vw, 1.25rem);
+  font-size: clamp(0.85rem, 0.5714rem + 0.5714vw, 1.25rem);
   font-weight: 300;
   line-height: normal;
   font-family: "Poppins", sans-serif;
@@ -78,5 +78,6 @@
   }
   .hero-text {
     width: 100%;
+    gap: 0.5rem;
   }
 }

@@ -1,0 +1,13 @@
+<p-carousel
+  [value]="client_logos"
+  [numVisible]="3"
+  [numScroll]="2"
+  [autoplayInterval]="3000"
+  [responsiveOptions]="responsiveOptions"
+>
+  <ng-template let-car pTemplate="item">
+    <div class="img-carousel">
+      <img src="{{ car?.image }}" alt="" />
+    </div>
+  </ng-template>
+</p-carousel>

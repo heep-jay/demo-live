@@ -17,6 +17,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MarkdownModule } from 'ngx-markdown';
 import { NguCarouselModule } from '@ngu/carousel';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { CarouselModule } from 'primeng/carousel';
 
 import { HomecarouselComponent } from './Components/homecarousel/homecarousel.component';
 import { FooterComponent } from './Components/footer/footer.component';
@@ -88,6 +89,7 @@ import { PaymentDetailsComponent } from './Pages/payment-details/payment-details
 import { MultiSelectComponent } from './Components/form/multi-select/multi-select.component';
 import { HeroCarouselComponent } from './Components/hero-carousel/hero-carousel.component';
 import { LoadingComponent } from './Components/loading/loading.component';
+import { ClientscarourelComponent } from './Components/clientscarourel/clientscarourel.component';
 // import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
@@ -162,6 +164,7 @@ import { LoadingComponent } from './Components/loading/loading.component';
     MultiSelectComponent,
     HeroCarouselComponent,
     LoadingComponent,
+    ClientscarourelComponent,
   ],
   imports: [
     BrowserModule,
@@ -179,6 +182,7 @@ import { LoadingComponent } from './Components/loading/loading.component';
     MatDialogModule,
     NguCarouselModule,
     NgxPaginationModule,
+    CarouselModule,
     MarkdownModule.forRoot(),
     // NgSelectModule,
   ],
