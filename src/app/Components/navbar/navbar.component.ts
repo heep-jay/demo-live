@@ -7,6 +7,7 @@ import {
 } from '@angular/core';
 import { ApiService } from 'src/app/Service/api.service';
 import { NavbarService } from 'src/app/Service/navbar.service';
+import { SearchService } from 'src/app/Service/search.service';
 
 @Component({
   selector: 'app-navbar',
@@ -42,7 +43,11 @@ export class NavbarComponent implements OnInit {
   defenseMenu: any;
 
   activeMenu: boolean = false;
-  constructor(private api: ApiService, public navb: NavbarService) {}
+  constructor(
+    private api: ApiService,
+    public navb: NavbarService,
+    public search: SearchService
+  ) {}
 
   ngOnInit(): void {
     this.api.getNavBar().subscribe((data: any) => {

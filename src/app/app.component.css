@@ -12,6 +12,21 @@
   position: fixed;
   width: 100%;
   z-index: 900;
+  /* overflow: scroll;
+  scrollbar-width: none; */
+}
+.app-search {
+  /* margin-top: 100px; */
+  overflow: scroll;
+  height: fit-content;
+  max-height: 50vh;
+  width: 100%;
+  z-index: 900;
+  scrollbar-width: none;
+}
+.app-search::-webkit-scrollbar,
+.app-nav::-webkit-scrollbar {
+  display: none;
 }
 
 .myBtn {

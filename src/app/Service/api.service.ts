@@ -24,6 +24,10 @@ export class ApiService {
     'https://dev-mail.halobizapps.com/Mail/WebsiteServiceAutoReply';
   constructor(private http: HttpClient) {}
 
+  searchServices(query: string): Observable<any[]> {
+    const url = `${this.apiUrl}/api/product-pages?filters[productName][$containsi]=${query}&populate=*`; // Partial match with 'contains'
+    return this.http.get<any[]>(url);
+  }
   bookService(formData: any) {
     try {
       return this.http.post(this.bookUrl, formData, httpOptions);

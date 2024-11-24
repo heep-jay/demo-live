@@ -66,11 +66,11 @@
             id="name"
             required
             minlength="3"
-            #name="ngModel"
+            #namee="ngModel"
           />
-          <div *ngIf="name.invalid && name?.touched">
-            <small *ngIf="name.errors?.['required']">Name is required.</small>
-            <small *ngIf="name.errors?.['minlength']"
+          <div *ngIf="namee.invalid && namee?.touched">
+            <small *ngIf="namee.errors?.['required']">Name is required.</small>
+            <small *ngIf="namee.errors?.['minlength']"
               >Name must be at least 3 characters long.</small
             >
           </div>
@@ -83,10 +83,12 @@
             name="formEmail"
             id="email"
             required
-            #email="ngModel"
+            #emaill="ngModel"
           />
-          <div *ngIf="email.invalid && email?.touched">
-            <small *ngIf="email.errors?.['required']">email is required.</small>
+          <div *ngIf="emaill.invalid && emaill?.touched">
+            <small *ngIf="emaill.errors?.['required']"
+              >Email is required.</small
+            >
           </div>
         </div>
         <div class="form_input">
@@ -98,14 +100,14 @@
             id="phone"
             required
             pattern="^\d{11}$"
-            #phone="ngModel"
+            #phonee="ngModel"
           />
 
-          <div *ngIf="phone.invalid && phone.touched">
-            <small *ngIf="phone.errors?.['required']"
+          <div *ngIf="phonee.invalid && phonee.touched">
+            <small *ngIf="phonee.errors?.['required']"
               >Phone number is required.</small
             >
-            <small *ngIf="phone.errors?.['pattern']"
+            <small *ngIf="phonee.errors?.['pattern']"
               >Phone number must be exactly 10 digits.</small
             >
           </div>

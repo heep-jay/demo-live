@@ -1,0 +1,32 @@
+<div class="search-container" *ngIf="search.visible">
+  <div class="search-input">
+    <input
+      type="text"
+      [formControl]="searchControl"
+      placeholder="Search for a service..."
+    />
+    <button (click)="cancel()">Cancel</button>
+  </div>
+  <div class="results-container" *ngIf="filteredServices.length">
+    <div *ngIf="loading">Loading...</div>
+    <div *ngIf="error">{{ error }}</div>
+
+    <ul class="results-lists" *ngIf="!loading && !error">
+      <h3 *ngIf="filteredServices.length">Search Results</h3>
+      <li class="results-list-item" *ngFor="let service of filteredServices">
+        <p>{{ service.attributes.productName }}</p>
+
+        <ul *ngFor="let item of service.attributes.products.data">
+          <li (click)="search.hide()">
+            <a
+              routerLink="/{{ service.urlpatch }}/{{
+                item.attributes.productId
+              }}"
+              >{{ item.attributes.productName }}</a
+            >
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>

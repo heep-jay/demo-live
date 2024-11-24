@@ -49,6 +49,10 @@
             </li>
           </ul>
         </li>
+        <li class="nav__item" (click)="search.show()" routerLink="/contact">
+          <span> Search <mat-icon>search</mat-icon></span>
+          <div></div>
+        </li>
       </ul>
       <div class="halospher-btn">
         <button (click)="halo()">{{ enterHalo }}</button>
@@ -85,7 +89,8 @@
           </ul>
         </div>
       </li>
-      <!-- <li routerLink="/risk-advisory-and-consulting" (click)="onToggle()">Risk Advisory & Consulting</li> -->
+      <li (click)="onToggle()" routerLink="/contact">Contact</li>
+
       <li>
         <div class="" (click)="cyberToggle()">
           <button class="drop-btn">
@@ -220,6 +225,8 @@
           </ul>
         </div>
       </li>
+      <li (click)="search.show()" (click)="onToggle()">Search</li>
+      <li></li>
       <li class="">
         <div class="halospher-btnn">
           <button (click)="halo()">{{ enterHalo }}</button>
@@ -231,6 +238,7 @@
       <mat-icon>close</mat-icon>
     </div>
   </div>
+
   <ng-container>
     <!-- <app-halogen-nav
       [cybermenusL]="cybermenusL"

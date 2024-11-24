@@ -90,6 +90,7 @@ import { MultiSelectComponent } from './Components/form/multi-select/multi-selec
 import { HeroCarouselComponent } from './Components/hero-carousel/hero-carousel.component';
 import { LoadingComponent } from './Components/loading/loading.component';
 import { ClientscarourelComponent } from './Components/clientscarourel/clientscarourel.component';
+import { SearchComponent } from './Components/search/search.component';
 // import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
@@ -165,6 +166,7 @@ import { ClientscarourelComponent } from './Components/clientscarourel/clientsca
     HeroCarouselComponent,
     LoadingComponent,
     ClientscarourelComponent,
+    SearchComponent,
   ],
   imports: [
     BrowserModule,
