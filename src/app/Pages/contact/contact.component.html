@@ -56,10 +56,24 @@
     </div>
     <div class="contact__message">
       <h4>Send us a message</h4>
-      <form class="contact-form" (ngSubmit)="onSubmit()">
+      <form class="contact-form" #myForm="ngForm" (ngSubmit)="onSubmit()">
         <div class="form_input">
           <label for="name">Name</label>
-          <input name="formName" type="text" [(ngModel)]="formName" id="name" />
+          <input
+            name="formName"
+            type="text"
+            [(ngModel)]="formName"
+            id="name"
+            required
+            minlength="3"
+            #name="ngModel"
+          />
+          <div *ngIf="name.invalid && name?.touched">
+            <small *ngIf="name.errors?.['required']">Name is required.</small>
+            <small *ngIf="name.errors?.['minlength']"
+              >Name must be at least 3 characters long.</small
+            >
+          </div>
         </div>
         <div class="form_input">
           <label for="email">Email</label>
@@ -68,11 +82,33 @@
             [(ngModel)]="formEmail"
             name="formEmail"
             id="email"
+            required
+            #email="ngModel"
           />
+          <div *ngIf="email.invalid && email?.touched">
+            <small *ngIf="email.errors?.['required']">email is required.</small>
+          </div>
         </div>
         <div class="form_input">
           <label for="phone">Phone Number</label>
-          <input type="tel" [(ngModel)]="formTel" name="formTel" id="phone" />
+          <input
+            type="tel"
+            [(ngModel)]="formTel"
+            name="formTel"
+            id="phone"
+            required
+            pattern="^\d{11}$"
+            #phone="ngModel"
+          />
+
+          <div *ngIf="phone.invalid && phone.touched">
+            <small *ngIf="phone.errors?.['required']"
+              >Phone number is required.</small
+            >
+            <small *ngIf="phone.errors?.['pattern']"
+              >Phone number must be exactly 10 digits.</small
+            >
+          </div>
         </div>
 
         <div class="form_select">
@@ -84,12 +120,19 @@
               [(ngModel)]="formSubject"
               name="service"
               panelClass="my-select-panel-class"
+              required
+              #service="ngModel"
             >
               <mat-option *ngFor="let t of test" [value]="t">{{
                 t
               }}</mat-option>
             </mat-select>
           </mat-form-field>
+          <div *ngIf="service.invalid && service?.touched">
+            <small *ngIf="service.errors?.['required']"
+              >service is required.</small
+            >
+          </div>
         </div>
 
         <div class="form_input">
@@ -104,15 +147,30 @@
         <div class="form_textarea">
           <label for="">Message</label>
           <textarea
-            name="formMessage"
+            name="message"
             [(ngModel)]="formMessage"
             id="formMessage"
             rows="10"
             cols="50"
+            required
+            #message="ngModel"
           ></textarea>
+          <div *ngIf="message.invalid && message?.touched">
+            <small *ngIf="message.errors?.['required']"
+              >message is required.</small
+            >
+          </div>
         </div>
-        <div class="send-btn">
-          <button (click)="openDialog(content)" type="submit">
+        <div class="">
+          <button
+            (click)="openDialog(content)"
+            type="submit"
+            [disabled]="myForm.invalid"
+            [ngClass]="{
+              'disabled-button': myForm.invalid,
+              'send-btn': !myForm.invalid
+            }"
+          >
             Contact Us
           </button>
         </div>

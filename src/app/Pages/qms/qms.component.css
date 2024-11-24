@@ -18,7 +18,7 @@
   padding: 4rem 1.5rem;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1.5rem;
   margin-top: 3rem;
 }
 .qms h1 {
@@ -30,8 +30,9 @@
 
 .qms p {
   font-size: clamp(0.875rem, 0.4063rem + 1.5vw, 1.15rem);
-  word-spacing: 5px;
-  line-height: 2rem;
+  /* word-spacing: 2px; */
+  line-height: normal;
+  text-align: center;
 }
 
 .sign {
@@ -39,6 +40,7 @@
 }
 .signed p {
   font-weight: 600;
+  text-align: center;
 }
 .sign span {
   font-weight: normal;
@@ -57,6 +59,6 @@
     margin-top: 1rem;
   }
   .qms-container p {
-    text-align: justify;
+    text-align: center;
   }
 }

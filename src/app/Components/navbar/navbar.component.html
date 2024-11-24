@@ -23,6 +23,10 @@
             </li>
           </ul>
         </li>
+        <li class="nav__item" (click)="closeNav()" routerLink="/contact">
+          <span>Contact US</span>
+          <div></div>
+        </li>
         <li
           (click)="openMenu($event)"
           [className]="activeMenu ? 'nav__item toggleNav' : 'nav__item'"

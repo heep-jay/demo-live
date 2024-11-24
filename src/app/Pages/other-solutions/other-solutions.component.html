@@ -70,10 +70,11 @@
       <div class="info-text">
         <h5>{{ prod.attributes.productName }}</h5>
         <h2>{{ prod.attributes.productHeader }}</h2>
-        <button (click)="open(content)">Book Service</button>
+
         <p>
           {{ prod.attributes.productDescription }}
         </p>
+        <button (click)="open(content)">Book Service</button>
       </div>
 
       <ng-template #content let-modal class="moddd">

@@ -54,27 +54,25 @@
 .tile {
   height: 100%;
 }
-.caro-body {
-  width: 80%;
-  /* background: #000; */
-  /* height: 100vh; */
-  height: 87%;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.caro-body img {
-  width: 99%;
-  border-radius: 20px;
-  height: 99%;
-  object-fit: fill;
-}
+
 .caro-tag {
   font-size: clamp(1.125rem, 0.8906rem + 0.75vw, 1.85rem);
   font-weight: 600;
   color: #1c2b66;
   margin-top: 1rem;
+}
+.caro-body {
+  height: 100%;
+  /* width: 90%; */
+}
+.caro-body img {
+  /* width: 99%; */
+  border-radius: 20px;
+  height: 98%;
+  /* height: 350px; */
+  width: 100%;
+  object-fit: contain;
+  z-index: 6;
 }
 .bannerStyle h1 {
   background-color: #ccc;
@@ -110,7 +108,7 @@
 .showmore {
   position: absolute;
   margin: auto;
-  bottom: 0;
+  bottom: 100px;
   left: 0;
   right: 0;
   color: #fff;
@@ -153,18 +151,20 @@
 .box {
   position: relative;
 
-  background: repeating-conic-gradient(
+  /* background: repeating-conic-gradient(
     from var(--a),
     rgb(177, 149, 62) 0%,
     rgb(177, 149, 62) 5%,
     transparent 5%,
     transparent 40%,
     rgb(177, 149, 62) 50%
-  );
+  ); */
   border-radius: 20px;
-  animation: animate 4s linear infinite;
+  width: 100%;
+  height: 80%;
+  /* animation: animate 4s linear infinite; */
 }
-.box::before,
+/* .box::before,
 .box::after {
   content: "";
   position: absolute;
@@ -187,11 +187,10 @@
 }
 .box::after {
   inset: 8px;
-  /* background: #2d2d39; */
   border-radius: 15px;
-}
+} */
 
-@property --a {
+/* @property --a {
   syntax: "<angle>";
   inherits: false;
   initial-value: 0deg;
@@ -206,11 +205,11 @@
   100% {
     --a: 360deg;
   }
-}
+} */
 
 @media screen and (max-width: 500px) {
   .caro-body {
-    height: 60%;
+    height: 70%;
     /* width: 90%; */
   }
   .caro-body img {
@@ -219,8 +218,11 @@
     height: 98%;
     /* height: 350px; */
     width: 100%;
-    object-fit: fill;
+    object-fit: contain;
     z-index: 6;
+  }
+  .showmore {
+    bottom: 50px;
   }
   /* .box::before,
   .box::after {

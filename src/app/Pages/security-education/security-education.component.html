@@ -81,10 +81,11 @@
       <div class="info-text">
         <h2>{{ prod.attributes.productName }}</h2>
         <h5>{{ prod.attributes.productHeader }}</h5>
-        <button (click)="open(content)">Sign up</button>
+
         <p>
           {{ prod.attributes.productDescription }}
         </p>
+        <button (click)="open(content)">Sign up</button>
       </div>
 
       <ng-template #content let-modal class="moddd">

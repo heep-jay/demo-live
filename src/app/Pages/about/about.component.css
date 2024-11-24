@@ -194,6 +194,12 @@
   font-family: "Poppins", sans-serif;
   margin-bottom: 3rem;
 }
+.leader-title {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 1.5rem;
+}
 .leader-title h2 {
   font-size: clamp(1.5rem, -0.9219rem + 7.75vw, 3rem);
   text-align: center;
@@ -208,7 +214,6 @@
   text-align: center;
   font-size: clamp(0.875rem, 0.7857rem + 0.2857vw, 1.125rem);
   opacity: 0.8;
-  margin: 2rem auto;
   margin-bottom: 0;
   line-height: 28px;
   max-width: 1000px;
@@ -229,6 +234,15 @@
 
 .leadership-team > :first-child {
   grid-column: 1 / -1;
+}
+.leader-title button {
+  /* margin-top: 1; */
+  padding: 1rem 4rem;
+  border-radius: 1rem;
+  border: none;
+  outline: none;
+  background: #1c2b66;
+  color: #fff;
 }
 
 @media (min-width: 1024px) {

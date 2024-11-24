@@ -189,7 +189,7 @@
   border: 1px solid rgba(189, 189, 189, 0.55);
 }
 
-.send-btn button {
+.send-btn {
   background: #1c2b66;
   border-radius: 16px;
   padding: 1rem 3rem;
@@ -208,6 +208,18 @@
   color: #1c2b66;
   font-weight: 600;
 }
+/* Button when it is disabled */
+.disabled-button {
+  background-color: #cccccc; /* Gray */
+  color: #666666; /* Darker gray text */
+  cursor: not-allowed;
+  border-radius: 16px;
+  padding: 1rem 3rem;
+  border: none;
+}
+small {
+  color: red;
+}
 
 @media screen and (max-width: 710px) {
   .contact__body {
@@ -220,5 +232,11 @@
   .contact__info,
   .contact__message {
     width: 100%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .contact__header {
+    height: 300px;
   }
 }

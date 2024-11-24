@@ -320,6 +320,12 @@ section {
 }
 
 @media screen and (min-width: 300px) and (max-width: 500px) {
+  .why_contact {
+    /* height: 85vh; */
+
+    height: 450px;
+    min-height: unset;
+  }
   .business_right img {
     display: none;
   }

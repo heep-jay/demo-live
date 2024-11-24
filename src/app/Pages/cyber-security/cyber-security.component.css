@@ -229,7 +229,7 @@ h2 {
 }
 
 .web-sublist ul {
-  list-style-type: none;
+  list-style-type: disc;
 }
 .web-partners .web-title {
   font-size: 30px;
