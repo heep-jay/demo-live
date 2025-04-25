@@ -27,6 +27,7 @@ export class ContactComponent implements OnInit {
   formName: string = '';
   formEmail: any = '';
   formTel: any = '';
+  formLocation: string = '';
   formSubject: string = '';
   formMessage: string = '';
   formData: any;

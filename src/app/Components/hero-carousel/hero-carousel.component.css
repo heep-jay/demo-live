@@ -1,6 +1,7 @@
 .hero-carousel {
   position: relative;
   height: 90vh;
+  margin-top: 3rem;
 }
 
 .img-bg {

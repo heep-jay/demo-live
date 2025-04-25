@@ -83,12 +83,16 @@
             name="formEmail"
             id="email"
             required
+            pattern="^[a-zA-Z0-9_.±]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$"
             #emaill="ngModel"
           />
           <div *ngIf="emaill.invalid && emaill?.touched">
             <small *ngIf="emaill.errors?.['required']"
               >Email is required.</small
             >
+            <small *ngIf="emaill.errors?.['pattern']"
+              >Email is not in a correct format
+            </small>
           </div>
         </div>
         <div class="form_input">
@@ -113,6 +117,23 @@
           </div>
         </div>
 
+        <div class="form_input">
+          <label for="formLocation">Location</label>
+          <input
+            type="text"
+            [(ngModel)]="formLocation"
+            name="formLocation"
+            id="phone"
+            required
+            #location="ngModel"
+          />
+
+          <div *ngIf="location.invalid && location.touched">
+            <small *ngIf="location.errors?.['required']"
+              >Location is required.</small
+            >
+          </div>
+        </div>
         <div class="form_select">
           <label for="service">Service</label>
           <mat-form-field appearance="outline">
