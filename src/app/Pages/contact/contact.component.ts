@@ -83,7 +83,15 @@ export class ContactComponent implements OnInit {
       halogenEmailInfo: {
         name: this.formName,
         mobileNumber: this.formTel,
-        message: this.formMessage,
+        message: `
+        <p>Enquiry on ${JSON.stringify(this.formSubject)}</p>
+        <br/>
+        <p>${this.formMessage}</p>
+        <br/>
+        <p>Location:${this.formLocation}</p>
+        
+        
+        `,
         halogenEmail: ['marketing@halogen-group.com'],
       },
     };
