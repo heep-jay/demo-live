@@ -91,6 +91,7 @@ import { HeroCarouselComponent } from './Components/hero-carousel/hero-carousel.
 import { LoadingComponent } from './Components/loading/loading.component';
 import { ClientscarourelComponent } from './Components/clientscarourel/clientscarourel.component';
 import { SearchComponent } from './Components/search/search.component';
+import { SecurityInsightsComponent } from './Pages/security-insights/security-insights.component';
 // import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
@@ -167,6 +168,7 @@ import { SearchComponent } from './Components/search/search.component';
     LoadingComponent,
     ClientscarourelComponent,
     SearchComponent,
+    SecurityInsightsComponent,
   ],
   imports: [
     BrowserModule,

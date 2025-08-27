@@ -39,7 +39,7 @@ import { CampaignSubmissionsComponent } from './Pages/campaign-submissions/campa
 import { ThankyouComponent } from './Pages/thankyou/thankyou.component';
 import { ThankComponent } from './Pages/thank/thank.component';
 import { PaymentDetailsComponent } from './Pages/payment-details/payment-details.component';
-
+import { SecurityInsightsComponent } from './Pages/security-insights/security-insights.component';
 const routes: Routes = [
   {
     component: HomeComponent,
@@ -187,7 +187,10 @@ const routes: Routes = [
     component: BrochureComponent,
     path: 'brochure',
   },
-
+  {
+    component: SecurityInsightsComponent,
+    path: 'security-insights',
+  },
   {
     component: NationalSecurityComponent,
     path: 'nigeria-security-outlook-2024',
