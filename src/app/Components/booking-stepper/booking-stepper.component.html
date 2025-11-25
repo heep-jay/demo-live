@@ -335,6 +335,21 @@
                   <option value="permanent">Permanent</option>
                 </select>
               </div>
+              <div
+                class="mt-3"
+                *ngIf="
+                  serviceGroup.get('serviceType')?.value ===
+                  'Premium Vehicle Services'
+                "
+              >
+                <div class="info-box status">
+                  <div class="info-icon"><mat-icon>info</mat-icon></div>
+                  <div class="info-content">
+                    <h4>Premium Vehicles Services</h4>
+                    <p>Vehicle seats more, but we cap it on comfort.</p>
+                  </div>
+                </div>
+              </div>
               <div class="mt-3">
                 <label class="form-label">Optional Add-Ons</label>
                 <div
