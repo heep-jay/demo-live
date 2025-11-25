@@ -28,9 +28,13 @@ export class ApiService {
     const url = `${this.apiUrl}/api/product-pages?filters[productName][$containsi]=${query}&populate=*`; // Partial match with 'contains'
     return this.http.get<any[]>(url);
   }
-  bookService(formData: any) {
+  bookService(formData: any): Observable<any> {
     try {
-      return this.http.post(this.bookUrl, formData, httpOptions);
+      return this.http.post(this.bookUrl, formData, httpOptions).pipe(
+        map((res: any) => {
+          return res;
+        })
+      );
     } catch (error: any) {
       return error.message;
     }

@@ -92,6 +92,10 @@ import { LoadingComponent } from './Components/loading/loading.component';
 import { ClientscarourelComponent } from './Components/clientscarourel/clientscarourel.component';
 import { SearchComponent } from './Components/search/search.component';
 import { SecurityInsightsComponent } from './Pages/security-insights/security-insights.component';
+import { RiskReportComponent } from './Pages/risk-report/risk-report.component';
+import { RiskReportBanditryComponent } from './Pages/risk-report-banditry/risk-report-banditry.component';
+import { FestiveSeasonComponent } from './Pages/festive-season/festive-season.component';
+import { BookingStepperComponent } from './Components/booking-stepper/booking-stepper.component';
 // import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
@@ -169,6 +173,10 @@ import { SecurityInsightsComponent } from './Pages/security-insights/security-in
     ClientscarourelComponent,
     SearchComponent,
     SecurityInsightsComponent,
+    RiskReportComponent,
+    RiskReportBanditryComponent,
+    FestiveSeasonComponent,
+    BookingStepperComponent,
   ],
   imports: [
     BrowserModule,

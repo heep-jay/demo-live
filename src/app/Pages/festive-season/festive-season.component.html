@@ -1,0 +1,132 @@
+<!-- HERO -->
+<section class="hero text-white d-flex align-items-center">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6">
+        <h1 class="festive-header">Seasons Greetings from Halogen!</h1>
+        <p class="lead mb-4">
+          This festive season, we remain committed to safeguarding you, your
+          people, and what you value most.
+        </p>
+        <a class="btn btn-warning btn-lg btn-contact" href="#">Contact Us</a>
+      </div>
+      <div class="col-lg-6 d-none d-lg-block">
+        <!-- decorative - optional -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Safety Section -->
+<section class="safety py-5 bg-white">
+  <div class="container">
+    <div class="row g-4 align-items-center">
+      <div class="col-md-6">
+        <img
+          src="/assets/images/festive-fam.png"
+          alt="family"
+          class="img-fluid rounded shadow-sm"
+        />
+      </div>
+      <div class="col-md-6">
+        <h3 class="safety-header">Safety in an open world</h3>
+        <p class="text-muted">
+          Halogen’s proposition of safety in an open world provides a clear,
+          proud, map for the future direction of security, risk management,
+          providing innovative & practical security solutions for people,
+          enterprises & governments.
+        </p>
+        <p class="text-muted">
+          And this festive season, we are offering tailored security packages to
+          help you stay safe throughout the holidays.
+        </p>
+        <a href="#" class="text-decoration-none contact-link">More Info →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Seasonal Offerings -->
+<section class="seasonal-section my-5 py-5">
+  <div class="seasonal-wrapper container py-5 px-4 px-md-5 position-relative">
+    <!-- NEW Tag -->
+    <span class="badge-new">NEW</span>
+
+    <!-- Section Title -->
+    <h2 class="mb-5 section-title">Seasonal Offerings</h2>
+
+    <!-- Carousel -->
+    <div class="carousel-container">
+      <button class="arrow left" (click)="scrollLeft()">&#10094;</button>
+
+      <div class="carousel" #carousel>
+        <div class="col-md-4 col-sm-6 d-flex" *ngFor="let card of offerings">
+          <div class="offering-card p-4 w-100">
+            <div class="icon mb-3">
+              <img
+                [src]="card.icon"
+                style="width: 32px; height: 32px"
+                alt="icon"
+                width="28"
+              />
+            </div>
+
+            <h4 class="fw-bold card-title">{{ card.title }}</h4>
+            <p class="text-muted mt-2">{{ card.text }}</p>
+
+            <a href="#" class="contact-link">
+              Contact us <span class="ms-1 link-arrow">→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <button class="arrow right" (click)="scrollRight()">&#10095;</button>
+    </div>
+  </div>
+</section>
+
+<!-- Contact / Get in touch -->
+
+<app-booking-stepper></app-booking-stepper>
+
+<!-- Festive Activities (Accordion) -->
+<section class="py-5">
+  <div class="container">
+    <h4 class="mb-4 section-title">Festive Activities</h4>
+    <p class="lead mb-4">
+      Join us this festive season for exciting events, community initiatives,
+      and holiday programs designed to keep you safe and engaged.
+    </p>
+    <div class="accordion" id="activitiesAccordion">
+      <div
+        class="accordion-item mb-4"
+        [ngStyle]="{ 'border-left': '5px solid ' + a.color }"
+        *ngFor="let a of activities; let i = index"
+      >
+        <h2 class="accordion-header" id="heading{{ i }}">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            [attr.data-bs-target]="'#collapse' + i"
+            aria-expanded="false"
+            [attr.aria-controls]="'collapse' + i"
+          >
+            {{ a.title }}
+          </button>
+        </h2>
+        <div
+          [id]="'collapse' + i"
+          class="accordion-collapse collapse"
+          [attr.aria-labelledby]="'heading' + i"
+          data-bs-parent="#activitiesAccordion"
+        >
+          <div class="accordion-body">
+            {{ a.content }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -40,10 +40,17 @@ import { ThankyouComponent } from './Pages/thankyou/thankyou.component';
 import { ThankComponent } from './Pages/thank/thank.component';
 import { PaymentDetailsComponent } from './Pages/payment-details/payment-details.component';
 import { SecurityInsightsComponent } from './Pages/security-insights/security-insights.component';
+import { RiskReportComponent } from './Pages/risk-report/risk-report.component';
+import { RiskReportBanditryComponent } from './Pages/risk-report-banditry/risk-report-banditry.component';
+import { FestiveSeasonComponent } from './Pages/festive-season/festive-season.component';
 const routes: Routes = [
   {
     component: HomeComponent,
     path: '',
+  },
+  {
+    component: FestiveSeasonComponent,
+    path: 'festive-season',
   },
   {
     component: CyberSecurityComponent,
@@ -190,6 +197,14 @@ const routes: Routes = [
   {
     component: SecurityInsightsComponent,
     path: 'security-insights',
+  },
+  {
+    component: RiskReportComponent,
+    path: 'risk-report',
+  },
+  {
+    component: RiskReportBanditryComponent,
+    path: 'risk-report-banditry',
   },
   {
     component: NationalSecurityComponent,

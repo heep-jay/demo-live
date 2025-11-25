@@ -1,0 +1,29 @@
+<div class="brochure">
+  <h1 style="margin-top: 4rem">Nothern Banditry Crisis</h1>
+  <div class="brochure-container">
+    <div class="brochure-item">
+      <a
+        (click)="
+          download(
+            'https://res.cloudinary.com/dnjccz6dn/image/upload/v1757605710/Weekly_Risk_Report_Banditry_compressed_c6bf72cba6.pdf'
+          )
+        "
+      >
+        <img
+          src="https://res.cloudinary.com/dnjccz6dn/image/upload/v1757605502/Banditry_Cover_Image_057a432599.jpg"
+          alt="brochure"
+        />
+      </a>
+      <button
+        (click)="
+          download(
+            'https://res.cloudinary.com/dnjccz6dn/image/upload/v1757605710/Weekly_Risk_Report_Banditry_compressed_c6bf72cba6.pdf'
+          )
+        "
+      >
+        Download
+        <mat-icon>download</mat-icon>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,520 @@
+<div class="">
+  <div class="row g-0 con-height align-items-stretch">
+    <div class="col-lg-5 pt-5 pb-5 bg-contact d-flex">
+      <div class="card mw-600 p-4 stepper-card mx-auto w-100">
+        <!-- Step indicator -->
+        <div class="d-flex justify-content-between mb-4">
+          <div class="d-flex gap-2">
+            <ng-container *ngFor="let s of [1, 2, 3, 4]">
+              <button
+                class="btn btn-sm"
+                [ngClass]="
+                  step === s ? 'bt-color text-white' : 'btn-outline-secondary'
+                "
+                (click)="goTo(s)"
+              >
+                {{ s }}
+              </button>
+            </ng-container>
+          </div>
+          <small class="text-muted">Step {{ step }} of {{ maxStep }}</small>
+        </div>
+
+        <form [formGroup]="bookingForm" (ngSubmit)="submitForm()">
+          <!-- ========== STEP 1 ========== -->
+          <div *ngIf="step === 1" [formGroup]="clientGroup">
+            <h5 class="mb-3 fs-4 text-center">
+              Get in Touch This Festive Season
+            </h5>
+            <p class="mb-3">
+              Fill out the form below and our team will get back to you
+              promptly.
+            </p>
+
+            <div class="row g-3">
+              <div class="col-md-12">
+                <label class="form-label">Client Type</label>
+                <select
+                  class="form-select"
+                  formControlName="clientType"
+                  [ngClass]="{
+                    'is-invalid': isInvalid(clientGroup, 'clientType')
+                  }"
+                >
+                  <option value="individual">Individual</option>
+                  <option value="organization">Organization</option>
+                </select>
+                <div class="invalid-feedback">
+                  {{ errorMessage(clientGroup, "clientType") }}
+                </div>
+              </div>
+
+              <div class="col-md-12">
+                <label class="form-label">Organization / Full Name</label>
+                <input
+                  class="form-control"
+                  formControlName="organizationOrName"
+                  placeholder="Enter full name"
+                  [ngClass]="{
+                    'is-invalid': isInvalid(clientGroup, 'organizationOrName')
+                  }"
+                />
+                <div class="invalid-feedback">
+                  {{ errorMessage(clientGroup, "organizationOrName") }}
+                </div>
+              </div>
+
+              <div
+                class="col-md-12"
+                *ngIf="clientGroup.get('clientType')?.value === 'organization'"
+              >
+                <label class="form-label">Contact Person</label>
+                <input
+                  class="form-control"
+                  formControlName="contactPerson"
+                  placeholder="Contact person"
+                />
+              </div>
+
+              <div class="col-md-12">
+                <label class="form-label">Phone</label>
+                <input
+                  class="form-control"
+                  formControlName="phone"
+                  [ngClass]="{ 'is-invalid': isInvalid(clientGroup, 'phone') }"
+                />
+                <div class="invalid-feedback">
+                  {{ errorMessage(clientGroup, "phone") }}
+                </div>
+              </div>
+
+              <div class="col-md-12">
+                <label class="form-label">Alternative Phone</label>
+                <input class="form-control" formControlName="altPhone" />
+              </div>
+
+              <div class="col-md-12">
+                <label class="form-label">Email</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  formControlName="email"
+                  [ngClass]="{ 'is-invalid': isInvalid(clientGroup, 'email') }"
+                />
+              </div>
+
+              <div class="col-12 mt-2" [formGroup]="preferredContactGroup">
+                <label class="form-label d-block"
+                  >Preferred Contact Method</label
+                >
+
+                <div
+                  class="p-2 rounded border"
+                  [ngClass]="{
+                    'border-danger': isGroupInvalid(preferredContactGroup)
+                  }"
+                >
+                  <div class="form-check custom-checkbox form-check-inline">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      formControlName="phone"
+                    />
+                    <label class="form-check-label">Phone</label>
+                  </div>
+
+                  <div class="form-check form-check-inline">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      formControlName="email"
+                    />
+                    <label class="form-check-label">Email</label>
+                  </div>
+
+                  <div class="form-check form-check-inline">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      formControlName="whatsapp"
+                    />
+                    <label class="form-check-label">WhatsApp</label>
+                  </div>
+                </div>
+
+                <!-- Error message -->
+                <div
+                  class="text-danger small mt-1"
+                  *ngIf="isGroupInvalid(preferredContactGroup)"
+                >
+                  Please select at least one preferred contact method.
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- ========== STEP 2 ========== -->
+          <div *ngIf="step === 2" [formGroup]="serviceGroup">
+            <h5 class="mb-3 fs-4 text-center">Step 2 - Service Requirement</h5>
+            <button
+              class="mt-3 mb-3 back-button btn btn-sm bg-white"
+              (click)="back()"
+            >
+              <mat-icon>arrow_back</mat-icon>Back
+            </button>
+            <div class="row g-3">
+              <div class="col-md-12">
+                <label class="form-label">Service Type</label>
+                <select
+                  class="form-select"
+                  formControlName="serviceType"
+                  [ngClass]="{
+                    'is-invalid': isInvalid(serviceGroup, 'serviceType')
+                  }"
+                >
+                  <option
+                    value="{{ service.name }}"
+                    *ngFor="let service of services"
+                  >
+                    {{ service.name }}
+                  </option>
+                </select>
+                <div class="invalid-feedback">
+                  {{ errorMessage(serviceGroup, "serviceType") }}
+                </div>
+              </div>
+              <!-- DSP-->
+              <div
+                class="col-md-12"
+                *ngIf="
+                  serviceGroup.get('serviceType')?.value ===
+                  'Driver Support Services'
+                "
+              >
+                <label class="form-label">Services</label>
+                <select
+                  class="form-select"
+                  formControlName="service"
+                  [ngClass]="{
+                    'is-invalid': isInvalid(serviceGroup, 'service')
+                  }"
+                >
+                  <option
+                    value="{{ service.name }}"
+                    *ngFor="let service of driverServices"
+                  >
+                    {{ service.name }}
+                  </option>
+                </select>
+                <div class="invalid-feedback">
+                  {{ errorMessage(serviceGroup, "service") }}
+                </div>
+              </div>
+              <!--Premium-->
+              <div
+                class="col-md-12"
+                *ngIf="
+                  serviceGroup.get('serviceType')?.value ===
+                  'Premium Vehicle Services'
+                "
+              >
+                <label class="form-label">Services</label>
+                <select
+                  class="form-select"
+                  formControlName="service"
+                  [ngClass]="{
+                    'is-invalid': isInvalid(serviceGroup, 'service')
+                  }"
+                >
+                  <option
+                    value="{{ service.name }}"
+                    *ngFor="let service of premiumServices"
+                  >
+                    {{ service.name }}
+                  </option>
+                </select>
+                <div class="invalid-feedback">
+                  {{ errorMessage(serviceGroup, "service") }}
+                </div>
+              </div>
+
+              <!--secured escort-->
+              <div
+                class="col-md-12"
+                *ngIf="
+                  serviceGroup.get('serviceType')?.value ===
+                  'Secured Escort Services'
+                "
+              >
+                <label class="form-label">Services</label>
+                <select
+                  class="form-select"
+                  formControlName="service"
+                  [ngClass]="{
+                    'is-invalid': isInvalid(serviceGroup, 'service')
+                  }"
+                >
+                  <option
+                    value="{{ service.name }}"
+                    *ngFor="let service of securedEscortServices"
+                  >
+                    {{ service.name }}
+                  </option>
+                </select>
+                <div class="invalid-feedback">
+                  {{ errorMessage(serviceGroup, "service") }}
+                </div>
+              </div>
+              <!--secure mobility-->
+              <div
+                class="col-md-12"
+                *ngIf="
+                  serviceGroup.get('serviceType')?.value ===
+                  'Secured Mobility Services'
+                "
+              >
+                <label class="form-label">Services</label>
+                <select
+                  class="form-select"
+                  formControlName="service"
+                  [ngClass]="{
+                    'is-invalid': isInvalid(serviceGroup, 'service')
+                  }"
+                >
+                  <option
+                    value="{{ service.name }}"
+                    *ngFor="let service of mobilityServices"
+                  >
+                    {{ service.name }}
+                  </option>
+                </select>
+                <div class="invalid-feedback">
+                  {{ errorMessage(serviceGroup, "service") }}
+                </div>
+              </div>
+              <!--cpo-->
+              <div
+                class="col-md-12"
+                *ngIf="
+                  serviceGroup.get('serviceType')?.value ===
+                  'Close Protection Detail'
+                "
+              >
+                <label class="form-label">Services</label>
+                <select
+                  class="form-select"
+                  formControlName="service"
+                  [ngClass]="{
+                    'is-invalid': isInvalid(serviceGroup, 'service')
+                  }"
+                >
+                  <option
+                    value="{{ service.name }}"
+                    *ngFor="let service of cpoServices"
+                  >
+                    {{ service.name }}
+                  </option>
+                </select>
+                <div class="invalid-feedback">
+                  {{ errorMessage(serviceGroup, "service") }}
+                </div>
+              </div>
+              <div
+                class="col-md-12 mt-3"
+                *ngIf="
+                  serviceGroup.get('serviceType')?.value ===
+                  'Driver Support Services'
+                "
+              >
+                <label class="form-label">Service Duration</label>
+                <select class="form-select" formControlName="serviceDuration">
+                  <option [ngValue]="null">Select Duration</option>
+                  <option value="day">Day Hire</option>
+                  <option value="weekly">Weekly Hire</option>
+                  <option value="monthly">Monthly Hire</option>
+                  <option value="temporary">Temporary</option>
+                  <option value="permanent">Permanent</option>
+                </select>
+              </div>
+              <div class="mt-3">
+                <label class="form-label">Optional Add-Ons</label>
+                <div
+                  *ngFor="
+                    let a of [
+                      'preRoute',
+                      'concierge',
+                      'overnight',
+                      'additionalVehicle'
+                    ]
+                  "
+                  class="form-check"
+                >
+                  <input
+                    type="checkbox"
+                    class="form-check-input"
+                    (change)="toggleAddOn(a, $any($event.target).checked)"
+                  />
+                  <label class="form-check-label">{{ a | titlecase }}</label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ========== STEP 4 ========== -->
+          <div *ngIf="step === 3" [formGroup]="movementGroup">
+            <h5 class="mb-3 fs-4 text-center">
+              Step 3 - Trip & Vehicle Information
+            </h5>
+
+            <button
+              class="mt-3 mb-3 back-button btn btn-sm bg-white"
+              (click)="back()"
+            >
+              <mat-icon>arrow_back</mat-icon>Back
+            </button>
+            <div class="row g-3">
+              <div class="col-md-12">
+                <label class="form-label">Trip Date</label>
+                <input
+                  type="date"
+                  class="form-control"
+                  formControlName="tripDate"
+                />
+              </div>
+
+              <div class="col-md-12">
+                <label class="form-label">Expected Duration</label>
+                <input
+                  class="form-control"
+                  formControlName="expectedDuration"
+                  placeholder="e.g. 4 hours"
+                />
+              </div>
+
+              <div class="col-md-12">
+                <label class="form-label">Pickup Address</label>
+                <input class="form-control" formControlName="pickupAddress" />
+              </div>
+
+              <div class="col-md-12">
+                <label class="form-label">Destination Address</label>
+                <input
+                  class="form-control"
+                  formControlName="destinationAddress"
+                />
+              </div>
+              <div class="col-md-12 mt-2">
+                <label class="form-label">Number of vehicles</label>
+                <select class="form-select" formControlName="numberofVehicles">
+                  <option [ngValue]="null">Select Duration</option>
+                  <option
+                    [value]="v"
+                    *ngFor="let v of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
+                  >
+                    {{ v }}
+                  </option>
+                </select>
+              </div>
+              <div class="mt-3">
+                <label class="form-label">Vehicle Source</label>
+                <div class="form-check" *ngFor="let v of ['Client', 'Halogen']">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    formControlName="vehicleSource"
+                    [value]="v"
+                  />
+                  <label class="form-check-label">{{ v }}</label>
+                </div>
+              </div>
+              <div class="mt-3">
+                <label class="form-label">Service Levels</label>
+                <div
+                  class="form-check"
+                  *ngFor="let lvl of ['Regular', 'Premium', 'Bespoke']"
+                >
+                  <input
+                    type="checkbox"
+                    class="form-check-input"
+                    (change)="
+                      toggleServiceLevel(lvl, $any($event.target).checked)
+                    "
+                  />
+                  <label class="form-check-label">{{ lvl }}</label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ========== STEP 5 (REVIEW/SUCCESS) ========== -->
+          <div
+            class="d-flex flex-column align-items-center justify-content-between"
+            *ngIf="step === 4"
+          >
+            <h4 class="fs-3 text-center fw-bold">
+              Request Submitted Successfully!
+            </h4>
+
+            <img
+              src="/assets/images/requestsubmit.png"
+              alt=""
+              class="submit-img"
+            />
+            <p class="text-muted">
+              Thank you! Your request has been received. Our team will contact
+              you within the next 24 hours.
+            </p>
+            <!-- <div class="alert alert-light border">
+              <h6>Submitted Data:</h6>
+              <pre>{{ bookingForm.value | json }}</pre>
+            </div> -->
+
+            <button type="button" routerLink="/" class="submit-btn mt-3">
+              Return To Homepage
+            </button>
+            <button
+              class="mt-3 btn btn-primary"
+              type="button"
+              (click)="step = 1"
+            >
+              Start New Request
+            </button>
+          </div>
+
+          <!-- ========== Navigation Buttons ========== -->
+          <div class="" *ngIf="step < 4">
+            <!-- <button
+              type="button"
+              class="btn btn-outline-secondary"
+              (click)="back()"
+              [disabled]="step === 1"
+            >
+              Back
+            </button> -->
+
+            <button
+              type="button"
+              class="submit-btn mt-3"
+              (click)="next()"
+              *ngIf="step < 3"
+            >
+              Next
+            </button>
+          </div>
+          <div class="">
+            <button type="submit" class="submit-btn mt-3" *ngIf="step === 3">
+              Submit
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="col-lg-7 d-flex">
+      <img
+        src="assets/images/working_woman.png"
+        class="big-img w-100"
+        alt="working"
+      />
+    </div>
+  </div>
+</div>
