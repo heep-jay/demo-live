@@ -108,13 +108,20 @@ export class BookingStepperComponent implements OnInit {
     },
   ];
   premiumServices: any[] = [
-    { name: 'Prime Executive SUV (Regular) (Seats up to 3 persons)' },
-    { name: 'Prime Armoured SUV) (Seats up to 3 persons)' },
-    { name: 'Prime Mini SUV (Regular) (Seats up to 2 persons)' },
-    { name: 'Executive Sedan  (Seats up to 3 persons)' },
-    { name: 'Prime Executive Sprinter (Hummer Bus) (Seats up to 8 persons)' },
-    { name: 'Prime Comfort Cruiser (Coaster Bus) (Seats up to 20 persons*)' },
+    { name: 'Prime Executive SUV ', title: 'Seats up to 3 persons' },
+    { name: 'Prime Armoured SUV ', title: 'Seats up to 3 persons' },
+    { name: 'Prime Mini SUV ', title: 'Seats up to 2 persons' },
+    { name: 'Executive Sedan ', title: 'Seats up to 3 persons' },
+    {
+      name: 'Prime Executive Sprinter',
+      title: 'Hummer Bus- Seats up to 3 persons',
+    },
+    {
+      name: 'Prime Comfort Cruiser',
+      title: 'Coaster Bus - Seats up to 20 persons',
+    },
   ];
+
   securedEscortServices: any[] = [
     {
       name: 'Lead or Chase',
@@ -132,7 +139,7 @@ export class BookingStepperComponent implements OnInit {
       name: 'Half Day [1-6 hours]',
     },
     {
-      name: 'Full Day[6-12 hours]',
+      name: 'Full Day [6-12 hours]',
     },
   ];
 
