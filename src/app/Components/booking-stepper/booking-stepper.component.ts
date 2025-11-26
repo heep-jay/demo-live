@@ -182,7 +182,6 @@ export class BookingStepperComponent implements OnInit {
         serviceType: ['', Validators.required],
         service: ['', Validators.required],
         serviceDuration: [null],
-        optionalAddOns: this.fb.array([]),
       }),
 
       movement: this.fb.group({
@@ -191,8 +190,8 @@ export class BookingStepperComponent implements OnInit {
         pickupAddress: ['', Validators.required],
         destinationAddress: ['', Validators.required],
         numberofVehicles: [null, Validators.required],
-        vehicleSource: [null, Validators.required],
-        serviceLevels: this.fb.array([]),
+        optionalAddOns: this.fb.array([]),
+        serviceLevel: ['', Validators.required],
       }),
     });
   }
@@ -215,22 +214,22 @@ export class BookingStepperComponent implements OnInit {
   // get ServiceType(){
 
   // }
-  get serviceLevelsArray(): FormArray {
-    return this.serviceGroup.get('serviceLevels')! as FormArray;
-  }
+  // get serviceLevelsArray(): FormArray {
+  //   return this.movementGroup.get('serviceLevels')! as FormArray;
+  // }
 
   get optionalAddOnsArray(): FormArray {
-    return this.serviceGroup.get('optionalAddOns')! as FormArray;
+    return this.movementGroup.get('optionalAddOns')! as FormArray;
   }
 
   /** ---------- SERVICE LEVELS / ADD-ONS ---------- */
-  toggleServiceLevel(level: string, checked: boolean) {
-    if (checked) this.serviceLevelsArray.push(new FormControl(level));
-    else {
-      const index = this.serviceLevelsArray.value.indexOf(level);
-      if (index !== -1) this.serviceLevelsArray.removeAt(index);
-    }
-  }
+  // toggleServiceLevel(level: string, checked: boolean) {
+  //   if (checked) this.serviceLevelsArray.push(new FormControl(level));
+  //   else {
+  //     const index = this.serviceLevelsArray.value.indexOf(level);
+  //     if (index !== -1) this.serviceLevelsArray.removeAt(index);
+  //   }
+  // }
 
   toggleAddOn(addon: string, checked: boolean) {
     if (checked) this.optionalAddOnsArray.push(new FormControl(addon));
@@ -574,12 +573,12 @@ export class BookingStepperComponent implements OnInit {
                 </div>
                 
                 ${
-                  formData.service.optionalAddOns?.length > 0
+                  formData.movement.optionalAddOns?.length > 0
                     ? `
                 <div style="margin-top: 16px;">
                     <span class="info-label">OPTIONAL ADD-ONS</span>
                     <div class="addon-list">
-                        ${formData.service.optionalAddOns
+                        ${formData.movement.optionalAddOns
                           .map(
                             (addon: string) =>
                               `<span class="addon-tag">${this.formatLabel(
@@ -665,24 +664,18 @@ export class BookingStepperComponent implements OnInit {
                 `
                     : ''
                 }
-                
-                ${
-                  formData.movement.serviceLevels?.length > 0
-                    ? `
+                 ${
+                   formData.movement.serviceLevels
+                     ? `
                 <div style="margin-top: 16px;">
-                    <span class="info-label">SERVICE LEVELS</span>
-                    <div class="service-levels">
-                        ${formData.movement.serviceLevels
-                          .map(
-                            (level: string) =>
-                              `<span class="addon-tag" style="background: #dcfce7; color: #166534;">${level}</span>`
-                          )
-                          .join('')}
-                    </div>
+                    <span class="info-label">DESTINATION</span>
+                    <div class="info-value">${formData.movement.destinationAddress}</div>
                 </div>
                 `
-                    : ''
-                }
+                     : ''
+                 }
+                
+              
             </div>
 
             <!-- Action Required -->
