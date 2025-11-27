@@ -382,6 +382,33 @@
                 class="col-md-12"
                 *ngIf="
                   serviceGroup.get('serviceType')?.value ===
+                    'Event Security Services' &&
+                  serviceGroup.get('service')?.value === 'Others'
+                "
+              >
+                <label class="form-label">Please Specify Event Type</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="customEventType"
+                  placeholder="Enter the specific event type (e.g., Product Launch, Gala Dinner, etc.)"
+                  [ngClass]="{
+                    'is-invalid': isInvalid(serviceGroup, 'customEventType')
+                  }"
+                />
+                <div class="invalid-feedback">
+                  {{ errorMessage(serviceGroup, "customEventType") }}
+                </div>
+                <small class="text-muted"
+                  >Please describe the type of event you need security services
+                  for.</small
+                >
+              </div>
+
+              <div
+                class="col-md-12"
+                *ngIf="
+                  serviceGroup.get('serviceType')?.value ===
                   'Event Security Services'
                 "
               >
@@ -405,6 +432,7 @@
                   {{ errorMessage(serviceGroup, "securityNeeds") }}
                 </div>
               </div>
+              <!-- Custom Event Type Input (shown only when "Others" is selected) -->
 
               <div
                 class="col-md-12"
@@ -608,7 +636,7 @@
                   'Event Security Services'
                 "
               >
-                <label class="form-label">High Profile Guests Expected</label>
+                <label class="form-label">High Profile Guests Expected ?</label>
                 <select
                   class="form-select"
                   formControlName="highProfileGuestsExpected"
@@ -620,34 +648,7 @@
                   }"
                 >
                   <option [ngValue]="null">Select</option>
-                  <option
-                    [value]="v"
-                    *ngFor="
-                      let v of [
-                        1,
-                        2,
-                        3,
-                        4,
-                        5,
-                        6,
-                        7,
-                        8,
-                        9,
-                        10,
-                        11,
-                        12,
-                        13,
-                        14,
-                        15,
-                        16,
-                        17,
-                        18,
-                        19,
-                        20,
-                        '20+'
-                      ]
-                    "
-                  >
+                  <option [value]="v" *ngFor="let v of ['Yes', 'No']">
                     {{ v }}
                   </option>
                 </select>

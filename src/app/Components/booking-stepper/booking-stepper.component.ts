@@ -54,7 +54,7 @@ export interface BookingFormValue {
     eventVenueLocation?: string; // New field for events
     destinationAddress?: string;
     numberofVehicles?: number;
-    highProfileGuestsExpected?: number; // New field for events
+    highProfileGuestsExpected?: string; // New field for events
     knownRisksOrConcerns?: string; // New field for events
     optionalAddOns: string[];
     serviceLevel: string;
@@ -222,6 +222,7 @@ export class BookingStepperComponent implements OnInit {
         service: ['', Validators.required],
         serviceDuration: [null],
         // Event-specific fields
+        customEventType: [''],
         securityNeeds: [''],
         supportNeeds: [''],
       }),
@@ -319,7 +320,8 @@ export class BookingStepperComponent implements OnInit {
 
     const securityNeedsControl = this.serviceGroup.get('securityNeeds');
     const supportNeedsControl = this.serviceGroup.get('supportNeeds');
-
+    const isOtherEvent =
+      this.serviceGroup.get('eventService')?.value === 'Others';
     if (isEventService) {
       securityNeedsControl?.setValidators([Validators.required]);
       supportNeedsControl?.setValidators([Validators.required]);
@@ -327,6 +329,13 @@ export class BookingStepperComponent implements OnInit {
       securityNeedsControl?.clearValidators();
       supportNeedsControl?.clearValidators();
     }
+    const customEventTypeControl = this.serviceGroup.get('customEventType');
+    if (isEventService && isOtherEvent) {
+      customEventTypeControl?.setValidators([Validators.required]);
+    } else {
+      customEventTypeControl?.clearValidators();
+    }
+    customEventTypeControl?.updateValueAndValidity();
 
     securityNeedsControl?.updateValueAndValidity();
     supportNeedsControl?.updateValueAndValidity();
@@ -434,6 +443,7 @@ export class BookingStepperComponent implements OnInit {
 
   // Add this method to your component class
   // Update the generateEmailTemplate method in your component
+  // Update the generateEmailTemplate method in your component
   generateEmailTemplate(formData: any): string {
     const preferredContact = [];
     if (formData.client.preferredContact.phone) preferredContact.push('Phone');
@@ -443,7 +453,11 @@ export class BookingStepperComponent implements OnInit {
 
     const isEventService =
       formData.service.serviceType === 'Event Security Services';
-
+    const isOtherEvent = formData.service.service === 'Others';
+    const displayEventService =
+      isOtherEvent && formData.service.customEventType
+        ? formData.service.customEventType
+        : formData.service.service;
     return `
 <!DOCTYPE html>
 <html>
@@ -691,7 +705,7 @@ export class BookingStepperComponent implements OnInit {
             </div>
 
             <!-- Service Details Section -->
-            <div class="section">
+    <div class="section">
                 <div class="section-title">
                     🚗 Service Details
                 </div>
@@ -701,21 +715,33 @@ export class BookingStepperComponent implements OnInit {
                         ${formData.service.serviceType}
                     </div>
                     <div style="font-size: 16px; color: #475569;">
-                        ${formData.service.service}
+                        ${
+                          isEventService
+                            ? displayEventService
+                            : formData.service.service
+                        }
                     </div>
+                    ${
+                      isOtherEvent && formData.service.customEventType
+                        ? `
+                    <div style="margin-top: 8px; font-size: 14px; color: #64748b;">
+                        <strong>Custom Event Type:</strong> ${formData.service.customEventType}
+                    </div>
+                    `
+                        : ''
+                    }
                 </div>
-                
-                ${
-                  isEventService
-                    ? `
+             ${
+               isEventService
+                 ? `
                 <!-- Event Service Specific Details -->
                 <div class="info-grid">
                     ${
-                      formData.service.eventService
+                      displayEventService
                         ? `
                     <div class="info-item">
                         <span class="info-label">Event Service Type</span>
-                        <div class="info-value">${formData.service.eventService}</div>
+                        <div class="info-value">${displayEventService}</div>
                     </div>
                     `
                         : ''
@@ -742,7 +768,7 @@ export class BookingStepperComponent implements OnInit {
                     }
                 </div>
                 `
-                    : `
+                 : `
                 <!-- Regular Service Details -->
                 <div class="info-grid">
                     ${
@@ -759,7 +785,7 @@ export class BookingStepperComponent implements OnInit {
                     }
                 </div>
                 `
-                }
+             }
                 
                 ${
                   !isEventService &&
