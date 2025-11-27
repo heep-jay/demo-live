@@ -30,48 +30,50 @@ export class FestiveSeasonComponent implements OnInit {
   offerings = [
     {
       icon: '/assets/images/base2.png',
-      title: 'Cyber Security Solutions',
-      text: 'Lorem ipsum dolor sit amet, consec tet ur adipiscing elit.',
+      title: 'Secured Movements',
+      text: 'Move with confidence. Our secure mobility service combines tactical protection, route risk mapping, and live tracking to keep you safe on every mile; whether for inter-state or intra-state travel, executives, families, ministers, or faith groups. Your journey is secured with us!',
     },
     {
       icon: 'assets/images/base2.png',
-      title: 'Electronic Solutions & Telematics',
-      text: 'Lorem ipsum dolor sit amet, consec tet ur adipiscing elit.',
+      title: 'Driver',
+      text: 'Travel safely with our professional, security-trained drivers. Enjoy smooth, stress-free journeys as we protect every mile. Your ride is fully secured!',
     },
     {
       icon: '/assets/images/base3.png',
-      title: 'Physical Security & Mobility',
-      text: 'Lorem ipsum dolor sit amet, consec tet ur adipiscing elit.',
+      title: 'Event Security',
+      text: 'Enjoy your event with complete peace of mind. Our expert security team manages access, crowds, and backstage areas for concerts, praise nights, corporate, and faith gatherings. You focus on the experience, we take care of the protection.',
     },
   ];
 
   activities = [
     {
-      title: 'Security Tips for Shoppers',
+      title: 'Plan Your Journey, Travel Smart',
       content:
-        'Practical advice for staying safe while shopping during the festivities.',
+        'Check routes, avoid high-risk areas, and travel during daylight whenever possible.',
       color: 'rgba(60, 152, 204, 1)',
     },
     {
-      title: 'Community Watch Program',
+      title: 'Stay Vigilant on the Road',
       content:
-        'Join local community watch programs to keep neighborhoods safe.',
+        'Buckle up, avoid distractions, and follow traffic rules - safety is in every careful move.',
       color: 'rgba(169, 38, 38, 1)',
     },
     {
-      title: 'Holiday Cyber Safety',
-      content: 'How to avoid online scams and secure your accounts.',
+      title: 'Secure Your Home and Belongings',
+      content:
+        'Lock your doors and windows, activate your home security devices/alarms, and let trusted neighbors know if you’ll be away.',
       color: 'rgba(39, 149, 77, 1)',
     },
     {
-      title: 'Community Watch Program',
+      title: 'Be Alert in Crowds',
       content:
-        'Join local community watch programs to keep neighborhoods safe.',
+        'Keep your valuables close to you, move in groups or with people you know, and identify emergency exits at events and gatherings',
       color: 'rgba(28, 43, 102, 1)',
     },
     {
-      title: 'Holiday Cyber Safety',
-      content: 'How to avoid online scams and secure your accounts.',
+      title: 'Keep Emergency Contacts Handy',
+      content:
+        'Save numbers for local police, medical services, and roadside assistance - be ready for the unexpected.',
       color: 'rgba(255, 194, 14, 1)',
     },
   ];
