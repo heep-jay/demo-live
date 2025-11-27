@@ -1,5 +1,5 @@
 .security-insights-section {
-  padding: 6rem 0 4rem;
+  padding: 8rem 4rem;
   background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
   min-height: 100vh;
 }
@@ -14,10 +14,10 @@
   color: #1c2b66;
   font-family: "Poppins", sans-serif;
   margin-bottom: 1rem;
-  background: linear-gradient(135deg, #1c2b66 0%, #283c8b 100%);
+  /* background: linear-gradient(135deg, #1c2b66 0%, #283c8b 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  background-clip: text;
+  background-clip: text; */
 }
 
 .section-subtitle {
