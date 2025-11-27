@@ -39,24 +39,25 @@ export interface BookingFormValue {
     };
   };
   service: {
-    driverSupport: boolean;
-    securedEscort: boolean;
-    closeProtection: boolean;
-    spyTrainedDriver: boolean;
-    executiveDriver: boolean;
-    corporateDriver: boolean;
-    operationalDriver: boolean;
+    serviceType: string;
+    service: string;
     serviceDuration: DurationType | null;
-    vehicleType?: VehicleType | null;
-    leadOrChase?: 'single' | 'duo' | null;
-    serviceLevels: string[];
-    optionalAddOns: string[];
+    // Event-specific fields
+    securityNeeds?: string;
+    supportNeeds?: string;
   };
   movement: {
     tripDate?: string;
+    eventDate?: string; // New field for events
     expectedDuration?: string;
     pickupAddress?: string;
+    eventVenueLocation?: string; // New field for events
     destinationAddress?: string;
+    numberofVehicles?: number;
+    highProfileGuestsExpected?: number; // New field for events
+    knownRisksOrConcerns?: string; // New field for events
+    optionalAddOns: string[];
+    serviceLevel: string;
   };
 }
 
@@ -68,7 +69,7 @@ export interface BookingFormValue {
 export class BookingStepperComponent implements OnInit {
   step = 1;
   maxStep = 4;
-
+  isLoading = false;
   bookingForm!: FormGroup;
 
   services: any[] = [
@@ -91,6 +92,10 @@ export class BookingStepperComponent implements OnInit {
     {
       id: 5,
       name: 'Close Protection Detail',
+    },
+    {
+      id: 6,
+      name: 'Event Security Services',
     },
   ];
   driverServices: any[] = [
@@ -149,10 +154,44 @@ export class BookingStepperComponent implements OnInit {
     },
     { name: 'Unarmed CPO' },
   ];
+
+  eventServices: any[] = [
+    { name: 'Concerts & Festivals' },
+    { name: 'Charity & Fundraising Events' },
+    { name: 'Corporate Events (Conferences, Workshops, Media Briefings etc)' },
+    { name: 'Sporting Events' },
+    { name: 'Exhibitions & Trade Shows' },
+    { name: 'Political Rallies & Campaigns' },
+    { name: 'Religious Gatherings' },
+    { name: 'Birthday Parties' },
+    { name: 'Weddings' },
+    { name: 'Film & TV Productions' },
+    { name: 'Funerals & Memorial Services' },
+    { name: 'Others' },
+  ];
+
+  securityNeeds: any[] = [
+    { name: 'Planning & Assesment' },
+    { name: 'Safety Preparation' },
+    { name: 'Response & Soulution' },
+    { name: 'Protection & Monitoring' },
+    { name: 'All of the above' },
+  ];
+  supportNeeds: any[] = [
+    { name: 'I Know what i need' },
+    { name: 'I need guidance' },
+  ];
+
   constructor(private fb: FormBuilder, private api: ApiService) {}
 
   ngOnInit(): void {
     this.buildForm();
+    this.updateValidators(); // Add this line
+
+    // Also update validators when service type changes
+    this.serviceGroup.get('serviceType')?.valueChanges.subscribe(() => {
+      this.updateValidators();
+    });
   }
   formatLabel(text: string): string {
     return text.replace(/([A-Z])/g, ' $1').trim();
@@ -182,20 +221,26 @@ export class BookingStepperComponent implements OnInit {
         serviceType: ['', Validators.required],
         service: ['', Validators.required],
         serviceDuration: [null],
+        // Event-specific fields
+        securityNeeds: [''],
+        supportNeeds: [''],
       }),
 
       movement: this.fb.group({
-        tripDate: ['', Validators.required],
+        tripDate: [''],
+        eventDate: [''], // New field
         expectedDuration: ['', Validators.required],
-        pickupAddress: ['', Validators.required],
-        destinationAddress: ['', Validators.required],
-        numberofVehicles: [null, Validators.required],
+        pickupAddress: [''],
+        eventVenueLocation: [''], // New field
+        destinationAddress: [''],
+        numberofVehicles: [null],
+        highProfileGuestsExpected: [null], // New field
+        knownRisksOrConcerns: [''], // New field
         optionalAddOns: this.fb.array([]),
         serviceLevel: ['', Validators.required],
       }),
     });
   }
-
   /** ---------- GETTERS (solve TS errors permanently) ---------- */
 
   get clientGroup(): FormGroup {
@@ -221,15 +266,6 @@ export class BookingStepperComponent implements OnInit {
   get optionalAddOnsArray(): FormArray {
     return this.movementGroup.get('optionalAddOns')! as FormArray;
   }
-
-  /** ---------- SERVICE LEVELS / ADD-ONS ---------- */
-  // toggleServiceLevel(level: string, checked: boolean) {
-  //   if (checked) this.serviceLevelsArray.push(new FormControl(level));
-  //   else {
-  //     const index = this.serviceLevelsArray.value.indexOf(level);
-  //     if (index !== -1) this.serviceLevelsArray.removeAt(index);
-  //   }
-  // }
 
   toggleAddOn(addon: string, checked: boolean) {
     if (checked) this.optionalAddOnsArray.push(new FormControl(addon));
@@ -275,14 +311,90 @@ export class BookingStepperComponent implements OnInit {
     return true;
   }
 
+  updateValidators() {
+    const isEventService =
+      this.serviceGroup.get('serviceType')?.value === 'Event Security Services';
+
+    // Service group validators
+
+    const securityNeedsControl = this.serviceGroup.get('securityNeeds');
+    const supportNeedsControl = this.serviceGroup.get('supportNeeds');
+
+    if (isEventService) {
+      securityNeedsControl?.setValidators([Validators.required]);
+      supportNeedsControl?.setValidators([Validators.required]);
+    } else {
+      securityNeedsControl?.clearValidators();
+      supportNeedsControl?.clearValidators();
+    }
+
+    securityNeedsControl?.updateValueAndValidity();
+    supportNeedsControl?.updateValueAndValidity();
+
+    // Movement group validators
+    const eventDateControl = this.movementGroup.get('eventDate');
+    const eventVenueControl = this.movementGroup.get('eventVenueLocation');
+    const highProfileGuestsControl = this.movementGroup.get(
+      'highProfileGuestsExpected'
+    );
+    const knownRisksControl = this.movementGroup.get('knownRisksOrConcerns');
+    const tripDateControl = this.movementGroup.get('tripDate');
+    const pickupAddressControl = this.movementGroup.get('pickupAddress');
+    const destinationAddressControl =
+      this.movementGroup.get('destinationAddress');
+    const vehiclesControl = this.movementGroup.get('numberofVehicles');
+
+    if (isEventService) {
+      eventDateControl?.setValidators([Validators.required]);
+      eventVenueControl?.setValidators([Validators.required]);
+      highProfileGuestsControl?.setValidators([Validators.required]);
+      knownRisksControl?.setValidators([Validators.required]);
+
+      // Clear regular validators
+      tripDateControl?.clearValidators();
+      pickupAddressControl?.clearValidators();
+      destinationAddressControl?.clearValidators();
+      vehiclesControl?.clearValidators();
+    } else {
+      eventDateControl?.clearValidators();
+      eventVenueControl?.clearValidators();
+      highProfileGuestsControl?.clearValidators();
+      knownRisksControl?.clearValidators();
+
+      // Set regular validators
+      tripDateControl?.setValidators([Validators.required]);
+      pickupAddressControl?.setValidators([Validators.required]);
+      destinationAddressControl?.setValidators([Validators.required]);
+      vehiclesControl?.setValidators([Validators.required]);
+    }
+
+    // Update all controls
+    eventDateControl?.updateValueAndValidity();
+    eventVenueControl?.updateValueAndValidity();
+    highProfileGuestsControl?.updateValueAndValidity();
+    knownRisksControl?.updateValueAndValidity();
+    tripDateControl?.updateValueAndValidity();
+    pickupAddressControl?.updateValueAndValidity();
+    destinationAddressControl?.updateValueAndValidity();
+    vehiclesControl?.updateValueAndValidity();
+  }
+
   /** ---------- SUBMIT ---------- */
 
   // In your submitForm method, create the email template like this:
   submitForm() {
+    // Prevent multiple submissions
+    if (this.isLoading) {
+      return;
+    }
+
     this.bookingForm.markAllAsTouched();
     if (this.bookingForm.invalid) {
       return;
     }
+
+    // Set loading state
+    this.isLoading = true;
 
     const formValue = this.bookingForm.value;
 
@@ -300,27 +412,37 @@ export class BookingStepperComponent implements OnInit {
       },
     };
 
-    // Send to your endpoint
     console.log('Email Payload:', emailPayload);
+
     this.api.bookService(emailPayload).subscribe({
       next: (res: any) => {
         console.log(res);
+        this.isLoading = false; // Reset loading state
         this.step = 4;
         this.bookingForm.reset();
       },
       error: (err) => {
         console.error(err);
+        this.isLoading = false; // Reset loading state even on error
+        // Optional: Show error message to user
+      },
+      complete: () => {
+        this.isLoading = false; // Ensure loading state is reset
       },
     });
   }
 
   // Add this method to your component class
+  // Update the generateEmailTemplate method in your component
   generateEmailTemplate(formData: any): string {
     const preferredContact = [];
     if (formData.client.preferredContact.phone) preferredContact.push('Phone');
     if (formData.client.preferredContact.email) preferredContact.push('Email');
     if (formData.client.preferredContact.whatsapp)
       preferredContact.push('WhatsApp');
+
+    const isEventService =
+      formData.service.serviceType === 'Event Security Services';
 
     return `
 <!DOCTYPE html>
@@ -442,6 +564,15 @@ export class BookingStepperComponent implements OnInit {
             font-size: 14px;
             font-weight: 500;
         }
+        .event-badge {
+            padding: 6px 12px;
+            background: #dcfce7;
+            color: #166534;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 500;
+            border: 1px solid #bbf7d0;
+        }
         .footer {
             background: #f1f5f9;
             padding: 30px;
@@ -459,6 +590,16 @@ export class BookingStepperComponent implements OnInit {
             display: inline-block;
             margin-bottom: 16px;
         }
+        .full-width {
+            grid-column: 1 / -1;
+        }
+        .risk-concern {
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+            border-radius: 8px;
+            padding: 16px;
+            margin-top: 8px;
+        }
         @media (max-width: 600px) {
             .info-grid {
                 grid-template-columns: 1fr;
@@ -475,8 +616,14 @@ export class BookingStepperComponent implements OnInit {
 <body>
     <div class="email-container">
         <div class="email-header">
-            <h1>🎯 New Service Booking</h1>
-            <p>Security & Mobility Services Request</p>
+            <h1>🎯 New ${
+              isEventService ? 'Event Security' : 'Service'
+            } Booking</h1>
+            <p>${
+              isEventService
+                ? 'Event Security & Protection Services Request'
+                : 'Security & Mobility Services Request'
+            }</p>
         </div>
         
         <div class="email-body">
@@ -557,6 +704,46 @@ export class BookingStepperComponent implements OnInit {
                         ${formData.service.service}
                     </div>
                 </div>
+                
+                ${
+                  isEventService
+                    ? `
+                <!-- Event Service Specific Details -->
+                <div class="info-grid">
+                    ${
+                      formData.service.eventService
+                        ? `
+                    <div class="info-item">
+                        <span class="info-label">Event Service Type</span>
+                        <div class="info-value">${formData.service.eventService}</div>
+                    </div>
+                    `
+                        : ''
+                    }
+                    ${
+                      formData.service.securityNeeds
+                        ? `
+                    <div class="info-item">
+                        <span class="info-label">Security Needs</span>
+                        <div class="info-value">${formData.service.securityNeeds}</div>
+                    </div>
+                    `
+                        : ''
+                    }
+                    ${
+                      formData.service.supportNeeds
+                        ? `
+                    <div class="info-item">
+                        <span class="info-label">Support Needs</span>
+                        <div class="info-value">${formData.service.supportNeeds}</div>
+                    </div>
+                    `
+                        : ''
+                    }
+                </div>
+                `
+                    : `
+                <!-- Regular Service Details -->
                 <div class="info-grid">
                     ${
                       formData.service.serviceDuration
@@ -571,8 +758,11 @@ export class BookingStepperComponent implements OnInit {
                         : ''
                     }
                 </div>
+                `
+                }
                 
                 ${
+                  !isEventService &&
                   formData.movement.optionalAddOns?.length > 0
                     ? `
                 <div style="margin-top: 16px;">
@@ -596,11 +786,24 @@ export class BookingStepperComponent implements OnInit {
             <!-- Movement & Logistics Section -->
             <div class="section">
                 <div class="section-title">
-                    📍 Movement & Logistics
+                    ${
+                      isEventService
+                        ? '📅 Event Details'
+                        : '📍 Movement & Logistics'
+                    }
                 </div>
                 <div class="info-grid">
                     ${
-                      formData.movement.tripDate
+                      isEventService && formData.movement.eventDate
+                        ? `
+                    <div class="info-item">
+                        <span class="info-label">Event Date</span>
+                        <div class="info-value">${new Date(
+                          formData.movement.eventDate
+                        ).toLocaleDateString()}</div>
+                    </div>
+                    `
+                        : !isEventService && formData.movement.tripDate
                         ? `
                     <div class="info-item">
                         <span class="info-label">Trip Date</span>
@@ -611,6 +814,7 @@ export class BookingStepperComponent implements OnInit {
                     `
                         : ''
                     }
+                    
                     ${
                       formData.movement.expectedDuration
                         ? `
@@ -621,8 +825,17 @@ export class BookingStepperComponent implements OnInit {
                     `
                         : ''
                     }
+                    
                     ${
-                      formData.movement.numberofVehicles
+                      isEventService &&
+                      formData.movement.highProfileGuestsExpected
+                        ? `
+                    <div class="info-item">
+                        <span class="info-label">High Profile Guests</span>
+                        <div class="info-value">${formData.movement.highProfileGuestsExpected}</div>
+                    </div>
+                    `
+                        : !isEventService && formData.movement.numberofVehicles
                         ? `
                     <div class="info-item">
                         <span class="info-label">Number of Vehicles</span>
@@ -631,20 +844,17 @@ export class BookingStepperComponent implements OnInit {
                     `
                         : ''
                     }
-                    ${
-                      formData.movement.vehicleSource
-                        ? `
-                    <div class="info-item">
-                        <span class="info-label">Vehicle Source</span>
-                        <div class="info-value">${formData.movement.vehicleSource}</div>
-                    </div>
-                    `
-                        : ''
-                    }
                 </div>
                 
                 ${
-                  formData.movement.pickupAddress
+                  isEventService && formData.movement.eventVenueLocation
+                    ? `
+                <div style="margin-top: 16px;">
+                    <span class="info-label">EVENT VENUE LOCATION</span>
+                    <div class="info-value">${formData.movement.eventVenueLocation}</div>
+                </div>
+                `
+                    : !isEventService && formData.movement.pickupAddress
                     ? `
                 <div style="margin-top: 16px;">
                     <span class="info-label">PICKUP LOCATION</span>
@@ -655,7 +865,7 @@ export class BookingStepperComponent implements OnInit {
                 }
                 
                 ${
-                  formData.movement.destinationAddress
+                  !isEventService && formData.movement.destinationAddress
                     ? `
                 <div style="margin-top: 16px;">
                     <span class="info-label">DESTINATION</span>
@@ -664,19 +874,46 @@ export class BookingStepperComponent implements OnInit {
                 `
                     : ''
                 }
-                 ${
-                   formData.movement.serviceLevels
-                     ? `
+                
+                ${
+                  formData.movement.serviceLevel
+                    ? `
                 <div style="margin-top: 16px;">
-                    <span class="info-label">DESTINATION</span>
-                    <div class="info-value">${formData.movement.destinationAddress}</div>
+                    <span class="info-label">SERVICE LEVEL</span>
+                    <div class="info-value">${formData.movement.serviceLevel}</div>
                 </div>
                 `
-                     : ''
-                 }
+                    : ''
+                }
                 
-              
+                ${
+                  isEventService && formData.movement.knownRisksOrConcerns
+                    ? `
+                <div style="margin-top: 16px;">
+                    <span class="info-label">KNOWN RISKS OR CONCERNS</span>
+                    <div class="risk-concern">${formData.movement.knownRisksOrConcerns}</div>
+                </div>
+                `
+                    : ''
+                }
             </div>
+
+            <!-- Special Event Notice -->
+            ${
+              isEventService
+                ? `
+            <div style="background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%); padding: 20px; border-radius: 12px; border: 1px solid #0ea5e9; margin-top: 24px;">
+                <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+                    <span style="font-size: 20px;">🎪</span>
+                    <h4 style="margin: 0; color: #0369a1;">Event Security Requirements</h4>
+                </div>
+                <p style="margin: 0; color: #0369a1; font-size: 14px;">
+                    This booking requires special event security coordination. Please ensure proper risk assessment and resource allocation for this event.
+                </p>
+            </div>
+            `
+                : ''
+            }
 
             <!-- Action Required -->
             <div style="background: #eff6ff; padding: 20px; border-radius: 12px; text-align: center; margin-top: 32px;">
