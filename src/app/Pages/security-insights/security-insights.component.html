@@ -1,29 +1,119 @@
-<div class="brochure">
-  <h1>Rethinking Security in Nigeria</h1>
-  <div class="brochure-container">
-    <div class="brochure-item">
-      <a
-        (click)="
-          download(
-            'https://res.cloudinary.com/dnjccz6dn/image/upload/v1756300991/Halogen_Security_Insights_Roundtable_1_1_compressed_350f2607bd.pdf'
-          )
-        "
+<div class="security-insights-section">
+  <div class="container">
+    <!-- Section Header -->
+    <div class="section-header text-center mb-5">
+      <h1 class="section-title">Security Insights</h1>
+      <p class="section-subtitle">
+        Expert analysis and thought leadership on security trends
+      </p>
+    </div>
+
+    <!-- Insights Grid -->
+    <div class="row g-4 justify-content-center">
+      <div
+        class="col-12 col-md-6 col-lg-4"
+        *ngFor="let item of securityInsightsData"
       >
-        <img
-          src="https://res.cloudinary.com/dnjccz6dn/image/upload/v1756301432/Screenshot_2025_08_27_142931_1af47033c8.png?updated_at=2025-08-27T13:30:32.896Z"
-          alt="brochure"
-        />
-      </a>
-      <button
-        (click)="
-          download(
-            'https://res.cloudinary.com/dnjccz6dn/image/upload/v1756300991/Halogen_Security_Insights_Roundtable_1_1_compressed_350f2607bd.pdf'
-          )
-        "
-      >
-        Download
-        <mat-icon>download</mat-icon>
-      </button>
+        <div class="insight-card card border-0 shadow-sm h-100">
+          <div class="card-image-container position-relative overflow-hidden">
+            <img
+              [src]="item.image"
+              [alt]="item.title"
+              class="card-img-top insight-image"
+            />
+            <!-- <div
+              class="image-overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center"
+            >
+              <div class="overlay-content text-center text-white">
+                <span class="material-icons overlay-icon">visibility</span>
+                <p class="mb-0 mt-2">Click to preview</p>
+              </div>
+            </div> -->
+          </div>
+
+          <div class="card-body d-flex flex-column">
+            <h3 class="card-title insight-title">{{ item.title }}</h3>
+            <p class="card-text insight-description text-muted flex-grow-1">
+              Access our latest security insights and analysis to stay informed
+              about current trends and best practices.
+            </p>
+
+            <div class="action-buttons mt-auto pt-3">
+              <button
+                class="btn btn-primary download-btn w-100 d-flex align-items-center justify-content-center"
+                (click)="download(item.fileUrl)"
+              >
+                <span class="material-icons me-2">download</span>
+                Download PDF
+              </button>
+
+              <!-- <button
+                class="btn btn-outline-secondary preview-btn w-100 mt-2 d-flex align-items-center justify-content-center"
+                (click)="preview(item)"
+              >
+                <span class="material-icons me-2">visibility</span>
+                Preview
+              </button> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Empty State -->
+    <div class="text-center py-5" *ngIf="securityInsightsData.length === 0">
+      <div class="empty-state">
+        <span class="material-icons empty-icon">description</span>
+        <h3 class="mt-3">No Insights Available</h3>
+        <p class="text-muted">
+          Check back later for new security insights and analysis.
+        </p>
+      </div>
     </div>
   </div>
 </div>
+
+<!-- Preview Modal -->
+<!-- <div
+  class="modal fade"
+  id="previewModal"
+  tabindex="-1"
+  aria-labelledby="previewModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header border-0 pb-0">
+        <h5 class="modal-title" id="previewModalLabel">
+          {{ selectedInsight?.title }}
+        </h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <img
+          [src]="selectedInsight?.image"
+          [alt]="selectedInsight?.title"
+          class="img-fluid rounded"
+        />
+      </div>
+      <div class="modal-footer border-0">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Close
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          (click)="download(selectedInsight?.fileUrl)"
+          data-bs-dismiss="modal"
+        >
+          Download PDF
+        </button>
+      </div>
+    </div>
+  </div>
+</div> -->
