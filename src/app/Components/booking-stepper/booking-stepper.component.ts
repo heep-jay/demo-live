@@ -47,10 +47,10 @@ export interface BookingFormValue {
     supportNeeds?: string;
   };
   movement: {
-    tripDate?: string;
+    serviceCommencement?: string;
     eventDate?: string; // New field for events
     expectedDuration?: string;
-    pickupAddress?: string;
+    serviceLocation?: string;
     eventVenueLocation?: string; // New field for events
     destinationAddress?: string;
     numberofVehicles?: number;
@@ -119,7 +119,7 @@ export class BookingStepperComponent implements OnInit {
     { name: 'Executive Sedan ', title: 'Seats up to 3 persons' },
     {
       name: 'Prime Executive Sprinter',
-      title: 'Hummer Bus- Seats up to 3 persons',
+      title: 'Hummer Bus - Seats up to 3 persons',
     },
     {
       name: 'Prime Comfort Cruiser',
@@ -171,10 +171,22 @@ export class BookingStepperComponent implements OnInit {
   ];
 
   securityNeeds: any[] = [
-    { name: 'Planning & Assesment' },
-    { name: 'Safety Preparation' },
-    { name: 'Response & Soulution' },
-    { name: 'Protection & Monitoring' },
+    {
+      name: 'Planning & Assesment',
+      desc: 'Full security planning — venue risks,  attendee analytics, profiling, continuity  planning, hot-spots, co-location risks, and access mapping.',
+    },
+    {
+      name: 'Safety Preparation',
+      desc: ' ealth & Safety compliance, access control, perimeter security,  traffic/crowd control, vendor checks, screening, and bouncer deployment.',
+    },
+    {
+      name: 'Response & Soulution',
+      desc: 'Medical, fire, police pin-down  support, rapid response, incident  coordination, and evacuation management.',
+    },
+    {
+      name: 'Protection & Monitoring',
+      desc: 'Plain-clothes operatives, surveillance, escorts, govt support, control-room monitoring, and K9 + perimeter patrols',
+    },
     { name: 'All of the above' },
   ];
   supportNeeds: any[] = [
@@ -186,15 +198,45 @@ export class BookingStepperComponent implements OnInit {
 
   ngOnInit(): void {
     this.buildForm();
-    this.updateValidators(); // Add this line
+    this.updateValidators();
 
-    // Also update validators when service type changes
+    // Listen for service type changes
     this.serviceGroup.get('serviceType')?.valueChanges.subscribe(() => {
       this.updateValidators();
     });
+
+    // Also listen for service changes (for CPO)
+    this.serviceGroup.get('service')?.valueChanges.subscribe(() => {
+      this.updateValidators();
+    });
   }
-  formatLabel(text: string): string {
-    return text.replace(/([A-Z])/g, ' $1').trim();
+  formatLabel(text: string | null | undefined): string {
+    // Handle null, undefined, or empty values
+    if (!text) {
+      return '';
+    }
+
+    // Convert to string in case it's a number or other type
+    const textStr = String(text);
+
+    // Handle empty string
+    if (textStr.trim() === '') {
+      return '';
+    }
+
+    try {
+      // Replace camelCase with spaces and capitalize first letter of each word
+      return textStr
+        .replace(/([A-Z])/g, ' $1') // Add space before capital letters
+        .replace(/_/g, ' ') // Replace underscores with spaces
+        .replace(/-/g, ' ') // Replace hyphens with spaces
+        .replace(/\s+/g, ' ') // Replace multiple spaces with single space
+        .trim() // Remove leading/trailing spaces
+        .replace(/\b\w/g, (char) => char.toUpperCase()); // Capitalize first letter of each word
+    } catch (error) {
+      console.error('Error formatting label:', error, text);
+      return textStr; // Return original text if formatting fails
+    }
   }
 
   /** ---------- FORM MODEL ---------- */
@@ -228,10 +270,10 @@ export class BookingStepperComponent implements OnInit {
       }),
 
       movement: this.fb.group({
-        tripDate: [''],
+        serviceCommencement: [''],
         eventDate: [''], // New field
         expectedDuration: ['', Validators.required],
-        pickupAddress: [''],
+        serviceLocation: [''],
         eventVenueLocation: [''], // New field
         destinationAddress: [''],
         numberofVehicles: [null],
@@ -315,20 +357,37 @@ export class BookingStepperComponent implements OnInit {
   updateValidators() {
     const isEventService =
       this.serviceGroup.get('serviceType')?.value === 'Event Security Services';
+    const isDriverSupportService =
+      this.serviceGroup.get('serviceType')?.value === 'Driver Support Services';
+    const isCloseProtection =
+      this.serviceGroup.get('serviceType')?.value === 'Close Protection Detail';
+    const isOtherEvent = this.serviceGroup.get('service')?.value === 'Others';
 
     // Service group validators
-
     const securityNeedsControl = this.serviceGroup.get('securityNeeds');
     const supportNeedsControl = this.serviceGroup.get('supportNeeds');
-    const isOtherEvent =
-      this.serviceGroup.get('eventService')?.value === 'Others';
+    const serviceDurationControl = this.serviceGroup.get('serviceDuration');
+
     if (isEventService) {
       securityNeedsControl?.setValidators([Validators.required]);
       supportNeedsControl?.setValidators([Validators.required]);
+      serviceDurationControl?.clearValidators();
+    } else if (isCloseProtection) {
+      // Service duration is required for Close Protection Detail
+      serviceDurationControl?.setValidators([Validators.required]);
+      securityNeedsControl?.clearValidators();
+      supportNeedsControl?.clearValidators();
+    } else if (isDriverSupportService) {
+      // Service duration is required for Driver Support Services
+      serviceDurationControl?.setValidators([Validators.required]);
+      securityNeedsControl?.clearValidators();
+      supportNeedsControl?.clearValidators();
     } else {
       securityNeedsControl?.clearValidators();
       supportNeedsControl?.clearValidators();
+      serviceDurationControl?.clearValidators();
     }
+
     const customEventTypeControl = this.serviceGroup.get('customEventType');
     if (isEventService && isOtherEvent) {
       customEventTypeControl?.setValidators([Validators.required]);
@@ -339,6 +398,7 @@ export class BookingStepperComponent implements OnInit {
 
     securityNeedsControl?.updateValueAndValidity();
     supportNeedsControl?.updateValueAndValidity();
+    serviceDurationControl?.updateValueAndValidity();
 
     // Movement group validators
     const eventDateControl = this.movementGroup.get('eventDate');
@@ -347,34 +407,58 @@ export class BookingStepperComponent implements OnInit {
       'highProfileGuestsExpected'
     );
     const knownRisksControl = this.movementGroup.get('knownRisksOrConcerns');
-    const tripDateControl = this.movementGroup.get('tripDate');
-    const pickupAddressControl = this.movementGroup.get('pickupAddress');
+    const serviceCommencementControl = this.movementGroup.get(
+      'serviceCommencement'
+    );
+    const serviceLocationControl = this.movementGroup.get('serviceLocation');
     const destinationAddressControl =
       this.movementGroup.get('destinationAddress');
     const vehiclesControl = this.movementGroup.get('numberofVehicles');
+    const expectedDurationControl = this.movementGroup.get('expectedDuration');
+    const serviceLevelControl = this.movementGroup.get('serviceLevel');
 
     if (isEventService) {
+      // Event service validators
       eventDateControl?.setValidators([Validators.required]);
       eventVenueControl?.setValidators([Validators.required]);
       highProfileGuestsControl?.setValidators([Validators.required]);
       knownRisksControl?.setValidators([Validators.required]);
+      expectedDurationControl?.setValidators([Validators.required]);
+      serviceLevelControl?.setValidators([Validators.required]);
 
       // Clear regular validators
-      tripDateControl?.clearValidators();
-      pickupAddressControl?.clearValidators();
+      serviceCommencementControl?.clearValidators();
+      serviceLocationControl?.clearValidators();
       destinationAddressControl?.clearValidators();
       vehiclesControl?.clearValidators();
-    } else {
+    } else if (isDriverSupportService || isCloseProtection) {
+      // Driver Support Service & Close Protection validators - only specific fields
+      serviceCommencementControl?.setValidators([Validators.required]);
+      serviceLocationControl?.setValidators([Validators.required]);
+      serviceLevelControl?.setValidators([Validators.required]);
+
+      // Clear other validators
       eventDateControl?.clearValidators();
       eventVenueControl?.clearValidators();
       highProfileGuestsControl?.clearValidators();
       knownRisksControl?.clearValidators();
-
-      // Set regular validators
-      tripDateControl?.setValidators([Validators.required]);
-      pickupAddressControl?.setValidators([Validators.required]);
+      destinationAddressControl?.clearValidators();
+      vehiclesControl?.clearValidators();
+      expectedDurationControl?.clearValidators();
+    } else {
+      // Regular service validators
+      serviceCommencementControl?.setValidators([Validators.required]);
+      serviceLocationControl?.setValidators([Validators.required]);
       destinationAddressControl?.setValidators([Validators.required]);
       vehiclesControl?.setValidators([Validators.required]);
+      expectedDurationControl?.setValidators([Validators.required]);
+      serviceLevelControl?.setValidators([Validators.required]);
+
+      // Clear event validators
+      eventDateControl?.clearValidators();
+      eventVenueControl?.clearValidators();
+      highProfileGuestsControl?.clearValidators();
+      knownRisksControl?.clearValidators();
     }
 
     // Update all controls
@@ -382,15 +466,59 @@ export class BookingStepperComponent implements OnInit {
     eventVenueControl?.updateValueAndValidity();
     highProfileGuestsControl?.updateValueAndValidity();
     knownRisksControl?.updateValueAndValidity();
-    tripDateControl?.updateValueAndValidity();
-    pickupAddressControl?.updateValueAndValidity();
+    serviceCommencementControl?.updateValueAndValidity();
+    serviceLocationControl?.updateValueAndValidity();
     destinationAddressControl?.updateValueAndValidity();
     vehiclesControl?.updateValueAndValidity();
+    expectedDurationControl?.updateValueAndValidity();
+    serviceLevelControl?.updateValueAndValidity();
+  }
+
+  getOptionalAddOns(): string[] {
+    const serviceType = this.serviceGroup.get('serviceType')?.value;
+
+    if (serviceType === 'Driver Support Services') {
+      return [
+        'Extended Hours Support',
+        'Weekend Coverage',
+        'Holiday Coverage',
+        'Emergency Response',
+        'Backup Driver Provision',
+      ];
+    } else if (serviceType === 'Close Protection Detail') {
+      return [
+        'Additional Security Personnel',
+        'Advanced Threat Assessment',
+        'Secure Transportation',
+        '24/7 Monitoring',
+        'Emergency Evacuation Plan',
+      ];
+    }
+
+    return [];
+  }
+  onCPOServiceChange() {
+    const selectedService = this.serviceGroup.get('service')?.value;
+
+    // Reset service duration when CPO service changes
+    if (selectedService === 'Full Options CPO') {
+      // Auto-select full-day for Full Options CPO
+      this.serviceGroup.patchValue({
+        serviceDuration: 'full-day',
+      });
+    } else if (selectedService === 'Unarmed CPO') {
+      // Reset to null for Unarmed CPO so user can choose
+      this.serviceGroup.patchValue({
+        serviceDuration: null,
+      });
+    }
+
+    // Update validators
+    this.updateValidators();
   }
 
   /** ---------- SUBMIT ---------- */
 
-  // In your submitForm method, create the email template like this:
   submitForm() {
     // Prevent multiple submissions
     if (this.isLoading) {
@@ -440,10 +568,21 @@ export class BookingStepperComponent implements OnInit {
       },
     });
   }
+  formatServiceDuration(duration: string | null | undefined): string {
+    if (!duration) return '';
 
-  // Add this method to your component class
-  // Update the generateEmailTemplate method in your component
-  // Update the generateEmailTemplate method in your component
+    const durationMap: { [key: string]: string } = {
+      'full-day': 'Full Day [6-12 Hours]',
+      'half-day': 'Half Day [1-6 Hours]',
+      day: 'Day Hire',
+      weekly: 'Weekly Hire',
+      monthly: 'Monthly Hire',
+      temporary: 'Temporary',
+      permanent: 'Permanent',
+    };
+
+    return durationMap[duration] || this.formatLabel(duration);
+  }
   generateEmailTemplate(formData: any): string {
     const preferredContact = [];
     if (formData.client.preferredContact.phone) preferredContact.push('Phone');
@@ -453,11 +592,29 @@ export class BookingStepperComponent implements OnInit {
 
     const isEventService =
       formData.service.serviceType === 'Event Security Services';
+    const isDriverSupportService =
+      formData.service.serviceType === 'Driver Support Services';
+    const isCloseProtection =
+      formData.service.serviceType === 'Close Protection Detail';
     const isOtherEvent = formData.service.service === 'Others';
+
     const displayEventService =
       isOtherEvent && formData.service.customEventType
         ? formData.service.customEventType
         : formData.service.service;
+
+    // Format service duration for display
+    // const formatServiceDuration = (duration: string) => {
+    //   if (duration === 'full-day') return 'Full Day [6-12 Hours]';
+    //   if (duration === 'half-day') return 'Half Day [1-6 Hours]';
+    //   if (duration === 'day') return 'Day Hire';
+    //   if (duration === 'weekly') return 'Weekly Hire';
+    //   if (duration === 'monthly') return 'Monthly Hire';
+    //   if (duration === 'temporary') return 'Temporary';
+    //   if (duration === 'permanent') return 'Permanent';
+    //   return duration;
+    // };
+
     return `
 <!DOCTYPE html>
 <html>
@@ -631,11 +788,17 @@ export class BookingStepperComponent implements OnInit {
     <div class="email-container">
         <div class="email-header">
             <h1>🎯 New ${
-              isEventService ? 'Event Security' : 'Service'
+              isEventService
+                ? 'Event Security'
+                : isCloseProtection
+                ? 'Close Protection'
+                : 'Service'
             } Booking</h1>
             <p>${
               isEventService
                 ? 'Event Security & Protection Services Request'
+                : isCloseProtection
+                ? 'Close Protection Detail Services Request'
                 : 'Security & Mobility Services Request'
             }</p>
         </div>
@@ -705,7 +868,7 @@ export class BookingStepperComponent implements OnInit {
             </div>
 
             <!-- Service Details Section -->
-    <div class="section">
+            <div class="section">
                 <div class="section-title">
                     🚗 Service Details
                 </div>
@@ -731,9 +894,10 @@ export class BookingStepperComponent implements OnInit {
                         : ''
                     }
                 </div>
-             ${
-               isEventService
-                 ? `
+                
+                ${
+                  isEventService
+                    ? `
                 <!-- Event Service Specific Details -->
                 <div class="info-grid">
                     ${
@@ -768,40 +932,47 @@ export class BookingStepperComponent implements OnInit {
                     }
                 </div>
                 `
-                 : `
-                <!-- Regular Service Details -->
-                <div class="info-grid">
-                    ${
-                      formData.service.serviceDuration
-                        ? `
-                    <div class="info-item">
-                        <span class="info-label">Service Duration</span>
-                        <div class="info-value">${this.formatLabel(
-                          formData.service.serviceDuration
-                        )}</div>
-                    </div>
-                    `
-                        : ''
-                    }
-                </div>
-                `
-             }
+                    : ''
+                }
                 
                 ${
-                  !isEventService &&
+                  (isDriverSupportService || isCloseProtection) &&
+                  formData.service.serviceDuration
+                    ? `
+                <!-- Driver Support & Close Protection Service Duration -->
+                <div class="info-grid">
+                    <div class="info-item">
+                        <span class="info-label">Service Duration</span>
+                        <div class="info-value">${
+                          formData.service.serviceDuration
+                            ? this.formatServiceDuration(
+                                formData.service.serviceDuration
+                              )
+                            : ''
+                        }
+</div>
+                    </div>
+                </div>
+                `
+                    : ''
+                }
+                
+                ${
                   formData.movement.optionalAddOns?.length > 0
                     ? `
                 <div style="margin-top: 16px;">
                     <span class="info-label">OPTIONAL ADD-ONS</span>
                     <div class="addon-list">
-                        ${formData.movement.optionalAddOns
-                          .map(
-                            (addon: string) =>
-                              `<span class="addon-tag">${this.formatLabel(
-                                addon
-                              )}</span>`
-                          )
-                          .join('')}
+                       ${
+                         formData.movement.optionalAddOns
+                           ?.map(
+                             (addon: string) =>
+                               `<span class="addon-tag">${
+                                 addon ? this.formatLabel(addon) : ''
+                               }</span>`
+                           )
+                           .join('') || ''
+                       }
                     </div>
                 </div>
                 `
@@ -815,6 +986,8 @@ export class BookingStepperComponent implements OnInit {
                     ${
                       isEventService
                         ? '📅 Event Details'
+                        : isCloseProtection
+                        ? '📍 Protection Details'
                         : '📍 Movement & Logistics'
                     }
                 </div>
@@ -829,12 +1002,13 @@ export class BookingStepperComponent implements OnInit {
                         ).toLocaleDateString()}</div>
                     </div>
                     `
-                        : !isEventService && formData.movement.tripDate
+                        : !isEventService &&
+                          formData.movement.serviceCommencement
                         ? `
                     <div class="info-item">
-                        <span class="info-label">Trip Date</span>
+                        <span class="info-label">Service Commencement</span>
                         <div class="info-value">${new Date(
-                          formData.movement.tripDate
+                          formData.movement.serviceCommencement
                         ).toLocaleDateString()}</div>
                     </div>
                     `
@@ -842,6 +1016,8 @@ export class BookingStepperComponent implements OnInit {
                     }
                     
                     ${
+                      !isDriverSupportService &&
+                      !isCloseProtection &&
                       formData.movement.expectedDuration
                         ? `
                     <div class="info-item">
@@ -861,7 +1037,10 @@ export class BookingStepperComponent implements OnInit {
                         <div class="info-value">${formData.movement.highProfileGuestsExpected}</div>
                     </div>
                     `
-                        : !isEventService && formData.movement.numberofVehicles
+                        : !isEventService &&
+                          !isDriverSupportService &&
+                          !isCloseProtection &&
+                          formData.movement.numberofVehicles
                         ? `
                     <div class="info-item">
                         <span class="info-label">Number of Vehicles</span>
@@ -880,18 +1059,27 @@ export class BookingStepperComponent implements OnInit {
                     <div class="info-value">${formData.movement.eventVenueLocation}</div>
                 </div>
                 `
-                    : !isEventService && formData.movement.pickupAddress
+                    : !isEventService && formData.movement.serviceLocation
                     ? `
                 <div style="margin-top: 16px;">
-                    <span class="info-label">PICKUP LOCATION</span>
-                    <div class="info-value">${formData.movement.pickupAddress}</div>
+                    <span class="info-label">${
+                      isCloseProtection
+                        ? 'PROTECTION LOCATION'
+                        : 'SERVICE LOCATION'
+                    }</span>
+                    <div class="info-value">${
+                      formData.movement.serviceLocation
+                    }</div>
                 </div>
                 `
                     : ''
                 }
                 
                 ${
-                  !isEventService && formData.movement.destinationAddress
+                  !isEventService &&
+                  !isDriverSupportService &&
+                  !isCloseProtection &&
+                  formData.movement.destinationAddress
                     ? `
                 <div style="margin-top: 16px;">
                     <span class="info-label">DESTINATION</span>
@@ -923,6 +1111,23 @@ export class BookingStepperComponent implements OnInit {
                     : ''
                 }
             </div>
+
+            <!-- Special Notice for Close Protection -->
+            ${
+              isCloseProtection
+                ? `
+            <div style="background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); padding: 20px; border-radius: 12px; border: 1px solid #f59e0b; margin-top: 24px;">
+                <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+                    <span style="font-size: 20px;">🛡️</span>
+                    <h4 style="margin: 0; color: #92400e;">Close Protection Requirements</h4>
+                </div>
+                <p style="margin: 0; color: #92400e; font-size: 14px;">
+                    This booking requires specialized close protection coordination. Please ensure proper threat assessment and resource allocation for this protection detail.
+                </p>
+            </div>
+            `
+                : ''
+            }
 
             <!-- Special Event Notice -->
             ${

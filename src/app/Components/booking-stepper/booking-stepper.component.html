@@ -264,7 +264,10 @@
                   <div class="info-icon"><mat-icon>info</mat-icon></div>
                   <div class="info-content">
                     <h4>Premium Vehicles Services</h4>
-                    <p>Vehicle seats more, but we cap it on comfort.</p>
+                    <p>
+                      Vehicle seats more passengers, but we cap occupancy for
+                      comfort.
+                    </p>
                   </div>
                 </div>
               </div>
@@ -334,6 +337,7 @@
                 <select
                   class="form-select"
                   formControlName="service"
+                  (change)="onCPOServiceChange()"
                   [ngClass]="{
                     'is-invalid': isInvalid(serviceGroup, 'service')
                   }"
@@ -350,6 +354,47 @@
                 </div>
               </div>
 
+              <!-- Service Duration for Close Protection Detail -->
+              <div
+                class="col-md-12 mt-3"
+                *ngIf="
+                  serviceGroup.get('serviceType')?.value ===
+                  'Close Protection Detail'
+                "
+              >
+                <label class="form-label">Service Duration</label>
+                <select
+                  class="form-select"
+                  formControlName="serviceDuration"
+                  [ngClass]="{
+                    'is-invalid': isInvalid(serviceGroup, 'serviceDuration')
+                  }"
+                >
+                  <option [ngValue]="null">Select Duration</option>
+
+                  <!-- Show both options for Unarmed CPO -->
+                  <option
+                    *ngIf="
+                      serviceGroup.get('service')?.value === 'Unarmed CPO' ||
+                      serviceGroup.get('service')?.value === 'Full Options CPO'
+                    "
+                    value="full-day"
+                  >
+                    Full Day [6-12 Hours]
+                  </option>
+
+                  <!-- Show only for Unarmed CPO -->
+                  <option
+                    *ngIf="serviceGroup.get('service')?.value === 'Unarmed CPO'"
+                    value="half-day"
+                  >
+                    Half Day [1-6 Hours]
+                  </option>
+                </select>
+                <div class="invalid-feedback">
+                  {{ errorMessage(serviceGroup, "serviceDuration") }}
+                </div>
+              </div>
               <!--event security-->
               <div
                 class="col-md-12"
@@ -422,6 +467,7 @@
                 >
                   <option value="">Select Security Needs</option>
                   <option
+                    title="{{ need.desc }}"
                     value="{{ need.name }}"
                     *ngFor="let need of securityNeeds"
                   >
@@ -464,8 +510,8 @@
             </div>
           </div>
 
-          <!-- ========== STEP 4 ========== -->
           <!-- ========== STEP 3 ========== -->
+
           <div *ngIf="step === 3" [formGroup]="movementGroup">
             <h5 class="mb-3 fs-4 text-center">Step 3 - Service Details</h5>
 
@@ -477,25 +523,287 @@
             </button>
 
             <div class="row g-3">
-              <!-- Regular Service Fields (shown when NOT event service) -->
+              <!-- Close Protection Detail Fields -->
               <div
                 class="col-md-12"
                 *ngIf="
-                  serviceGroup.get('serviceType')?.value !==
-                  'Event Security Services'
+                  serviceGroup.get('serviceType')?.value ===
+                  'Close Protection Detail'
                 "
               >
                 <label class="form-label">Service Commencement</label>
                 <input
                   type="date"
                   class="form-control"
-                  formControlName="tripDate"
+                  formControlName="serviceCommencement"
                   [ngClass]="{
-                    'is-invalid': isInvalid(movementGroup, 'tripDate')
+                    'is-invalid': isInvalid(
+                      movementGroup,
+                      'serviceCommencement'
+                    )
                   }"
                 />
                 <div class="invalid-feedback">
-                  {{ errorMessage(movementGroup, "tripDate") }}
+                  {{ errorMessage(movementGroup, "serviceCommencement") }}
+                </div>
+              </div>
+
+              <div
+                class="col-md-12"
+                *ngIf="
+                  serviceGroup.get('serviceType')?.value ===
+                  'Close Protection Detail'
+                "
+              >
+                <label class="form-label">Service Location</label>
+                <input
+                  class="form-control"
+                  formControlName="serviceLocation"
+                  placeholder="Enter service location"
+                  [ngClass]="{
+                    'is-invalid': isInvalid(movementGroup, 'serviceLocation')
+                  }"
+                />
+                <div class="invalid-feedback">
+                  {{ errorMessage(movementGroup, "serviceLocation") }}
+                </div>
+              </div>
+
+              <div
+                class="col-md-12"
+                *ngIf="
+                  serviceGroup.get('serviceType')?.value ===
+                  'Close Protection Detail'
+                "
+              >
+                <label class="form-label">Service Level</label>
+                <select
+                  class="form-select"
+                  formControlName="serviceLevel"
+                  [ngClass]="{
+                    'is-invalid': isInvalid(movementGroup, 'serviceLevel')
+                  }"
+                >
+                  <option [ngValue]="null">Select Service Level</option>
+                  <option
+                    [value]="lvl"
+                    *ngFor="let lvl of ['Regular', 'Premium', 'Bespoke']"
+                  >
+                    {{ lvl }}
+                  </option>
+                </select>
+                <div class="invalid-feedback">
+                  {{ errorMessage(movementGroup, "serviceLevel") }}
+                </div>
+              </div>
+
+              <!-- Optional Add-Ons for Close Protection Detail -->
+
+              <!-- Driver Support Services Fields -->
+              <div
+                class="col-md-12"
+                *ngIf="
+                  serviceGroup.get('serviceType')?.value ===
+                  'Driver Support Services'
+                "
+              >
+                <label class="form-label">Service Commencement</label>
+                <input
+                  type="date"
+                  class="form-control"
+                  formControlName="serviceCommencement"
+                  [ngClass]="{
+                    'is-invalid': isInvalid(
+                      movementGroup,
+                      'serviceCommencement'
+                    )
+                  }"
+                />
+                <div class="invalid-feedback">
+                  {{ errorMessage(movementGroup, "serviceCommencement") }}
+                </div>
+              </div>
+
+              <div
+                class="col-md-12"
+                *ngIf="
+                  serviceGroup.get('serviceType')?.value ===
+                  'Driver Support Services'
+                "
+              >
+                <label class="form-label">Service Location</label>
+                <input
+                  class="form-control"
+                  formControlName="serviceLocation"
+                  placeholder="Enter service location"
+                  [ngClass]="{
+                    'is-invalid': isInvalid(movementGroup, 'serviceLocation')
+                  }"
+                />
+                <div class="invalid-feedback">
+                  {{ errorMessage(movementGroup, "serviceLocation") }}
+                </div>
+              </div>
+
+              <div
+                class="col-md-12"
+                *ngIf="
+                  serviceGroup.get('serviceType')?.value ===
+                  'Driver Support Services'
+                "
+              >
+                <label class="form-label">Service Level</label>
+                <select
+                  class="form-select"
+                  formControlName="serviceLevel"
+                  [ngClass]="{
+                    'is-invalid': isInvalid(movementGroup, 'serviceLevel')
+                  }"
+                >
+                  <option [ngValue]="null">Select Service Level</option>
+                  <option
+                    [value]="lvl"
+                    *ngFor="let lvl of ['Regular', 'Premium', 'Bespoke']"
+                  >
+                    {{ lvl }}
+                  </option>
+                </select>
+                <div class="invalid-feedback">
+                  {{ errorMessage(movementGroup, "serviceLevel") }}
+                </div>
+              </div>
+
+              <!-- Regular Service Fields (shown for other services except Event, Driver Support, and Close Protection) -->
+              <div
+                class="col-md-12"
+                *ngIf="
+                  serviceGroup.get('serviceType')?.value !==
+                    'Event Security Services' &&
+                  serviceGroup.get('serviceType')?.value !==
+                    'Driver Support Services' &&
+                  serviceGroup.get('serviceType')?.value !==
+                    'Close Protection Detail'
+                "
+              >
+                <label class="form-label">Service Commencement</label>
+                <input
+                  type="date"
+                  class="form-control"
+                  formControlName="serviceCommencement"
+                  [ngClass]="{
+                    'is-invalid': isInvalid(
+                      movementGroup,
+                      'serviceCommencement'
+                    )
+                  }"
+                />
+                <div class="invalid-feedback">
+                  {{ errorMessage(movementGroup, "serviceCommencement") }}
+                </div>
+              </div>
+
+              <div
+                class="col-md-12"
+                *ngIf="
+                  serviceGroup.get('serviceType')?.value !==
+                    'Event Security Services' &&
+                  serviceGroup.get('serviceType')?.value !==
+                    'Driver Support Services' &&
+                  serviceGroup.get('serviceType')?.value !==
+                    'Close Protection Detail'
+                "
+              >
+                <label class="form-label">Expected Duration</label>
+                <input
+                  class="form-control"
+                  formControlName="expectedDuration"
+                  placeholder="e.g. 4 hours"
+                  [ngClass]="{
+                    'is-invalid': isInvalid(movementGroup, 'expectedDuration')
+                  }"
+                />
+                <div class="invalid-feedback">
+                  {{ errorMessage(movementGroup, "expectedDuration") }}
+                </div>
+              </div>
+
+              <div
+                class="col-md-12"
+                *ngIf="
+                  serviceGroup.get('serviceType')?.value !==
+                    'Event Security Services' &&
+                  serviceGroup.get('serviceType')?.value !==
+                    'Driver Support Services' &&
+                  serviceGroup.get('serviceType')?.value !==
+                    'Close Protection Detail'
+                "
+              >
+                <label class="form-label">Service Location</label>
+                <input
+                  class="form-control"
+                  formControlName="serviceLocation"
+                  [ngClass]="{
+                    'is-invalid': isInvalid(movementGroup, 'serviceLocation')
+                  }"
+                />
+                <div class="invalid-feedback">
+                  {{ errorMessage(movementGroup, "serviceLocation") }}
+                </div>
+              </div>
+
+              <div
+                class="col-md-12"
+                *ngIf="
+                  serviceGroup.get('serviceType')?.value !==
+                    'Event Security Services' &&
+                  serviceGroup.get('serviceType')?.value !==
+                    'Driver Support Services' &&
+                  serviceGroup.get('serviceType')?.value !==
+                    'Close Protection Detail'
+                "
+              >
+                <label class="form-label">Destination Address</label>
+                <input
+                  class="form-control"
+                  formControlName="destinationAddress"
+                  [ngClass]="{
+                    'is-invalid': isInvalid(movementGroup, 'destinationAddress')
+                  }"
+                />
+                <div class="invalid-feedback">
+                  {{ errorMessage(movementGroup, "destinationAddress") }}
+                </div>
+              </div>
+
+              <div
+                class="col-md-12 mt-2"
+                *ngIf="
+                  serviceGroup.get('serviceType')?.value !==
+                    'Event Security Services' &&
+                  serviceGroup.get('serviceType')?.value !==
+                    'Driver Support Services' &&
+                  serviceGroup.get('serviceType')?.value !==
+                    'Close Protection Detail'
+                "
+              >
+                <label class="form-label">Number of vehicles</label>
+                <select
+                  class="form-select"
+                  formControlName="numberofVehicles"
+                  [ngClass]="{
+                    'is-invalid': isInvalid(movementGroup, 'numberofVehicles')
+                  }"
+                >
+                  <option [ngValue]="null">Select</option>
+                  <option
+                    [value]="v"
+                    *ngFor="let v of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
+                  >
+                    {{ v }}
+                  </option>
+                </select>
+                <div class="invalid-feedback">
+                  {{ errorMessage(movementGroup, "numberofVehicles") }}
                 </div>
               </div>
 
@@ -521,7 +829,13 @@
                 </div>
               </div>
 
-              <div class="col-md-12">
+              <div
+                class="col-md-12"
+                *ngIf="
+                  serviceGroup.get('serviceType')?.value ===
+                  'Event Security Services'
+                "
+              >
                 <label class="form-label">Expected Duration</label>
                 <input
                   class="form-control"
@@ -536,28 +850,6 @@
                 </div>
               </div>
 
-              <!-- Regular Service Location -->
-              <div
-                class="col-md-12"
-                *ngIf="
-                  serviceGroup.get('serviceType')?.value !==
-                  'Event Security Services'
-                "
-              >
-                <label class="form-label">Service Location</label>
-                <input
-                  class="form-control"
-                  formControlName="pickupAddress"
-                  [ngClass]="{
-                    'is-invalid': isInvalid(movementGroup, 'pickupAddress')
-                  }"
-                />
-                <div class="invalid-feedback">
-                  {{ errorMessage(movementGroup, "pickupAddress") }}
-                </div>
-              </div>
-
-              <!-- Event Venue Location -->
               <div
                 class="col-md-12"
                 *ngIf="
@@ -578,57 +870,6 @@
                 </div>
               </div>
 
-              <!-- Regular Destination (hidden for events) -->
-              <div
-                class="col-md-12"
-                *ngIf="
-                  serviceGroup.get('serviceType')?.value !==
-                  'Event Security Services'
-                "
-              >
-                <label class="form-label">Destination Address</label>
-                <input
-                  class="form-control"
-                  formControlName="destinationAddress"
-                  [ngClass]="{
-                    'is-invalid': isInvalid(movementGroup, 'destinationAddress')
-                  }"
-                />
-                <div class="invalid-feedback">
-                  {{ errorMessage(movementGroup, "destinationAddress") }}
-                </div>
-              </div>
-
-              <!-- Number of Vehicles (regular services) -->
-              <div
-                class="col-md-12 mt-2"
-                *ngIf="
-                  serviceGroup.get('serviceType')?.value !==
-                  'Event Security Services'
-                "
-              >
-                <label class="form-label">Number of vehicles</label>
-                <select
-                  class="form-select"
-                  formControlName="numberofVehicles"
-                  [ngClass]="{
-                    'is-invalid': isInvalid(movementGroup, 'numberofVehicles')
-                  }"
-                >
-                  <option [ngValue]="null">Select</option>
-                  <option
-                    [value]="v"
-                    *ngFor="let v of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
-                  >
-                    {{ v }}
-                  </option>
-                </select>
-                <div class="invalid-feedback">
-                  {{ errorMessage(movementGroup, "numberofVehicles") }}
-                </div>
-              </div>
-
-              <!-- High Profile Guests (event services) -->
               <div
                 class="col-md-12 mt-2"
                 *ngIf="
@@ -657,7 +898,6 @@
                 </div>
               </div>
 
-              <!-- Known Risks or Concerns (event services) -->
               <div
                 class="col-md-12"
                 *ngIf="
@@ -683,62 +923,62 @@
                 </div>
               </div>
 
-              <div class="">
-                <div class="mt-3">
-                  <label class="form-label">Service Levels</label>
-                  <select
-                    class="form-select"
-                    formControlName="serviceLevel"
-                    [ngClass]="{
-                      'is-invalid': isInvalid(movementGroup, 'serviceLevel')
-                    }"
-                  >
-                    <option [ngValue]="null">Select Service Levels</option>
-                    <option
-                      [value]="lvl"
-                      *ngFor="let lvl of ['Regular', 'Premium', 'Bespoke']"
-                    >
-                      {{ lvl }}
-                    </option>
-                  </select>
-                  <div class="invalid-feedback">
-                    {{ errorMessage(movementGroup, "serviceLevel") }}
-                  </div>
-                </div>
-
-                <!-- Optional Add-Ons (hidden for events) -->
-                <div
-                  class="mt-3"
-                  *ngIf="
-                    serviceGroup.get('serviceType')?.value !==
-                    'Event Security Services'
-                  "
+              <!-- Service Level for non-Driver Support and non-Close Protection Services -->
+              <div
+                class="col-md-12"
+                *ngIf="
+                  serviceGroup.get('serviceType')?.value !==
+                    'Driver Support Services' &&
+                  serviceGroup.get('serviceType')?.value !==
+                    'Close Protection Detail'
+                "
+              >
+                <label class="form-label">Service Levels</label>
+                <select
+                  class="form-select"
+                  formControlName="serviceLevel"
+                  [ngClass]="{
+                    'is-invalid': isInvalid(movementGroup, 'serviceLevel')
+                  }"
                 >
-                  <label class="form-label">Optional Add-Ons</label>
-                  <div
-                    *ngFor="
-                      let a of [
-                        'Pre-Event Route & Risk Mapping',
-                        'Dedicated Halogen Support Officer',
-                        'Overnight Security Provision',
-                        'Additional Vehicle Support'
-                      ]
-                    "
-                    class="form-check"
+                  <option [ngValue]="null">Select Service Levels</option>
+                  <option
+                    [value]="lvl"
+                    *ngFor="let lvl of ['Regular', 'Premium', 'Bespoke']"
                   >
-                    <input
-                      type="checkbox"
-                      class="form-check-input"
-                      (change)="toggleAddOn(a, $any($event.target).checked)"
-                    />
-                    <label class="form-check-label">{{ a | titlecase }}</label>
-                  </div>
+                    {{ lvl }}
+                  </option>
+                </select>
+                <div class="invalid-feedback">
+                  {{ errorMessage(movementGroup, "serviceLevel") }}
+                </div>
+              </div>
+
+              <!-- Optional Add-Ons for other services (hidden for events, driver support, and close protection) -->
+              <div class="mt-3">
+                <label class="form-label">Optional Add-Ons</label>
+                <div
+                  *ngFor="
+                    let a of [
+                      'Pre-Event Route & Risk Mapping',
+                      'Dedicated Halogen Support Officer',
+                      'Overnight Security Provision',
+                      'Additional Vehicle Support'
+                    ]
+                  "
+                  class="form-check"
+                >
+                  <input
+                    type="checkbox"
+                    class="form-check-input"
+                    (change)="toggleAddOn(a, $any($event.target).checked)"
+                  />
+                  <label class="form-check-label">{{ a | titlecase }}</label>
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- ========== STEP 5 (REVIEW/SUCCESS) ========== -->
           <div
             class="d-flex flex-column align-items-center justify-content-between"
             *ngIf="step === 4"
