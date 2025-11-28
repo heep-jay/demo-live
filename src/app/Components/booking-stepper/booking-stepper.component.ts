@@ -177,7 +177,7 @@ export class BookingStepperComponent implements OnInit {
     },
     {
       name: 'Safety Preparation',
-      desc: ' ealth & Safety compliance, access control, perimeter security,  traffic/crowd control, vendor checks, screening, and bouncer deployment.',
+      desc: ' Health & Safety compliance, access control, perimeter security,  traffic/crowd control, vendor checks, screening, and bouncer deployment.',
     },
     {
       name: 'Response & Soulution',

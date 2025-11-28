@@ -84,7 +84,7 @@
             <h4 class="fw-bold card-title">{{ card.title }}</h4>
             <p class="text-muted mt-2">{{ card.text }}</p>
 
-            <a routerLink="/contact" class="contact-link">
+            <a (click)="scrollToContact()" type="button" class="contact-link">
               Contact us <span class="ms-1 link-arrow">→</span>
             </a>
           </div>
@@ -96,10 +96,12 @@
 
 <!-- Contact / Get in touch -->
 
-<app-booking-stepper></app-booking-stepper>
+<section id="contactss-section">
+  <app-booking-stepper></app-booking-stepper>
+</section>
 
 <!-- Festive Activities (Accordion) -->
-<section class="py-5">
+<section class="py-5 festive-season">
   <div class="container">
     <h4 class="mb-4 section-title text-center">
       Essential Tips to Help You Stay Safe This Festive Season

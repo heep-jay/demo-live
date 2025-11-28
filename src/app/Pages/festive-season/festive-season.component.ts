@@ -98,4 +98,10 @@ export class FestiveSeasonComponent implements OnInit {
     alert('Thanks, we received your message!');
     this.contact = { name: '', email: '', phone: '', message: '' };
   }
+
+  scrollToContact() {
+    document.getElementById('contactss-section')?.scrollIntoView({
+      behavior: 'smooth',
+    });
+  }
 }
