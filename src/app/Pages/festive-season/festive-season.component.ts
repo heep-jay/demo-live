@@ -80,7 +80,9 @@ export class FestiveSeasonComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    window.scrollTo(0, 0);
+  }
   scrollRight() {
     const cardWidth =
       this.carousel.nativeElement.querySelector('.card').offsetWidth + 16;

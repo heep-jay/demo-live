@@ -27,7 +27,8 @@ export class NewnavComponent implements OnInit {
     'Identity risk solutions & outsourcing',
     'Security education',
     'Security risk advisory & consultancy',
-    'Defence industries contracting & support services',
+    // 'Defence industries contracting & support services',
+    'Services',
   ];
   subItems: string[] = [
     'Cyber security service',
@@ -62,8 +63,19 @@ export class NewnavComponent implements OnInit {
       case 'Security risk advisory & consultancy':
         this.menus = this.riskMenu;
         break;
-      case 'Defence industries contracting & support services':
-        this.menus = this.defenseMenu;
+      // case 'Defence industries contracting & support services':
+      //   this.menus = this.defenseMenu;
+      //   break;
+      case 'Festive Services':
+        this.menus = [
+          {
+            attributes: {
+              url: 'services',
+              name: 'Festive Services',
+              icon: 'settings',
+            },
+          },
+        ];
         break;
 
       default:

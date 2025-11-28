@@ -25,6 +25,7 @@ export class NavbarComponent implements OnInit {
   isOutToggle: boolean = false;
   isEduToggle: boolean = false;
   isRiskToggle: boolean = false;
+  serviceToggle: boolean = false;
   aboutUs = '';
   cyberSec = '';
   mediaCentre = '';
@@ -41,7 +42,7 @@ export class NavbarComponent implements OnInit {
   secEduMenu: any;
   riskMenu: any;
   defenseMenu: any;
-
+  serviceMenu: any[] = [];
   activeMenu: boolean = false;
   constructor(
     private api: ApiService,
@@ -66,6 +67,15 @@ export class NavbarComponent implements OnInit {
       this.secEduMenu = data.attributes.security_education_menus.data;
       this.riskMenu = data.attributes.security_risk_menus.data;
       this.defenseMenu = data.attributes.defense_industries_menus.data;
+      this.serviceMenu = [
+        {
+          attributes: {
+            url: 'services',
+            name: 'Festive Services',
+            icon: 'settings',
+          },
+        },
+      ];
       this.getMenuLinks();
     });
   }
@@ -143,6 +153,9 @@ export class NavbarComponent implements OnInit {
   }
   riskToggle() {
     this.isRiskToggle = !this.isRiskToggle;
+  }
+  serviceToggler() {
+    this.serviceToggle = !this.serviceToggle;
   }
 
   halo() {

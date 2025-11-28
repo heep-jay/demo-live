@@ -53,14 +53,14 @@
 .safety-header,
 .section-title {
   font-size: clamp(1.75rem, 1.2353rem + 2.2529vw, 3rem) !important;
-  line-height: 45px !important;
+  line-height: 60px !important;
   font-weight: 700 !important;
   color: #1c2b66;
   font-family: "Nunito" sans-serif !important;
 }
 .safety-header2 {
   font-size: clamp(1.25rem, 0.6066rem + 2.7412vw, 2.6125rem) !important;
-  line-height: 45px !important;
+  line-height: 55px !important;
   font-weight: 700 !important;
   color: #1c2b66;
   font-family: "Nunito" sans-serif !important;
