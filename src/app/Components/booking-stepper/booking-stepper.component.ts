@@ -545,7 +545,10 @@ export class BookingStepperComponent implements OnInit {
         name: formValue.client.organizationOrName,
         mobileNumber: formValue.client.phone,
         message: this.generateEmailTemplate(formValue),
-        halogenEmail: ['jubril.muritala@halogen-group.com'],
+        halogenEmail: [
+          'marketing@halogen-group.com',
+          'services@halogen-group.com',
+        ],
       },
     };
 
