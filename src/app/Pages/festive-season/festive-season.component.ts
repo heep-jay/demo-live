@@ -50,19 +50,19 @@ export class FestiveSeasonComponent implements OnInit {
       title: 'Plan Your Journey, Travel Smart',
       content:
         'Check routes, avoid high-risk areas, and travel during daylight whenever possible.',
-      color: 'rgba(60, 152, 204, 1)',
+      color: 'rgba(255, 194, 14, 1)',
     },
     {
       title: 'Stay Vigilant on the Road',
       content:
         'Buckle up, avoid distractions, and follow traffic rules - safety is in every careful move.',
-      color: 'rgba(169, 38, 38, 1)',
+      color: 'rgba(28, 43, 102, 1)',
     },
     {
       title: 'Secure Your Home and Belongings',
       content:
         'Lock your doors and windows, activate your home security devices/alarms, and let trusted neighbors know if you’ll be away.',
-      color: 'rgba(39, 149, 77, 1)',
+      color: 'rgba(255, 194, 14, 1)',
     },
     {
       title: 'Be Alert in Crowds',
