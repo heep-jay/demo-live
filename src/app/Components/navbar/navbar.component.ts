@@ -71,7 +71,7 @@ export class NavbarComponent implements OnInit {
         {
           attributes: {
             url: 'services',
-            name: 'Festive Services',
+            name: 'Secure Mobilty & Event Services',
             icon: 'settings',
           },
         },

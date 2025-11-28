@@ -14,10 +14,20 @@ export class NewnavComponent implements OnInit {
   @Input() riskMenu: any;
   @Input() defenseMenu: any;
   @Output() btnClick = new EventEmitter();
+  servicesMenu: any[] = [];
   constructor() {}
 
   ngOnInit(): void {
     this.menus = this.cybermenusL;
+    this.servicesMenu = [
+      {
+        attributes: {
+          url: 'services',
+          name: 'Secure Mobilty & Event Services',
+          icon: 'settings',
+        },
+      },
+    ];
   }
   menus: any = [];
   items: string[] = [
@@ -66,16 +76,8 @@ export class NewnavComponent implements OnInit {
       // case 'Defence industries contracting & support services':
       //   this.menus = this.defenseMenu;
       //   break;
-      case 'Festive Services':
-        this.menus = [
-          {
-            attributes: {
-              url: 'services',
-              name: 'Festive Services',
-              icon: 'settings',
-            },
-          },
-        ];
+      case 'Services':
+        this.menus = this.servicesMenu;
         break;
 
       default:
