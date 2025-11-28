@@ -1,9 +1,15 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
+
+* {
+  font-family: "Nunito", sans-serif;
+}
+
 .hero {
   position: relative;
-  min-height: 890px;
-  background: url("/assets/images/holiday-hero.png") no-repeat bottom center /
+  min-height: 100vh;
+  background: url("/assets/images/hero-desktop.png") no-repeat top center /
     cover;
-  padding: 4rem 0;
+  margin: 6rem 0;
 }
 
 /* Dark overlay */
@@ -264,9 +270,8 @@ section {
 
   .hero {
     min-height: 60vh;
-    padding: 4rem 0.5rem;
-    background: url("/assets/images/holiday-hero.png") no-repeat top right /
-      cover;
+    margin: 6rem 0.5rem;
+    background: url("/assets/images/hero-mobile.png") no-repeat top left / cover;
   }
   .lead {
     font-size: 0.85rem !important;
