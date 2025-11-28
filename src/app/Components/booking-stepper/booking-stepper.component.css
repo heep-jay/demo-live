@@ -62,7 +62,7 @@ pre {
   max-width: 550px;
 }
 .bg-contact {
-  background: rgba(28, 43, 102, 1);
+  background: rgb(17, 30, 83);
 }
 /* .img-wrapper {
   height: fit-content;
@@ -94,8 +94,7 @@ pre {
   flex-direction: column;
 }
 
-.bg-contact > .card,
-.bg-black > img {
+.bg-contact > .bg-black > img {
   flex: 1;
   width: 100%;
 }

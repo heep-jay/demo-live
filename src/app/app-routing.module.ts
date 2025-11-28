@@ -50,7 +50,7 @@ const routes: Routes = [
   },
   {
     component: FestiveSeasonComponent,
-    path: 'festive-season',
+    path: 'services',
   },
   {
     component: CyberSecurityComponent,
