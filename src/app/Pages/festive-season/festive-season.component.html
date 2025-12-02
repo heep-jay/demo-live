@@ -40,12 +40,17 @@
         </p>
         <p class="text-muted mb-1">
           Travel, party, explore, or reunite with loved ones with our trusted
-          drivers, safe cars and event security teams by your side.
+          security-trained drivers, safe cars and event security teams by your
+          side.
         </p>
         <p class="text-muted mb-1">
           Celebrate freely. Move safely. All with Halogen.
         </p>
-        <a href="#" class="text-decoration-none contact-link">More Info →</a>
+        <a
+          (click)="scrollToOfferings()"
+          class="text-decoration-none contact-link"
+          >More Info →</a
+        >
       </div>
       <div class="col-md-6">
         <img
@@ -59,7 +64,10 @@
 </section>
 
 <!-- Seasonal Offerings -->
-<section class="seasonal-section my-5 py-5 px-3 px-md-2 bg-light">
+<section
+  id="offerings"
+  class="seasonal-section my-5 py-5 px-3 px-md-2 bg-light"
+>
   <div class="seasonal-wrapper container py-5 px-4 px-md-5 position-relative">
     <!-- NEW Tag -->
     <span class="badge-new">NEW</span>

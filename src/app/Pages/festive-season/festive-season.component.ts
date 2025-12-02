@@ -106,4 +106,9 @@ export class FestiveSeasonComponent implements OnInit {
       behavior: 'smooth',
     });
   }
+  scrollToOfferings() {
+    document.getElementById('offerings')?.scrollIntoView({
+      behavior: 'smooth',
+    });
+  }
 }
