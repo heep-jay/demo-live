@@ -35,7 +35,7 @@ export class FestiveSeasonComponent implements OnInit {
     },
     {
       icon: 'assets/images/base2.png',
-      title: 'Driver',
+      title: 'Security-Trained Driver',
       text: 'Travel safely with our professional, security-trained drivers. Enjoy smooth, stress-free journeys as we protect every mile. Your ride is fully secured!',
     },
     {

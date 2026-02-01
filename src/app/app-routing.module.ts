@@ -43,6 +43,7 @@ import { SecurityInsightsComponent } from './Pages/security-insights/security-in
 import { RiskReportComponent } from './Pages/risk-report/risk-report.component';
 import { RiskReportBanditryComponent } from './Pages/risk-report-banditry/risk-report-banditry.component';
 import { FestiveSeasonComponent } from './Pages/festive-season/festive-season.component';
+import { TrainingLandingComponent } from './Pages/training-landing/training-landing.component';
 const routes: Routes = [
   {
     component: HomeComponent,
@@ -226,6 +227,10 @@ const routes: Routes = [
   {
     component: CampaignSubmissionsComponent,
     path: 'campaign-submissions/:id',
+  },
+  {
+    component: TrainingLandingComponent,
+    path: 'training',
   },
   {
     component: PaymentDetailsComponent,

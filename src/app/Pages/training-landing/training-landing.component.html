@@ -1,0 +1,246 @@
+<div class="training-landing-page">
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6">
+          <div class="hero-content">
+            <div class="badge">🎓 Professional Training</div>
+            <h1 class="hero-title">
+              Elite Security Training Programs
+              <span class="highlight">for Modern Threats</span>
+            </h1>
+            <p class="hero-description">
+              Equip your team with cutting-edge security skills through our
+              certified training programs. From tactical operations to strategic
+              security management, we provide comprehensive training solutions
+              tailored to your organizational needs.
+            </p>
+            <div class="hero-stats">
+              <div class="stat-item">
+                <div class="stat-number">10+</div>
+                <div class="stat-label">Specialized Programs</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number">98%</div>
+                <div class="stat-label">Satisfaction Rate</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number">5000+</div>
+                <div class="stat-label">Professionals Trained</div>
+              </div>
+            </div>
+            <div class="hero-cta">
+              <button class="btn-primary" (click)="scrollToForm()">
+                Request Training Now
+                <i class="fas fa-arrow-right ms-2"></i>
+              </button>
+              <a href="#programs" class="btn-secondary">
+                <i class="fas fa-book me-2"></i>
+                View All Programs
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="hero-image">
+            <img
+              src="assets/images/training-hero.png"
+              alt="Security Training"
+              class="img-fluid"
+              onerror="this.src='https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'"
+            />
+            <div class="floating-card">
+              <div class="floating-icon">
+                <i class="fas fa-shield-alt"></i>
+              </div>
+              <div class="floating-content">
+                <h5>Certified Instructors</h5>
+                <p>Industry experts with real-world experience</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Programs Overview -->
+  <section id="programs" class="programs-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="badge">📚 Our Programs</div>
+        <h2>Comprehensive Security Training Portfolio</h2>
+        <p class="section-subtitle">
+          Choose from our range of specialized training programs designed to
+          address modern security challenges
+        </p>
+      </div>
+
+      <div class="programs-grid">
+        <div class="row g-4">
+          <div
+            class="col-md-6 col-lg-4"
+            *ngFor="let program of featuredPrograms"
+          >
+            <div class="program-card">
+              <div class="program-icon">
+                <i [class]="program.icon"></i>
+              </div>
+              <h4 class="program-title">{{ program.title }}</h4>
+              <p class="program-description">{{ program.description }}</p>
+              <div class="program-details">
+                <span class="duration">
+                  <i class="fas fa-clock me-1"></i>
+                  {{ program.duration }}
+                </span>
+                <span class="level">
+                  <i class="fas fa-chart-line me-1"></i>
+                  {{ program.level }}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-5">
+        <button class="btn-outline-primary" (click)="scrollToForm()">
+          <i class="fas fa-calendar-check me-2"></i>
+          Book All Programs
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits Section -->
+  <section class="benefits-section">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-5">
+          <div class="benefits-content">
+            <div class="badge">⭐ Why Choose Us</div>
+            <h2>Transform Your Security Capabilities</h2>
+            <p class="mb-4">
+              Our training programs are designed to deliver measurable results
+              and enhance your organization's security posture.
+            </p>
+
+            <div class="benefits-list">
+              <div class="benefit-item" *ngFor="let benefit of benefits">
+                <div class="benefit-icon">
+                  <i class="fas fa-check"></i>
+                </div>
+                <div class="benefit-text">
+                  <h5>{{ benefit.title }}</h5>
+                  <p>{{ benefit.description }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-7">
+          <div class="benefits-image">
+            <img
+              src="assets/images/training-benefits.png"
+              alt="Training Benefits"
+              class="img-fluid"
+              onerror="this.src='https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'"
+            />
+            <div class="experience-badge">
+              <div class="experience-years">15+</div>
+              <div class="experience-text">Years of Excellence</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="testimonials-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="badge">💬 Client Stories</div>
+        <h2>Trusted by Security Leaders</h2>
+      </div>
+
+      <div class="testimonials-slider">
+        <div class="row g-4">
+          <div
+            class="col-md-6 col-lg-4"
+            *ngFor="let testimonial of testimonials"
+          >
+            <div class="testimonial-card">
+              <div class="testimonial-rating">
+                <i class="fas fa-star" *ngFor="let star of [1, 2, 3, 4, 5]"></i>
+              </div>
+              <p class="testimonial-text">"{{ testimonial.text }}"</p>
+              <div class="testimonial-author">
+                <img
+                  [src]="testimonial.avatar"
+                  [alt]="testimonial.name"
+                  class="author-avatar"
+                />
+                <div class="author-info">
+                  <h6>{{ testimonial.name }}</h6>
+                  <p>{{ testimonial.position }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Training Form Section -->
+  <section #trainingFormSection>
+    <div class="">
+      <app-training-stepper></app-training-stepper>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="faq-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="badge">❓ FAQs</div>
+        <h2>Frequently Asked Questions</h2>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item" *ngFor="let faq of faqs; let i = index">
+          <div class="faq-question" (click)="toggleFaq(i)">
+            <h5>{{ faq.question }}</h5>
+            <i
+              class="fas"
+              [class.fa-chevron-down]="!faq.open"
+              [class.fa-chevron-up]="faq.open"
+            ></i>
+          </div>
+          <div class="faq-answer" [class.show]="faq.open">
+            <p>{{ faq.answer }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Banner -->
+  <section class="cta-banner">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Ready to Elevate Your Security Training?</h2>
+        <p>
+          Join thousands of organizations that trust us for their security
+          training needs
+        </p>
+        <button class="btn-primary" (click)="scrollToForm()">
+          Start Your Training Journey
+          <i class="fas fa-arrow-right ms-2"></i>
+        </button>
+      </div>
+    </div>
+  </section>
+</div>

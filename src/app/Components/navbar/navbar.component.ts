@@ -75,6 +75,13 @@ export class NavbarComponent implements OnInit {
             icon: 'settings',
           },
         },
+        {
+          attributes: {
+            url: 'training',
+            name: 'Security Training',
+            icon: 'settings',
+          },
+        },
       ];
       this.getMenuLinks();
     });

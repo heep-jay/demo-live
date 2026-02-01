@@ -27,6 +27,13 @@ export class NewnavComponent implements OnInit {
           icon: 'settings',
         },
       },
+      {
+        attributes: {
+          url: 'training',
+          name: 'Security Training',
+          icon: 'settings',
+        },
+      },
     ];
   }
   menus: any = [];

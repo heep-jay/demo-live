@@ -96,6 +96,8 @@ import { RiskReportComponent } from './Pages/risk-report/risk-report.component';
 import { RiskReportBanditryComponent } from './Pages/risk-report-banditry/risk-report-banditry.component';
 import { FestiveSeasonComponent } from './Pages/festive-season/festive-season.component';
 import { BookingStepperComponent } from './Components/booking-stepper/booking-stepper.component';
+import { TrainingStepperComponent } from './Components/training-stepper/training-stepper.component';
+import { TrainingLandingComponent } from './Pages/training-landing/training-landing.component';
 // import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
@@ -177,6 +179,8 @@ import { BookingStepperComponent } from './Components/booking-stepper/booking-st
     RiskReportBanditryComponent,
     FestiveSeasonComponent,
     BookingStepperComponent,
+    TrainingStepperComponent,
+    TrainingLandingComponent,
   ],
   imports: [
     BrowserModule,

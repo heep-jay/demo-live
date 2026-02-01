@@ -1,0 +1,439 @@
+<div class="">
+  <div class="row g-0 con-height align-items-stretch">
+    <div
+      class="col-lg-6 pt-5 pb-5 bg-contact d-flex align-items-center justify-content-center"
+    >
+      <div class="card mw-600 p-4 stepper-card mx-auto w-100">
+        <!-- Step indicator -->
+        <div class="d-flex justify-content-between mb-4">
+          <div class="d-flex gap-2">
+            <ng-container *ngFor="let s of [1, 2, 3, 4]">
+              <button
+                class="btn btn-sm"
+                [ngClass]="
+                  step === s ? 'bt-color text-white' : 'btn-outline-secondary'
+                "
+                (click)="goTo(s)"
+                [disabled]="s > 1 && !validateStepForNavigation()"
+              >
+                {{ s }}
+              </button>
+            </ng-container>
+          </div>
+          <small class="text-muted">Step {{ step }} of {{ maxStep }}</small>
+        </div>
+
+        <form [formGroup]="trainingForm" (ngSubmit)="submitForm()">
+          <!-- ========== STEP 1 - CLIENT INFO ========== -->
+          <div *ngIf="step === 1" [formGroup]="clientGroup">
+            <h5 class="mb-3 fs-4 text-center">Get in Touch</h5>
+            <p class="mb-3">
+              Fill out the form below and our team will get back to you
+              promptly.
+            </p>
+
+            <div class="row g-3">
+              <div class="col-md-12">
+                <label class="form-label">Client Type</label>
+                <select
+                  class="form-select"
+                  formControlName="clientType"
+                  [ngClass]="{
+                    'is-invalid': isInvalid(clientGroup, 'clientType')
+                  }"
+                >
+                  <option value="individual">Individual</option>
+                  <option value="organization">Organization</option>
+                </select>
+                <div class="invalid-feedback">
+                  {{ errorMessage(clientGroup, "clientType") }}
+                </div>
+              </div>
+
+              <div class="col-md-12">
+                <label class="form-label">Organization / Full Name</label>
+                <input
+                  class="form-control"
+                  formControlName="organizationOrName"
+                  placeholder="Enter full name or organization name"
+                  [ngClass]="{
+                    'is-invalid': isInvalid(clientGroup, 'organizationOrName')
+                  }"
+                />
+                <div class="invalid-feedback">
+                  {{ errorMessage(clientGroup, "organizationOrName") }}
+                </div>
+              </div>
+
+              <div class="col-md-12">
+                <label class="form-label">Contact Person</label>
+                <input
+                  class="form-control"
+                  formControlName="contactPerson"
+                  placeholder="Contact person"
+                />
+              </div>
+
+              <div class="col-md-12">
+                <label class="form-label">Phone</label>
+                <input
+                  class="form-control"
+                  formControlName="phone"
+                  [ngClass]="{ 'is-invalid': isInvalid(clientGroup, 'phone') }"
+                />
+                <div class="invalid-feedback">
+                  {{ errorMessage(clientGroup, "phone") }}
+                </div>
+              </div>
+
+              <div class="col-md-12">
+                <label class="form-label">Alternative Phone</label>
+                <input class="form-control" formControlName="altPhone" />
+              </div>
+
+              <div class="col-md-12">
+                <label class="form-label">Email</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  formControlName="email"
+                  [ngClass]="{ 'is-invalid': isInvalid(clientGroup, 'email') }"
+                />
+                <div class="invalid-feedback">
+                  {{ errorMessage(clientGroup, "email") }}
+                </div>
+              </div>
+
+              <div class="col-12 mt-2" [formGroup]="preferredContactGroup">
+                <label class="form-label d-block"
+                  >Preferred Contact Method</label
+                >
+                <div
+                  class="rounded"
+                  [ngClass]="{
+                    'p-2 border border-danger': isGroupInvalid(
+                      preferredContactGroup
+                    )
+                  }"
+                >
+                  <div class="form-check custom-checkbox form-check-inline">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      formControlName="phone"
+                    />
+                    <label class="form-check-label">Phone</label>
+                  </div>
+
+                  <div class="form-check form-check-inline">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      formControlName="email"
+                    />
+                    <label class="form-check-label">Email</label>
+                  </div>
+
+                  <div class="form-check form-check-inline">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      formControlName="whatsapp"
+                    />
+                    <label class="form-check-label">WhatsApp</label>
+                  </div>
+                </div>
+                <div
+                  class="text-danger small mt-1"
+                  *ngIf="isGroupInvalid(preferredContactGroup)"
+                >
+                  Please select at least one preferred contact method.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ========== STEP 2 - TRAINING TYPES ========== -->
+          <div *ngIf="step === 2" [formGroup]="trainingGroup">
+            <h5 class="mb-3 fs-4 text-center">
+              Step 2 - Select Training Programs
+            </h5>
+            <button
+              class="mt-3 mb-3 px-2 back-button gap-2 btn btn-sm bg-scondary"
+              (click)="back()"
+            >
+              <img
+                height="5"
+                width="5"
+                src="/assets/images/arrow-left.png"
+                alt=""
+              />Back
+            </button>
+
+            <p class="mb-4">
+              Select one or more training programs (multiple selections
+              allowed):
+            </p>
+
+            <div class="training-list">
+              <div
+                *ngFor="let training of trainingOptions"
+                class="form-check mb-3 p-3 border rounded training-item"
+                [class.selected]="isTrainingSelected(training.id)"
+              >
+                <div class="d-flex align-items-start">
+                  <div class="me-3 mt-1">
+                    <input
+                      type="checkbox"
+                      class="form-check-input"
+                      [id]="'training-' + training.id"
+                      [value]="training.id"
+                      [checked]="isTrainingSelected(training.id)"
+                      (change)="
+                        onTrainingSelectionChange(
+                          training.id,
+                          $any($event.target).checked
+                        )
+                      "
+                    />
+                  </div>
+                  <div class="flex-grow-1">
+                    <label
+                      class="form-check-label fw-bold mb-2 d-block"
+                      [for]="'training-' + training.id"
+                      style="cursor: pointer"
+                    >
+                      {{ training.name }}
+                    </label>
+                    <p class="mb-2 text-muted">{{ training.description }}</p>
+                    <div class="d-flex align-items-center gap-2">
+                      <span class="badge bg-primary">{{
+                        training.duration
+                      }}</span>
+                      <span class="badge bg-success"
+                        >Max: {{ training.maxAttendees }} attendees</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="alert alert-warning mt-3"
+              *ngIf="selectedTrainings.length === 0"
+            >
+              Please select at least one training program to continue.
+            </div>
+          </div>
+
+          <!-- ========== STEP 3 - ATTENDEES & SESSIONS ========== -->
+          <div *ngIf="step === 3">
+            <h5 class="mb-3 fs-4 text-center">Step 3 - Training Details</h5>
+            <button
+              class="mt-3 mb-3 px-2 back-button gap-2 btn btn-sm bg-scondary"
+              (click)="back()"
+            >
+              <img
+                height="5"
+                width="5"
+                src="/assets/images/arrow-left.png"
+                alt=""
+              />Back
+            </button>
+
+            <p class="mb-4">
+              Please provide details for each selected training program:
+            </p>
+
+            <div class="selected-trainings-details">
+              <div
+                *ngFor="let training of getSelectedTrainingDetails()"
+                class="mb-4 p-4 border rounded"
+              >
+                <h6 class="fw-bold mb-3 text-primary">{{ training.name }}</h6>
+
+                <div class="row g-3">
+                  <!-- Number of Attendees -->
+                  <div class="col-md-6">
+                    <label class="form-label fw-semibold"
+                      >Number of Attendees *</label
+                    >
+                    <input
+                      type="number"
+                      min="1"
+                      [max]="training.maxAttendees"
+                      class="form-control"
+                      [formControl]="$any(getAttendeesControl(training.id))"
+                      placeholder="Enter number of attendees"
+                      [ngClass]="{
+                        'is-invalid':
+                          $any(getAttendeesControl(training.id)).invalid &&
+                          ($any(getAttendeesControl(training.id)).dirty ||
+                            $any(getAttendeesControl(training.id)).touched)
+                      }"
+                    />
+                    <div
+                      class="invalid-feedback"
+                      *ngIf="
+                        $any(getAttendeesControl(training.id)).invalid &&
+                        ($any(getAttendeesControl(training.id)).dirty ||
+                          $any(getAttendeesControl(training.id)).touched)
+                      "
+                    >
+                      <span
+                        *ngIf="$any(getAttendeesControl(training.id)).errors?.['required']"
+                        >Number of attendees is required</span
+                      >
+                      <span
+                        *ngIf="$any(getAttendeesControl(training.id)).errors?.['min']"
+                        >Minimum
+                        {{ $any(getAttendeesControl(training.id)).errors?.['min']?.min }}
+                        attendees</span
+                      >
+                      <span
+                        *ngIf="$any(getAttendeesControl(training.id)).errors?.['max']"
+                        >Maximum {{ training.maxAttendees }} attendees
+                        allowed</span
+                      >
+                    </div>
+                    <small class="text-muted"
+                      >Maximum {{ training.maxAttendees }} attendees</small
+                    >
+                  </div>
+                </div>
+
+                <!-- Preferred Sessions -->
+                <div class="mt-4">
+                  <label class="form-label fw-semibold d-block mb-2"
+                    >Select Preferred Session(s) *</label
+                  >
+                  <small class="text-muted d-block mb-3"
+                    >You can select multiple sessions</small
+                  >
+
+                  <div class="session-options">
+                    <div
+                      *ngFor="
+                        let session of getSessionsForTraining(training.id)
+                      "
+                      class="mb-2"
+                    >
+                      <div class="form-check">
+                        <input
+                          type="checkbox"
+                          class="form-check-input"
+                          [id]="'session-' + training.id + '-' + session.id"
+                          [value]="session.id"
+                          [checked]="isSessionSelected(training.id, session.id)"
+                          (change)="
+                            onSessionSelectionChange(
+                              training.id,
+                              session.id,
+                              $any($event.target).checked
+                            )
+                          "
+                        />
+                        <label
+                          class="form-check-label"
+                          [for]="'session-' + training.id + '-' + session.id"
+                        >
+                          <div class="fw-medium">
+                            {{ session.days }} | {{ session.date }}
+                          </div>
+                        </label>
+                      </div>
+                    </div>
+
+                    <div
+                      class="text-danger small mt-2"
+                      *ngIf="
+                        getSessionArray(training.id).length === 0 &&
+                        (getSessionArray(training.id).touched ||
+                          sessionValidationState[training.id])
+                      "
+                    >
+                      Please select at least one session for {{ training.name }}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ========== STEP 4 - CONFIRMATION ========== -->
+          <div
+            class="d-flex flex-column align-items-center justify-content-between"
+            *ngIf="step === 4"
+          >
+            <h4 class="fs-3 text-center fw-bold">
+              Training Request Submitted Successfully!
+            </h4>
+
+            <img
+              src="/assets/images/requestsubmit.png"
+              alt=""
+              class="submit-img"
+            />
+            <p class="text-muted">
+              Thank you! Your training request has been received. Our team will
+              contact you within the next 24 hours to discuss your requirements.
+            </p>
+
+            <button type="button" routerLink="/" class="submit-btn mt-3">
+              Return To Homepage
+            </button>
+            <button
+              class="mt-3 btn btn-primary"
+              type="button"
+              (click)="startNewRequest()"
+            >
+              Start New Request
+            </button>
+          </div>
+
+          <!-- ========== Navigation Buttons ========== -->
+          <div class="" *ngIf="step < 4">
+            <button
+              type="button"
+              class="submit-btn mt-3"
+              (click)="next()"
+              *ngIf="step < 3"
+              [disabled]="isLoading || !canProceedToNextStep()"
+            >
+              Next
+            </button>
+          </div>
+
+          <div class="">
+            <button
+              type="submit"
+              class="submit-btn mt-3"
+              *ngIf="step === 3"
+              [disabled]="isLoading || !isStep3Valid()"
+            >
+              <span *ngIf="!isLoading">Submit Training Request</span>
+              <span *ngIf="isLoading">
+                <span
+                  class="spinner-border spinner-border-sm me-2"
+                  role="status"
+                  aria-hidden="true"
+                ></span>
+                Processing...
+              </span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="col-lg-6 d-flex image-container">
+      <img
+        src="assets/images/training-image.png"
+        class="big-img w-100"
+        alt="Training"
+      />
+      <div class="overlay"></div>
+    </div>
+  </div>
+</div>
